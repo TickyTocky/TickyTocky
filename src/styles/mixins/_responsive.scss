@@ -20,14 +20,14 @@
 }
 
 .lg-hidden {
-  @media screen and (min-width: $tablet-breakpoint + 1) {
+  @media screen and (min-width: ($tablet-breakpoint + 1)) {
     display: none;
   }
 }
 
 // mobile
 .sm-only {
-  @media screen and (min-width: $mobile-breakpoint + 1) {
+  @media screen and (min-width: ($mobile-breakpoint + 1)) {
     display: none;
   }
 }
