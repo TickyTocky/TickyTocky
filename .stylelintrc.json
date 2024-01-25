@@ -1,0 +1,14 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "plugins": ["stylelint-scss"],
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "rules": {
+    "color-hex-length": "short",
+    "max-nesting-depth": 6
+  }
+}
