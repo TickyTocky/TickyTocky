@@ -6,15 +6,13 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "prettier"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+    "ecmaVersion": "latest"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["prettier"],
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
@@ -23,8 +21,8 @@
     "no-multiple-empty-lines": "error",
     "eqeqeq": "error",
     "arrow-body-style": ["error", "always"],
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0
   },
   "settings": {
     "import/resolver": {

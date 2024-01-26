@@ -7,39 +7,36 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "husky install",
     "prepare": "husky install"
   },
   "dependencies": {
-    "classnames": "^2.5.1",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "axios": "^1.6.6",
+    "axios": "^1.6.7",
+    "classnames": "^2.5.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",
-    "husky": "^8.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^9.0.6",
     "lint-staged": "^15.2.0",
     "react-hook-form": "^7.49.3",
     "sass": "^1.70.0",
     "stylelint": "^16.2.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^13.0.0",
-    "typescript": "^5",
     "zustand": "^4.5.0"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "**/*.{jsx,js}": [
       "eslint --fix",
       "prettier --write"
     ],
-    "*.js": "eslint --cache --fix",
+    "*.js": "eslint --fix",
     "*.css": "stylelint --fix"
   }
 }

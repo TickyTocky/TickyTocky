@@ -3,7 +3,7 @@
   "plugins": ["stylelint-scss"],
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
+      "files": ["**/*.js", "**/*.jsx"],
       "customSyntax": "postcss-scss"
     }
   ],

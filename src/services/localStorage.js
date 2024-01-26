@@ -1,13 +1,13 @@
 class LocalStorage {
   constructor() {}
 
-  static setItem(key: string, value: string) {
+  static setItem(key, value) {
     if (typeof window !== 'undefined') {
       localStorage.setItem(key, value);
     }
   }
 
-  static getItem(key: string) {
+  static getItem(key) {
     if (typeof window !== 'undefined') {
       return localStorage.getItem(key);
     }
@@ -15,7 +15,7 @@ class LocalStorage {
     return null;
   }
 
-  static removeItem(key: string) {
+  static removeItem(key) {
     if (typeof window !== 'undefined') {
       localStorage.removeItem(key);
     }

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
-    additionalData: `@import "@/styles/main.scss";`,
+    additionalData: '@import "@/styles/main.scss";',
   },
 };
 
