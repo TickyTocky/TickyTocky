@@ -1,0 +1,160 @@
+%btn-base {
+  @include inline-flexbox;
+
+  border-radius: 0.6rem;
+  padding: 0 0.8rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray70, 'bold');
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray70, 'normal');
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $green;
+  }
+}
+
+.btn-secondary {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $primary, 'bold');
+
+    &:hover:not(:disabled) {
+      color: $gray70;
+    }
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $primary, 'normal');
+
+    &:hover:not(:disabled) {
+      color: $gray70;
+    }
+  }
+
+  background-color: $black;
+
+  &:hover:not(:disabled) {
+    background-color: $primary;
+  }
+}
+
+.btn-ghost {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray10, 'bold');
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray40, 'normal');
+  }
+
+  background-color: $gray70;
+
+  &:hover:not(:disabled) {
+    background-color: $gray50;
+  }
+}
+
+.btn-outline {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray40, 'bold');
+
+    &:hover:not(:disabled) {
+      color: $gray10;
+    }
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray40, 'normal');
+
+    &:hover:not(:disabled) {
+      color: $gray10;
+    }
+  }
+
+  border: 1px solid $gray40;
+
+  &:hover:not(:disabled) {
+    border: 1px solid $gray10;
+  }
+}
+
+.btn-remove {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray10, 'bold');
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray10, 'normal');
+  }
+
+  background-color: $red;
+
+  &:hover:not(:disabled) {
+    background-color: $remove-hover;
+  }
+}
+
+.btn-xl {
+  display: block;
+  height: 4.8rem;
+  width: 100%;
+}
+
+.btn-lg {
+  height: 4.8rem;
+}
+
+.btn-md {
+  height: 3.2rem;
+}
+
+.btn-sm {
+  height: 2.8rem;
+}
+
+.btn-lg-text {
+  width: 10.4rem;
+}
+
+.btn-md-text {
+  width: 6.7rem;
+}
+
+.btn-sm-text {
+  width: 6.7rem;
+}
