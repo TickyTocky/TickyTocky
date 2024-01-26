@@ -36,7 +36,6 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.js": "eslint --fix",
     "*.css": "stylelint --fix"
   }
 }
