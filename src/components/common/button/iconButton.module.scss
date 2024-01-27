@@ -1,0 +1,35 @@
+%ic-btn-base {
+  @include inline-flexbox;
+
+  border-radius: 0.6rem;
+}
+
+.ic-btn {
+  @extend %ic-btn-base;
+
+  &-lg {
+    padding: 0.8rem;
+  }
+
+  &-md {
+    padding: 0.4rem;
+  }
+}
+
+.ic-btn-outline {
+  border: 1px solid $gray70;
+
+  &:hover {
+    border: 1px solid $gray30;
+  }
+}
+
+.ic-box {
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.ic-fit {
+  @include image-fit;
+}
