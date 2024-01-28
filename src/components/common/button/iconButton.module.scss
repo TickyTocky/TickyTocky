@@ -1,3 +1,5 @@
+/* Icon Button */
+
 %ic-btn-base {
   @include inline-flexbox;
 
@@ -21,6 +23,18 @@
 
   &:hover {
     border: 1px solid $gray30;
+
+    @include responsive(M) {
+      border: 1px solid $gray70;
+    }
+  }
+
+  &-active {
+    border: 1px solid $primary;
+
+    &:hover {
+      border: 1px solid $primary;
+    }
   }
 }
 
@@ -30,6 +44,59 @@
   height: 2.4rem;
 }
 
-.ic-fit {
+.ic-fit,
+.mix-fit {
   @include image-fit;
+}
+
+/* mix(text , image button) */
+
+%mix-btn-base-4 {
+  @include inline-flexbox($gap: 0.4rem);
+}
+
+%mix-btn-base-8 {
+  @include inline-flexbox($gap: 0.8rem);
+}
+
+.mix-btn-4 {
+  @extend %mix-btn-base-4;
+
+  .mix-text {
+    &-14 {
+      @include text-style(14, $gray10);
+    }
+
+    &-24 {
+      @include text-style(24, $gray10, 'bold');
+    }
+  }
+}
+
+.mix-btn-md {
+  @extend %mix-btn-base-8;
+
+  .mix-text {
+    &-14 {
+      @include text-style(14, $gray10);
+    }
+
+    &-24 {
+      @include text-style(24, $gray10, 'bold');
+    }
+  }
+}
+
+.mix-box {
+  position: relative;
+
+  &-18 {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  &-24 {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
 }
