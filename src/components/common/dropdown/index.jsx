@@ -1,26 +1,12 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
-
 import classNames from 'classnames/bind';
-import styles from './dropdown.module.scss';
 import { Icon } from '@/constants/importImage';
-
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
+import styles from './dropdown.module.scss';
 
 const cx = classNames.bind(styles);
-const { dropdownarrow } = Icon;
-
-const ClickedValue = ({ value, setListIdentify, setIsOpen, isOpen }) => {
-  const ValueClick = () => {
-    setListIdentify(value);
-    setIsOpen(!isOpen);
-  };
-  return (
-    <li className={cx('dropdown-list-item')} onClick={ValueClick}>
-      {value}
-    </li>
-  );
-};
+const { arrow } = Icon;
 
 const DropDown = () => {
   const [listIdentify, setListIdentify] = useState('');
@@ -29,7 +15,14 @@ const DropDown = () => {
   const dropDownList = [1, 2, 3]; // [1, 2, 3, ...]
 
   const handleOpenClick = () => {
-    return setIsOpen(!isOpen);
+    setIsOpen((prev) => {
+      return !prev;
+    });
+  };
+
+  const ValueClick = (value) => {
+    setListIdentify(value);
+    handleOpenClick();
   };
 
   return (
@@ -43,8 +36,8 @@ const DropDown = () => {
           <Image
             width={24}
             height={24}
-            src={isOpen ? dropdownarrow.active.url : dropdownarrow.default.url}
-            alt={isOpen ? dropdownarrow.active.alt : dropdownarrow.default.alt}
+            src={isOpen ? arrow.active.md.url : arrow.default.md.url}
+            alt={isOpen ? arrow.active.md.alt : arrow.default.md.alt}
             className={cx('image-transition', { 'image-open': isOpen })}
           />
         </div>
@@ -52,13 +45,16 @@ const DropDown = () => {
           <ul className={cx('dropdown-list')}>
             {dropDownList.map((value, index) => {
               return (
-                <ClickedValue
-                  key={index}
-                  value={value}
-                  setIsOpen={setIsOpen}
-                  setListIdentify={setListIdentify}
-                  isOpen={isOpen}
-                />
+                <li
+                  key={`key-${index}`}
+                  className={cx('dropdown-list-item')}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    ValueClick(value);
+                  }}
+                >
+                  {value}
+                </li>
               );
             })}
           </ul>
