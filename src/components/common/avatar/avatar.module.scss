@@ -1,0 +1,69 @@
+.container {
+  @include flexbox($jc: none, $gap: 0.8rem);
+}
+
+%avatar-base {
+  border: 0.2rem solid transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-sizing: content-box;
+}
+
+.avatar-size {
+  &-xl {
+    @extend %avatar-base;
+
+    width: 6.4rem;
+  }
+
+  &-l {
+    @extend %avatar-base;
+
+    width: 3.8rem;
+  }
+
+  &-m {
+    @extend %avatar-base;
+
+    width: 2.8rem;
+  }
+
+  &-s {
+    @extend %avatar-base;
+
+    width: 2.4rem;
+  }
+}
+
+.text-color {
+  &-gray10 {
+    @include text-style(16, $gray10, 'bold');
+  }
+
+  &-gray20 {
+    @include text-style(16, $gray20);
+  }
+}
+
+.active {
+  border: 0.2rem solid $primary;
+}
+
+.image {
+  @include image-fit;
+}
+
+.badge {
+  @include flexbox;
+  @include text-style(16, $white, bold);
+  @include image-fit;
+
+  background-color: $purple;
+}
+
+.text-icon-wrap {
+  @include flexbox($jc: none, $gap: 0.2rem);
+  
+  cursor: pointer;
+}
