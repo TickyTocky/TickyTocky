@@ -8,7 +8,6 @@ const IconButton = ({ type = 'button', svg, size, alt, outline, isActive, ...pro
   console.log(isActive === true);
 
   return (
-    /*TODO 모바일 사이즈 일때 hover 없애기*/
     <button
       type={type}
       className={cx(
