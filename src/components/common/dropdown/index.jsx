@@ -23,12 +23,10 @@ const ClickedValue = ({ value, setListIdentify, setIsOpen, isOpen }) => {
 };
 
 const DropDown = () => {
-  console.log('실행중');
   const [listIdentify, setListIdentify] = useState('');
   const dropDownRef = useRef();
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef, false);
   const dropDownList = [1, 2, 3]; // [1, 2, 3, ...]
-  console.log(isOpen);
 
   const handleOpenClick = () => {
     return setIsOpen(!isOpen);
