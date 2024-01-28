@@ -4,11 +4,19 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const IconButton = ({ type, svg, size, alt, outline, ...props }) => {
+const IconButton = ({ type = 'button', svg, size, alt, outline, isActive, ...props }) => {
+  console.log(isActive === true);
+
   return (
+    /*TODO 모바일 사이즈 일때 hover 없애기*/
     <button
       type={type}
-      className={cx('ic-btn', `ic-btn-${size}`, { 'ic-btn-outline': outline })}
+      className={cx(
+        'ic-btn',
+        `ic-btn-${size}`,
+        { 'ic-btn-outline': outline },
+        { 'ic-btn-outline-active': outline && isActive === true }
+      )}
       {...props}
     >
       <div className={cx('ic-box')}>

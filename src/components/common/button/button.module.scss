@@ -30,6 +30,10 @@
 
   &:hover:not(:disabled) {
     background-color: $green;
+
+    @include responsive(M) {
+      background-color: $primary;
+    }
   }
 }
 
@@ -42,6 +46,10 @@
 
     &:hover:not(:disabled) {
       color: $gray70;
+
+      @include responsive(M) {
+        color: $primary;
+      }
     }
   }
 
@@ -51,6 +59,10 @@
 
     &:hover:not(:disabled) {
       color: $gray70;
+
+      @include responsive(M) {
+        color: $primary;
+      }
     }
   }
 
@@ -58,6 +70,10 @@
 
   &:hover:not(:disabled) {
     background-color: $primary;
+
+    @include responsive(M) {
+      background-color: $black;
+    }
   }
 }
 
@@ -78,6 +94,10 @@
 
   &:hover:not(:disabled) {
     background-color: $gray50;
+
+    @include responsive(M) {
+      background-color: $gray70;
+    }
   }
 }
 
@@ -90,6 +110,10 @@
 
     &:hover:not(:disabled) {
       color: $gray10;
+
+      @include responsive(M) {
+        color: $gray40;
+      }
     }
   }
 
@@ -99,6 +123,10 @@
 
     &:hover:not(:disabled) {
       color: $gray10;
+
+      @include responsive(M) {
+        color: $gray40;
+      }
     }
   }
 
@@ -106,6 +134,10 @@
 
   &:hover:not(:disabled) {
     border: 1px solid $gray10;
+
+    @include responsive(M) {
+      border: 1px solid $gray40;
+    }
   }
 }
 
@@ -114,18 +146,35 @@
 
   &.btn-xl,
   &.btn-lg {
-    @include text-style(16, $gray10, 'bold');
+    @include text-style(16, $red, 'bold');
+
+    &:hover {
+      color: $gray10;
+      @include responsive(M) {
+        color: $red;
+      }
+    }
   }
 
   &.btn-md,
   &.btn-sm {
-    @include text-style(14, $gray10, 'normal');
+    @include text-style(14, $red, 'normal');
+
+    &:hover {
+      color: $gray10;
+      @include responsive(M) {
+        color: $red;
+      }
+    }
   }
 
-  background-color: $red;
+  background-color: $black;
 
   &:hover:not(:disabled) {
-    background-color: $remove-hover;
+    background-color: $red;
+    @include responsive(M) {
+      background-color: $black;
+    }
   }
 }
 
