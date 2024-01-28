@@ -1,4 +1,4 @@
 {
-  "stylelint.validate": ["scss"],
+  "stylelint.validate": ["css", "scss"],
   "stylelint.configFile": ".stylelintrc.json"
 }
