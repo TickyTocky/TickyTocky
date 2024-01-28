@@ -1,0 +1,25 @@
+.container {
+  @include inline-flexbox;
+
+  width: 30.4rem;
+  padding: 3rem;
+  border: 0.2rem solid $gray70;
+  border-radius: 1.6rem;
+  box-shadow: $dropdown-shadow;
+}
+
+.profile {
+  @include column-flexbox;
+}
+
+.name {
+  @include text-style(16, $gray10, 'bold');
+
+  margin-top: 1.4rem;
+}
+
+.email {
+  @include text-style(14, $gray20);
+
+  margin-top: 0.4rem;
+}
