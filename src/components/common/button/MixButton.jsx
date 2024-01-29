@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
-import styles from '@/components/common/button/iconButton.module.scss';
+import styles from './iconButton.module.scss';
 
 const cx = classNames.bind(styles);
 
 const MixButton = ({
   svg,
-  text = 'Invite',
-  size = 24,
   alt,
+  reverse,
+  size = 24,
   type = 'button',
   gap = 4,
+  text = 'Button',
   fontSize = 14,
-  reverse,
   ...props
 }) => {
   return (

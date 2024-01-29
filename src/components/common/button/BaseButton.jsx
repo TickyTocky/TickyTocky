@@ -1,11 +1,11 @@
 import classNames from 'classnames/bind';
-import styles from '@/components/common/button/button.module.scss';
+import styles from './button.module.scss';
 
 const cx = classNames.bind(styles);
 
 const BaseButton = ({
-  variant = 'primary',
   size,
+  variant = 'primary',
   type = 'button',
   text = 'Button',
   ...props

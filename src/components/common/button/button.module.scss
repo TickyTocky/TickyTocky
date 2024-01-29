@@ -1,8 +1,8 @@
 %btn-base {
   @include inline-flexbox;
 
-  border-radius: 0.6rem;
   padding: 0 0.8rem;
+  border-radius: 0.6rem;
 
   &:hover {
     cursor: pointer;
@@ -15,8 +15,9 @@
 }
 
 .btn-primary {
-  background-color: $primary;
   @extend %btn-base;
+
+  background-color: $primary;
 
   &.btn-xl,
   &.btn-lg {
@@ -162,6 +163,7 @@
 
     &:hover {
       color: $gray10;
+
       @include responsive(M) {
         color: $red;
       }
@@ -172,38 +174,41 @@
 
   &:hover:not(:disabled) {
     background-color: $red;
+
     @include responsive(M) {
       background-color: $black;
     }
   }
 }
 
-.btn-xl {
-  display: block;
-  height: 4.8rem;
-  width: 100%;
-}
+.btn {
+  &-xl {
+    display: block;
+    height: 4.8rem;
+    width: 100%;
+  }
 
-.btn-lg {
-  height: 4.8rem;
-}
+  &-lg {
+    height: 4.8rem;
 
-.btn-md {
-  height: 3.2rem;
-}
+    &-text {
+      width: 10.4rem;
+    }
+  }
 
-.btn-sm {
-  height: 2.8rem;
-}
+  &-md {
+    height: 3.2rem;
 
-.btn-lg-text {
-  width: 10.4rem;
-}
+    &-text {
+      width: 6.7rem;
+    }
+  }
 
-.btn-md-text {
-  width: 6.7rem;
-}
+  &-sm {
+    height: 2.8rem;
 
-.btn-sm-text {
-  width: 6.7rem;
+    &-text {
+      width: 6.7rem;
+    }
+  }
 }

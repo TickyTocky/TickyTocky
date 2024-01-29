@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import BaseButton from './BaseButton';
-import MixButton from './MixButton';
-import IconButton from './IconButton';
+import BaseButton from '@/components/common/button/BaseButton';
+import MixButton from '@/components/common/button/MixButton';
+import IconButton from '@/components/common/button/IconButton';
 
 const LinkButton = ({ path, buttonType, target, ...props }) => {
   const ButtonComponent =

@@ -1,12 +1,10 @@
 import Image from 'next/image';
-import styles from '@/components/common/button/iconButton.module.scss';
 import classNames from 'classnames/bind';
+import styles from './iconButton.module.scss';
 
 const cx = classNames.bind(styles);
 
-const IconButton = ({ type = 'button', svg, size, alt, outline, isActive, ...props }) => {
-  console.log(isActive === true);
-
+const IconButton = ({ svg, size, alt, outline, isActive, type = 'button', ...props }) => {
   return (
     <button
       type={type}
