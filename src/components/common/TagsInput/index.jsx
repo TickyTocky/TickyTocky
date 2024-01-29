@@ -31,6 +31,10 @@ const TagsInput = ({ tagList, setTagList }) => {
     setTagList(filteredTagList);
   };
 
+  const handleInputChange = (e) => {
+    setTagItem(e.target.value);
+  };
+
   return (
     <div className={cx('tagsinput')}>
       <span className={cx('tagsinput-name')}>Tag</span>
@@ -55,9 +59,7 @@ const TagsInput = ({ tagList, setTagList }) => {
           type='text'
           placeholder='Press enter to add tags'
           tabIndex={2}
-          onChange={(e) => {
-            return setTagItem(e.target.value);
-          }}
+          onChange={handleInputChange}
           value={tagItem}
           onKeyPress={onKeyPress}
         />
