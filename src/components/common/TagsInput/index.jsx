@@ -25,9 +25,7 @@ const TagsInput = ({ tagList, setTagList }) => {
 
   const deleteTagItem = (e) => {
     const deleteTagItem = e.target.parentElement.firstChild.innerText;
-    const filteredTagList = tagList.filter((tagItem) => {
-      return tagItem !== deleteTagItem;
-    });
+    const filteredTagList = tagList.filter((tagItem) => tagItem !== deleteTagItem);
     setTagList(filteredTagList);
   };
 
@@ -39,21 +37,19 @@ const TagsInput = ({ tagList, setTagList }) => {
     <div className={cx('tagsinput')}>
       <span className={cx('tagsinput-name')}>Tag</span>
       <div className={cx('tagsinput-tags')}>
-        {tagList.map((tagItem, index) => {
-          return (
-            <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
-              <span className={cx('tagsinput-tag-name')}>{tagItem}</span>
-              <Image
-                width={10}
-                height={10}
-                src={tagDelete.url}
-                alt={tagDelete.alt}
-                className={cx('tagsinput-tags-item-deletebutton')}
-                onClick={deleteTagItem}
-              />
-            </li>
-          );
-        })}
+        {tagList.map((tagItem, index) => (
+          <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
+            <span className={cx('tagsinput-tag-name')}>{tagItem}</span>
+            <Image
+              width={10}
+              height={10}
+              src={tagDelete.url}
+              alt={tagDelete.alt}
+              className={cx('tagsinput-tags-item-deletebutton')}
+              onClick={deleteTagItem}
+            />
+          </li>
+        ))}
         <input
           className={cx('tagsinput-input')}
           type='text'
