@@ -1,14 +1,14 @@
-%btn-base {
+%button-base {
   width: 4.8rem;
   height: 4.8rem;
 }
 
-%board-btn-base {
+%board-button-base {
   transition: $base-transition;
 }
 
-.modal-btn-wrapper {
-  @extend %btn-base;
+.modal-button-wrapper {
+  @extend %button-base;
 
   padding: 1.2rem;
   background-color: $gray80;
@@ -16,24 +16,29 @@
 }
 
 .logout {
-  @extend %btn-base;
+  @extend %button-base;
 
   border-radius: 50%;
   overflow: hidden;
 }
 
-.home-btn-wrapper {
-  @extend %btn-base;
+.home-button-wrapper {
+  @extend %button-base;
 
   padding: 1.2rem;
-  background-color: $primary;
-  border-radius: 0.6rem;
+  background-color: $gray80;
+  border-radius: 50%;
+
+  &:hover,
+  &:focus {
+    background-color: $primary;
+  }
 }
 
-.board-btn-wrapper {
+.board-button-wrapper {
   @include text-style(12, $gray40, bold);
-  @extend %btn-base;
-  @extend %board-btn-base;
+  @extend %button-base;
+  @extend %board-button-base;
 
   border-radius: 50%;
   overflow: hidden;
@@ -41,7 +46,7 @@
   &:hover,
   &:focus {
     @include text-style(12, $black, bold);
-    @extend %board-btn-base;
+    @extend %board-button-base;
 
     border-radius: 0.6rem;
   }
