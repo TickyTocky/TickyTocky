@@ -1,5 +1,5 @@
 .container {
-  @include inline-flexbox;
+  @include column-flexbox($gap: 2.4rem);
 
   width: 30.4rem;
   padding: 3rem;
@@ -22,4 +22,10 @@
   @include text-style(14, $gray20);
 
   margin-top: 0.4rem;
+}
+
+.button-wrap {
+  @include column-flexbox($gap: 1.2rem);
+
+  width: 100%;
 }
