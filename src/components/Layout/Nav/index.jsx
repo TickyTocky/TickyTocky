@@ -14,13 +14,19 @@ const Nav = () => {
   return (
     <div className={cx('nav-container')}>
       <div className={cx('button-container')}>
-        <ModalButton type='add' onClickInput={dashboardAdd} />
-        <LinkButton type='home' />
-        {boards.map((board) => {
-          return <LinkButton key={board.id} type='board' boardData={board} />;
-        })}
+        <div className={cx('devider')}>
+          <ModalButton type='add' onClickInput={dashboardAdd} />
+        </div>
+        <div className={cx('home-dashboard-container')}>
+          <LinkButton type='home' />
+          {boards.map((board) => {
+            return <LinkButton key={board.id} type='board' boardData={board} />;
+          })}
+        </div>
       </div>
-      <ModalButton type='logout' onClickInput={clickLogout} />
+      <div className={cx('logout-container')}>
+        <ModalButton type='logout' onClickInput={clickLogout} />
+      </div>
     </div>
   );
 };
