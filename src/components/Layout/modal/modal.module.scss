@@ -2,7 +2,7 @@
   @include pos-center;
 
   background-color: $modal-background;
-  border: 2px solid $gray70;
+  border: 0.2rem solid $gray70;
   border-radius: 1.6rem;
   outline: none;
   box-shadow: $modal-shadow;
@@ -31,8 +31,31 @@
   @extend %modal-base;
   @include column-flexbox($gap: 2.4rem);
 
-  width: 48.4rem;
+  min-width: 48.4rem;
   padding: 3.2rem;
+
+  .modal-header-container {
+    @include flexbox($jc: between);
+
+    width: 100%;
+
+    .title-container {
+      @include flexbox($ai: center, $gap: 0.8rem);
+
+      .column-title {
+        @include text-style-14;
+
+        padding: 0 0.8rem;
+        color: $primary;
+        background: rgba(255 255 255 / 5%);
+        border-radius: 0.4rem;
+      }
+
+      .card-title {
+        @include text-style-18;
+      }
+    }
+  }
 
   .label {
     @include text-style(24, $white, bold);
@@ -41,16 +64,11 @@
   }
 }
 
-.common-modal-lg {
-  width: 67.6rem;
-}
-
 .icon-modal-container {
   @extend %modal-base;
 
-  width: 36rem;
+  min-width: 36rem;
   padding: 3.2rem 0;
-  z-index: $overlay-level;
 
   .wrapper {
     @include column-flexbox($gap: 2.4rem);
@@ -62,24 +80,13 @@
         @include column-flexbox($gap: 0.4rem);
 
         .span-lg {
-          @include text-style(18, $gray10, normal);
+          @include text-style(18, $gray10);
         }
 
         .span-sm {
-          @include text-style(14, $gray20, normal);
+          @include text-style(14, $gray20);
         }
       }
     }
-  }
-}
-
-.card-modal-container {
-  @extend %modal-base;
-
-  width: 95.2rem;
-  padding: 3.2rem;
-
-  .wrapper {
-    @include column-flexbox($gap: 2.4rem);
   }
 }

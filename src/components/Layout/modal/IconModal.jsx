@@ -1,39 +1,30 @@
 import Image from 'next/image';
 import ReactModal from 'react-modal';
 import classNames from 'classnames/bind';
-import styles from '@/components/Layout/Modal/modal.module.scss';
-import { Icon } from '@/constants/importImage';
+import styles from './modal.module.scss';
 
 const cx = classNames.bind(styles);
 
-const IconModal = ({ type, isIconModalOpened, children }) => {
-  return (
-    <ReactModal
-      isOpen={isIconModalOpened}
-      className={cx('icon-modal-container')}
-      overlayClassName={cx('icon-modal-overlay')}
-      contentLabel='icon-modal'
-    >
-      <div className={cx('wrapper')}>
-        <div className={cx('container')}>
-          {type === 'delete' && (
-            <Image src={Icon.delete.url} alt={Icon.delete.alt} width={58} height={58} />
-          )}
-          {type === 'logout' && (
-            <Image src={Icon.logout.url} alt={Icon.logout.alt} width={48} height={48} />
-          )}
-          <div className={cx('span-container')}>
-            <span className={cx('span-lg')}>Are you sure</span>
-            <span className={cx('span-sm')}>
-              {type === 'delete' && 'You wanna delete this?'}
-              {type === 'logout' && 'You wanna logout?'}
-            </span>
-          </div>
+const IconModal = ({ isModalOpen, closeModal, iconName, iconSize, info, children }) => (
+  <ReactModal
+    isOpen={isModalOpen}
+    onRequestClose={closeModal}
+    shouldCloseOnOverlayClick={true}
+    className={cx('icon-modal-container')}
+    overlayClassName={cx('icon-modal-overlay')}
+    contentLabel='icon-modal'
+  >
+    <div className={cx('wrapper')}>
+      <div className={cx('container')}>
+        <Image src={iconName.url} alt={iconName.alt} width={iconSize} height={iconSize} />
+        <div className={cx('span-container')}>
+          <span className={cx('span-lg')}>{info.title}</span>
+          <span className={cx('span-sm')}>{info.desc}</span>
         </div>
-        {children}
       </div>
-    </ReactModal>
-  );
-};
+      {children}
+    </div>
+  </ReactModal>
+);
 
 export default IconModal;
