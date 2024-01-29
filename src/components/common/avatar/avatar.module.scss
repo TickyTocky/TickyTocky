@@ -1,13 +1,13 @@
-.container {
-  @include flexbox($jc: none, $gap: 0.8rem);
-}
-
 %avatar-base {
   border: 0.2rem solid transparent;
   border-radius: 50%;
   overflow: hidden;
   aspect-ratio: 1;
   box-sizing: content-box;
+}
+
+.container {
+  @include flexbox($jc: none, $gap: 0.8rem);
 }
 
 .avatar-size {
@@ -17,19 +17,19 @@
     width: 6.4rem;
   }
 
-  &-l {
+  &-lg {
     @extend %avatar-base;
 
     width: 3.8rem;
   }
 
-  &-m {
+  &-md {
     @extend %avatar-base;
 
     width: 2.8rem;
   }
 
-  &-s {
+  &-sm {
     @extend %avatar-base;
 
     width: 2.4rem;
@@ -64,6 +64,6 @@
 
 .text-icon-wrap {
   @include flexbox($jc: none, $gap: 0.2rem);
-  
+
   cursor: pointer;
 }
