@@ -1,7 +1,12 @@
 .dropdowntag {
-  @include flexbox;
+  @include flexbox(start, start);
   @include text-style(14, $primary);
 
-  background-color: $gray50;
+  background-color: $gray40;
   padding: 0 0.8rem;
+  border-radius: 0.4rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
