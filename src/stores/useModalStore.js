@@ -1,30 +1,21 @@
 import { create } from 'zustand';
 
-const useModalStore = create((set) => {
-  return {
-    isCommonModalOpened: false,
-    isIconModalOpened: false,
-    isCardModalOpened: false,
+const useModalStore = create((set) => ({
+  isCommonModalOpen: false,
+  isIconModalOpen: false,
 
-    openCommonModal: () => {
-      set({ isCommonModalOpened: true });
-    },
-    closeCommonModal: () => {
-      set({ isCommonModalOpened: false });
-    },
-    openIconModal: () => {
-      set({ isIconModalOpened: true });
-    },
-    closeIconModal: () => {
-      set({ isIconModalOpened: false });
-    },
-    openCardModal: () => {
-      set({ isCardModalOpened: true });
-    },
-    closeCardModal: () => {
-      set({ isCardModalOpened: false });
-    },
-  };
-});
+  openCommonModal: () => {
+    set({ isCommonModalOpen: true });
+  },
+  closeCommonModal: () => {
+    set({ isCommonModalOpen: false });
+  },
+  openIconModal: () => {
+    set({ isIconModalOpen: true });
+  },
+  closeIconModal: () => {
+    set({ isIconModalOpen: false });
+  },
+}));
 
 export default useModalStore;
