@@ -68,7 +68,7 @@
     }
 
     &-24 {
-      @include text-style(24, $gray10, 'bold');
+      @include text-style(24, $gray10, bold);
     }
   }
 }
@@ -82,7 +82,7 @@
     }
 
     &-24 {
-      @include text-style(24, $gray10, 'bold');
+      @include text-style(24, $gray10, bold);
     }
   }
 }

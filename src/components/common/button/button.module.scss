@@ -21,12 +21,12 @@
 
   &.btn-xl,
   &.btn-lg {
-    @include text-style(16, $gray70, 'bold');
+    @include text-style(16, $gray70, bold);
   }
 
   &.btn-md,
   &.btn-sm {
-    @include text-style(14, $gray70, 'normal');
+    @include text-style(14, $gray70, normal);
   }
 
   &:hover:not(:disabled) {
@@ -43,7 +43,7 @@
 
   &.btn-xl,
   &.btn-lg {
-    @include text-style(16, $primary, 'bold');
+    @include text-style(16, $primary, bold);
 
     &:hover:not(:disabled) {
       color: $gray70;
@@ -56,7 +56,7 @@
 
   &.btn-md,
   &.btn-sm {
-    @include text-style(14, $primary, 'normal');
+    @include text-style(14, $primary, normal);
 
     &:hover:not(:disabled) {
       color: $gray70;
@@ -83,12 +83,12 @@
 
   &.btn-xl,
   &.btn-lg {
-    @include text-style(16, $gray10, 'bold');
+    @include text-style(16, $gray10, bold);
   }
 
   &.btn-md,
   &.btn-sm {
-    @include text-style(14, $gray40, 'normal');
+    @include text-style(14, $gray40, normal);
   }
 
   background-color: $gray70;
@@ -107,7 +107,7 @@
 
   &.btn-xl,
   &.btn-lg {
-    @include text-style(16, $gray40, 'bold');
+    @include text-style(16, $gray40, bold);
 
     &:hover:not(:disabled) {
       color: $gray10;
@@ -120,7 +120,7 @@
 
   &.btn-md,
   &.btn-sm {
-    @include text-style(14, $gray40, 'normal');
+    @include text-style(14, $gray40, normal);
 
     &:hover:not(:disabled) {
       color: $gray10;
@@ -147,7 +147,7 @@
 
   &.btn-xl,
   &.btn-lg {
-    @include text-style(16, $red, 'bold');
+    @include text-style(16, $red, bold);
 
     &:hover {
       color: $gray10;
@@ -159,7 +159,7 @@
 
   &.btn-md,
   &.btn-sm {
-    @include text-style(14, $red, 'normal');
+    @include text-style(14, $red, normal);
 
     &:hover {
       color: $gray10;
