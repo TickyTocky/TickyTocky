@@ -4,7 +4,7 @@ import IconLogout from 'public/svg/ic-logout.svg';
 import IconLogoutHover from 'public/svg/ic-logout-hover.svg';
 import IconNavActive from 'public/svg/ic-nav-active.svg';
 import IconArrowUpS from 'public/svg/ic-arrow-up-s.svg';
-import IconArrowUpM from 'public /svg/ic-arrow-up-m.svg';
+import IconArrowUpM from 'public/svg/ic-arrow-up-m.svg';
 import IconArrowDownS from 'public/svg/ic-arrow-down-s.svg';
 import IconArrowDownM from 'public/svg/ic-arrow-down-m.svg';
 import IconSettings from 'public/svg/ic-settings.svg';
