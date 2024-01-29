@@ -50,12 +50,11 @@
 
 .tagsinput-tags-item {
   @include flexbox($jc: center, $ai: center, $gap: 0.2rem);
-  @include text-style-12;
+  @include text-style(12, $black);
 
   height: 2.2rem;
   background-color: $gray50;
   border-radius: 0.4rem;
-  color: black;
   padding: 0 0.8rem;
 }
 
