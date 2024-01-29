@@ -7,24 +7,24 @@ import IconEyeOff from 'public/svg/ic-eye-off.svg';
 export const ICON = {
   logo: {
     url: IconLogo,
-    alt: 'TickyTocky 로고',
+    alt: 'tickytocky-logo',
   },
   calendar: {
     url: IconCalendar,
-    alt: '캘린더 아이콘',
+    alt: 'calendar-icon',
   },
   reset: {
     url: IconReset,
-    alt: '초기화 아이콘',
+    alt: 'reset-icon',
   },
   eye: {
     on: {
       url: IconEyeOn,
-      alt: '비밀번호 보기',
+      alt: 'password-show',
     },
     off: {
       url: IconEyeOff,
-      alt: '비밀번호 숨기기',
+      alt: 'password-hide',
     },
   },
 };
