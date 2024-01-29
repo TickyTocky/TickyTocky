@@ -50,6 +50,7 @@
 }
 
 .tagsinput-tags-item {
+  @include flexbox($jc: start, $ai: start, $gap: 0.2rem);
   @include text-style-12;
 
   display: flex;
@@ -59,8 +60,7 @@
   background-color: $gray50;
   border-radius: 0.4rem;
   color: black;
-  padding-left: 0.8rem;
-  padding-right: 0.4rem;
+  padding: 0 0.8rem;
 }
 
 .tagsinput-tag-name {
@@ -68,19 +68,11 @@
 }
 
 .tagsinput-tags-item-deletebutton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: transparent;
-  border-radius: 50%;
-  white-space: nowrap;
-  color: $gray30;
   transition: $base-transition;
 
   &:hover {
-    color: $red;
+    filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg) brightness(97%)
+      contrast(113%);
   }
 }
 

@@ -1,9 +1,11 @@
+import Image from 'next/image';
 import { useState } from 'react';
-
 import classNames from 'classnames/bind';
+import { Icon } from '@/constants/importImage';
 import styles from './tagsinput.module.scss';
 
 const cx = classNames.bind(styles);
+const { deletetag } = Icon;
 
 const TagsInput = () => {
   const [tagItem, setTagItem] = useState('');
@@ -38,12 +40,14 @@ const TagsInput = () => {
           return (
             <div className={cx('tagsinput-tags-item')} key={index}>
               <span className={cx('tagsinput-tag-name')}>{tagItem}</span>
-              <button
+              <Image
+                // width={10}
+                // height={10}
+                src={deletetag.active.url}
+                alt={deletetag.default.alt}
                 className={cx('tagsinput-tags-item-deletebutton')}
                 onClick={deleteTagItem}
-              >
-                X
-              </button>
+              />
             </div>
           );
         })}
