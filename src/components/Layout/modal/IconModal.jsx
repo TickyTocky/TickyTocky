@@ -5,7 +5,15 @@ import styles from './modal.module.scss';
 
 const cx = classNames.bind(styles);
 
-const IconModal = ({ isModalOpen, closeModal, iconName, iconSize, info, children }) => (
+const IconModal = ({
+  isModalOpen,
+  closeModal,
+  iconName,
+  iconSize,
+  title,
+  children,
+  desc = null,
+}) => (
   <ReactModal
     isOpen={isModalOpen}
     onRequestClose={closeModal}
@@ -18,8 +26,8 @@ const IconModal = ({ isModalOpen, closeModal, iconName, iconSize, info, children
       <div className={cx('container')}>
         <Image src={iconName.url} alt={iconName.alt} width={iconSize} height={iconSize} />
         <div className={cx('span-container')}>
-          <span className={cx('span-lg')}>{info.title}</span>
-          <span className={cx('span-sm')}>{info.desc}</span>
+          <span className={cx('span-lg')}>{title}</span>
+          <span className={cx('span-sm')}>{desc}</span>
         </div>
       </div>
       {children}
