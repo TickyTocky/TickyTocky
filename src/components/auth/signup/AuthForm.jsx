@@ -1,11 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-
-import styles from './AuthForm.module.scss';
 import classNames from 'classnames/bind';
-
 import InputField from '@/components/common/InputField';
 import FormHeader from '@/components/auth/common/FormHeader';
+import styles from './AuthForm.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -20,12 +18,19 @@ const AuthForm = () => {
         <legend className='visually-hidden'>Login TickyTocky Account</legend>
         <FormHeader />
         <form className={cx('login-form')} onSubmit={handleSubmit}>
-          <InputField label='Email' name='email' type='email' placeholder='Email' />
+          <InputField
+            label='Email'
+            name='email'
+            type='email'
+            placeholder='Email'
+            autoComplete='email'
+          />
           <InputField
             label='Nickname'
             name='nickname'
             type='text'
             placeholder='Nickname'
+            autoComplete='off'
           />
           <InputField
             label='Password'
@@ -33,6 +38,7 @@ const AuthForm = () => {
             type='password'
             placeholder='Password'
             maxLength={15}
+            autoComplete='new-password'
           />
           <InputField
             label='Password Confirm'
@@ -40,6 +46,7 @@ const AuthForm = () => {
             type='password'
             placeholder='Password Confirm'
             maxLength={15}
+            autoComplete='off'
           />
           <button type='submit' className={cx('btn-signup')}>
             Sign up

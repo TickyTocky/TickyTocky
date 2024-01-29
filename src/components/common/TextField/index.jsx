@@ -1,10 +1,9 @@
+import Image from 'next/image';
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-
-import styles from './TextField.module.scss';
 import classNames from 'classnames/bind';
-import Image from 'next/image';
 import { ICON } from '@/constants';
+import styles from './TextField.module.scss';
 
 const cx = classNames.bind(styles);
 const { reset } = ICON;

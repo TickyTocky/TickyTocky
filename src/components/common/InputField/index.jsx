@@ -1,11 +1,9 @@
-import { useFormContext } from 'react-hook-form';
 import Image from 'next/image';
-
-import styles from './InputField.module.scss';
+import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-
 import useToggleButton from '@/hooks/useToggleButton';
 import { PASSWORD_SHOW_MODE, USER_INPUT_VALIDATION } from '@/constants';
+import styles from './InputField.module.scss';
 
 const cx = classNames.bind(styles);
 
