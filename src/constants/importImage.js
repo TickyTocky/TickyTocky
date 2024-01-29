@@ -1,7 +1,7 @@
 import IconDelete from 'public/svg/ic-delete.svg';
 import IconLogout from 'public/svg/ic-logout.svg';
 
-export const Icon = {
+export const ICON = {
   delete: {
     url: IconDelete,
     alt: 'icon-delete',
