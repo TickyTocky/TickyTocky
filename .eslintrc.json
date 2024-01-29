@@ -20,7 +20,7 @@
     "no-var": "error",
     "no-multiple-empty-lines": "error",
     "eqeqeq": "error",
-    "arrow-body-style": ["error", "always"],
+    "arrow-body-style": ["error", "as-needed"],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0
   },
