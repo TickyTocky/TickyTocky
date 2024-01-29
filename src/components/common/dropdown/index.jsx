@@ -15,9 +15,7 @@ const DropDown = () => {
   const dropDownList = [1, 2, 3]; // [1, 2, 3, ...]
 
   const handleOpenClick = () => {
-    setIsOpen((prev) => {
-      return !prev;
-    });
+    setIsOpen((prev) => !prev);
   };
 
   const ValueClick = (value) => {
@@ -43,20 +41,18 @@ const DropDown = () => {
         </div>
         {isOpen && (
           <ul className={cx('dropdown-list')}>
-            {dropDownList.map((value, index) => {
-              return (
-                <li
-                  key={`key-${index}`}
-                  className={cx('dropdown-list-item')}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    ValueClick(value);
-                  }}
-                >
-                  {value}
-                </li>
-              );
-            })}
+            {dropDownList.map((value, index) => (
+              <li
+                key={`key-${index}`}
+                className={cx('dropdown-list-item')}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  ValueClick(value);
+                }}
+              >
+                {value}
+              </li>
+            ))}
           </ul>
         )}
       </div>
