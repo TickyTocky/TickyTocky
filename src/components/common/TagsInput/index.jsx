@@ -1,15 +1,14 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import classNames from 'classnames/bind';
-import { Icon } from '@/constants/importImage';
-import styles from './tagsinput.module.scss';
+import { ICON } from '@/constants/importImage';
+import styles from './TagsInput.module.scss';
 
 const cx = classNames.bind(styles);
-const { deletetag } = Icon;
+const { tagDelete } = ICON;
 
-const TagsInput = () => {
+const TagsInput = ({ tagList, setTagList }) => {
   const [tagItem, setTagItem] = useState('');
-  const [tagList, setTagList] = useState([]);
 
   const onKeyPress = (e) => {
     if (e.target.value.length !== 0 && e.key === 'Enter') {
@@ -38,17 +37,17 @@ const TagsInput = () => {
       <div className={cx('tagsinput-tags')}>
         {tagList.map((tagItem, index) => {
           return (
-            <div className={cx('tagsinput-tags-item')} key={index}>
+            <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
               <span className={cx('tagsinput-tag-name')}>{tagItem}</span>
               <Image
-                // width={10}
-                // height={10}
-                src={deletetag.active.url}
-                alt={deletetag.default.alt}
+                width={10}
+                height={10}
+                src={tagDelete.url}
+                alt={tagDelete.alt}
                 className={cx('tagsinput-tags-item-deletebutton')}
                 onClick={deleteTagItem}
               />
-            </div>
+            </li>
           );
         })}
         <input
