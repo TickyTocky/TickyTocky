@@ -1,0 +1,6 @@
+.dropdowntag {
+  @include flexbox;
+  @include text-style(14, $primary);
+
+  padding: 0 0.8rem;
+}
