@@ -4,11 +4,11 @@ import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import useDatePicker from '@/hooks/useDatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from './DatePicker.module.scss';
+import styles from './DateField.module.scss';
 
 const cx = classNames.bind(styles);
 
-const DatePickerInput = ({ label, isRequired = false }) => {
+const DateField = ({ label, isRequired = false }) => {
   const { control } = useFormContext();
   const { selectedDate, setSelectedDate } = useDatePicker();
 
@@ -44,4 +44,4 @@ const DatePickerInput = ({ label, isRequired = false }) => {
   );
 };
 
-export default DatePickerInput;
+export default DateField;
