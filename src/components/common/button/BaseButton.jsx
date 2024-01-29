@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -9,12 +9,10 @@ const BaseButton = ({
   type = 'button',
   text = 'Button',
   ...props
-}) => {
-  return (
-    <button className={cx(`btn-${variant}`, `btn-${size}`)} type={type} {...props}>
-      <span className={cx(`btn-${size}-text`)}>{text}</span>
-    </button>
-  );
-};
+}) => (
+  <button className={cx(`btn-${variant}`, `btn-${size}`)} type={type} {...props}>
+    <span className={cx(`btn-${size}-text`)}>{text}</span>
+  </button>
+);
 
 export default BaseButton;
