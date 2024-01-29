@@ -2,5 +2,6 @@
   @include flexbox;
   @include text-style(14, $primary);
 
+  background-color: $gray50;
   padding: 0 0.8rem;
 }
