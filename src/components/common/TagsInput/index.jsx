@@ -7,7 +7,7 @@ import styles from './TagsInput.module.scss';
 const cx = classNames.bind(styles);
 const { tagDelete } = ICON;
 
-const TagsInput = ({ tagList, setTagList }) => {
+const Tagsinput = ({ tagList, setTagList }) => {
   const [tagItem, setTagItem] = useState('');
 
   const onKeyPress = (e) => {
@@ -64,4 +64,4 @@ const TagsInput = ({ tagList, setTagList }) => {
   );
 };
 
-export default TagsInput;
+export default Tagsinput;
