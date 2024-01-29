@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import classNames from 'classnames/bind';
-import { Icon } from '@/constants/importImage';
+import { ICON } from '@/constants/importImage';
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
 import styles from './dropdown.module.scss';
 
 const cx = classNames.bind(styles);
-const { arrow } = Icon;
+const { arrow } = ICON;
 
 const DropDown = () => {
   const [listIdentify, setListIdentify] = useState('');
@@ -18,7 +18,8 @@ const DropDown = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const ValueClick = (value) => {
+  const handleListItemClick = (value) => (e) => {
+    e.stopPropagation();
     setListIdentify(value);
     handleOpenClick();
   };
@@ -45,10 +46,7 @@ const DropDown = () => {
               <li
                 key={`key-${index}`}
                 className={cx('dropdown-list-item')}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  ValueClick(value);
-                }}
+                onClick={handleListItemClick(value)}
               >
                 {value}
               </li>

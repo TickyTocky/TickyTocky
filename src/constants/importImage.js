@@ -1,7 +1,7 @@
 import IconArrowDownMdDefault from 'public/svg/ic-arrow-down-m.svg';
 import IconArrowDownMdActive from 'public/svg/ic-arrow-up-m.svg';
 
-export const Icon = {
+export const ICON = {
   arrow: {
     default: {
       md: { url: IconArrowDownMdDefault, alt: 'ic-arrow-down-m-default' },
