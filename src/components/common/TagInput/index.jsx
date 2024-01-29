@@ -32,12 +32,12 @@ const TagsInput = () => {
 
   return (
     <div className={cx('tagsinput')}>
-      <span>tag</span>
+      <span className={cx('tagsinput-name')}>Tag</span>
       <div className={cx('tagsinput-tags')}>
         {tagList.map((tagItem, index) => {
           return (
             <div className={cx('tagsinput-tags-item')} key={index}>
-              <span>{tagItem}</span>
+              <span className={cx('tagsinput-tag-name')}>{tagItem}</span>
               <button
                 className={cx('tagsinput-tags-item-deletebutton')}
                 onClick={deleteTagItem}
