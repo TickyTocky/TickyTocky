@@ -28,6 +28,7 @@
     "lint-staged": "^15.2.0",
     "react-datepicker": "^5.0.0",
     "react-hook-form": "^7.49.3",
+    "react-modal": "^3.16.1",
     "sass": "^1.70.0",
     "stylelint": "^16.2.0",
     "stylelint-config-prettier-scss": "^1.0.0",
