@@ -1,0 +1,13 @@
+.login-header {
+  width: 100%;
+  margin-bottom: 5.6rem;
+  text-align: center;
+
+  &-title {
+    @include text-style(24, $gray10);
+  }
+
+  &-desc {
+    @include text-style(14, $gray40);
+  }
+}
