@@ -1,10 +1,10 @@
-import Tagsinput from '.';
+import TagField from '.';
 import { useState } from 'react';
 
 const ParentTagsInput = () => {
   const [tagList, setTagList] = useState([]);
-
-  return <Tagsinput tagList={tagList} setTagList={setTagList} />;
+  console.log(tagList);
+  return <TagField tagList={tagList} setTagList={setTagList} />;
 };
 
 export default ParentTagsInput;
