@@ -1,0 +1,41 @@
+.nav-container {
+  @include column-flexbox($jc: between);
+  @include no-scrollbar;
+
+  width: 7.2rem;
+  height: 100vh;
+  padding: 2.4rem 1.2rem;
+  background-color: $black;
+  overflow-y: auto;
+
+  .button-container {
+    @include column-flexbox($jc: between);
+
+    padding-top: 7.2rem;
+
+    .divider {
+      position: relative;
+      padding-bottom: 0.8rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0.1rem;
+        background: $gray70;
+      }
+    }
+
+    .home-dashboard-container {
+      @include column-flexbox($gap: 1.6rem);
+
+      padding-top: 3.2rem;
+    }
+  }
+
+  .logout-container {
+    padding-top: 7.2rem;
+  }
+}
