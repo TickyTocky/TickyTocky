@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useInvitationMembers = () => {
   const [visibleMembersNum, setVisibleMembersNum] = useState(4);
 
-  const handleInvitationMembers = () => {
+  useEffect(() => {
     const handleResize = () => {
       const currentWindowSize = window.innerWidth;
 
@@ -21,8 +21,9 @@ const useInvitationMembers = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  };
-  return { visibleMembersNum, handleInvitationMembers };
+  }, [visibleMembersNum]);
+
+  return { visibleMembersNum };
 };
 
 export default useInvitationMembers;
