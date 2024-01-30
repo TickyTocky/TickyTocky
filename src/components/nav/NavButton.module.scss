@@ -1,6 +1,7 @@
 %button-base {
   width: 4.8rem;
   height: 4.8rem;
+  border-radius: 50%;
 }
 
 %board-button-base {
@@ -12,41 +13,41 @@
 
   padding: 1.2rem;
   background-color: $gray80;
-  border-radius: 50%;
 }
 
 .logout {
   @extend %button-base;
 
-  border-radius: 50%;
   overflow: hidden;
 }
 
 .home-button-wrapper {
   @extend %button-base;
+  @extend %board-button-base;
 
   padding: 1.2rem;
   background-color: $gray80;
-  border-radius: 50%;
 
   &:hover,
   &:focus {
+    @extend %board-button-base;
+
+    border-radius: 0.6rem;
     background-color: $primary;
   }
 }
 
 .board-button-wrapper {
-  @include text-style(12, $gray40, bold);
   @extend %button-base;
   @extend %board-button-base;
+  @include text-style(12, $gray40, bold);
 
-  border-radius: 50%;
   overflow: hidden;
 
   &:hover,
   &:focus {
-    @include text-style(12, $black, bold);
     @extend %board-button-base;
+    @include text-style(12, $black, bold);
 
     border-radius: 0.6rem;
   }
