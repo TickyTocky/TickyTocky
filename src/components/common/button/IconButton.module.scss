@@ -4,6 +4,7 @@
   @include inline-flexbox;
 
   border-radius: 0.6rem;
+  transition: $base-transition;
 }
 
 .ic-btn {
