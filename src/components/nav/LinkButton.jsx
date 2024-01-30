@@ -13,7 +13,7 @@ const LinkButton = ({ type, boardData }) => {
 
   const boardName = boardData?.title;
   const maxLengh = 7;
-  const truncatedStr = boardName?.slice(0, maxLengh);
+  const truncatedString = boardName?.slice(0, maxLengh);
 
   return (
     <>
@@ -34,7 +34,7 @@ const LinkButton = ({ type, boardData }) => {
             className={cx('board-button-wrapper')}
             style={{ background: boardData.color }}
           >
-            {truncatedStr}
+            {truncatedString}
           </button>
         </Link>
       )}
