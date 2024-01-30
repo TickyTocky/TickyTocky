@@ -1,6 +1,6 @@
 .container {
   @include flexbox(between);
-  @include responsive('M') {
+  @include responsive(M) {
     padding: 0 1.5rem;
   }
 

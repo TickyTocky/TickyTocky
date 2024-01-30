@@ -1,24 +1,38 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './MyHeader.module.scss';
 import classNames from 'classnames/bind';
-import Avatar from '@/components/common/avatar';
-import { Icon } from '@/constants/importImage';
+import Avatar from '@/components/common/Avatar';
+import IconButton from '@/components/common/button/IconButton';
+import { ICON } from '@/constants/importImage';
+import styles from './MyHeader.module.scss';
 
 const cx = classNames.bind(styles);
 
 const MyHeader = ({ user }) => (
   <header className={cx('container')}>
     <Link href={'/'}>
-      <Image className={cx('image')} src={Icon.logo.url} alt={Icon.logo.alt} />
+      <Image
+        className={cx('image')}
+        src={ICON.logo.url}
+        alt={ICON.logo.alt}
+        width={130}
+        height={20}
+      />
     </Link>
     <div className={cx('my-menu')}>
+      <IconButton
+        svg={ICON.home.url}
+        alt={ICON.home.alt}
+        size='lg'
+        outline
+        type='button'
+      />
       <div className={cx('sm-hidden')}>
         <Avatar
           profileName={user.nickname}
           profileImage={user.profileImageUrl}
-          avatarSize={'l'}
-          textColor={'gray10'}
+          avatarSize='lg'
+          textColor='gray10'
           isArrow={true}
         />
       </div>
@@ -26,7 +40,7 @@ const MyHeader = ({ user }) => (
         <Avatar
           profileName={user.nickname}
           profileImage={user.profileImageUrl}
-          avatarSize={'l'}
+          avatarSize='lg'
         />
       </div>
     </div>

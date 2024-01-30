@@ -1,6 +1,6 @@
 .container {
   @include flexbox(between);
-  @include responsive('M') {
+  @include responsive(M) {
     padding: 0 1.5rem;
   }
 
@@ -12,9 +12,4 @@
 
 .my-menu {
   @include flexbox($gap: 1.6rem);
-}
-
-.image {
-  width: 13rem;
-  height: 2rem;
 }
