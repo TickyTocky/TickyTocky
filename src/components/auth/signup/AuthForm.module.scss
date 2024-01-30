@@ -1,0 +1,58 @@
+.login {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-top: 16rem;
+
+  @include responsive(M) {
+    max-width: 100%;
+    padding: 14rem 1.5rem;
+  }
+
+  &-form {
+    @include column-flexbox($gap: 2.4rem);
+
+    position: relative;
+    width: 100%;
+
+    &-messsage {
+      @include text-style(14, $gray20);
+
+      position: absolute;
+      right: 0;
+      bottom: 6.4rem;
+    }
+
+    .btn-signup {
+      @include text-style(16, $gray70, bold);
+
+      width: 100%;
+      height: 4.8rem;
+      margin-top: 0.8rem;
+      background-color: $primary;
+      border-radius: 0.6rem;
+      transition: $base-transition;
+
+      &:focus,
+      &:hover {
+        background-color: $green;
+      }
+    }
+  }
+
+  &-info {
+    @include flexbox;
+
+    width: 100%;
+    margin-top: 2.4rem;
+
+    &-desc {
+      @include text-style(14, $gray20);
+    }
+
+    .btn-login {
+      @include text-style(14, $primary);
+
+      margin-left: 0.6rem;
+    }
+  }
+}
