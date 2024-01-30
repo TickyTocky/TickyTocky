@@ -5,9 +5,19 @@
 }
 
 .dropdown {
+  @include text-style(16, $gray10);
+
   position: relative;
   width: 20.4rem;
   height: 4.8rem;
+
+  &.timeline-dropdown {
+    position: absolute;
+    z-index: $dropdown-level;
+    right: 0;
+    top: 0;
+    width: 12rem;
+  }
 
   .dropdown-selected {
     @extend %dropdown-base;
@@ -43,7 +53,7 @@
   padding: 0.8rem;
   transition: $base-transition;
   box-shadow: $dropdown-shadow;
-  z-index: $overlay-level;
+  z-index: $dropdown-level;
 
   .dropdown-list-item {
     @include inline-flexbox(start, center);
@@ -55,6 +65,7 @@
 
     &:hover {
       background-color: $gray50;
+      cursor: pointer;
     }
   }
 }

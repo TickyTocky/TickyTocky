@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import { ICON } from '@/constants/importImage';
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
@@ -11,33 +11,54 @@ const cx = classNames.bind(styles);
 const { arrow } = ICON;
 
 const DropDown = ({
-  columnListData,
-  assigneeListData,
   listValue,
   setListValue,
+  getTimeLIne,
+  timeLineData = [],
+  columnListData = [],
+  assigneeListData = [],
   type = 'column',
 }) => {
   const dropDownRef = useRef();
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef, false);
+
+  const [timelineValue, setTimelineValue] = useState(null);
   const handleOpenClick = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const dropDownList = type === 'column' ? columnListData : assigneeListData;
+  const dropDownList =
+    type === 'column'
+      ? columnListData
+      : type === 'assignee'
+        ? assigneeListData
+        : timeLineData;
 
-  const selectedItem = dropDownList.find((item) => item.userId === listValue);
+  const selectedItem = dropDownList
+    ? dropDownList.find((item) => item.userId === listValue)
+    : '';
 
   const selectedNickname = selectedItem ? selectedItem.nickname : '';
   const selectedProfileImageUrl = selectedItem ? selectedItem.profileImageUrl : '';
 
   const handleListItemClick = (e, value) => {
     e.stopPropagation();
-    setListValue(value);
+
+    if (type === 'timeline') {
+      getTimeLIne();
+      setTimelineValue(value);
+    } else {
+      setListValue(value);
+    }
+
     handleOpenClick();
   };
 
   return (
-    <div className={cx('dropdown')} ref={dropDownRef}>
+    <div
+      className={cx('dropdown', { 'timeline-dropdown': type === 'timeline' })}
+      ref={dropDownRef}
+    >
       <div
         className={cx('dropdown-selected', { active: isOpen })}
         onClick={handleOpenClick}
@@ -53,13 +74,14 @@ const DropDown = ({
             avatarSize='md'
           />
         )}
+        {type === 'timeline' && timelineValue}
       </div>
       <div className={cx('dropdown-img-container')}>
         <Image
           width={24}
           height={24}
-          src={isOpen ? arrow.active.md.url : arrow.default.md.url}
-          alt={isOpen ? arrow.active.md.alt : arrow.default.md.alt}
+          src={isOpen ? arrow.active.url : arrow.default.url}
+          alt={isOpen ? arrow.active.alt : arrow.default.alt}
           className={cx('image-transition', { 'image-open': isOpen })}
         />
       </div>
@@ -88,6 +110,16 @@ const DropDown = ({
                   textColor='gray10'
                   avatarSize='md'
                 />
+              </li>
+            ))}
+          {type === 'timeline' &&
+            dropDownList.map(({ index, name }) => (
+              <li
+                key={`key-${index}`}
+                className={cx('dropdown-list-item')}
+                onClick={(e) => handleListItemClick(e, name)}
+              >
+                {name}
               </li>
             ))}
         </ul>
