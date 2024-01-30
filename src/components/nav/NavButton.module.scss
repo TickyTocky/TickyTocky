@@ -1,0 +1,54 @@
+%button-base {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+}
+
+%board-button-base {
+  transition: $base-transition;
+}
+
+.modal-button-wrapper {
+  @extend %button-base;
+
+  padding: 1.2rem;
+  background-color: $gray80;
+}
+
+.logout {
+  @extend %button-base;
+
+  overflow: hidden;
+}
+
+.home-button-wrapper {
+  @extend %button-base;
+  @extend %board-button-base;
+
+  padding: 1.2rem;
+  background-color: $gray80;
+
+  &:hover,
+  &:focus {
+    @extend %board-button-base;
+
+    border-radius: 0.6rem;
+    background-color: $primary;
+  }
+}
+
+.board-button-wrapper {
+  @extend %button-base;
+  @extend %board-button-base;
+  @include text-style(12, $gray40, bold);
+
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+    @extend %board-button-base;
+    @include text-style(12, $black, bold);
+
+    border-radius: 0.6rem;
+  }
+}
