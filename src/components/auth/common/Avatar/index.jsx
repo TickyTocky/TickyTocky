@@ -34,15 +34,15 @@ const Avatar = ({
           {isArrow &&
             (isVisible ? (
               <Image
-                src={ICON.arrowUp.s.url}
-                alt={ICON.arrowUp.s.alt}
+                src={ICON.arrowUp.active.url}
+                alt={ICON.arrowUp.active.alt}
                 width={16}
                 height={16}
               />
             ) : (
               <Image
-                src={ICON.arrowDown.s.url}
-                alt={ICON.arrowDown.s.alt}
+                src={ICON.arrowDown.url}
+                alt={ICON.arrowDown.alt}
                 width={16}
                 height={16}
               />

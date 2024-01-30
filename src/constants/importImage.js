@@ -1,6 +1,6 @@
-import IconAddDefault from 'public/svg/ic-add-s.svg';
-import IconArrowUpS from 'public/svg/ic-arrow-up-s.svg';
-import IconArrowDownS from 'public/svg/ic-arrow-down-s.svg';
+import IconAddDefault from 'public/svg/ic-add.svg';
+import IconArrowUp from 'public/svg/ic-arrow-up-active.svg';
+import IconArrowDown from 'public/svg/ic-arrow-down.svg';
 import IconSettings from 'public/svg/ic-settings.svg';
 
 export const ICON = {
@@ -11,16 +11,14 @@ export const ICON = {
     },
   },
   arrowUp: {
-    s: {
-      url: IconArrowUpS,
+    active: {
+      url: IconArrowUp,
       alt: 'arrow up icon',
     },
   },
   arrowDown: {
-    s: {
-      url: IconArrowDownS,
-      alt: 'arrow down icon',
-    },
+    url: IconArrowDown,
+    alt: 'arrow down icon',
   },
   settings: {
     url: IconSettings,
