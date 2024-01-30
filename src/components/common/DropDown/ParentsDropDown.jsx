@@ -8,27 +8,23 @@ const ParentsDropDown = () => {
   const [assigneeId, setAssigneeId] = useState(null);
   const [columnId, setColumnId] = useState(null);
 
-  const getTimeLIne = () => {};
+  const onClickInput = () => {};
 
   return (
     <>
       <DropDown
         columnListData={data}
-        type='column' // assignee, column, timeline
+        type='column'
         listValue={columnId}
         setListValue={setColumnId}
       />
       <DropDown
         assigneeListData={members}
-        type='assignee' // assignee, column, timeline
+        type='assignee'
         listValue={assigneeId}
         setListValue={setAssigneeId}
       />
-      <DropDown
-        timeLineData={list}
-        getTimeLIne={getTimeLIne}
-        type='timeline' // assignee, column, timeline
-      />
+      <DropDown timeLineData={list} onClickInput={onClickInput} type='timeline' />
     </>
   );
 };
