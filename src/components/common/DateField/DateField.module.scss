@@ -1,0 +1,18 @@
+.date-picker {
+  &-label {
+    @include text-style(18, $gray20);
+
+    display: block;
+    padding-bottom: 0.8rem;
+
+    &.required {
+      color: $primary;
+    }
+  }
+
+  &-calendar {
+    @include text-style(16, $gray20);
+
+    background-color: $gray90;
+  }
+}
