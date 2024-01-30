@@ -10,27 +10,24 @@ const { tagDelete } = ICON;
 const Tagsinput = ({ tagList, setTagList }) => {
   const [tagItem, setTagItem] = useState('');
 
-  const onKeyPress = (e) => {
+  const handleKeyPress = (e) => {
     if (e.target.value.length !== 0 && e.key === 'Enter') {
       submitTagItem();
     }
   };
-
-  const submitTagItem = () => {
-    let updatedTagList = [...tagList];
-    updatedTagList.push(tagItem);
-    setTagList(updatedTagList);
-    setTagItem('');
-  };
-
-  const deleteTagItem = (e) => {
+  const handleDelete = (e) => {
     const deleteTagItem = e.target.parentElement.firstChild.innerText;
     const filteredTagList = tagList.filter((tagItem) => tagItem !== deleteTagItem);
     setTagList(filteredTagList);
   };
-
   const handleInputChange = (e) => {
     setTagItem(e.target.value);
+  };
+  const submitTagItem = () => {
+    const updatedTagList = [...tagList];
+    updatedTagList.push(tagItem);
+    setTagList(updatedTagList);
+    setTagItem('');
   };
 
   return (
@@ -46,7 +43,7 @@ const Tagsinput = ({ tagList, setTagList }) => {
               src={tagDelete.url}
               alt={tagDelete.alt}
               className={cx('tagsinput-tags-item-deletebutton')}
-              onClick={deleteTagItem}
+              onClick={handleDelete}
             />
           </li>
         ))}
@@ -57,7 +54,7 @@ const Tagsinput = ({ tagList, setTagList }) => {
           tabIndex={2}
           onChange={handleInputChange}
           value={tagItem}
-          onKeyPress={onKeyPress}
+          onKeyPress={handleKeyPress}
         />
       </div>
     </div>
