@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
-import styles from './InvitationMembers.module.scss';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
-import { Icon } from '@/constants/importImage';
+import { ICON } from '@/constants/importImage';
+import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +19,7 @@ const InvitationMembers = ({ members }) => {
                 <Avatar
                   profileName={member.nickname}
                   profileImage={member.profileImageUrl}
-                  avatarSize={'md'}
+                  avatarSize='md'
                 />
               </li>
             ))
@@ -28,7 +28,7 @@ const InvitationMembers = ({ members }) => {
                 <Avatar
                   profileName={member.nickname}
                   profileImage={member.profileImageUrl}
-                  avatarSize={'md'}
+                  avatarSize='md'
                 />
               </li>
             ))}
@@ -41,11 +41,11 @@ const InvitationMembers = ({ members }) => {
         )}
       </ul>
       <MixButton
-        svg={Icon.add.default.url}
+        svg={ICON.add.default.url}
         size={18}
-        type={'button'}
+        type='button'
         gap={4}
-        text={'Invite'}
+        text='Invite'
         fontSize={14}
       />
     </div>
