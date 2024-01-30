@@ -3,8 +3,8 @@ import { useRef } from 'react';
 import classNames from 'classnames/bind';
 import { ICON } from '@/constants/importImage';
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
-import DropDownTag from '../DropDownTag';
-import Avatar from '../avatar';
+import DropDownTag from '@/components/common/DropDownTag';
+import Avatar from '@/components//common/avatar';
 import styles from './DropDown.module.scss';
 
 const cx = classNames.bind(styles);
@@ -13,9 +13,9 @@ const { arrow } = ICON;
 const DropDown = ({
   columnListData,
   assigneeListData,
-  type,
   listValue,
   setListValue,
+  type = 'column',
 }) => {
   const dropDownRef = useRef();
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef, false);
@@ -30,7 +30,7 @@ const DropDown = ({
   const selectedNickname = selectedItem ? selectedItem.nickname : '';
   const selectedProfileImageUrl = selectedItem ? selectedItem.profileImageUrl : '';
 
-  const handleListItemClick = (value) => (e) => {
+  const handleListItemClick = (e, value) => {
     e.stopPropagation();
     setListValue(value);
     handleOpenClick();
@@ -42,19 +42,17 @@ const DropDown = ({
         className={cx('dropdown-selected', { active: isOpen })}
         onClick={handleOpenClick}
       >
-        {type === 'column' ? (
-          <DropDownTag
-            value={listValue ? dropDownList[listValue - 1]?.title : ''}
-            handleListItemClick={handleListItemClick}
-          />
-        ) : listValue ? (
+        {type === 'column' && (
+          <DropDownTag value={listValue ? dropDownList[listValue - 1]?.title : ''} />
+        )}
+        {type === 'assignee' && listValue && (
           <Avatar
             profileName={selectedNickname}
             profileImage={selectedProfileImageUrl}
-            textColor={'gay10'}
-            avatarSize={'md'}
+            textColor='gray10'
+            avatarSize='md'
           />
-        ) : null}
+        )}
       </div>
       <div className={cx('dropdown-img-container')}>
         <Image
@@ -67,30 +65,31 @@ const DropDown = ({
       </div>
       {isOpen && (
         <ul className={cx('dropdown-list')}>
-          {type === 'column'
-            ? dropDownList.map(({ title, id }) => (
-                <li
-                  key={`key-${id}`}
-                  className={cx('dropdown-list-item')}
-                  onClick={handleListItemClick(id)}
-                >
-                  <DropDownTag value={title} />
-                </li>
-              ))
-            : dropDownList.map(({ id, userId, nickname, profileImageUrl }) => (
-                <li
-                  key={`key-${id}`}
-                  className={cx('dropdown-list-item')}
-                  onClick={handleListItemClick(userId)}
-                >
-                  <Avatar
-                    profileName={nickname}
-                    profileImage={profileImageUrl}
-                    textColor={'gay10'}
-                    avatarSize={'md'}
-                  />
-                </li>
-              ))}
+          {type === 'column' &&
+            dropDownList.map(({ title, id }) => (
+              <li
+                key={`key-${id}`}
+                className={cx('dropdown-list-item')}
+                onClick={(e) => handleListItemClick(e, id)}
+              >
+                <DropDownTag value={title} />
+              </li>
+            ))}
+          {type === 'assignee' &&
+            dropDownList.map(({ id, userId, nickname, profileImageUrl }) => (
+              <li
+                key={`key-${id}`}
+                className={cx('dropdown-list-item')}
+                onClick={(e) => handleListItemClick(e, userId)}
+              >
+                <Avatar
+                  profileName={nickname}
+                  profileImage={profileImageUrl}
+                  textColor='gray10'
+                  avatarSize='md'
+                />
+              </li>
+            ))}
         </ul>
       )}
     </div>
