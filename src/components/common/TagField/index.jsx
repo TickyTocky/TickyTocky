@@ -5,7 +5,7 @@ import { ICON } from '@/constants/importImage';
 import styles from './TagField.module.scss';
 
 const cx = classNames.bind(styles);
-const { tagDelete } = ICON;
+const { tagRemove } = ICON;
 
 const TagField = ({ tagList, setTagList }) => {
   const [tagItem, setTagItem] = useState('');
@@ -47,8 +47,8 @@ const TagField = ({ tagList, setTagList }) => {
               <Image
                 width={10}
                 height={10}
-                src={tagDelete.url}
-                alt={tagDelete.alt}
+                src={tagRemove.url}
+                alt={tagRemove.alt}
                 className={cx('tagsinput-tags-item-deletebutton')}
                 onClick={() => handleDelete(tagItem)}
               />

@@ -1,8 +1,8 @@
-import IconTagDelete from 'public/svg/ic-delete-default.svg';
+import IconTagRemove from 'public/svg/ic-delete-default.svg';
 
 export const ICON = {
-  tagDelete: {
-    url: IconTagDelete,
-    alt: 'delete-icon',
+  tagRemove: {
+    url: IconTagRemove,
+    alt: 'remove-icon',
   },
 };
