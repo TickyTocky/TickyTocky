@@ -5,6 +5,7 @@ import IconLogoutHover from 'public/svg/ic-logout-hover.svg';
 import IconNavActive from 'public/svg/ic-nav-active.svg';
 import IconNav from 'public/svg/ic-nav.svg';
 import IconDelete from 'public/svg/ic-delete.svg';
+import IconArrowRight from 'public/svg/ic-arrow-right.svg';
 import IconLogo from 'public/svg/ic-logo.svg';
 import IconHome from 'public/svg/ic-home.svg';
 import IconSettings from 'public/svg/ic-settings.svg';
@@ -49,6 +50,9 @@ export const ICON = {
     url: IconDelete,
     alt: 'icon-delete',
   },
+  arrowRight: {
+    url: IconArrowRight,
+    alt: 'icon-arrow-right',
   logo: {
     url: IconLogo,
     alt: 'icon-logo',
@@ -60,6 +64,7 @@ export const ICON = {
   settings: {
     url: IconSettings,
     alt: 'icon-settings',
+  },
   arrowUp: {
     default: {
       url: IconArrowUp,
