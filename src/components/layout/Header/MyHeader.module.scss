@@ -1,0 +1,20 @@
+.container {
+  @include flexbox(between);
+  @include responsive(M) {
+    padding: 0 1.5rem;
+  }
+
+  height: 7rem;
+  padding: 0 3.2rem;
+  background-color: $gray90;
+  border: 0.1rem solid $gray70;
+}
+
+.my-menu {
+  @include flexbox($gap: 1.6rem);
+}
+
+.image {
+  width: 13rem;
+  height: 2rem;
+}

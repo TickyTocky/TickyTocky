@@ -60,7 +60,17 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-text-fill-color: $gray10;
-  -webkit-box-shadow: 0 0 0 1000px $gray90 inset;
-  box-shadow: 0 0 0 1000px $gray90 inset;
+  -webkit-box-shadow: 0 0 0 1000px $gray70 inset;
+  box-shadow: 0 0 0 1000px $gray70 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+  -webkit-text-fill-color: $gray10;
+  -webkit-box-shadow: 0 0 0 1000px $gray70 inset;
+  box-shadow: 0 0 0 1000px $gray70 inset;
   transition: background-color 5000s ease-in-out 0s;
 }

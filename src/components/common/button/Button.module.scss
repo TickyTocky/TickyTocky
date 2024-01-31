@@ -1,0 +1,215 @@
+%btn-base {
+  @include inline-flexbox;
+
+  padding: 0 0.8rem;
+  border-radius: 0.6rem;
+  transition: $base-transition;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+.btn-primary {
+  @extend %btn-base;
+
+  background-color: $primary;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray70, bold);
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray70);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $green;
+
+    @include responsive(M) {
+      background-color: $primary;
+    }
+  }
+}
+
+.btn-secondary {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $primary, bold);
+
+    &:hover:not(:disabled) {
+      color: $gray70;
+
+      @include responsive(M) {
+        color: $primary;
+      }
+    }
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $primary);
+
+    &:hover:not(:disabled) {
+      color: $gray70;
+
+      @include responsive(M) {
+        color: $primary;
+      }
+    }
+  }
+
+  background-color: $black;
+
+  &:hover:not(:disabled) {
+    background-color: $primary;
+
+    @include responsive(M) {
+      background-color: $black;
+    }
+  }
+}
+
+.btn-ghost {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray10, bold);
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray40);
+  }
+
+  background-color: $gray70;
+
+  &:hover:not(:disabled) {
+    background-color: $gray50;
+
+    @include responsive(M) {
+      background-color: $gray70;
+    }
+  }
+}
+
+.btn-outline {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $gray40, bold);
+
+    &:hover:not(:disabled) {
+      color: $gray10;
+
+      @include responsive(M) {
+        color: $gray40;
+      }
+    }
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $gray40);
+
+    &:hover:not(:disabled) {
+      color: $gray10;
+
+      @include responsive(M) {
+        color: $gray40;
+      }
+    }
+  }
+
+  border: 1px solid $gray40;
+
+  &:hover:not(:disabled) {
+    border: 1px solid $gray10;
+
+    @include responsive(M) {
+      border: 1px solid $gray40;
+    }
+  }
+}
+
+.btn-remove {
+  @extend %btn-base;
+
+  &.btn-xl,
+  &.btn-lg {
+    @include text-style(16, $red, bold);
+
+    &:hover {
+      color: $gray10;
+      @include responsive(M) {
+        color: $red;
+      }
+    }
+  }
+
+  &.btn-md,
+  &.btn-sm {
+    @include text-style(14, $red);
+
+    &:hover {
+      color: $gray10;
+
+      @include responsive(M) {
+        color: $red;
+      }
+    }
+  }
+
+  background-color: $black;
+
+  &:hover:not(:disabled) {
+    background-color: $red;
+
+    @include responsive(M) {
+      background-color: $black;
+    }
+  }
+}
+
+.btn {
+  &-xl {
+    display: block;
+    height: 4.8rem;
+    width: 100%;
+  }
+
+  &-lg {
+    height: 4.8rem;
+
+    &-text {
+      width: 10.4rem;
+    }
+  }
+
+  &-md {
+    height: 3.2rem;
+
+    &-text {
+      width: 6.7rem;
+    }
+  }
+
+  &-sm {
+    height: 2.8rem;
+
+    &-text {
+      width: 6.7rem;
+    }
+  }
+}
