@@ -9,9 +9,7 @@ const useInput = (initialValue) => {
     const name = e.currentTarget.getAttribute('name');
     const { value } = e.currentTarget;
 
-    setValue((prev) => {
-      return { ...prev, [name]: value };
-    });
+    setValue((prev) => ({ ...prev, [name]: value }));
   };
 
   return { value, handleValueChange };
