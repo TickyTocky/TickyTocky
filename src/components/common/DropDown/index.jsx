@@ -8,7 +8,7 @@ import Avatar from '@/components/common/Avatar';
 import styles from './DropDown.module.scss';
 
 const cx = classNames.bind(styles);
-const { arrow } = ICON;
+const { arrowDown } = ICON;
 
 const DropDown = ({
   listValue,
@@ -81,8 +81,8 @@ const DropDown = ({
         <Image
           width={24}
           height={24}
-          src={isOpen ? arrow.active.url : arrow.default.url}
-          alt={isOpen ? arrow.active.alt : arrow.default.alt}
+          src={isOpen ? arrowDown.active.url : arrowDown.default.url}
+          alt={isOpen ? arrowDown.active.alt : arrowDown.default.alt}
           className={cx('image-transition', { 'image-open': isOpen })}
         />
       </div>

@@ -2,7 +2,7 @@ import IconArrowDownDefault from 'public/svg/ic-arrow-down-default.svg';
 import IconArrowDownActive from 'public/svg/ic-arrow-down-active.svg';
 
 export const ICON = {
-  arrow: {
+  arrowDown: {
     default: {
       url: IconArrowDownDefault,
       alt: 'ic-arrow-down-default',
