@@ -33,7 +33,7 @@ const DropdownList = ({ isOpen, setIsOpen, onClickInput, size }) => {
         {list.map((item) => (
           <li
             className={cx('dropdownlist-list-item')}
-            key={`key-${item.index}`}
+            key={`key-${item.id}`}
             onClick={(e) => handleItemClick(e, item.id)}
           >
             {item.name}
