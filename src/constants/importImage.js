@@ -1,3 +1,4 @@
+import IconAdd from 'public/svg/ic-add.svg';
 import IconAddActive from 'public/svg/ic-add-active.svg';
 import IconLogout from 'public/svg/ic-logout.svg';
 import IconLogoutHover from 'public/svg/ic-logout-hover.svg';
@@ -10,6 +11,10 @@ import IconArrowDown from 'public/svg/ic-arrow-down.svg';
 
 export const ICON = {
   add: {
+    default: {
+      url: IconAdd,
+      alt: 'icon-add',
+    },
     active: {
       url: IconAddActive,
       alt: 'icon-add-active',
