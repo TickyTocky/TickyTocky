@@ -21,12 +21,7 @@ const DropdownList = ({ isOpen, setIsOpen, onClickInput, size }) => {
 
   return (
     <div
-      className={cx(
-        'dropdownlist',
-        { open: isOpen },
-        { close: !isOpen },
-        { attached: size === 'sm' }
-      )}
+      className={cx('dropdownlist', { close: !isOpen }, { attached: size === 'sm' })}
       style={{ maxHeight: isOpen ? `${height}px` : '0' }}
     >
       <ul className={cx('dropdownlist-list')} ref={dropdownRef}>
