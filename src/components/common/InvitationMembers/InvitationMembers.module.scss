@@ -1,0 +1,35 @@
+.container {
+  @include inline-flexbox($gap: 0.6rem);
+
+  padding: 0.4rem 1.2rem 0.4rem 0.6rem;
+  border: 0.1rem solid $gray70;
+  border-radius: 10rem;
+
+  &:hover {
+    border: 0.1rem solid $gray40;
+  }
+}
+
+.members-list {
+  @include flexbox;
+
+  &::after {
+    width: 0.1rem;
+    height: 2.4rem;
+    margin-left: 0.4rem;
+    background-color: $gray70;
+    content: '';
+  }
+}
+
+.hidden-members-num {
+  @include flexbox;
+  @include text-style(12, $gray20);
+
+  width: 2.8rem;
+  margin: 0 0.2rem;
+  background-color: $gray70;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  box-sizing: content-box;
+}
