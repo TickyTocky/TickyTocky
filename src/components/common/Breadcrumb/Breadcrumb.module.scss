@@ -1,0 +1,11 @@
+.container {
+  @include flexbox($gap: 0.4rem);
+}
+
+.previous {
+  @include text-style(14, $gray40);
+}
+
+.current {
+  @include text-style(14, $gray20);
+}
