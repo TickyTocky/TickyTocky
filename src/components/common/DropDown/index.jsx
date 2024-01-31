@@ -20,7 +20,7 @@ const DropDown = ({
   type = 'column',
 }) => {
   const dropDownRef = useRef();
-  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef, false);
+  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
 
   const [timelineValue, setTimelineValue] = useState(null);
 
