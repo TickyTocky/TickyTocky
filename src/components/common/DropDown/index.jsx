@@ -23,9 +23,6 @@ const DropDown = ({
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef, false);
 
   const [timelineValue, setTimelineValue] = useState(null);
-  const handleOpenClick = () => {
-    setIsOpen((prev) => !prev);
-  };
 
   const dropDownList =
     type === 'column'
@@ -40,6 +37,10 @@ const DropDown = ({
 
   const selectedNickname = selectedItem ? selectedItem.nickname : '';
   const selectedProfileImageUrl = selectedItem ? selectedItem.profileImageUrl : '';
+
+  const handleOpenClick = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   const handleListItemClick = (e, value) => {
     e.stopPropagation();

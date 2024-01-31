@@ -6,7 +6,7 @@ const useDropDownDetectClose = (ref, initialState) => {
   useEffect(() => {
     const pageClickEvent = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
-        setIsOpen(!isOpen);
+        setIsOpen((prev) => !prev);
       }
     };
 
