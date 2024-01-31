@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const useDropDownDetectClose = (ref, initialState) => {
-  const [isOpen, setIsOpen] = useState(initialState);
+const useDropDownDetectClose = (ref) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const pageClickEvent = (e) => {

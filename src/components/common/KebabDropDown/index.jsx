@@ -1,14 +1,48 @@
-// import Image from 'next/image';
-// import { useRef, useState } from 'react';
-// import classNames from 'classnames/bind';
-// import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
-// import { ICON } from '@/constants/importImage';
-// import styles from './KebabDropDown.module.scss';
-// import IconButton from '../button/IconButton';
+import { useRef } from 'react';
+import classNames from 'classnames/bind';
+import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
+import { ICON } from '@/constants/importImage';
+import { list } from './mock-dropdownlist.json';
 
-// const cx = classNames.bind(styles);
-// const { kebab } = ICON;
+import IconButton from '../button/IconButton';
+import DropdownList from '../DropDownList';
+import styles from './KebabDropDown.module.scss';
 
-// // const KebabDropDown = ({ onClickInput, size = 'lg' }) => <IconButton />;
+const cx = classNames.bind(styles);
+const { kebab } = ICON;
 
-// export default KebabDropDown;
+const KebabDropDown = ({ onClickInput, size = 'lg' }) => {
+  const SIZE = { lg: 32, sm: 24 };
+  const dropDownRef = useRef();
+  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
+
+  const handleOpenClick = (e) => {
+    e.stopPropagation();
+    setIsOpen((prev) => !prev);
+  };
+
+  return (
+    <div
+      className={cx('kebabdropdown', { size })}
+      ref={dropDownRef}
+      onClick={handleOpenClick}
+    >
+      <IconButton
+        svg={kebab.url}
+        size={SIZE[size]}
+        alt={kebab.alt}
+        type='button'
+        outline={size === 'sm'}
+      />
+      <DropdownList
+        size={size}
+        data={list}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onClickInput={onClickInput}
+      />
+    </div>
+  );
+};
+
+export default KebabDropDown;

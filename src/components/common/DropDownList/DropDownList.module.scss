@@ -3,6 +3,8 @@
   top: 4.1rem;
   right: 0;
   width: 12rem;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
 
   &-list {
     @include column-flexbox(start, center, 0.4rem);
@@ -22,7 +24,6 @@
     border-radius: 0.4rem;
     background: $gray70;
     box-shadow: $dropdown-shadow;
-    transition: $base-transition;
 
     &:hover {
       background: $gray50;
