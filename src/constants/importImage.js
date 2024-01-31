@@ -14,6 +14,7 @@ import IconArrowUpActive from 'public/svg/ic-arrow-up-active.svg';
 import IconArrowDown from 'public/svg/ic-arrow-down.svg';
 import IconArrowDownDefault from 'public/svg/ic-arrow-down-default.svg';
 import IconArrowDownActive from 'public/svg/ic-arrow-down-active.svg';
+import IconTagRemove from 'public/svg/ic-remove-default.svg';
 
 export const ICON = {
   add: {
@@ -92,5 +93,8 @@ export const ICON = {
       alt: 'ic-arrow-down-active',
     },
   },
+    tagRemove: {
+    url: IconTagRemove,
+    alt: 'remove-icon',
+  },
 };
-
