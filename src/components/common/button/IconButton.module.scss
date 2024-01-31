@@ -20,29 +20,41 @@
 }
 
 .ic-btn-outline {
-  border: 1px solid $gray70;
+  border: 0.1rem solid $gray70;
 
-  &:hover {
-    border: 1px solid $gray30;
+  &:hover:not(:disabled) {
+    border: 0.1rem solid $gray30;
 
     @include responsive(M) {
-      border: 1px solid $gray70;
+      border: 0.1rem solid $gray70;
     }
   }
 
-  &-active {
-    border: 1px solid $primary;
+  &:focus:not(:disabled) {
+    border: 0.1rem solid $primary;
+  }
 
-    &:hover {
-      border: 1px solid $primary;
+  &-active {
+    border: 0.1rem solid $primary;
+
+    &:hover:not(:disabled) {
+      border: 0.1rem solid $primary;
     }
   }
 }
 
 .ic-box {
   position: relative;
-  width: 2.4rem;
-  height: 2.4rem;
+
+  &-24 {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  &-16 {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
 }
 
 .ic-fit,

@@ -30,7 +30,8 @@
     @include text-style(14, $gray70);
   }
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     background-color: $green;
 
     @include responsive(M) {
@@ -46,7 +47,8 @@
   &.btn-lg {
     @include text-style(16, $primary, bold);
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $gray70;
 
       @include responsive(M) {
@@ -59,7 +61,8 @@
   &.btn-sm {
     @include text-style(14, $primary);
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $gray70;
 
       @include responsive(M) {
@@ -70,7 +73,8 @@
 
   background-color: $black;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     background-color: $primary;
 
     @include responsive(M) {
@@ -94,7 +98,8 @@
 
   background-color: $gray70;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     background-color: $gray50;
 
     @include responsive(M) {
@@ -110,7 +115,8 @@
   &.btn-lg {
     @include text-style(16, $gray40, bold);
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $gray10;
 
       @include responsive(M) {
@@ -123,7 +129,8 @@
   &.btn-sm {
     @include text-style(14, $gray40);
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $gray10;
 
       @include responsive(M) {
@@ -134,7 +141,8 @@
 
   border: 1px solid $gray40;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     border: 1px solid $gray10;
 
     @include responsive(M) {
@@ -150,7 +158,8 @@
   &.btn-lg {
     @include text-style(16, $red, bold);
 
-    &:hover {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $gray10;
       @include responsive(M) {
         color: $red;
@@ -162,7 +171,8 @@
   &.btn-sm {
     @include text-style(14, $red);
 
-    &:hover {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $gray10;
 
       @include responsive(M) {
@@ -173,7 +183,8 @@
 
   background-color: $black;
 
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     background-color: $red;
 
     @include responsive(M) {
