@@ -1,0 +1,33 @@
+{
+  "result": "SUCCESS",
+  "data": [
+    {
+      "id": 1,
+      "title": "MockTitle1",
+      "teamId": "MockTeam1",
+      "createdAt": "2024-01-30T12:00:00.000Z",
+      "updatedAt": "2024-01-30T12:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "MockTitle2",
+      "teamId": "MockTeam2",
+      "createdAt": "2024-01-30T12:05:00.000Z",
+      "updatedAt": "2024-01-30T12:05:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "MockTitle3",
+      "teamId": "MockTeam3",
+      "createdAt": "2024-01-30T12:10:00.000Z",
+      "updatedAt": "2024-01-30T12:10:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "MockTitle4",
+      "teamId": "MockTeam4",
+      "createdAt": "2024-01-30T12:15:00.000Z",
+      "updatedAt": "2024-01-30T12:15:00.000Z"
+    }
+  ]
+}
