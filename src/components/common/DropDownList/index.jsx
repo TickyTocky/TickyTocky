@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import { list } from '@/constants/DropDownListData.json';
 import styles from './DropDownList.module.scss';
 
 const cx = classNames.bind(styles);
 
-const DropdownList = ({ data, isOpen, setIsOpen, onClickInput }) => {
+const DropdownList = ({ isOpen, setIsOpen, onClickInput, size }) => {
   const dropdownRef = useRef(null);
   const [height, setHeight] = useState(0);
 
@@ -13,17 +14,23 @@ const DropdownList = ({ data, isOpen, setIsOpen, onClickInput }) => {
   }, [isOpen]);
 
   const handleItemClick = (e, value) => {
+    e.stopPropagation();
     onClickInput(value);
     setIsOpen((prev) => !prev);
   };
 
   return (
     <div
-      className={cx('dropdownlist', { open: isOpen }, { close: !isOpen })}
+      className={cx(
+        'dropdownlist',
+        { open: isOpen },
+        { close: !isOpen },
+        { attached: size === 'sm' }
+      )}
       style={{ maxHeight: isOpen ? `${height}px` : '0' }}
     >
       <ul className={cx('dropdownlist-list')} ref={dropdownRef}>
-        {data.map((item) => (
+        {list.map((item) => (
           <li
             className={cx('dropdownlist-list-item')}
             key={`key-${item.index}`}
