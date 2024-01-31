@@ -3,6 +3,7 @@ import Link from 'next/link';
 import classNames from 'classnames/bind';
 import InputField from '@/components/common/InputField';
 import FormHeader from '@/components/auth/common/FormHeader';
+import BaseButton from '@/components/common/button/BaseButton';
 import styles from './AuthForm.module.scss';
 
 const cx = classNames.bind(styles);
@@ -48,9 +49,13 @@ const AuthForm = () => {
             maxLength={15}
             autoComplete='off'
           />
-          <button type='submit' className={cx('btn-signup')}>
-            Sign up
-          </button>
+          <BaseButton
+            style={{ marginTop: '0.8rem' }}
+            type='submit'
+            size='xl'
+            variant='primary'
+            text='Sign up'
+          />
         </form>
         <div className={cx('login-info')}>
           <p className={cx('login-info-desc')}>Do you have an account?</p>
