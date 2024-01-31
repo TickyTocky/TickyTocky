@@ -46,6 +46,12 @@
   }
 }
 
+.tagsinput-tags-list {
+  @include inline-flexbox(start, center, 0.8rem);
+
+  flex-wrap: nowrap;
+}
+
 .tagsinput-tags-item {
   @include flexbox(center, center, 0.4rem);
   @include text-style(12, $black);

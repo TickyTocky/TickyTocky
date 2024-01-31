@@ -34,25 +34,27 @@ const TagField = ({ tagList, setTagList }) => {
 
   return (
     <div className={cx('tagsinput')}>
-      <span className={cx('tagsinput-name')}>Tag</span>
+      <label className={cx('tagsinput-name')}>Tag</label>
       <div className={cx('tagsinput-tags')}>
-        {tagList.map((tagItem, index) => (
-          <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
-            <span className={cx('tagsinput-tag-name')}>
-              {tagItem.length > MINIMUM_LENGTH
-                ? `${tagItem.slice(0, MINIMUM_LENGTH)}...`
-                : tagItem}
-            </span>
-            <Image
-              width={10}
-              height={10}
-              src={tagDelete.url}
-              alt={tagDelete.alt}
-              className={cx('tagsinput-tags-item-deletebutton')}
-              onClick={() => handleDelete(tagItem)}
-            />
-          </li>
-        ))}
+        <ul className={cx('tagsinput-tags-list')}>
+          {tagList.map((tagItem, index) => (
+            <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
+              <span className={cx('tagsinput-tag-name')}>
+                {tagItem.length > MINIMUM_LENGTH
+                  ? `${tagItem.slice(0, MINIMUM_LENGTH)}...`
+                  : tagItem}
+              </span>
+              <Image
+                width={10}
+                height={10}
+                src={tagDelete.url}
+                alt={tagDelete.alt}
+                className={cx('tagsinput-tags-item-deletebutton')}
+                onClick={() => handleDelete(tagItem)}
+              />
+            </li>
+          ))}
+        </ul>
         <input
           className={cx('tagsinput-input')}
           type='text'
