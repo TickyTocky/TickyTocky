@@ -4,6 +4,9 @@ import IconLogoutHover from 'public/svg/ic-logout-hover.svg';
 import IconNavActive from 'public/svg/ic-nav-active.svg';
 import IconNav from 'public/svg/ic-nav.svg';
 import IconDelete from 'public/svg/ic-delete.svg';
+import IconLogo from 'public/svg/ic-logo.svg';
+import IconHome from 'public/svg/ic-home.svg';
+import IconSettings from 'public/svg/ic-settings.svg';
 
 export const ICON = {
   add: {
@@ -34,8 +37,20 @@ export const ICON = {
       alt: 'icon-nav',
     },
   },
-   delete: {
+  delete: {
     url: IconDelete,
     alt: 'icon-delete',
+  },
+  logo: {
+    url: IconLogo,
+    alt: 'icon-logo',
+  },
+  home: {
+    url: IconHome,
+    alt: 'icon-home',
+  },
+  settings: {
+    url: IconSettings,
+    alt: 'icon-settings',
   },
 };
