@@ -1,12 +1,10 @@
 import KebabDropDown from '.';
 
 const ParentKebabDropDown = () => {
-  const onClickInput = (value) => {
-    console.log(value);
-  };
+  const onClickInput = (value) => ({ value });
   return (
     <>
-      <KebabDropDown onClickInput={onClickInput} size='lg' />
+      <KebabDropDown onClickInput={onClickInput} />
     </>
   );
 };

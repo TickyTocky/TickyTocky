@@ -11,10 +11,6 @@
     transition: $base-transition;
   }
 
-  &.attached {
-    top: 3.4rem;
-  }
-
   &-list {
     @include column-flexbox(start, center, 0.4rem);
 

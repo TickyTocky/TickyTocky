@@ -5,7 +5,7 @@ import styles from './DropDownList.module.scss';
 
 const cx = classNames.bind(styles);
 
-const DropdownList = ({ isOpen, setIsOpen, onClickInput, size }) => {
+const DropdownList = ({ isOpen, setIsOpen, onClickInput }) => {
   const dropdownRef = useRef(null);
   const [height, setHeight] = useState(0);
 
@@ -21,7 +21,7 @@ const DropdownList = ({ isOpen, setIsOpen, onClickInput, size }) => {
 
   return (
     <div
-      className={cx('dropdownlist', { close: !isOpen }, { attached: size === 'sm' })}
+      className={cx('dropdownlist', { close: !isOpen })}
       style={{ maxHeight: isOpen ? `${height}px` : '0' }}
     >
       <ul className={cx('dropdownlist-list')} ref={dropdownRef}>

@@ -9,7 +9,7 @@ import styles from './KebabDropDown.module.scss';
 const cx = classNames.bind(styles);
 const { kebab } = ICON;
 
-const KebabDropDown = ({ onClickInput, size = 'lg' }) => {
+const KebabDropDown = ({ onClickInput }) => {
   const dropDownRef = useRef();
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
 
@@ -21,12 +21,7 @@ const KebabDropDown = ({ onClickInput, size = 'lg' }) => {
   return (
     <div className={cx('kebabdropdown')} ref={dropDownRef} onClick={handleOpenClick}>
       <IconButton svg={kebab.url} size='md' alt={kebab.alt} outline type='button' />
-      <DropdownList
-        size={size}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        onClickInput={onClickInput}
-      />
+      <DropdownList isOpen={isOpen} setIsOpen={setIsOpen} onClickInput={onClickInput} />
     </div>
   );
 };
