@@ -1,8 +1,8 @@
 import DropDown from '.';
 import { useState } from 'react';
-import { data } from './mock-columnlist.json';
-import { members } from './mock-assignees.json';
-import { list } from './mock-timeline.json';
+import { data } from '@/constants/mock-columnlist.json';
+import { members } from '@/constants/mock-assignees.json';
+import { list } from '@/constants/mock-timeline.json';
 
 const ParentsDropDown = () => {
   const [assigneeId, setAssigneeId] = useState(null);
