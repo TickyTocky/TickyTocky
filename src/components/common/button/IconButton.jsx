@@ -4,7 +4,16 @@ import styles from './IconButton.module.scss';
 
 const cx = classNames.bind(styles);
 
-const IconButton = ({ svg, size, alt, outline, isActive, type = 'button', ...props }) => (
+const IconButton = ({
+  svg,
+  size,
+  alt,
+  outline,
+  isActive,
+  type = 'button',
+  iconSize = '24',
+  ...props
+}) => (
   <button
     type={type}
     className={cx(
@@ -15,7 +24,7 @@ const IconButton = ({ svg, size, alt, outline, isActive, type = 'button', ...pro
     )}
     {...props}
   >
-    <div className={cx('ic-box')}>
+    <div className={cx(`ic-box-${iconSize}`)}>
       <Image src={svg} alt={alt} className={cx('ic-fit')} />
     </div>
   </button>

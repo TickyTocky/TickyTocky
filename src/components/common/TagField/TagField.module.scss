@@ -1,0 +1,93 @@
+.tagsinput {
+  @include column-flexbox(start, start, 0.8rem);
+
+  width: 42rem;
+}
+
+.tagsinput-name {
+  @include text-style(18, $gray20);
+}
+
+.tagsinput-tags {
+  @include flexbox(start, center, 0.8rem);
+
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 4.8rem;
+  padding: 0 1.6rem;
+  border: 0.1rem solid $gray60;
+  border-radius: 0.6rem;
+  background-color: $gray70;
+  overflow: hidden;
+  transition: $base-transition;
+
+  li:nth-child(5n + 1) {
+    color: $purple;
+  }
+
+  li:nth-child(5n + 2) {
+    color: $blue;
+  }
+
+  li:nth-child(5n + 3) {
+    color: $skyblue;
+  }
+
+  li:nth-child(5n + 4) {
+    color: $yellow;
+  }
+
+  li:nth-child(5n + 5) {
+    color: $orange;
+  }
+
+  &:focus-within {
+    border-color: $primary;
+  }
+}
+
+.tagsinput-tags-list {
+  @include inline-flexbox(start, center, 0.8rem);
+
+  flex-wrap: nowrap;
+}
+
+.tagsinput-tags-item {
+  @include flexbox(center, center, 0.4rem);
+  @include text-style(12, $black);
+
+  height: 2.2rem;
+  background-color: $tag-background;
+  border-radius: 0.4rem;
+  padding: 0 0.8rem;
+}
+
+.tagsinput-tag-name {
+  @include text-style(14, $weight: bold);
+
+  white-space: nowrap;
+}
+
+.tagsinput-tags-item-deletebutton {
+  transition: $base-transition;
+
+  &:hover {
+    filter: brightness(1000%);
+  }
+}
+
+.tagsinput-input {
+  @include text-style(16, $gray10);
+
+  width: 100%;
+  height: 2.4rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: text;
+  white-space: nowrap;
+
+  &::placeholder {
+    @include text-style(16, $gray40);
+  }
+}
