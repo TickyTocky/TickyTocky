@@ -1,4 +1,4 @@
-.login {
+.signup {
   max-width: 42rem;
   margin: 0 auto;
   padding-top: 16rem;
@@ -38,5 +38,10 @@
 
       margin-left: 0.6rem;
     }
+  }
+
+  &-btn-box {
+    width: inherit;
+    margin-top: 0.8rem;
   }
 }

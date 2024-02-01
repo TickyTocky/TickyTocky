@@ -4,21 +4,25 @@ import classNames from 'classnames/bind';
 import InputField from '@/components/common/InputField';
 import FormHeader from '@/components/auth/common/FormHeader';
 import BaseButton from '@/components/common/button/BaseButton';
+import { useFormContext } from 'react-hook-form';
+import auth from '@/hooks/auth';
 import styles from './AuthForm.module.scss';
 
 const cx = classNames.bind(styles);
 
 const AuthForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const { handleSubmit, setError } = useFormContext();
+
+  const onSubmit = (data) => {
+    auth('signup', data, setError);
   };
 
   return (
-    <div className={cx('login')}>
+    <div className={cx('signup')}>
       <fieldset>
         <legend className='visually-hidden'>Login TickyTocky Account</legend>
         <FormHeader />
-        <form className={cx('login-form')} onSubmit={handleSubmit}>
+        <form className={cx('signup-form')} onSubmit={handleSubmit(onSubmit)}>
           <InputField
             label='Email'
             name='email'
@@ -49,16 +53,12 @@ const AuthForm = () => {
             maxLength={15}
             autoComplete='off'
           />
-          <BaseButton
-            style={{ marginTop: '0.8rem' }}
-            type='submit'
-            size='xl'
-            variant='primary'
-            text='Sign up'
-          />
+          <div className={cx('signup-btn-box')}>
+            <BaseButton type='submit' size='xl' variant='primary' text='Sign up' />
+          </div>
         </form>
-        <div className={cx('login-info')}>
-          <p className={cx('login-info-desc')}>Do you have an account?</p>
+        <div className={cx('signup-info')}>
+          <p className={cx('signup-info-desc')}>Do you have an account?</p>
           <Link href={'/login'}>
             <button className={cx('btn-login')}>Log in</button>
           </Link>
