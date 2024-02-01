@@ -1,5 +1,5 @@
 import CardTags from '.';
-import { tags } from './CardTagsMockData.json';
+import { tags } from '@/constants/CardTagsMockData.json';
 
 const ParentCardTags = () => <CardTags data={tags} />;
 
