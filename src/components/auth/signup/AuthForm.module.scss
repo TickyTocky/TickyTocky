@@ -1,4 +1,4 @@
-.login {
+.signup {
   max-width: 42rem;
   margin: 0 auto;
   padding-top: 16rem;
@@ -21,22 +21,6 @@
       right: 0;
       bottom: 6.4rem;
     }
-
-    .btn-signup {
-      @include text-style(16, $gray70, bold);
-
-      width: 100%;
-      height: 4.8rem;
-      margin-top: 0.8rem;
-      background-color: $primary;
-      border-radius: 0.6rem;
-      transition: $base-transition;
-
-      &:focus,
-      &:hover {
-        background-color: $green;
-      }
-    }
   }
 
   &-info {
@@ -54,5 +38,10 @@
 
       margin-left: 0.6rem;
     }
+  }
+
+  &-btn-box {
+    width: inherit;
+    margin-top: 0.8rem;
   }
 }

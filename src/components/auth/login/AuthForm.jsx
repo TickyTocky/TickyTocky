@@ -1,15 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames/bind';
+import { useFormContext } from 'react-hook-form';
 import InputField from '@/components/common/InputField';
 import FormHeader from '@/components/auth/common/FormHeader';
+import BaseButton from '@/components/common/button/BaseButton';
+import auth from '@/api/auth';
 import styles from './AuthForm.module.scss';
 
 const cx = classNames.bind(styles);
 
 const AuthForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const { handleSubmit, setError } = useFormContext();
+
+  const onSubmit = (data) => {
+    auth('login', data, setError);
   };
 
   return (
@@ -17,7 +22,7 @@ const AuthForm = () => {
       <fieldset>
         <legend className='visually-hidden'>Login TickyTocky Account</legend>
         <FormHeader />
-        <form className={cx('login-form')} onSubmit={handleSubmit}>
+        <form className={cx('login-form')} onSubmit={handleSubmit(onSubmit)}>
           <InputField
             label='Email'
             name='email'
@@ -33,9 +38,9 @@ const AuthForm = () => {
             maxLength={15}
             autoComplete='current-password'
           />
-          <button type='submit' className={cx('btn-login')}>
-            Login
-          </button>
+          <div className={cx('login-btn-box')}>
+            <BaseButton type='submit' size='xl' variant='primary' text='Login' />
+          </div>
         </form>
         <div className={cx('login-info')}>
           <p className={cx('login-info-desc')}>Don’t have an account?</p>
