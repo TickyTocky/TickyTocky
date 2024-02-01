@@ -41,7 +41,7 @@ const ImageField = ({ name }) => {
           <label
             htmlFor='imageUrl'
             className={cx('button-add-image')}
-            aria-label='썸네일 이미지 등록 버튼'
+            aria-label='Thumbnail upload button'
           >
             <Image
               src={add.active.url}
