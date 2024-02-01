@@ -7,9 +7,9 @@ const CardTags = ({ data }) => {
   const selectedData = data.slice(0, 4);
   return (
     <div className={cx('cardtags')}>
-      <ul className={cx('cardtags-items')}>
+      <ul className={cx('cardtags-list')}>
         {selectedData.map((item, index) => (
-          <li className={cx('cardtags-item')} key={`key-${index}`}>
+          <li className={cx('cardtags-list-item')} key={`key-${index}`}>
             {item}
           </li>
         ))}
