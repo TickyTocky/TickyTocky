@@ -1,0 +1,30 @@
+{
+  "id": 0,
+  "title": "string",
+  "description": "string",
+  "tags": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+  ],
+  "dueDate": "string",
+  "assignee": {
+    "profileImageUrl": "string",
+    "nickname": "string",
+    "id": 0
+  },
+  "imageUrl": "string",
+  "teamId": "string",
+  "columnId": 0,
+  "createdAt": "2024-01-31T15:29:28.391Z",
+  "updatedAt": "2024-01-31T15:29:28.391Z"
+}

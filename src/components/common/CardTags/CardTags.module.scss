@@ -1,0 +1,46 @@
+.cardtags {
+  @include inline-flexbox($gap: 0.6rem);
+  @include text-style(12, $gray30, bold);
+
+  height: 2.2rem;
+
+  &-list {
+    @include inline-flexbox($gap: 0.6rem);
+
+    height: 100%;
+
+    li:nth-child(1) {
+      color: $purple;
+    }
+
+    li:nth-child(2) {
+      color: $blue;
+    }
+
+    li:nth-child(3) {
+      color: $skyblue;
+    }
+
+    li:nth-child(4) {
+      color: $yellow;
+    }
+
+    &-item {
+      @include flexbox;
+
+      height: 100%;
+      padding: 0 0.8rem;
+      border-radius: 0.4rem;
+      background-color: $tag-background;
+    }
+  }
+
+  &-remaining {
+    @include flexbox;
+
+    height: 100%;
+    padding: 0 0.4rem;
+    border-radius: 0.4rem;
+    background-color: $gray80;
+  }
+}
