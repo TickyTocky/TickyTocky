@@ -5,7 +5,7 @@ import { USER_INPUT_VALIDATION } from '@/constants';
 
 const { email, password } = USER_INPUT_VALIDATION;
 
-const useAuth = async (authenticationType, values, setError) => {
+const auth = async (authenticationType, values, setError) => {
   try {
     const response = await authentication[authenticationType](values);
 
@@ -31,4 +31,4 @@ const useAuth = async (authenticationType, values, setError) => {
   }
 };
 
-export default useAuth;
+export default auth;
