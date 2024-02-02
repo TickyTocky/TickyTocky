@@ -6,7 +6,7 @@ import ImageField from '@/components/common/ImageField';
 import TagField from '@/components/common/TagField';
 import DropDown from '@/components/common/DropDown/index';
 import useTagList from '@/hooks/useTagList';
-import styles from './CreateCrad.module.scss';
+import styles from './CreateCard.module.scss';
 
 const cx = classNames.bind(styles);
 
