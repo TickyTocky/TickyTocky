@@ -3,6 +3,7 @@ import { create } from 'zustand';
 const useModalStore = create((set) => ({
   isCommonModalOpen: false,
   isIconModalOpen: false,
+  isThirdModalOpen: false,
 
   openCommonModal: () => {
     set({ isCommonModalOpen: true });
@@ -15,6 +16,12 @@ const useModalStore = create((set) => ({
   },
   closeIconModal: () => {
     set({ isIconModalOpen: false });
+  },
+  openThirdModal: () => {
+    set({ isThirdModalOpen: true });
+  },
+  closeThirdModal: () => {
+    set({ isThirdModalOpen: false });
   },
 }));
 
