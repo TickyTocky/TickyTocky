@@ -28,7 +28,9 @@ const TagField = ({ tagList, setTagList }) => {
   };
 
   const handleSubmitTagItem = () => {
-    setTagList((prev) => [...prev, tagItem]);
+    if (!tagList.includes(tagItem)) {
+      setTagList((prev) => [...prev, tagItem]);
+    }
     setTagItem('');
   };
 
