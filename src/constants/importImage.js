@@ -16,6 +16,13 @@ import IconArrowDownDefault from 'public/svg/ic-arrow-down-default.svg';
 import IconArrowDownActive from 'public/svg/ic-arrow-down-active.svg';
 import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
+import ImageHeaderBackground from 'public/images/landing-header-background.png';
+import ImageBodyBackground from 'public/images/landing-body-background.png';
+import IconLandingDarkMode from 'public/svg/ic-landing-darkmode.svg';
+import IconLandingDashboard from 'public/svg/ic-landing-dashboard.svg';
+import IconLandingDevice from 'public/svg/ic-landing-device.svg';
+import IconLandingInvite from 'public/svg/ic-landing-invite.svg';
+import IconLandingThumbnail from 'public/svg/ic-landing-thumbnail.svg';
 
 export const ICON = {
   add: {
@@ -101,5 +108,37 @@ export const ICON = {
   kebab: {
     url: IconKebab,
     alt: 'icon-kebab',
+  },
+  background: {
+    header: {
+      url: ImageHeaderBackground,
+      alt: 'img-background-header',
+    },
+    body: {
+      url: ImageBodyBackground,
+      alt: 'img-background-body',
+    },
+  },
+  landing: {
+    darkmode: {
+      url: IconLandingDarkMode,
+      alt: 'ic-landing-darkmode',
+    },
+    dashboard: {
+      url: IconLandingDashboard,
+      alt: 'ic-landing-dashboard',
+    },
+    device: {
+      url: IconLandingDevice,
+      alt: 'ic-landing-device',
+    },
+    invite: {
+      url: IconLandingInvite,
+      alt: 'ic-landing-invite',
+    },
+    thumbnail: {
+      url: IconLandingThumbnail,
+      alt: 'ic-landing-thumbnail',
+    },
   },
 };
