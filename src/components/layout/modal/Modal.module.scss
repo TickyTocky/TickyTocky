@@ -33,6 +33,7 @@
 .common-modal-container {
   @extend %modal-base;
   @include column-flexbox;
+  @include column-flexbox;
 
   min-width: 48.4rem;
   padding: 3.2rem;
@@ -64,6 +65,7 @@
     @include text-style(24, $white, bold);
 
     margin-right: auto;
+    padding-bottom: 2.4rem;
     padding-bottom: 2.4rem;
   }
 }
