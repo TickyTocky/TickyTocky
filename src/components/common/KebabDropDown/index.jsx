@@ -16,6 +16,9 @@ const KebabDropDown = ({ onClickInput }) => {
   const handleOpenClick = (e) => {
     e.stopPropagation();
     setIsOpen((prev) => !prev);
+    if (isOpen) {
+      document.activeElement.blur();
+    }
   };
 
   return (
