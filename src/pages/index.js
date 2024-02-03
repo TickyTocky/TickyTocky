@@ -172,13 +172,13 @@ export default function Home() {
           </div>
         </div>
         <div className={cx('landing-pricing')}>
-          <h2>Choose Your Plan</h2>
+          <h2 className={cx('landing-pricing-title')}>Choose Your Plan</h2>
           <div className={cx('pricing-options')}>
             <div className={cx('pricing-option')}>
-              <h3>Free</h3>
-              <p>
+              <div className={cx('pricing-option-plan')}>Free</div>
+              <div className={cx('pricing-option-price')}>
                 $0 <span>per month</span>
-              </p>
+              </div>
               <ul>
                 <li>Access to basic features</li>
                 <li>5 active projects</li>
@@ -186,10 +186,10 @@ export default function Home() {
               </ul>
             </div>
             <div className={cx('pricing-option', 'pro')}>
-              <h3>Pro </h3>
-              <p>
+              <div className={cx('pricing-option-plan')}>Pro</div>
+              <div className={cx('pricing-option-price')}>
                 $200 <span>per month</span>
-              </p>
+              </div>
               <ul>
                 <li>Access to all features</li>
                 <li>Unlimited active projects</li>
@@ -199,8 +199,8 @@ export default function Home() {
               </ul>
             </div>
             <div className={cx('pricing-option', 'enterprise')}>
-              <h3>Enterprise</h3>
-              <p>Contact us for pricing</p>
+              <div className={cx('pricing-option-plan')}>Enterprise</div>
+              <div className={cx('pricing-option-price')}>Contact us for pricing</div>
               <ul>
                 <li>Dedicated support and account manager</li>
                 <li>Custom integrations and features</li>
@@ -210,7 +210,41 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <footer>{/* 페이지 하단에 푸터 내용을 추가하세요. */}</footer>
+        <footer className={cx('landing-footer')}>
+          <div className={cx('landing-footer-body')}>
+            <span>©TickyTocky - 2024</span>
+            <div className={cx('landing-footer-policy')}>
+              <span>Privacy Policy</span>
+              <span>FAQ</span>
+            </div>
+            <div className={cx('landing-footer-links')}>
+              <Link href='https://gmail.com/' target='_blank'>
+                <Image
+                  src={landing.email.url}
+                  width={20}
+                  height={20}
+                  alt={landing.email.alt}
+                />
+              </Link>
+              <Link href='https://www.facebook.com/' target='_blank'>
+                <Image
+                  src={landing.facebook.url}
+                  width={22}
+                  height={22}
+                  alt={landing.facebook.alt}
+                />
+              </Link>
+              <Link href='https://www.instagram.com/' target='_blank'>
+                <Image
+                  src={landing.instagram.url}
+                  width={22}
+                  height={22}
+                  alt={landing.instagram.alt}
+                />
+              </Link>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

@@ -23,6 +23,9 @@ import IconLandingDashboard from 'public/svg/ic-landing-dashboard.svg';
 import IconLandingDevice from 'public/svg/ic-landing-device.svg';
 import IconLandingInvite from 'public/svg/ic-landing-invite.svg';
 import IconLandingThumbnail from 'public/svg/ic-landing-thumbnail.svg';
+import IconLandingEmail from 'public/svg/ic-landing-email.svg';
+import IconLandingFacebook from 'public/svg/ic-landing-facebook.svg';
+import IconLandingInstagram from 'public/svg/ic-landing-instagram.svg';
 
 export const ICON = {
   add: {
@@ -139,6 +142,18 @@ export const ICON = {
     thumbnail: {
       url: IconLandingThumbnail,
       alt: 'ic-landing-thumbnail',
+    },
+    email: {
+      url: IconLandingEmail,
+      alt: 'ic-landing-email',
+    },
+    facebook: {
+      url: IconLandingFacebook,
+      alt: 'ic-landing-facebook',
+    },
+    instagram: {
+      url: IconLandingInstagram,
+      alt: 'ic-landing-instagram',
     },
   },
 };

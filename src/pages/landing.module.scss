@@ -187,27 +187,99 @@
 
 .pricing-options {
   @include inline-flexbox(center, center, 2.4rem);
+  @include responsive(T) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include responsive(M) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4rem;
+  }
 
   & .pricing-option {
-    width: 384px;
-    height: 434px;
+    width: 38.4rem;
+    height: 43.4rem;
     flex-shrink: 0;
     padding: 3.2rem;
-    border-radius: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.05);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 2rem;
+    border: 0.2rem solid $opacity-white-5;
+    background: $opacity-white-5;
+    box-shadow: $dropdown-shadow;
+    transition: $base-transition;
+
+    &:hover {
+      border: 0.2rem solid $primary;
+      transform: translateY(-1.6rem);
+    }
+
+    & .pricing-option-price {
+      font-size: 3rem;
+
+      & span {
+        font-size: 1.6rem;
+        color: $gray30;
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      padding-left: 0;
+      font-size: 2.4rem;
+      line-height: 150%;
+    }
 
     &.pro {
-      h3 {
+      .pricing-option-plan {
         color: $primary;
       }
     }
 
     &.enterprise {
-      h3 {
+      .pricing-option-plan {
         color: $skyblue;
       }
+    }
+  }
+}
+
+.landing-footer {
+  @include text-style(16, $gray20);
+  @include responsive(T) {
+    padding: 4rem;
+  }
+  @include responsive(M) {
+    margin-top: 12rem;
+  }
+
+  width: 100%;
+  padding: 4rem 14rem;
+  margin-top: 16rem;
+
+  &-body {
+    @include inline-flexbox(between, center);
+    @include responsive(M) {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      text-align: center;
+      gap: 4rem;
+    }
+
+    width: 100%;
+  }
+
+  &-policy {
+    @include flexbox(center, center, 3.2rem);
+    @include responsive(M) {
+      gap: 2rem;
+    }
+  }
+
+  &-links {
+    @include flexbox(center, center, 1.4rem);
+    @include responsive(M) {
+      gap: 2rem;
     }
   }
 }
