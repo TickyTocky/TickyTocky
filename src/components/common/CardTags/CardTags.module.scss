@@ -5,7 +5,7 @@
   height: 100%;
 
   &-list {
-    @include inline-flexbox(start, cneter, 0.6rem);
+    @include inline-flexbox(start, center, 0.6rem);
 
     flex-wrap: wrap;
     height: auto;
