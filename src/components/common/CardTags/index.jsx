@@ -5,7 +5,7 @@ const cx = classNames.bind(styles);
 
 const CardTags = ({ data, isDetailed = false }) => {
   const selectedData = data.slice(0, 3);
-  const remainingData = data.slice(3, 9);
+  const remainingData = data.slice(3, 8);
   const MINIMUM_LENGTH = 4;
   const TAG_MAX_LENTH = 3;
   return (
@@ -19,7 +19,7 @@ const CardTags = ({ data, isDetailed = false }) => {
           </li>
         ))}
         {!isDetailed && data.length > TAG_MAX_LENTH && (
-          <li className={cx('remaing')} key={'key-3'}>
+          <li className={cx('remaining')} key={'key-3'}>
             +{data.length - TAG_MAX_LENTH}
           </li>
         )}
