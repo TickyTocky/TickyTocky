@@ -1,0 +1,115 @@
+.container {
+  @include column-flexbox(end, end, 2.4rem);
+
+  @include responsive(T) {
+    @include column-flexbox(start, end);
+
+    width: 100%;
+    max-height: 50rem;
+  }
+
+  @include responsive(M) {
+    @include column-flexbox(start, end);
+
+    width: 100%;
+    max-height: 50rem;
+    overflow: hidden;
+  }
+
+  .field {
+    @include flexbox(start, start, 3.2rem);
+
+    @include responsive(T) {
+      padding: 2.4rem 1.6rem 2.4rem 0;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0.6rem;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $gray40;
+        border-radius: 1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        width: 1rem;
+        background-color: $gray90;
+      }
+    }
+
+    @include responsive(M) {
+      @include column-flexbox(start, start);
+
+      width: 100%;
+    }
+
+    &-left {
+      max-width: 16rem;
+    }
+
+    &-right {
+      @include column-flexbox(start, start, 1.6rem);
+
+      min-width: 42rem;
+
+      .col-2 {
+        @include flexbox($gap: 1.2rem);
+
+        width: 100%;
+
+        @include responsive(M) {
+          @include column-flexbox(start, start);
+        }
+
+        &-name {
+          @include column-flexbox(start, start, 0.8rem);
+
+          width: 50%;
+
+          .label {
+            @include text-style(18, $gray20);
+
+            white-space: nowrap;
+          }
+
+          .disabled {
+            @include flexbox(start);
+
+            width: 100%;
+            height: 4.8rem;
+            padding-left: 1.6rem;
+            background-color: $gray50;
+            border-radius: 0.6rem;
+          }
+
+          .tag {
+            @include inline-flexbox;
+            @include text-style(14, $primary);
+
+            height: 2.2rem;
+            padding: 0 0.8rem;
+            background-color: $tag-background;
+            border-radius: 0.4rem;
+          }
+        }
+
+        &-manager {
+          @include column-flexbox(start, start, 0.8rem);
+
+          width: 50%;
+
+          .label {
+            @include text-style(18, $gray20);
+
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    &-submit {
+      @include flexbox($gap: 1.2rem);
+    }
+  }
+}
