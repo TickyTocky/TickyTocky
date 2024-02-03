@@ -5,24 +5,40 @@
   height: 2.2rem;
 
   &-list {
-    @include inline-flexbox($gap: 0.6rem);
+    @include inline-flexbox(start, cneter, 0.6rem);
 
+    flex-wrap: wrap;
+    height: auto;
     height: 100%;
 
-    li:nth-child(1) {
+    li:nth-child(5n + 1) {
       color: $purple;
     }
 
-    li:nth-child(2) {
+    li:nth-child(5n + 2) {
       color: $blue;
     }
 
-    li:nth-child(3) {
+    li:nth-child(5n + 3) {
       color: $skyblue;
     }
 
-    li:nth-child(4) {
+    li:nth-child(5n + 4) {
       color: $yellow;
+    }
+
+    li:nth-child(5n + 5) {
+      color: $orange;
+    }
+
+    .remaing {
+      @include flexbox;
+
+      height: 100%;
+      padding: 0 0.4rem;
+      border-radius: 0.4rem;
+      background-color: $gray80;
+      color: $gray30 !important;
     }
 
     &-item {
@@ -32,15 +48,7 @@
       padding: 0 0.8rem;
       border-radius: 0.4rem;
       background-color: $tag-background;
+      white-space: nowrap;
     }
-  }
-
-  &-remaining {
-    @include flexbox;
-
-    height: 100%;
-    padding: 0 0.4rem;
-    border-radius: 0.4rem;
-    background-color: $gray80;
   }
 }
