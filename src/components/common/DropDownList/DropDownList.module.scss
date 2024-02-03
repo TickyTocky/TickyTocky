@@ -5,11 +5,6 @@
   width: 12rem;
   transition: max-height 0.5s ease-in-out;
 
-  &.close {
-    border: none;
-    transition: $base-transition;
-  }
-
   &-list {
     @include column-flexbox(start, center, 0.4rem);
 
