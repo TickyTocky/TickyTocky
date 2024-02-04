@@ -1,5 +1,5 @@
-import { DASHBOARD_API, INVITATION_API } from '@/constants';
 import useDashBoardStore from '@/stores/useDashboardStore';
+import { DASHBOARD_API, INVITATION_API } from '@/constants';
 import instance from './axios';
 
 const Dashboard = {

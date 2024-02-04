@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import LocalStorage from '@/services/localStorage';
-import { AUTH_API, USER_API, USER_INPUT_VALIDATION } from '@/constants';
 import useUserStore from '@/stores/useUserStore';
+import { AUTH_API, USER_API, USER_INPUT_VALIDATION } from '@/constants';
 import instance from './axios';
 
 const { email, password } = USER_INPUT_VALIDATION;

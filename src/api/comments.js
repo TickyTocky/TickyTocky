@@ -1,6 +1,6 @@
+import useCommentStore from '@/stores/useCommentStore';
 import { COMMENT_API } from '@/constants';
 import instance from './axios';
-import useCommentStore from '@/stores/useCommentStore';
 
 const Comment = {
   create: (value) => instance.post(COMMENT_API, value),

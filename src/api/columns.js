@@ -1,6 +1,6 @@
+import useColumnStore from '@/stores/useColumnStore';
 import { COLUMN_API } from '@/constants/apiPaths';
 import instance from './axios';
-import useColumnStore from '@/stores/useColumnStore';
 
 const Columns = {
   create: (dashboardId, title) => instance.post(COLUMN_API, { title, dashboardId }),
