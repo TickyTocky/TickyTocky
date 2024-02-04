@@ -4,6 +4,7 @@ import instance from './axios';
 
 const Cards = {
   create: (value) => instance.post(CARD_API, value),
+
   get: async (cardId) => {
     const res = await instance.get(`${CARD_API}/${cardId}`);
     if (res.status === 200) {
@@ -11,8 +12,9 @@ const Cards = {
       return res;
     }
   },
-  getList: async (size, columnId) => {
-    const res = await instance.get(CARD_API, { params: { size, columnId } });
+
+  getList: async (columnId) => {
+    const res = await instance.get(CARD_API, { params: { columnId } });
     if (res.status === 200) {
       useCardStore.setState((prev) => ({
         ...prev,
@@ -22,8 +24,11 @@ const Cards = {
       return res;
     }
   },
+
   edit: (cardId, value) => instance.put(`${CARD_API}/${cardId}`, value),
+
   delete: (cardId) => instance.delete(`${CARD_API}/${cardId}`),
+
   addCardIamge: async (columnId, value) => {
     const formData = new FormData();
     formData.append('file', value);

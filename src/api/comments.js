@@ -4,8 +4,8 @@ import instance from './axios';
 
 const Comment = {
   create: (value) => instance.post(COMMENT_API, value),
-  getList: async (size, cardId) => {
-    const res = await instance.get(COMMENT_API, { params: { size, cardId } });
+  getList: async (cardId) => {
+    const res = await instance.get(COMMENT_API, { size: 10, params: { cardId } });
     if (res.status === 200) {
       useCommentStore.setState((prev) => ({ ...prev, commentList: res.data.comments }));
       return res;
