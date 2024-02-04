@@ -1,5 +1,5 @@
 import useCardStore from '@/stores/useCardStore';
-import { CARD_API, COLUMN_API } from '@/constants/apiPaths';
+import { CARD_API, COLUMN_API } from '@/constants';
 import instance from './axios';
 
 const Cards = {

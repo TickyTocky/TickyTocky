@@ -1,5 +1,5 @@
 import useColumnStore from '@/stores/useColumnStore';
-import { COLUMN_API } from '@/constants/apiPaths';
+import { COLUMN_API } from '@/constants';
 import instance from './axios';
 
 const Columns = {
