@@ -1,3 +1,4 @@
+import ImageUpload from 'public/images/img-upload.jpg';
 import IconAdd from 'public/svg/ic-add.svg';
 import IconAddActive from 'public/svg/ic-add-active.svg';
 import IconLogout from 'public/svg/ic-logout.svg';
@@ -26,6 +27,13 @@ import IconLandingThumbnail from 'public/svg/ic-landing-thumbnail.svg';
 import IconLandingEmail from 'public/svg/ic-landing-email.svg';
 import IconLandingFacebook from 'public/svg/ic-landing-facebook.svg';
 import IconLandingInstagram from 'public/svg/ic-landing-instagram.svg';
+
+export const IMAGE = {
+  uploadImage: {
+    url: ImageUpload,
+    alt: 'upload-image',
+  },
+};
 
 export const ICON = {
   add: {

@@ -1,6 +1,9 @@
 %modal-base {
   @include pos-center;
+  @include responsive(M);
 
+  width: 100%;
+  margin: 0 1.5rem;
   background-color: $modal-background;
   border: 0.2rem solid $gray70;
   border-radius: 1.6rem;
@@ -29,7 +32,7 @@
 
 .common-modal-container {
   @extend %modal-base;
-  @include column-flexbox($gap: 2.4rem);
+  @include column-flexbox;
 
   min-width: 48.4rem;
   padding: 3.2rem;
@@ -40,7 +43,7 @@
     width: 100%;
 
     .title-container {
-      @include flexbox($ai: center, $gap: 0.8rem);
+      @include flexbox($gap: 0.8rem);
 
       .column-title {
         @include text-style-14;
@@ -61,6 +64,7 @@
     @include text-style(24, $white, bold);
 
     margin-right: auto;
+    padding-bottom: 2.4rem;
   }
 }
 
