@@ -2,17 +2,17 @@ import Image from 'next/image';
 import classNames from 'classnames/bind';
 import Cards from '@/api/cards';
 import CardTags from '@/components/common/CardTags';
-import { ICON } from '@/constants/importImage';
 import Avatar from '@/components/common/Avatar';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import DetailCard from '@/components/dashboard/modal/card/DetailCard';
 import IconModal from '@/components/layout/modal/IconModal';
 import BaseButton from '@/components/common/button/BaseButton';
 import CreateCard from '@/components/dashboard/modal/card/CreateCard';
+import useCardStore from '@/stores/useCardStore';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
-import useCardStore from '@/stores/useCardStore';
 import { IMAGE_REGEX } from '@/constants';
+import { ICON } from '@/constants/importImage';
 import { INIT_CARD_DATA } from '@/constants/initialDataType';
 import styles from './CardItem.module.scss';
 
@@ -22,13 +22,11 @@ const { calendar, delete: remove } = ICON;
 const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
   const { data } = useAsync(() => Cards.get(id), INIT_CARD_DATA);
   const { card } = useCardStore();
-
-  const isImageUrl = !!imageUrl && IMAGE_REGEX.test(imageUrl.toLowerCase());
-
   const { modalState, toggleModal } = useModalState([
     '3',
     ['detailCard', 'editCard', 'deleteCard'],
   ]);
+  const isImageUrl = !!imageUrl && IMAGE_REGEX.test(imageUrl.toLowerCase());
 
   const handleModalOpen = (value) => {
     if (!value) {
