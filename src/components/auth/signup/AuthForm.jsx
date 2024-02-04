@@ -4,8 +4,8 @@ import { useFormContext } from 'react-hook-form';
 import InputField from '@/components/common/InputField';
 import FormHeader from '@/components/auth/common/FormHeader';
 import BaseButton from '@/components/common/button/BaseButton';
-import { signup } from '@/api/auth';
 import styles from './AuthForm.module.scss';
+import Auth from '@/api/auth';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +13,7 @@ const AuthForm = () => {
   const { handleSubmit, setError } = useFormContext();
 
   const onSubmit = (data) => {
-    signup(data, setError);
+    Auth.signup(data, setError);
   };
 
   return (
