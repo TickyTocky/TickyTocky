@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { list } from '@/constants/DropDownListData.json';
+import { DROPDOWN_MENU } from '@/constants';
 import styles from './DropDownList.module.scss';
 
 const cx = classNames.bind(styles);
@@ -15,10 +15,10 @@ const DropdownList = ({ isOpen, setIsOpen, onClickInput }) => {
     isOpen && (
       <div className={cx('dropdownlist')}>
         <ul className={cx('dropdownlist-list')}>
-          {list.map((item) => (
+          {DROPDOWN_MENU.map((item) => (
             <li
               className={cx('dropdownlist-list-item')}
-              key={`key-${item.id}`}
+              key={item.id}
               onClick={(e) => handleItemClick(e, item.id)}
             >
               {item.name}
