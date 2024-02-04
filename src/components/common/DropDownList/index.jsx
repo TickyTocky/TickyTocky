@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import { list } from '@/constants/DropDownListData.json';
 import styles from './DropDownList.module.scss';
