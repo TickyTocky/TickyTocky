@@ -1,10 +1,12 @@
 import ReactModal from 'react-modal';
 import classNames from 'classnames/bind';
-import styles from './modal.module.scss';
+import styles from './Modal.module.scss';
+import KebabDropDown from '@/components/common/KebabDropDown';
 
 const cx = classNames.bind(styles);
 
 const CommonModal = ({
+  onClickInput,
   isModalOpen,
   closeModal,
   children,
@@ -19,6 +21,7 @@ const CommonModal = ({
     className={cx('common-modal-container')}
     overlayClassName={cx('modal-overlay')}
     contentLabel='common-modal'
+    bodyOpenClassName={cx('body-open')}
   >
     {isDetail ? (
       <div className={cx('modal-header-container')}>
@@ -26,7 +29,9 @@ const CommonModal = ({
           <div className={cx('column-title')}>{detailInfo.columnTitle}</div>
           <div className={cx('card-title')}>{detailInfo.cardTitle}</div>
         </div>
-        <div>케밥버튼</div>
+        <div className={cx('dropdown')}>
+          <KebabDropDown onClickInput={onClickInput} />
+        </div>
       </div>
     ) : (
       <label className={cx('label')}>{label}</label>
