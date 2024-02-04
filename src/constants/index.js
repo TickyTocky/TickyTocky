@@ -3,10 +3,10 @@ export * from './importImg';
 
 export * from './apiPaths';
 
-export * from './card';
-export * from './column';
-export * from './comment';
-export * from './dashboard';
-export * from './invitation';
-export * from './member';
-export * from './user';
+export * from './initialDataType/card';
+export * from './initialDataType/column';
+export * from './initialDataType/comment';
+export * from './initialDataType/dashboard';
+export * from './initialDataType/invitation';
+export * from './initialDataType/member';
+export * from './initialDataType/user';
