@@ -11,6 +11,8 @@ const TagField = ({ tagList, setTagList }) => {
   const [tagItem, setTagItem] = useState('');
 
   const MINIMUM_LENGTH = 5;
+  const MAXIMUM_LENGTH = 8;
+  const MAX_TAG_COUNT = 8;
 
   const handleKeyPress = (e) => {
     if (tagItem.length !== 0 && e.key === 'Enter') {
@@ -28,7 +30,13 @@ const TagField = ({ tagList, setTagList }) => {
   };
 
   const handleSubmitTagItem = () => {
-    setTagList((prev) => [...prev, tagItem]);
+    if (
+      !tagList.includes(tagItem) &&
+      tagItem.length <= MAXIMUM_LENGTH &&
+      tagList.length < MAX_TAG_COUNT
+    ) {
+      setTagList((prev) => [...prev, tagItem]);
+    }
     setTagItem('');
   };
 
