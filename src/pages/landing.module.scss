@@ -67,182 +67,184 @@
 //   }
 // }
 
-.landing-body {
-  @include column-flexbox(center, center);
+// .landing-body {
+//   @include column-flexbox(center, center);
 
-  margin-top: 8.1rem;
-  width: 100%;
-  height: 100rem;
-  position: relative;
+//   margin-top: 8.1rem;
+//   width: 100%;
+//   height: 100rem;
+//   position: relative;
 
-  @include responsive(T) {
-    height: 120rem;
-    padding-bottom: 20rem;
-  }
-  @include responsive(M) {
-    height: 140rem;
-    padding-bottom: 40rem;
-  }
+//   @include responsive(T) {
+//     height: 120rem;
+//     padding-bottom: 20rem;
+//   }
+//   @include responsive(M) {
+//     height: 140rem;
+//     padding-bottom: 40rem;
+//   }
 
-  &-title {
-    @include column-flexbox(center, center);
+//   &-title {
+//     @include column-flexbox(center, center);
 
-    color: $gray30;
-    font-size: 3.2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    position: absolute;
-    top: 1.5rem;
+//     color: $gray30;
+//     font-size: 3.2rem;
+//     font-style: normal;
+//     font-weight: 400;
+//     line-height: 150%;
+//     position: absolute;
+//     top: 1.5rem;
 
-    p:nth-child(2) {
-      color: $primary;
-    }
-  }
+//     p:nth-child(2) {
+//       color: $primary;
+//     }
+//   }
 
-  &-icons {
-    @include inline-flexbox(center, center, 8rem);
+//   &-icons {
+//     @include inline-flexbox(center, center, 8rem);
 
-    @include responsive(T) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @include responsive(M) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+//     @include responsive(T) {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//     @include responsive(M) {
+//       grid-template-columns: repeat(2, 1fr);
+//     }
 
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    position: absolute;
-    bottom: 3.4rem;
-    padding: 4rem 6rem;
-    border-radius: 1.6rem;
-    background: linear-gradient(180deg, $opacity-white-5 0%, rgba(0 0 0 / 5%) 100%);
-    backdrop-filter: blur(3rem);
-  }
+//     display: grid;
+//     grid-template-columns: repeat(5, 1fr);
+//     position: absolute;
+//     bottom: 3.4rem;
+//     padding: 4rem 6rem;
+//     border-radius: 1.6rem;
+//     background: linear-gradient(180deg, $opacity-white-5 0%, rgba(0 0 0 / 5%) 100%);
+//     backdrop-filter: blur(3rem);
+//   }
 
-  .landing-body-icon {
-    @include column-flexbox(center, center, 0.8rem);
-    @include text-style(18, $gray20, light);
+//   .landing-body-icon {
+//     @include column-flexbox(center, center, 0.8rem);
+//     @include text-style(18, $gray20, light);
 
-    &:hover {
-      transform: scale(1.3);
-      color: $gray10;
-      transition: $base-transition;
-    }
-  }
-}
+//     &:hover {
+//       transform: scale(1.3);
+//       color: $gray10;
+//       transition: $base-transition;
+//       filter: brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(389%)
+//         hue-rotate(105deg) brightness(95%) contrast(94%);
+//     }
+//   }
+// }
 
-.landing-fucntions {
-  @include responsive(T) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+// .landing-fucntions {
+//   @include responsive(T) {
+//     grid-template-columns: repeat(1, 1fr);
+//   }
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6.8rem 7.4rem;
-}
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 6.8rem 7.4rem;
+// }
 
-.landing-fucntion {
-  @include column-flexbox(start, center, 2rem);
+// .landing-fucntion {
+//   @include column-flexbox(start, center, 2rem);
 
-  width: 51.1rem;
-  height: 63.2rem;
-  border-radius: 1.6rem;
-  background: linear-gradient(180deg, $opacity-white-5 0%, rgba(0 0 0 / 5%) 100%);
-  backdrop-filter: blur(3rem);
-  padding: 4rem 6rem;
-  transition: $base-transition;
+//   width: 51.1rem;
+//   height: 63.2rem;
+//   border-radius: 1.6rem;
+//   background: linear-gradient(180deg, $opacity-white-5 0%, rgba(0 0 0 / 5%) 100%);
+//   backdrop-filter: blur(3rem);
+//   padding: 4rem 6rem;
+//   transition: $base-transition;
 
-  &:hover {
-    border-width: 0.4rem;
-    border-style: solid;
-    border-image-source: linear-gradient(to right, $primary, $skyblue);
-    border-image-slice: 1;
-    transform: translateY(-2.5rem);
-  }
+//   &:hover {
+//     border-width: 0.4rem;
+//     border-style: solid;
+//     border-image-source: linear-gradient(to right, $primary, $skyblue);
+//     border-image-slice: 1;
+//     transform: translateY(-2.5rem);
+//   }
 
-  h2:nth-child(1) {
-    color: $primary;
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
+//   h2:nth-child(1) {
+//     color: $primary;
+//     font-size: 4rem;
+//     font-style: normal;
+//     font-weight: 700;
+//     line-height: normal;
+//   }
 
-  & div {
-    @include text-style(24, $white, bold);
-  }
-}
+//   & div {
+//     @include text-style(24, $white, bold);
+//   }
+// }
 
-.landing-pricing {
-  @include column-flexbox(center, center, 5.8rem);
+// .landing-pricing {
+//   @include column-flexbox(center, center, 5.8rem);
 
-  margin-top: 20rem;
-  color: $gray10;
-  font-size: 3.2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-}
+//   margin-top: 20rem;
+//   color: $gray10;
+//   font-size: 3.2rem;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 150%;
+// }
 
-.pricing-options {
-  @include inline-flexbox(center, center, 2.4rem);
-  @include responsive(T) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @include responsive(M) {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 4rem;
-  }
+// .pricing-options {
+//   @include inline-flexbox(center, center, 2.4rem);
+//   @include responsive(T) {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+//   @include responsive(M) {
+//     display: grid;
+//     grid-template-columns: repeat(1, 1fr);
+//     gap: 4rem;
+//   }
 
-  & .pricing-option {
-    width: 38.4rem;
-    height: 43.4rem;
-    flex-shrink: 0;
-    padding: 3.2rem;
-    border-radius: 2rem;
-    border: 0.2rem solid $opacity-white-5;
-    background: $opacity-white-5;
-    box-shadow: $dropdown-shadow;
-    transition: $base-transition;
+//   & .pricing-option {
+//     width: 38.4rem;
+//     height: 43.4rem;
+//     flex-shrink: 0;
+//     padding: 3.2rem;
+//     border-radius: 2rem;
+//     border: 0.2rem solid $opacity-white-5;
+//     background: $opacity-white-5;
+//     box-shadow: $dropdown-shadow;
+//     transition: $base-transition;
 
-    &:hover {
-      border: 0.2rem solid $primary;
-      transform: translateY(-1.6rem);
-    }
+//     &:hover {
+//       border: 0.2rem solid $primary;
+//       transform: translateY(-1.6rem);
+//     }
 
-    & .pricing-option-price {
-      font-size: 3rem;
+//     & .pricing-option-price {
+//       font-size: 3rem;
 
-      & span {
-        font-size: 1.6rem;
-        color: $gray30;
-      }
-    }
+//       & span {
+//         font-size: 1.6rem;
+//         color: $gray30;
+//       }
+//     }
 
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      padding-left: 0;
-      font-size: 2.4rem;
-      line-height: 150%;
-    }
+//     ul {
+//       list-style-type: disc;
+//       margin-left: 20px;
+//       padding-left: 0;
+//       font-size: 2.4rem;
+//       line-height: 150%;
+//     }
 
-    &.pro {
-      .pricing-option-plan {
-        color: $primary;
-      }
-    }
+//     &.pro {
+//       .pricing-option-plan {
+//         color: $primary;
+//       }
+//     }
 
-    &.enterprise {
-      .pricing-option-plan {
-        color: $skyblue;
-      }
-    }
-  }
-}
+//     &.enterprise {
+//       .pricing-option-plan {
+//         color: $skyblue;
+//       }
+//     }
+//   }
+// }
 
 // .landing-footer {
 //   @include text-style(16, $gray20);

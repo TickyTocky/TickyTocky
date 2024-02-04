@@ -13,8 +13,8 @@ const LandingHeader = () => (
         src={background.header.url}
         alt={background.header.alt}
         priority={true}
-        width={1415}
-        height={1080}
+        layout='fill'
+        objectFit='cover'
       />
     </div>
     <div className={cx('landing-header-body')}>

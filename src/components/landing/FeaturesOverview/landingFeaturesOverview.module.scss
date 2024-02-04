@@ -1,0 +1,77 @@
+// &:hover {
+//   transform: scale(1.3);
+//   color: $gray10;
+//   transition: $base-transition;
+//   filter: brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(389%)
+//     hue-rotate(105deg) brightness(95%) contrast(94%);
+// }
+
+.overview {
+  @include flexbox($gap: 3.4rem);
+
+  width: 100%;
+  height: 100%;
+}
+
+.overview-sidebar-button {
+  &.active {
+    transform: scale(1.3);
+    color: $gray10;
+    transition: $base-transition;
+    filter: brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(389%)
+      hue-rotate(105deg) brightness(95%) contrast(94%);
+  }
+}
+
+.overview-content {
+  width: 103rem;
+  height: 96rem;
+  // height: 300px;
+  position: relative;
+  overflow: hidden;
+
+  &-gradient {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25.7rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, $landing-background 82%);
+  }
+}
+
+.overview-content-feature {
+  position: absolute;
+  top: 40px;
+  right: -335px;
+  border-radius: 10rem;
+}
+
+.overview-content-feature-img {
+  border-radius: 2.4rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.imageEnter {
+  animation: fadeIn 1s forwards;
+}
+
+.imageExit {
+  animation: fadeOut 1s forwards;
+}

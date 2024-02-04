@@ -1,6 +1,6 @@
 .landing-header {
   width: 100%;
-  height: 112.6rem;
+  height: 100vh;
 
   &-body {
     @include flexbox(start, center);
@@ -16,6 +16,15 @@
     width: 140.6rem;
     height: 100vh;
 
+    @include responsive(T) {
+      padding-right: 10rem;
+      padding-left: 10rem;
+    }
+    @include responsive(M) {
+      padding-right: 25rem;
+      padding-left: 7rem;
+    }
+
     p:nth-child(2) {
       color: $primary;
     }
@@ -26,5 +35,6 @@
     right: 0;
     margin-left: 50.5rem;
     height: 100vh;
+    width: 100%;
   }
 }

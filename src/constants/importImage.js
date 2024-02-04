@@ -19,6 +19,7 @@ import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
 import ImageHeaderBackground from 'public/images/landing-header-background.png';
 import ImageBodyBackground from 'public/images/landing-body-background.png';
+import ImageOverviewBackground from 'public/images/landing-overview-background.png';
 import IconLandingDarkMode from 'public/svg/ic-landing-darkmode.svg';
 import IconLandingDashboard from 'public/svg/ic-landing-dashboard.svg';
 import IconLandingDevice from 'public/svg/ic-landing-device.svg';
@@ -128,6 +129,28 @@ export const ICON = {
     body: {
       url: ImageBodyBackground,
       alt: 'img-background-body',
+    },
+    overview: {
+      darkmode: {
+        url: ImageOverviewBackground,
+        alt: 'ic-landing-darkmode',
+      },
+      dashboard: {
+        url: ImageOverviewBackground,
+        alt: 'ic-landing-dashboard',
+      },
+      device: {
+        url: ImageOverviewBackground,
+        alt: 'ic-landing-device',
+      },
+      invite: {
+        url: ImageOverviewBackground,
+        alt: 'ic-landing-invite',
+      },
+      thumbnail: {
+        url: ImageOverviewBackground,
+        alt: 'ic-landing-thumbnail',
+      },
     },
   },
   landing: {
