@@ -1,13 +1,14 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames/bind';
 import { ICON } from '@/constants/importImage';
-import LinkButton from '@/components/common/button/LinkButton';
 import styles from './landing.module.scss';
+import LandingNav from '@/components/landing/Nav';
+import LandingHeader from '@/components/landing/Header';
+import LandingFooter from '@/components/landing/Footer';
 
 const cx = classNames.bind(styles);
-const { logo, background, landing } = ICON;
+const { background, landing } = ICON;
 
 export default function Home() {
   return (
@@ -22,54 +23,8 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className={cx('landing')}>
-        <nav className={cx('landing-nav')}>
-          <Link href='/'>
-            <Image
-              src={logo.url}
-              alt={logo.alt}
-              priority={true}
-              width={153}
-              height={24}
-            />
-          </Link>
-          <div className={cx('landing-nav-login')}>
-            <LinkButton
-              path='/login'
-              buttonType='base'
-              size='lg'
-              variant='primary'
-              type='button'
-              text='sign in'
-              outline
-            />
-            <LinkButton
-              path='/signup'
-              buttonType='base'
-              size='lg'
-              variant='outline'
-              type='button'
-              text='sign up'
-            />
-          </div>
-        </nav>
-        <header className={cx('landing-header')}>
-          <div className={cx('landing-header-background')}>
-            <Image
-              src={background.header.url}
-              alt={background.header.alt}
-              priority={true}
-              width={1415}
-              height={1080}
-            />
-          </div>
-          <div className={cx('landing-header-body')}>
-            <div>
-              <p>The Smartest Way</p>
-              <p>To Manage Projects</p>
-              <p>With Your Team</p>
-            </div>
-          </div>
-        </header>
+        <LandingNav />
+        <LandingHeader />
         <div className={cx('landing-body')}>
           <div className={cx('landing-body-title')}>
             <p>Powerful</p>
@@ -210,41 +165,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <footer className={cx('landing-footer')}>
-          <div className={cx('landing-footer-body')}>
-            <span>©TickyTocky - 2024</span>
-            <div className={cx('landing-footer-policy')}>
-              <span>Privacy Policy</span>
-              <span>FAQ</span>
-            </div>
-            <div className={cx('landing-footer-links')}>
-              <Link href='https://gmail.com/' target='_blank'>
-                <Image
-                  src={landing.email.url}
-                  width={20}
-                  height={20}
-                  alt={landing.email.alt}
-                />
-              </Link>
-              <Link href='https://www.facebook.com/' target='_blank'>
-                <Image
-                  src={landing.facebook.url}
-                  width={22}
-                  height={22}
-                  alt={landing.facebook.alt}
-                />
-              </Link>
-              <Link href='https://www.instagram.com/' target='_blank'>
-                <Image
-                  src={landing.instagram.url}
-                  width={22}
-                  height={22}
-                  alt={landing.instagram.alt}
-                />
-              </Link>
-            </div>
-          </div>
-        </footer>
+        <LandingFooter />
       </div>
     </>
   );

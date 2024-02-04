@@ -1,0 +1,17 @@
+.landing-nav {
+  @include inline-flexbox(between, center);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem 4.8rem;
+  z-index: $header-level;
+
+  @include responsive(M) {
+    padding: 2rem 3rem;
+  }
+
+  &-login {
+    @include inline-flexbox($gap: 1.2rem);
+  }
+}
