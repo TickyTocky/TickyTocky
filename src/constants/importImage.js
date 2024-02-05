@@ -7,6 +7,7 @@ import IconNavActive from 'public/svg/ic-nav-active.svg';
 import IconNav from 'public/svg/ic-nav.svg';
 import IconDelete from 'public/svg/ic-delete.svg';
 import IconArrowRight from 'public/svg/ic-arrow-right.svg';
+import IconArrowRightActive from 'public/svg/ic-arrow-right-active.svg';
 import IconLogo from 'public/svg/ic-logo.svg';
 import IconHome from 'public/svg/ic-home.svg';
 import IconSettings from 'public/svg/ic-settings.svg';
@@ -63,8 +64,14 @@ export const ICON = {
     alt: 'icon-delete',
   },
   arrowRight: {
-    url: IconArrowRight,
-    alt: 'icon-arrow-right',
+    default: {
+      url: IconArrowRight,
+      alt: 'icon-arrow-right',
+    },
+    active: {
+      url: IconArrowRightActive,
+      alt: 'icon-arrow-right-active',
+    },
   },
   logo: {
     url: IconLogo,
