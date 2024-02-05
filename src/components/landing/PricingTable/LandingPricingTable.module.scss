@@ -7,6 +7,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+
+  @include responsive(M) {
+    width: 100%;
+  }
 }
 
 .pricing-options {
@@ -19,9 +23,15 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 4rem;
+    width: 100%;
+    padding: 0 1.5rem;
   }
 
   & .pricing-option {
+    @include responsive(M) {
+      width: 100%;
+    }
+
     width: 38.4rem;
     height: 43.4rem;
     flex-shrink: 0;
@@ -37,8 +47,12 @@
       transform: translateY(-1.6rem);
     }
 
+    .pricing-option-plan {
+      font-weight: 600;
+    }
+
     & .pricing-option-price {
-      font-size: 3rem;
+      font-size: 2.8rem;
 
       & span {
         font-size: 1.6rem;
@@ -47,8 +61,14 @@
     }
 
     ul {
+      @include responsive(M) {
+        @include column-flexbox(center, start, 1rem);
+
+        margin-left: 4rem;
+      }
+
       list-style-type: disc;
-      margin-left: 20px;
+      margin-left: 2rem;
       padding-left: 0;
       font-size: 2.4rem;
       line-height: 150%;

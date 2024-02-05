@@ -5,8 +5,8 @@ import LandingNav from '@/components/landing/Nav';
 import LandingHeader from '@/components/landing/Header';
 import LandingFooter from '@/components/landing/Footer';
 import LandingFeaturesOverview from '@/components/landing/FeaturesOverview';
-import LandingDetailedFeatures from '@/components/landing/DetailedFeatures';
 import LandingPricingTable from '@/components/landing/PricingTable';
+import LandingDetailedFeatures from '@/components/landing/DetailedFeatures';
 
 const cx = classNames.bind(styles);
 

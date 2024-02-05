@@ -48,10 +48,12 @@ function LandingFeaturesOverview() {
     }, 50);
   };
 
-  console.log(background.overview[activeButton].url);
-
   return (
     <div className={cx('overview')}>
+      <div className={cx('overview-title')}>
+        <p>Powerful</p>
+        <p>Collaboration Features</p>
+      </div>
       <ul className={cx('overview-sidebar')}>
         {buttonsWithDescriptions.map((button, index) => (
           <li
@@ -73,22 +75,60 @@ function LandingFeaturesOverview() {
         ))}
       </ul>
       <div className={cx('overview-content')}>
-        <Image
-          src={background.body.url}
-          alt={background.body.alt}
-          layout='fill'
-          objectFit='cover'
-          // width={500} // 원본 이미지의 가로 크기
-          // height={300}
-          // layout='responsive'
-        />
-        <div className={cx('overview-content-gradient')}></div>
+        {activeButton === 'invite' && (
+          <div className={cx('overview-content-description')}>
+            <h2>Invite Members</h2>
+            <div>
+              - Invite your colleagues to collaborate. Share access to project boards and
+              get real-time feedback. Invitations can be managed easily, ensuring no
+              accidental access.
+            </div>
+          </div>
+        )}
+        {activeButton === 'thumbnail' && (
+          <div className={cx('overview-content-description')}>
+            <h2>Custom Visuals</h2>
+            <div>
+              - Personalize your project`&apos;`s appearance. Create custom thumbnails for
+              your tasks to enhance visual recognition and project branding.
+            </div>
+          </div>
+        )}
+        {activeButton === 'darkmode' && (
+          <div className={cx('overview-content-description')}>
+            <h2>Visual Comfort</h2>
+            <div>
+              - dark mode to reduce eye strain. A darker interface for better focus during
+              different times of the day or in varied lighting conditions.
+            </div>
+          </div>
+        )}
+        {activeButton === 'device' && (
+          <div className={cx('overview-content-description')}>
+            <h2>Multi-Device Sync</h2>
+            <div>
+              - Stay connected and updated. Our platform syncs seamlessly across all
+              devices, ensuring you have access to your projects anytime, anywhere.
+            </div>
+          </div>
+        )}
+        {activeButton === 'dashboard' && (
+          <div className={cx('overview-content-description')}>
+            <h2>Centralized Control</h2>
+            <div>
+              - Monitor project progress with ease. The dashboard provides a comprehensive
+              view of all tasks and statuses, facilitating better project management.
+            </div>
+          </div>
+        )}
         <div className={cx('overview-content-feature', animationClass)}>
           <Image
             src={background.overview[activeButton].url}
             alt={background.overview[activeButton].alt}
-            height={705}
-            width={1255}
+            // width={960}
+            // height={540}
+            layout='fill'
+            objectFit='cover'
             className={cx('overview-content-feature-img')}
           />
         </div>

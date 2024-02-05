@@ -28,6 +28,9 @@ import IconLandingThumbnail from 'public/svg/ic-landing-thumbnail.svg';
 import IconLandingEmail from 'public/svg/ic-landing-email.svg';
 import IconLandingFacebook from 'public/svg/ic-landing-facebook.svg';
 import IconLandingInstagram from 'public/svg/ic-landing-instagram.svg';
+import IconLandingOverviewInvite from 'public/images/landing-overview-invite.png';
+import IconLandingOverviewThumbnail from 'public/images/landing-overview-thumbnail.jpg';
+import IconLandingOverviewDashboard from 'public/images/landing-overview-dashboard.jpg';
 
 export const IMAGE = {
   uploadImage: {
@@ -133,23 +136,23 @@ export const ICON = {
     overview: {
       darkmode: {
         url: ImageOverviewBackground,
-        alt: 'ic-landing-darkmode',
+        alt: 'ic-landing-overview-darkmode',
       },
       dashboard: {
-        url: ImageOverviewBackground,
-        alt: 'ic-landing-dashboard',
+        url: IconLandingOverviewDashboard,
+        alt: 'ic-landing-overview-dashboard',
       },
       device: {
         url: ImageOverviewBackground,
-        alt: 'ic-landing-device',
+        alt: 'ic-landing-overview-device',
       },
       invite: {
-        url: ImageOverviewBackground,
-        alt: 'ic-landing-invite',
+        url: IconLandingOverviewInvite,
+        alt: 'ic-landing-overview-invite',
       },
       thumbnail: {
-        url: ImageOverviewBackground,
-        alt: 'ic-landing-thumbnail',
+        url: IconLandingOverviewThumbnail,
+        alt: 'ic-landing-overview-thumbnail',
       },
     },
   },

@@ -23,10 +23,18 @@ const LandingDetailedFeatures = () => (
       <h2>Flexible Task Status Updates</h2>
       <div>- Easily change the status of tasks with drag and drop!</div>
       <div>- Arrange your work cards freely according to the priority of the tasks.</div>
+      <div>
+        - Track progress visually with color-coded status indicators for immediate
+        understanding.
+      </div>
     </div>
     <div className={cx('landing-fucntion')}>
       <h2>Organize Tasks with Tags</h2>
       <div>- Add appropriate tags to each task for effective differentiation!</div>
+      <div>- Utilize filter options to quickly find tasks by their assigned tags.</div>
+      <div>
+        - Customized tag colors for visual categorization and easier identification.
+      </div>
     </div>
     <div className={cx('landing-fucntion')}>
       <h2>Design Accessible to Everyone</h2>
@@ -37,6 +45,10 @@ const LandingDetailedFeatures = () => (
       <div>
         - Its intuitive and clean design allows you to apply it to your work right away,
         with no separate learning curve.
+      </div>
+      <div>
+        - Supports responsive design, making it accessible on various devices and screen
+        sizes.
       </div>
     </div>
   </div>
