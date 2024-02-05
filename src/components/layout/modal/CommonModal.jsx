@@ -1,7 +1,7 @@
 import ReactModal from 'react-modal';
 import classNames from 'classnames/bind';
-import styles from './Modal.module.scss';
 import KebabDropDown from '@/components/common/KebabDropDown';
+import styles from './Modal.module.scss';
 
 const cx = classNames.bind(styles);
 
