@@ -12,6 +12,7 @@ $red: #f34642;
 
 // Grayscale
 $black: #151419;
+$black10: #060606;
 $white: #f3f3f3;
 $white5: #ffffff0d;
 $gray90: #1a191f;
@@ -24,10 +25,15 @@ $gray30: #6a6d81;
 $gray20: #888ca7;
 $gray10: #e0e0e0;
 
+// opacity
+$opacity-black-60: rgba(0 0 0 / 60%);
+$opacity-white-5: rgba(255 255 255 / 5%);
+
 // Specific color
 $nav-background: $black;
 $modal-background: $gray90;
 $column-background: $gray80;
 $stroke: $gray70;
 $card-background: $gray60;
-$tag-background: $white5;
+$tag-background: $opacity-white-5;
+$landing-background: $black10;
