@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Container.module.scss';
-import Board from '../Board';
+import Board from '@/components/layout/Board';
 
 const cx = classNames.bind(styles);
 

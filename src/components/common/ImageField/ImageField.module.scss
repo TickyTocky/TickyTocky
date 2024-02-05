@@ -1,0 +1,52 @@
+.image-field {
+  cursor: pointer;
+
+  &-label {
+    @include text-style(18, $gray20);
+
+    padding-bottom: 0.8rem;
+  }
+
+  &-input {
+    position: relative;
+    width: 16rem;
+    height: 16rem;
+    background-color: $gray70;
+    border: 0.1rem solid $gray60;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    transition: $base-transition;
+
+    &-thumbnail {
+      @include image-fit;
+    }
+
+    &-overlay {
+      @include flexbox;
+
+      opacity: 0;
+      position: absolute;
+      inset: 0;
+      background-color: rgba($color: #000, $alpha: 60%);
+      transition: $base-transition;
+
+      .button-add-image {
+        @include flexbox;
+
+        cursor: pointer;
+        width: 4rem;
+        height: 4rem;
+        background-color: rgba($color: #000, $alpha: 80%);
+        border-radius: 50%;
+      }
+
+      .input-hidden {
+        display: none;
+      }
+    }
+
+    &:hover .image-field-input-overlay {
+      opacity: 1;
+    }
+  }
+}

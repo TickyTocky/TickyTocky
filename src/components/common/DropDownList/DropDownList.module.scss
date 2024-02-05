@@ -1,15 +1,9 @@
 .dropdownlist {
   position: absolute;
-  top: 4.8rem;
+  top: 4.2rem;
   right: 0;
   width: 12rem;
-  overflow: hidden;
   transition: max-height 0.5s ease-in-out;
-
-  &.close {
-    border: none;
-    transition: $base-transition;
-  }
 
   &-list {
     @include column-flexbox(start, center, 0.4rem);

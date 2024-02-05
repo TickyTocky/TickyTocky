@@ -1,3 +1,4 @@
+import ImageUpload from 'public/images/img-upload.jpg';
 import IconAdd from 'public/svg/ic-add.svg';
 import IconAddActive from 'public/svg/ic-add-active.svg';
 import IconLogout from 'public/svg/ic-logout.svg';
@@ -16,6 +17,15 @@ import IconArrowDownDefault from 'public/svg/ic-arrow-down-default.svg';
 import IconArrowDownActive from 'public/svg/ic-arrow-down-active.svg';
 import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
+import IconCalendarActive from 'public/svg/ic-calendar.svg';
+import IconCalendar from 'public/svg/ic-calendar-default.svg';
+
+export const IMAGE = {
+  uploadImage: {
+    url: ImageUpload,
+    alt: 'upload-image',
+  },
+};
 
 export const ICON = {
   add: {
@@ -101,5 +111,15 @@ export const ICON = {
   kebab: {
     url: IconKebab,
     alt: 'icon-kebab',
+  },
+  calendar: {
+    default: {
+      url: IconCalendar,
+      alt: 'calendar-icon',
+    },
+    active: {
+      url: IconCalendarActive,
+      alt: 'calendar-icon',
+    },
   },
 };

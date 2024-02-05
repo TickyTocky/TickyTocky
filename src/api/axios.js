@@ -15,13 +15,15 @@ instance.interceptors.request.use(
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
-
     return config;
   },
-  (error) => {
-    console.error(error);
-    return Promise.reject(error.response);
+  (e) => {
+    Promise.reject(e);
   }
 );
 
+instance.interceptors.response.use(
+  (response) => response,
+  (e) => Promise.reject(e)
+);
 export default instance;
