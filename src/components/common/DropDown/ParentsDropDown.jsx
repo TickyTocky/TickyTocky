@@ -2,13 +2,14 @@ import DropDown from '.';
 import { useState } from 'react';
 import { data } from '@/constants/mock-columnlist.json';
 import { members } from '@/constants/mock-assignees.json';
-import { list } from '@/constants/mock-timeline.json';
 
 const ParentsDropDown = () => {
   const [assigneeId, setAssigneeId] = useState(null);
   const [columnId, setColumnId] = useState(null);
 
-  const onClickInput = () => {};
+  const onClickInput = (value) => {
+    console.log(value);
+  };
 
   return (
     <>
@@ -24,7 +25,7 @@ const ParentsDropDown = () => {
         listValue={assigneeId}
         setListValue={setAssigneeId}
       />
-      <DropDown timeLineData={list} onClickInput={onClickInput} type='timeline' />
+      <DropDown onClickInput={onClickInput} type='timeline' />
     </>
   );
 };
