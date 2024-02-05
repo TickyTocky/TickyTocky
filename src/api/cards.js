@@ -14,7 +14,9 @@ const Cards = {
   },
 
   getList: async (columnId) => {
-    const res = await instance.get(CARD_API, { params: { columnId } });
+    const res = await instance.get(CARD_API, {
+      params: { size: 100, columnId: columnId },
+    });
     if (res.status === 200) {
       useCardStore.setState((prev) => ({
         ...prev,
