@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import ReactModal from 'react-modal';
 import classNames from 'classnames/bind';
-import styles from './modal.module.scss';
+import styles from './Modal.module.scss';
 
 const cx = classNames.bind(styles);
 
