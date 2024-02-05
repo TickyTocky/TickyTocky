@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import useToggleButton from '@/hooks/useToggleButton';
 import { PASSWORD_SHOW_MODE, USER_INPUT_VALIDATION } from '@/constants';
 import styles from './InputField.module.scss';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -24,14 +25,16 @@ const InputField = ({
     setValue,
   } = useFormContext();
 
-  setValue(name, defaultValue);
-
   const { regex, errorMessage } = USER_INPUT_VALIDATION[name] || {};
   const { iconEye, inputType, showMode } = isVisible
     ? PASSWORD_SHOW_MODE.on
     : PASSWORD_SHOW_MODE.off;
 
   const isError = !!errors[name]?.message;
+
+  useEffect(() => {
+    setValue(name, defaultValue);
+  }, []);
 
   return (
     <div className={cx('input-field')}>
