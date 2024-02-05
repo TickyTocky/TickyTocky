@@ -1,0 +1,18 @@
+.layout {
+  @include flexbox(start, start);
+
+  overflow: hidden;
+
+  &-nav {
+    @include no-scrollbar;
+
+    width: 7.2rem;
+    min-height: 100vh;
+    overflow-y: scroll;
+    background: aqua;
+  }
+
+  &-container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,33 @@
+.board {
+  width: 100%;
+  height: calc(100vh - 7rem);
+
+  &-header {
+    @include flexbox(between);
+
+    width: 100%;
+    height: 6rem;
+    padding: 0 3.2rem;
+    background: orange;
+  }
+
+  &-content {
+    width: 100%;
+    min-height: calc(100vh - 13rem);
+    padding: 3.2rem;
+    overflow-x: scroll;
+  }
+}
+
+.column-list {
+  @include flexbox;
+
+  background-color: $gray80;
+  overflow-x: auto;
+
+  &-item {
+    @include column-flexbox(between);
+
+    width: 35.4rem;
+  }
+}
