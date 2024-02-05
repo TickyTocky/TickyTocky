@@ -7,14 +7,24 @@ import styles from './InputField.module.scss';
 
 const cx = classNames.bind(styles);
 
-const InputField = ({ label, name, type = 'text', isRequired = false, ...props }) => {
+const InputField = ({
+  label,
+  name,
+  type = 'text',
+  isRequired = false,
+  defaultValue = '',
+  ...props
+}) => {
   const { isVisible, handleToggleClick } = useToggleButton();
 
   const {
     register,
     formState: { errors },
     getValues,
+    setValue,
   } = useFormContext();
+
+  setValue(name, defaultValue);
 
   const { regex, errorMessage } = USER_INPUT_VALIDATION[name] || {};
   const { iconEye, inputType, showMode } = isVisible

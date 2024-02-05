@@ -18,6 +18,8 @@ import IconArrowDownDefault from 'public/svg/ic-arrow-down-default.svg';
 import IconArrowDownActive from 'public/svg/ic-arrow-down-active.svg';
 import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
+import IconCalendarActive from 'public/svg/ic-calendar.svg';
+import IconCalendar from 'public/svg/ic-calendar-default.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -116,5 +118,15 @@ export const ICON = {
   kebab: {
     url: IconKebab,
     alt: 'icon-kebab',
+  },
+  calendar: {
+    default: {
+      url: IconCalendar,
+      alt: 'calendar-icon',
+    },
+    active: {
+      url: IconCalendarActive,
+      alt: 'calendar-icon',
+    },
   },
 };
