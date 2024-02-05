@@ -7,9 +7,7 @@ const ParentsDropDown = () => {
   const [assigneeId, setAssigneeId] = useState(null);
   const [columnId, setColumnId] = useState(null);
 
-  const onClickInput = (value) => {
-    console.log(value);
-  };
+  const onClickInput = () => {};
 
   return (
     <>
