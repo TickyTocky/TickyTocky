@@ -1,0 +1,13 @@
+.container {
+  @include flexbox($gap: 0.4rem);
+
+  width: 35.4rem;
+  height: 100%;
+  background-color: $black;
+  border: 0.2rem dashed $gray70;
+  border-radius: 1.6rem;
+}
+
+.text {
+  @include text-style(16, $gray40);
+}
