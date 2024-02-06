@@ -20,6 +20,10 @@
 
   background-color: $primary;
 
+  &.btn-lg20 {
+    @include text-style(20, $gray70, bold);
+  }
+
   &.btn-xl,
   &.btn-lg {
     @include text-style(16, $gray70, bold);
@@ -42,6 +46,10 @@
 
 .btn-secondary {
   @extend %btn-base;
+
+  &.btn-lg20 {
+    @include text-style(20, $primary, bold);
+  }
 
   &.btn-xl,
   &.btn-lg {
@@ -86,6 +94,10 @@
 .btn-ghost {
   @extend %btn-base;
 
+  &.btn-lg20 {
+    @include text-style(20, $gray10, bold);
+  }
+
   &.btn-xl,
   &.btn-lg {
     @include text-style(16, $gray10, bold);
@@ -110,6 +122,10 @@
 
 .btn-outline {
   @extend %btn-base;
+
+  &.btn-lg20 {
+    @include text-style(20, $gray40, bold);
+  }
 
   &.btn-xl,
   &.btn-lg {
@@ -153,6 +169,10 @@
 
 .btn-remove {
   @extend %btn-base;
+
+  &.btn-lg20 {
+    @include text-style(20, $red, bold);
+  }
 
   &.btn-xl,
   &.btn-lg {
@@ -200,7 +220,8 @@
     width: 100%;
   }
 
-  &-lg {
+  &-lg,
+  &-lg20 {
     height: 4.8rem;
 
     &-text {
