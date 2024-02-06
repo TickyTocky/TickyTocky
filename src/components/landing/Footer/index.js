@@ -16,23 +16,12 @@ const LandingFooter = () => (
         <span>FAQ</span>
       </div>
       <div className={cx('landing-footer-links')}>
-        <Link href='https://gmail.com/' target='_blank'>
-          <Image src={landing.email.url} width={20} height={20} alt={landing.email.alt} />
-        </Link>
-        <Link href='https://www.facebook.com/' target='_blank'>
+        <Link href='https://github.com/TickyTocky' target='_blank'>
           <Image
-            src={landing.facebook.url}
-            width={22}
-            height={22}
-            alt={landing.facebook.alt}
-          />
-        </Link>
-        <Link href='https://www.instagram.com/' target='_blank'>
-          <Image
-            src={landing.instagram.url}
-            width={22}
-            height={22}
-            alt={landing.instagram.alt}
+            src={landing.github.url}
+            width={25}
+            height={25}
+            alt={landing.github.alt}
           />
         </Link>
       </div>

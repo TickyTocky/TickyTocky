@@ -6,13 +6,50 @@
   width: 100%;
   padding: 2rem 4.8rem;
   z-index: $header-level;
-  background: linear-gradient(180deg, #000 28.88%, rgba(0 0 0 / 0%) 100%);
+  backdrop-filter: blur(5px);
+  background-color: transparent;
 
   @include responsive(M) {
     padding: 2rem 3rem;
   }
+}
 
-  &-login {
-    @include inline-flexbox($gap: 1.2rem);
+.landing-nav-login {
+  @include inline-flexbox($gap: 1.2rem);
+}
+
+.landing-nav-loginbutton {
+  @include flexbox;
+  @include text-style(20, $white, bold);
+
+  height: 4.8rem;
+  width: 12rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid $primary;
+  padding: 0.8rem 0.6rem;
+  line-height: 150%;
+  transition: $base-transition;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.landing-nav-signupbutton {
+  @include flexbox;
+  @include text-style(20, $primary, bold);
+
+  height: 4.8rem;
+  width: 12rem;
+  border-radius: 0.6rem;
+  background: $black;
+  border: 0.1rem solid $black;
+  color: $primary;
+  padding: 0.8rem 0.6rem;
+  line-height: 150%;
+  transition: $base-transition;
+
+  &:hover {
+    border: 0.1rem solid $primary;
   }
 }
