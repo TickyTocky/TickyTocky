@@ -19,6 +19,9 @@ import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
 import IconCalendarActive from 'public/svg/ic-calendar.svg';
 import IconCalendar from 'public/svg/ic-calendar-default.svg';
+import IconPageArrowRight from 'public/svg/ic-page-arrow-right.svg';
+import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
+import IconColorize from 'public/svg/ic-colorize.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -67,6 +70,16 @@ export const ICON = {
   arrowRight: {
     url: IconArrowRight,
     alt: 'icon-arrow-right',
+  },
+  page: {
+    arrowRight: {
+      url: IconPageArrowLeft,
+      alt: 'icon-page-arrow-left',
+    },
+    arrowLeft: {
+      url: IconPageArrowRight,
+      alt: 'icon-page-arrow-right',
+    },
   },
   logo: {
     url: IconLogo,
@@ -121,5 +134,9 @@ export const ICON = {
       url: IconCalendarActive,
       alt: 'calendar-icon',
     },
+  },
+  colorize: {
+    url: IconColorize,
+    alt: 'colorize-icon',
   },
 };
