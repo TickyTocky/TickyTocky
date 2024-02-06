@@ -6,6 +6,7 @@
   width: 100%;
   padding: 2rem 4.8rem;
   z-index: $header-level;
+  background: linear-gradient(180deg, #000 28.88%, rgba(0 0 0 / 0%) 100%);
 
   @include responsive(M) {
     padding: 2rem 3rem;

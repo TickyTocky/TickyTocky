@@ -64,10 +64,11 @@ function LandingFeaturesOverview() {
             onClick={() => changeImageAndDescription(button)}
           >
             <Image
+              className={cx('overview-sidebar-button-icon')}
               src={landing[button.id].url}
               alt={landing[button.id].alt}
-              width={60}
-              height={60}
+              width={50}
+              height={50}
               layout='fixed'
             />
             <p className={cx('overview-sidebar-description')}>{button.description}</p>
@@ -128,7 +129,7 @@ function LandingFeaturesOverview() {
             // width={960}
             // height={540}
             layout='fill'
-            objectFit='cover'
+            objectFit='contain'
             className={cx('overview-content-feature-img')}
           />
         </div>

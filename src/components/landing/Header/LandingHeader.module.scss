@@ -19,10 +19,12 @@
     @include responsive(T) {
       padding-right: 10rem;
       padding-left: 10rem;
+      width: 120rem;
     }
     @include responsive(M) {
       padding-right: 25rem;
       padding-left: 7rem;
+      width: 100rem;
     }
 
     p:nth-child(2) {
@@ -35,6 +37,6 @@
     right: 0;
     margin-left: 50.5rem;
     height: 100vh;
-    width: 100%;
+    width: 75%;
   }
 }

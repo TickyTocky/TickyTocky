@@ -1,11 +1,3 @@
-// &:hover {
-//   transform: scale(1.3);
-//   color: $gray10;
-//   transition: $base-transition;
-//   filter: brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(389%)
-//     hue-rotate(105deg) brightness(95%) contrast(94%);
-// }
-
 .overview {
   @include column-flexbox($gap: 3.4rem);
 
@@ -29,9 +21,9 @@
 }
 
 .overview-sidebar {
-  @include inline-flexbox(center, center, 8rem);
+  @include inline-flexbox(center, center, 1rem);
 
-  padding: 3rem 7rem;
+  padding: 3rem;
   border-radius: 3.2rem;
   background: $opacity-white-5;
   backdrop-filter: blur(3rem);
@@ -40,12 +32,14 @@
 .overview-sidebar-button {
   @include column-flexbox(center, center, 0.8rem);
 
+  width: 14rem;
+  height: 8rem;
+
   &.active {
-    transform: scale(1.3);
-    color: $gray10;
-    transition: $base-transition;
     filter: brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(389%)
       hue-rotate(105deg) brightness(95%) contrast(94%);
+    color: $gray10;
+    transition: $base-transition;
   }
 }
 
@@ -61,11 +55,6 @@
     @include column-flexbox(center, center);
   }
 
-  // flex-wrap: wrap;
-  // width: 100%;
-  // height: 50vh;
-
-  // overflow: hidden;
   width: 100%;
   height: auto;
   -webkit-box-align: stretch;
@@ -87,23 +76,22 @@
   & h2 {
     font-size: 4rem;
   }
+
   & div {
     font-size: 3rem;
   }
 }
 
 .overview-content-feature {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  // width: 960px;
-  // height: 540px;
-  // margin-right: 5rem;
   @include responsive(M) {
     width: 700px;
     height: 480px;
     margin-right: 0;
   }
+
+  position: relative;
+  width: 100%;
+  height: 70vh;
 }
 
 .overview-content-feature-img {
