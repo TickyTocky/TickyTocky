@@ -17,7 +17,7 @@ import { INIT_CARD_DATA } from '@/constants/initialDataType';
 import styles from './CardItem.module.scss';
 
 const cx = classNames.bind(styles);
-const { calendar, delete: remove } = ICON;
+const { calendar, remove } = ICON;
 
 const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
   const { data } = useAsync(() => Cards.get(id), INIT_CARD_DATA);
