@@ -5,7 +5,7 @@ import CardItem from '@/components/cards/CardItem';
 import AddCardButton from '@/components/columns/AddCardButton';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import IconModal from '@/components/layout/modal/IconModal';
-import CreateCrad from '@/components/dashboard/modal/card/CreateCard';
+import CreateCard from '@/components/dashboard/modal/card/CreateCard';
 import EditColumn from '@/components/dashboard/modal/column/EditColumn';
 import DeleteColumn from '@/components/dashboard/modal/column/DeleteColumn';
 import useAsync from '@/hooks/useAsync';
@@ -22,8 +22,9 @@ const Column = ({ id: columnId, title, dashboardId }) => {
   const { data } = useAsync(() => Cards.getList(columnId), INIT_CARDS_DATA);
   const { isVisible, handleToggleClick } = useToggleButton();
   const { modalState, toggleModal } = useModalState([
-    3,
-    ['editColumnModal', 'deleteColumnModal', 'addCardModal'],
+    'editColumnModal',
+    'deleteColumnModal',
+    'addCardModal',
   ]);
 
   const handleIconClick = (value) => {
@@ -74,7 +75,7 @@ const Column = ({ id: columnId, title, dashboardId }) => {
         isModalOpen={modalState.deleteColumnModal}
         closeModal={() => toggleModal('deleteColumnModal')}
         title='Are you sure'
-        desc='You wanna delete this?'
+        desc='This action cannot be undone.'
         iconName={{ url: remove.url, alt: remove.alt }}
         iconSize='58'
       >
@@ -89,7 +90,7 @@ const Column = ({ id: columnId, title, dashboardId }) => {
         closeModal={() => toggleModal('addCardModal')}
         label='Add Card'
       >
-        <CreateCrad columnTitle={title} />
+        <CreateCard columnTitle={title} />
       </CommonModal>
     </>
   );
