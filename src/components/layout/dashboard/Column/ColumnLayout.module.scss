@@ -1,3 +1,3 @@
 .container {
-  @include flexbox($jc: stretch, $ai: stretch, $gap: 2.4rem);
+  @include flexbox(stretch, stretch, 2.4rem);
 }

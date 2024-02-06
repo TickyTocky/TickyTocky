@@ -1,6 +1,4 @@
 .container {
-  @include column-flexbox($jc: stretch, $ai: stretch);
-
   position: relative;
   width: 35.4rem;
   max-height: 100%;
@@ -46,7 +44,7 @@
 }
 
 .cards-list {
-  @include column-flexbox($jc: stretch, $ai: stretch, $gap: 1.6rem);
+  @include column-flexbox(stretch, stretch, 1.6rem);
   @include no-scrollbar;
   @include responsive(M) {
     max-height: 45rem;
