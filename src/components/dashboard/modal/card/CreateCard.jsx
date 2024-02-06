@@ -10,7 +10,7 @@ import styles from './CreateCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-const CreateCrad = ({ columnTitle }) => {
+const CreateCard = ({ columnTitle }) => {
   const { tagList, setTagList } = useTagList();
 
   return (
@@ -46,4 +46,4 @@ const CreateCrad = ({ columnTitle }) => {
   );
 };
 
-export default CreateCrad;
+export default CreateCard;
