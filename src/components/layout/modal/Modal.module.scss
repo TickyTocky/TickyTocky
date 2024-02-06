@@ -1,9 +1,4 @@
 %modal-base {
-  @include pos-center;
-  @include responsive(M);
-
-  width: 100%;
-  margin: 0 1.5rem;
   background-color: $modal-background;
   border: 0.2rem solid $gray70;
   border-radius: 1.6rem;
@@ -12,9 +7,21 @@
 }
 
 %overlay-base {
+  @include flexbox;
+
   position: fixed;
   inset: 0;
   outline: none;
+}
+
+@keyframes show-modal {
+  0% {
+    transform: translateY(2rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .icon-modal-overlay {
@@ -23,22 +30,36 @@
   z-index: $overlay-level;
 }
 
+.body-open {
+  overflow: hidden;
+}
+
 .modal-overlay {
   @extend %overlay-base;
 
-  background-color: rgba(0 0 0 / 60%);
+  background-color: $opacity-black-60;
   z-index: $modal-level;
+
+  @include responsive(M) {
+    padding: 0 1.5rem;
+  }
 }
 
 .common-modal-container {
   @extend %modal-base;
-  @include column-flexbox;
+  @include column-flexbox($gap: 2.4rem);
 
   min-width: 48.4rem;
-  padding: 3.2rem;
+  padding: 2.4rem;
+  animation: show-modal ease-in-out 0.4s;
+
+  @include responsive(M) {
+    min-width: 100%;
+    width: 100%;
+  }
 
   .modal-header-container {
-    @include flexbox($jc: between);
+    @include flexbox(between);
 
     width: 100%;
 
@@ -46,17 +67,22 @@
       @include flexbox($gap: 0.8rem);
 
       .column-title {
-        @include text-style-14;
+        @include text-style(14, $primary);
 
         padding: 0 0.8rem;
-        color: $primary;
-        background: rgba(255 255 255 / 5%);
+        background: $tag-background;
         border-radius: 0.4rem;
       }
 
       .card-title {
-        @include text-style-18;
+        @include text-style(18, $gray10, bold);
       }
+    }
+
+    .dropdown {
+      position: relative;
+      z-index: $modal-dropdown-level;
+      top: -0.2rem;
     }
   }
 
@@ -64,7 +90,6 @@
     @include text-style(24, $white, bold);
 
     margin-right: auto;
-    padding-bottom: 2.4rem;
   }
 }
 
@@ -73,6 +98,8 @@
 
   min-width: 36rem;
   padding: 3.2rem 0;
+  animation: show-modal ease-in-out 0.4s;
+  box-shadow: $dropdown-shadow;
 
   .wrapper {
     @include column-flexbox($gap: 2.4rem);

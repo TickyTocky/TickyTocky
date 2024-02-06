@@ -31,6 +31,8 @@ import IconLandingInstagram from 'public/svg/ic-landing-instagram.svg';
 import IconLandingOverviewInvite from 'public/images/landing-overview-invite.png';
 import IconLandingOverviewThumbnail from 'public/images/landing-overview-thumbnail.jpg';
 import IconLandingOverviewDashboard from 'public/images/landing-overview-dashboard.jpg';
+import IconCalendarActive from 'public/svg/ic-calendar.svg';
+import IconCalendar from 'public/svg/ic-calendar-default.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -188,6 +190,16 @@ export const ICON = {
     instagram: {
       url: IconLandingInstagram,
       alt: 'ic-landing-instagram',
+    },
+  },
+  calendar: {
+    default: {
+      url: IconCalendar,
+      alt: 'calendar-icon',
+    },
+    active: {
+      url: IconCalendarActive,
+      alt: 'calendar-icon',
     },
   },
 };

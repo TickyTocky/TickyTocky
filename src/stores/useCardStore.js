@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 const useCardStore = create(() => ({
-  cardList: null,
-  card: null,
+  cardList: [],
+  card: {},
   totalCount: 0,
 }));
 

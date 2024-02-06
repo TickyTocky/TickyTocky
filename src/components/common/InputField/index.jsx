@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import useToggleButton from '@/hooks/useToggleButton';
@@ -7,13 +8,21 @@ import styles from './InputField.module.scss';
 
 const cx = classNames.bind(styles);
 
-const InputField = ({ label, name, type = 'text', isRequired = false, ...props }) => {
+const InputField = ({
+  label,
+  name,
+  type = 'text',
+  isRequired = false,
+  defaultValue = '',
+  ...props
+}) => {
   const { isVisible, handleToggleClick } = useToggleButton();
 
   const {
     register,
     formState: { errors },
     getValues,
+    setValue,
   } = useFormContext();
 
   const { regex, errorMessage } = USER_INPUT_VALIDATION[name] || {};
@@ -22,6 +31,10 @@ const InputField = ({ label, name, type = 'text', isRequired = false, ...props }
     : PASSWORD_SHOW_MODE.off;
 
   const isError = !!errors[name]?.message;
+
+  useEffect(() => {
+    setValue(name, defaultValue);
+  }, []);
 
   return (
     <div className={cx('input-field')}>
