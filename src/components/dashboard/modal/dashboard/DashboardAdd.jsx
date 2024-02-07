@@ -16,7 +16,7 @@ const { colorize } = ICON;
 
 function DashboardAdd({ closeModal }) {
   const { handleSubmit } = useFormContext();
-  const { isOpen, togglePopup, popupRef } = usePopup();
+  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = usePopup();
   const { color, setColor, firstButtonRef, inputValue, COLOR_LIST, handleOnChange } =
     useDashboardAdd();
   const MAX_LENGTH = 20;
@@ -88,29 +88,32 @@ function DashboardAdd({ closeModal }) {
 
               <div className={cx('colorpicker-button-container')}>
                 <button
-                  className={cx('colorpicker-button-container-colorpicker-button')}
-                  onClick={togglePopup}
+                  ref={buttonRef}
+                  className={cx('colorpicker-button-container-colorpicker-button', {
+                    active: isOpen,
+                  })}
+                  onClick={isOpen ? closePopup : openPopup}
+                  type='button'
                 >
                   <Image src={colorize.url} alt={colorize.alt} width={24} height={24} />
                 </button>
-
-                <div
-                  ref={popupRef}
-                  className={cx('colorpicker-button-container-modal-container', {
-                    visible: isOpen,
-                  })}
-                >
-                  <label
-                    className={cx('colorpicker-button-container-modal-container-label')}
+                {isOpen && (
+                  <div
+                    ref={popupRef}
+                    className={cx('colorpicker-button-container-modal-container')}
                   >
-                    Color Picker
-                  </label>
-                  <HexAlphaColorPicker
-                    style={{ width: '25.2rem', height: '25.2rem' }}
-                    color='#37E8B4'
-                    onChange={setColor}
-                  />
-                </div>
+                    <label
+                      className={cx('colorpicker-button-container-modal-container-label')}
+                    >
+                      Color Picker
+                    </label>
+                    <HexAlphaColorPicker
+                      style={{ width: '25.2rem', height: '25.2rem' }}
+                      color='#37E8B4'
+                      onChange={setColor}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

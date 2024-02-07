@@ -134,13 +134,16 @@
       height: 4rem;
       border-radius: 50%;
       border: 0.1rem solid $gray60;
+
+      &.active {
+        border: 0.1rem solid $primary;
+      }
     }
 
     &-modal-container {
       @include column-flexbox($gap: 2.4rem);
 
       position: absolute;
-      display: none;
       left: 5rem;
       top: -13rem;
       transform: translate(0, -50%);
@@ -153,18 +156,15 @@
       box-shadow: $modal-shadow;
 
       @include responsive(T) {
+        top: -18rem;
         left: -12rem;
       }
 
       @include responsive(M) {
         width: 30rem;
         height: 30rem;
-        top: 0;
+        top: -15rem;
         left: -23.5rem;
-      }
-
-      &.visible {
-        display: flex;
       }
 
       &-label {
