@@ -9,6 +9,7 @@ import Dashboard from '@/api/dashboards';
 import usePopup from '@/hooks/usePopup';
 import useDashboardAdd from '@/hooks/useDashboardAdd';
 import { ICON } from '@/constants/importImage';
+import { COLOR_LIST } from '@/constants';
 import styles from './DashboardAdd.module.scss';
 
 const cx = classNames.bind(styles);
@@ -17,9 +18,10 @@ const { colorize } = ICON;
 function DashboardAdd({ closeModal }) {
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = usePopup();
-  const { color, setColor, firstButtonRef, inputValue, COLOR_LIST, handleOnChange } =
+  const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
     useDashboardAdd();
   const MAX_LENGTH = 20;
+  const DEFAULT_COLOR = '#37E8B4';
 
   const onSubmit = async (data) => {
     data.color = color;
@@ -109,7 +111,7 @@ function DashboardAdd({ closeModal }) {
                     </label>
                     <HexAlphaColorPicker
                       style={{ width: '25.2rem', height: '25.2rem' }}
-                      color='#37E8B4'
+                      color={DEFAULT_COLOR}
                       onChange={setColor}
                     />
                   </div>
@@ -126,9 +128,9 @@ function DashboardAdd({ closeModal }) {
           <div className={cx('button-container-button')}>
             <BaseButton
               type='submit'
-              size='xl'
-              text='Create'
               variant='secondary'
+              text='Create'
+              size='xl'
             ></BaseButton>
           </div>
         </div>

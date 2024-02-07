@@ -4,7 +4,6 @@ const useDashboardAdd = () => {
   const [color, setColor] = useState('');
   const [inputValue, setInputValue] = useState();
   const firstButtonRef = useRef();
-  const COLOR_LIST = ['#924BFF', '#406AFF', '#00A3FF', '#1FB387', '#FF862E', '#F34642'];
 
   const handleOnChange = (e) => {
     setInputValue(e.target.value);
@@ -28,7 +27,6 @@ const useDashboardAdd = () => {
     setColor,
     firstButtonRef,
     inputValue,
-    COLOR_LIST,
     handleOnChange,
     handleDefaultColorClick,
   };
