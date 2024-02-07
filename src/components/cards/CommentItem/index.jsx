@@ -9,8 +9,8 @@ import useUserStore from '@/stores/useUserStore';
 import useCommentStore from '@/stores/useCommentStore';
 import useInput from '@/hooks/useInput';
 import useAsync from '@/hooks/useAsync';
-import styles from './CommentItem.module.scss';
 import { getDiffDate } from '@/utils';
+import styles from './CommentItem.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -31,10 +31,12 @@ const CommentItem = ({ id, cardId, columnId, dashboardId }) => {
 
   const isCommentValue = !!value?.content?.length;
   const isEditPermission = author?.id === user?.id;
-
   const isUpdated = dayjs(updatedAt).diff(createdAt) !== 0;
 
-  const handleCommentEdit = () => setIsEdit(true);
+  const handleCommentEdit = () => {
+    setIsEdit(true);
+  };
+
   const handleCommentCancel = () => {
     setValue((prev) => ({ ...prev, content: content }));
     setIsEdit(false);
