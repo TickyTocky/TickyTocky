@@ -29,6 +29,13 @@ export const USER_INPUT_VALIDATION = {
       empty: 'Enter your nickname',
     },
   },
+  title: {
+    regex: /^[a-zA-Z ]{0,20}$|^[\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]{0,11}$/,
+    errorMessage: {
+      empty: 'Enter title',
+      invalid: 'Title is too long',
+    },
+  },
 };
 
 export const PASSWORD_SHOW_MODE = {

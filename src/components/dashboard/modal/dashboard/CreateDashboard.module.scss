@@ -1,0 +1,210 @@
+%figure-base {
+  position: relative;
+  width: 9.6rem;
+  height: 9.6rem;
+  overflow: hidden;
+  white-space: no-wrap;
+  text-align: center;
+  background: $gray60;
+}
+
+%dashboard-name-base {
+  @include text-style(14, $gray10, bold);
+}
+
+@keyframes show-modal {
+  0% {
+    transform: translateY(2rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.form {
+  @include column-flexbox($gap: 2.4rem);
+
+  width: 100%;
+}
+
+.modal-container {
+  @include column-flexbox($ai: start, $gap: 1.6rem);
+
+  width: 100%;
+  animation: show-modal ease-in-out 0.4s;
+
+  &-thumbnail-container {
+    @include flexbox($gap: 3.2rem);
+
+    width: 100%;
+    background: $black;
+    border-radius: 0.6rem;
+    height: 14.4rem;
+
+    &-figure-circle {
+      @extend %figure-base;
+
+      border-radius: 50%;
+    }
+
+    &-figure-square {
+      @extend %figure-base;
+
+      border-radius: 0.6rem;
+    }
+
+    .name {
+      @extend %dashboard-name-base;
+      @include pos-center;
+
+      width: 100%;
+    }
+  }
+
+  &-dashboard-name-input {
+    width: 100%;
+  }
+
+  &-add-color-container {
+    width: 100%;
+
+    &-label {
+      @include text-style(18, $gray20);
+
+      display: block;
+      padding-top: 2rem;
+      padding-bottom: 0.8rem;
+    }
+
+    &-color-palette-container {
+      @include flexbox($jc: between);
+
+      width: 100%;
+
+      @include responsive(M) {
+        flex-flow: row;
+      }
+
+      .color-palette {
+        @include flexbox($gap: 1.6rem);
+
+        padding-left: 0.6rem;
+
+        @include responsive(M) {
+          flex-wrap: wrap;
+          justify-content: start;
+        }
+
+        &-one-color {
+          width: 2.8rem;
+          height: 2.8rem;
+          border-radius: 50%;
+          position: relative;
+          transition: $base-transition;
+
+          &::after {
+            @include pos-center;
+
+            content: '';
+            display: none;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: 0.1rem solid $gray30;
+            transition: $base-transition;
+          }
+
+          &:hover::after,
+          &:focus::after,
+          &:active::after {
+            display: block;
+            transition: $base-transition;
+          }
+        }
+      }
+    }
+  }
+
+  .colorpicker-button-container {
+    position: relative;
+
+    &-colorpicker-button {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: 0.1rem solid $gray60;
+
+      &.active {
+        border: 0.1rem solid $primary;
+      }
+    }
+
+    &-modal-container {
+      @include column-flexbox($gap: 2.4rem);
+
+      position: absolute;
+      left: 5rem;
+      top: -13rem;
+      padding: 2.4rem;
+      background: $modal-background;
+      border: 0.2rem solid $gray70;
+      border-radius: 1.6rem;
+      outline: none;
+      transform: translate(0, -50%);
+      box-shadow: $modal-shadow;
+
+      @include responsive(T) {
+        top: -18rem;
+        left: -12rem;
+      }
+
+      @include responsive(M) {
+        @include column-flexbox($gap: 1.2rem);
+
+        width: 32rem;
+        height: 20rem;
+        top: -11rem;
+        left: -26rem;
+      }
+
+      &-label {
+        @include text-style(18, $white);
+
+        margin-right: auto;
+      }
+
+      &-colorpicker {
+        width: 24rem;
+        height: 24rem;
+
+        @include responsive(M) {
+          min-width: 28rem;
+          min-height: 12rem;
+        }
+      }
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  outline: none;
+  z-index: $overlay-level;
+}
+
+.button-container {
+  @include flexbox(end, end, 1.2rem);
+
+  width: 25.2rem;
+  margin-left: auto;
+
+  @include responsive(M) {
+    width: 100%;
+  }
+
+  &-button {
+    width: 100%;
+  }
+}
