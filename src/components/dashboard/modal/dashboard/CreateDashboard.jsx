@@ -10,7 +10,7 @@ import usePopup from '@/hooks/usePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
 import { ICON } from '@/constants/importImage';
 import { COLOR_LIST } from '@/constants';
-import styles from './DashboardAdd.module.scss';
+import styles from './CreateDashboard.module.scss';
 
 const cx = classNames.bind(styles);
 const { colorize } = ICON;
