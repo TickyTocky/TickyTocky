@@ -1,0 +1,10 @@
+.updated-tag {
+  @include inline-flexbox;
+  @include text-style(12, $green, bold);
+
+  height: 2.2rem;
+  padding: 0 0.8rem;
+  margin-left: 0.8rem;
+  border-radius: 0.4rem;
+  background-color: $opacity-white-5;
+}
