@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useDashboardAdd = () => {
+const useCreateDashboard = () => {
   const [color, setColor] = useState('');
   const [inputValue, setInputValue] = useState();
   const firstButtonRef = useRef();
@@ -32,4 +32,4 @@ const useDashboardAdd = () => {
   };
 };
 
-export default useDashboardAdd;
+export default useCreateDashboard;

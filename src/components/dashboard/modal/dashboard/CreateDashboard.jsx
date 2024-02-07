@@ -7,7 +7,7 @@ import BaseButton from '@/components/common/button/BaseButton';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import Dashboard from '@/api/dashboards';
 import usePopup from '@/hooks/usePopup';
-import useDashboardAdd from '@/hooks/useDashboardAdd';
+import useCreateDashboard from '@/hooks/useCreateDashboard';
 import { ICON } from '@/constants/importImage';
 import { COLOR_LIST } from '@/constants';
 import styles from './DashboardAdd.module.scss';
@@ -15,11 +15,11 @@ import styles from './DashboardAdd.module.scss';
 const cx = classNames.bind(styles);
 const { colorize } = ICON;
 
-function DashboardAdd({ closeModal }) {
+function CreateDashboard({ closeModal }) {
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = usePopup();
   const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
-    useDashboardAdd();
+    useCreateDashboard();
   const MAX_LENGTH = 20;
   const DEFAULT_COLOR = '#37E8B4';
 
@@ -139,4 +139,4 @@ function DashboardAdd({ closeModal }) {
   );
 }
 
-export default DashboardAdd;
+export default CreateDashboard;
