@@ -19,6 +19,7 @@
     "axios": "^1.6.7",
     "classnames": "^2.5.1",
     "date-fns": "^3.3.1",
+    "dayjs": "^1.11.10",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",
