@@ -81,8 +81,10 @@ function LandingFeaturesOverview() {
             <h2>Invite Members</h2>
             <div>
               <p>Invite your colleagues to collaborate.</p>
-              <p>Share access to project boards and get real-time feedback.</p>
-              <p> Invitations can be managed easily, ensuring no accidental access.</p>
+              <p>
+                Share access to project boards and get real-time feedback. Invitations can
+                be managed easily, ensuring no accidental access.
+              </p>
             </div>
           </div>
         )}
@@ -102,7 +104,7 @@ function LandingFeaturesOverview() {
           <div className={cx('overview-content-description')}>
             <h2>Visual Comfort</h2>
             <div>
-              <p>dark mode to reduce eye strain.</p>
+              <p>Dark mode to reduce eye strain.</p>
               <p>
                 A darker interface for better focus during different times of the day or
                 in varied lighting conditions.
@@ -112,7 +114,7 @@ function LandingFeaturesOverview() {
         )}
         {activeButton === 'device' && (
           <div className={cx('overview-content-description')}>
-            <h2>Multi-Device Sync</h2>
+            <h2>Multi Device Sync</h2>
             <div>
               <p> Stay connected and updated.</p>
               <p>
@@ -140,7 +142,6 @@ function LandingFeaturesOverview() {
             alt={background.overview[activeButton].alt}
             layout='fill'
             objectFit='contain'
-            className={cx('overview-content-feature-img')}
           />
         </div>
       </div>

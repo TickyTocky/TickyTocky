@@ -18,17 +18,17 @@ import IconArrowDownActive from 'public/svg/ic-arrow-down-active.svg';
 import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
 import ImageHeaderBackground from 'public/images/landing-header-background.png';
-import ImageBodyBackground from 'public/images/landing-body-background.png';
-import ImageOverviewBackground from 'public/images/landing-overview-background.png';
 import IconLandingDarkMode from 'public/svg/ic-landing-darkmode.svg';
 import IconLandingDashboard from 'public/svg/ic-landing-dashboard.svg';
 import IconLandingDevice from 'public/svg/ic-landing-device.svg';
 import IconLandingInvite from 'public/svg/ic-landing-invite.svg';
 import IconLandingThumbnail from 'public/svg/ic-landing-thumbnail.svg';
 import IconLandingGithub from 'public/svg/ic-landing-github.svg';
-import IconLandingOverviewInvite from 'public/images/landing-overview-invite.png';
-import IconLandingOverviewThumbnail from 'public/images/landing-overview-thumbnail.jpg';
-import IconLandingOverviewDashboard from 'public/images/landing-overview-dashboard.jpg';
+import ImageLandingOverviewDarkmode from 'public/images/landing-overview-darkmode.png';
+import ImageLandingOverviewInvite from 'public/images/landing-overview-invite.png';
+import ImageLandingOverviewThumbnail from 'public/images/landing-overview-thumbnail.jpg';
+import ImageLandingOverviewDashboard from 'public/images/landing-overview-dashboard.jpg';
+import ImageLandingOverviewDevice from 'public/images/landing-overview-device.png';
 import IconCalendarActive from 'public/svg/ic-calendar.svg';
 import IconCalendar from 'public/svg/ic-calendar-default.svg';
 
@@ -129,29 +129,26 @@ export const ICON = {
       url: ImageHeaderBackground,
       alt: 'img-background-header',
     },
-    body: {
-      url: ImageBodyBackground,
-      alt: 'img-background-body',
-    },
+
     overview: {
       darkmode: {
-        url: ImageOverviewBackground,
+        url: ImageLandingOverviewDarkmode,
         alt: 'ic-landing-overview-darkmode',
       },
       dashboard: {
-        url: IconLandingOverviewDashboard,
+        url: ImageLandingOverviewDashboard,
         alt: 'ic-landing-overview-dashboard',
       },
       device: {
-        url: ImageOverviewBackground,
+        url: ImageLandingOverviewDevice,
         alt: 'ic-landing-overview-device',
       },
       invite: {
-        url: IconLandingOverviewInvite,
+        url: ImageLandingOverviewInvite,
         alt: 'ic-landing-overview-invite',
       },
       thumbnail: {
-        url: IconLandingOverviewThumbnail,
+        url: ImageLandingOverviewThumbnail,
         alt: 'ic-landing-overview-thumbnail',
       },
     },

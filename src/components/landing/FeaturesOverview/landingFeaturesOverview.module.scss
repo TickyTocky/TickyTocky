@@ -37,6 +37,10 @@
   width: 100%;
   height: 100%;
 
+  @include responsive(M) {
+    padding: 0 3.2rem;
+  }
+
   &-title {
     @include column-flexbox(center, center);
 
@@ -61,7 +65,10 @@
     width: 80%;
   }
   @include responsive(M) {
-    padding: 1rem;
+    @include inline-flexbox(between, center, 0);
+
+    width: 100%;
+    padding: 2rem;
   }
 
   padding: 3rem;
@@ -72,6 +79,11 @@
 
 .overview-sidebar-button {
   @include column-flexbox(center, center, 0.8rem);
+
+  @include responsive(M) {
+    width: 100%;
+    height: 100%;
+  }
 
   width: 14rem;
   height: 8rem;
@@ -86,9 +98,6 @@
 
 .overview-sidebar-description {
   @include text-style(18, $gray20, light);
-
-  @include responsive(T) {
-  }
   @include responsive(M) {
     display: none;
   }
@@ -104,7 +113,7 @@
     width: 100%;
   }
   @include responsive(M) {
-    @include column-flexbox(center, center, 0);
+    @include column-flexbox(center, center, 3rem);
   }
 
   width: 120rem;
@@ -117,19 +126,30 @@
     width: 80%;
     height: 100%;
   }
+  @include responsive(M) {
+    width: 100%;
+    height: 100%;
+  }
 
   width: 40%;
 
   & h2 {
-    font-size: 4rem;
+    font-size: 3.2rem;
     color: $primary;
   }
 
   & div {
     @include column-flexbox(center, start, 1rem);
 
-    font-size: 3rem;
-    color: $gray10;
+    p:nth-child(1) {
+      font-size: 2.4rem;
+      color: $gray10;
+    }
+
+    p:nth-child(2) {
+      font-size: 2rem;
+      color: $gray30;
+    }
   }
 }
 
@@ -139,6 +159,7 @@
     height: 60vh;
   }
   @include responsive(M) {
+    width: 100%;
     height: 40vh;
   }
 
@@ -147,7 +168,7 @@
   height: 50vh;
 }
 
-.overview-content-feature-img {
-  width: 960px;
-  height: 540px;
-}
+// .overview-content-feature-img {
+//   width: 192rem;
+//   height: 108rem;
+// }

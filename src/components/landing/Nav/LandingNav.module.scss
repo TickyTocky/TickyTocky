@@ -6,7 +6,7 @@
   width: 100%;
   padding: 2rem 4.8rem;
   z-index: $header-level;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5rem);
   background-color: transparent;
 
   @include responsive(M) {
@@ -31,7 +31,8 @@
   transition: $base-transition;
 
   &:hover {
-    color: $primary;
+    background: $primary;
+    color: $black;
   }
 }
 
