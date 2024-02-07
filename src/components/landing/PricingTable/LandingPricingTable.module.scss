@@ -1,5 +1,8 @@
 .landing-pricing {
   @include column-flexbox(center, center, 5.8rem);
+  @include responsive(M) {
+    padding: 0 3.2rem;
+  }
 
   margin-top: 20rem;
   color: $gray10;
@@ -24,7 +27,6 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 4rem;
     width: 100%;
-    padding: 0 3.2rem;
   }
 
   & .pricing-option {

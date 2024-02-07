@@ -51,6 +51,9 @@
     line-height: 150%;
 
     p:nth-child(2) {
+      @include column-flexbox(center, center);
+
+      text-align: center;
       color: $primary;
     }
   }
