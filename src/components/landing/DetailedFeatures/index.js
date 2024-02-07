@@ -20,8 +20,8 @@ const LandingDetailedFeatures = () => (
     </div>
     <div className={cx('landing-fucntion')}>
       <h2>Flexible Task Status Updates</h2>
-      <div> Easily change the status of tasks with drag and drop!</div>
-      <div> Arrange your work cards freely according to the priority of the tasks.</div>
+      <div>Easily change the status of tasks with drag and drop!</div>
+      <div>Arrange your work cards freely according to the priority of the tasks.</div>
       <div>
         Track progress visually with color-coded status indicators for immediate
         understanding.
@@ -29,8 +29,8 @@ const LandingDetailedFeatures = () => (
     </div>
     <div className={cx('landing-fucntion')}>
       <h2>Organize Tasks with Tags</h2>
-      <div> Add appropriate tags to each task for effective differentiation!</div>
-      <div> Utilize filter options to quickly find tasks by their assigned tags.</div>
+      <div>Add appropriate tags to each task for effective differentiation!</div>
+      <div>Utilize filter options to quickly find tasks by their assigned tags.</div>
       <div>
         Customized tag colors for visual categorization and easier identification.
       </div>
