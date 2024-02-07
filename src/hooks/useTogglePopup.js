@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-function usePopup() {
+function useTogglePopup() {
   const [isOpen, setIsOpen] = useState(false);
   const popupRef = useRef(null);
   const buttonRef = useRef(null);
@@ -40,4 +40,4 @@ function usePopup() {
   return { isOpen, popupRef, buttonRef, openPopup, closePopup };
 }
 
-export default usePopup;
+export default useTogglePopup;
