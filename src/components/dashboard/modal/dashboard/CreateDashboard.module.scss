@@ -146,13 +146,12 @@
       position: absolute;
       left: 5rem;
       top: -13rem;
-      transform: translate(0, -50%);
-      min-width: 24rem;
       padding: 2.4rem;
-      background-color: $modal-background;
+      background: $modal-background;
       border: 0.2rem solid $gray70;
       border-radius: 1.6rem;
       outline: none;
+      transform: translate(0, -50%);
       box-shadow: $modal-shadow;
 
       @include responsive(T) {
@@ -161,16 +160,28 @@
       }
 
       @include responsive(M) {
-        width: 30rem;
-        height: 30rem;
-        top: -15rem;
-        left: -23.5rem;
+        @include column-flexbox($gap: 1.2rem);
+
+        width: 32rem;
+        height: 20rem;
+        top: -11rem;
+        left: -26rem;
       }
 
       &-label {
         @include text-style(18, $white);
 
         margin-right: auto;
+      }
+
+      &-colorpicker {
+        width: 24rem;
+        height: 24rem;
+
+        @include responsive(M) {
+          min-width: 28rem;
+          min-height: 12rem;
+        }
       }
     }
   }

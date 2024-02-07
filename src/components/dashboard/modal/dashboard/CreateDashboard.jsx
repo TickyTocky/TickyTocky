@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import { HexAlphaColorPicker } from 'react-colorful';
+import { HexColorPicker } from 'react-colorful';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import InputField from '@/components/common/InputField';
 import BaseButton from '@/components/common/button/BaseButton';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import Dashboard from '@/api/dashboards';
-import usePopup from '@/hooks/usePopup';
+import useTogglePopup from '@/hooks/useTogglePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
 import { ICON } from '@/constants/importImage';
 import { COLOR_LIST } from '@/constants';
@@ -17,7 +17,7 @@ const { colorize } = ICON;
 
 function CreateDashboard({ closeModal }) {
   const { handleSubmit } = useFormContext();
-  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = usePopup();
+  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
   const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
     useCreateDashboard();
   const MAX_LENGTH = 20;
@@ -109,8 +109,10 @@ function CreateDashboard({ closeModal }) {
                     >
                       Color Picker
                     </label>
-                    <HexAlphaColorPicker
-                      style={{ width: '25.2rem', height: '25.2rem' }}
+                    <HexColorPicker
+                      className={cx(
+                        'colorpicker-button-container-modal-container-colorpicker'
+                      )}
                       color={DEFAULT_COLOR}
                       onChange={setColor}
                     />
