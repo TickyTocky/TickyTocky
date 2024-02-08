@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import ModalButton from '@/components/nav/ModalButton';
 import LinkButton from '@/components/nav/LinkButton';
 import mock from '@/constants/navMockData';
-import styles from './nav.module.scss';
+import styles from './Nav.module.scss';
 
 const cx = classNames.bind(styles);
 

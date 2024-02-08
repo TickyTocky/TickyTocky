@@ -7,7 +7,7 @@ const Columns = {
   getList: async (dashboardId) => {
     const res = await instance.get(COLUMN_API, { params: { dashboardId } });
     if (res.status === 200) {
-      useColumnStore.setState((prev) => ({ ...prev, columnList: res.data }));
+      useColumnStore.setState((prev) => ({ ...prev, columnList: res.data.data }));
       return res;
     }
   },

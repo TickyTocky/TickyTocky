@@ -24,8 +24,8 @@ const MyHeader = ({ user }) => (
       <IconButton svg={home.url} alt={home.alt} size='lg' outline type='button' />
       <div className={cx('sm-hidden')}>
         <Avatar
-          profileName={user.nickname}
-          profileImage={user.profileImageUrl}
+          profileName={user?.nickname}
+          profileImage={user?.profileImageUrl}
           avatarSize='lg'
           textColor='gray10'
           isArrow={true}
@@ -33,8 +33,8 @@ const MyHeader = ({ user }) => (
       </div>
       <div className={cx('sm-only')}>
         <Avatar
-          profileName={user.nickname}
-          profileImage={user.profileImageUrl}
+          profileName={user?.nickname}
+          profileImage={user?.profileImageUrl}
           avatarSize='lg'
         />
       </div>
