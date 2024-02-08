@@ -1,14 +1,18 @@
 import classNames from 'classnames/bind';
+import { useFormContext } from 'react-hook-form';
 import { DROPDOWN_MENU } from '@/constants';
 import styles from './DropDownList.module.scss';
 
 const cx = classNames.bind(styles);
 
 const DropdownList = ({ isOpen, setIsOpen, onClickInput }) => {
+  const { reset } = useFormContext();
+
   const handleItemClick = (e, value) => {
     e.stopPropagation();
     onClickInput(value);
     setIsOpen((prev) => !prev);
+    reset();
   };
 
   return (

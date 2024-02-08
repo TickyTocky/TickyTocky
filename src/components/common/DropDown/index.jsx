@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import classNames from 'classnames/bind';
+import Avatar from '@/components/common/Avatar';
+import DropDownTag from '@/components/common/DropDownTag';
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
 import { ICON } from '@/constants/importImage';
 import { DROPDOWN_TIMELINE_MENU } from '@/constants/dropdownTimelineMenu';
-import DropDownTag from '@/components/common/DropDownTag';
-import Avatar from '@/components/common/Avatar';
 import styles from './DropDown.module.scss';
 
 const cx = classNames.bind(styles);
@@ -20,8 +20,8 @@ const DropDown = ({
   type = 'column',
 }) => {
   const dropDownRef = useRef();
-  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
 
+  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
   const [timelineValue, setTimelineValue] = useState('Latest');
 
   const dropDownList =
@@ -31,8 +31,10 @@ const DropDown = ({
         ? assigneeListData
         : DROPDOWN_TIMELINE_MENU;
 
+  const selectedColumnItem = dropDownList?.find((item) => item.id === listValue);
+
   const selectedItem = dropDownList
-    ? dropDownList.find((item) => item.userId === listValue)
+    ? dropDownList?.find((item) => item.userId === listValue)
     : '';
 
   const selectedNickname = selectedItem ? selectedItem.nickname : '';
@@ -64,9 +66,7 @@ const DropDown = ({
         className={cx('dropdown-selected', { active: isOpen })}
         onClick={handleOpenClick}
       >
-        {type === 'column' && (
-          <DropDownTag value={listValue ? dropDownList[listValue - 1]?.title : ''} />
-        )}
+        {type === 'column' && <DropDownTag value={selectedColumnItem?.title} />}
         {type === 'assignee' && listValue && (
           <Avatar
             profileName={selectedNickname}
