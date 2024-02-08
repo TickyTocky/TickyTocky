@@ -19,7 +19,7 @@
   @include column-flexbox(center, start, 2rem);
   @include responsive(T) {
     width: 80%;
-    height: auto;
+    height: 40.8rem;
   }
   @include responsive(M) {
     width: 100%;
