@@ -57,47 +57,51 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
           isModalOpen={modalState.acceptinvitation}
           closeModal={() => toggleModal('acceptinvitation')}
           iconSize={58}
-          desc='dfsdf'
-          title='delete'
-          iconName={ICON.logout.hover}
+          desc='Do you want to accept this invitation?'
+          title='Invitation Received'
+          iconName={ICON.success}
         >
-          <button
-            type='button'
-            onClick={handleItemApprove}
-            className={cx('invitation-item-buttons-accept')}
-          >
-            Accept
-          </button>
-          <button
-            type='button'
-            onClick={() => toggleModal('acceptinvitation')}
-            className={cx('invitation-item-buttons-deny')}
-          >
-            Deny
-          </button>
+          <div className={cx('modal-buttons')}>
+            <button
+              type='button'
+              onClick={() => toggleModal('acceptinvitation')}
+              className={cx('modal-buttons-cancel')}
+            >
+              Cancel
+            </button>
+            <button
+              type='button'
+              onClick={handleItemApprove}
+              className={cx('modal-buttons-accept')}
+            >
+              Accept
+            </button>
+          </div>
         </IconModal>
         <IconModal
           isModalOpen={modalState.denyinvitation}
           closeModal={() => toggleModal('denyinvitation')}
           iconSize={58}
-          desc='dfsdf'
-          title='delete'
-          iconName={ICON.delete}
+          title='Invitation Decline'
+          desc='Are you sure you want to decline this invitation?'
+          iconName={ICON.remove}
         >
-          <button
-            type='button'
-            onClick={handleItemIgnore}
-            className={cx('invitation-item-buttons-accept')}
-          >
-            Accept
-          </button>
-          <button
-            type='button'
-            onClick={() => toggleModal('denyinvitation')}
-            className={cx('invitation-item-buttons-deny')}
-          >
-            Deny
-          </button>
+          <div className={cx('modal-buttons')}>
+            <button
+              type='button'
+              onClick={() => toggleModal('denyinvitation')}
+              className={cx('modal-buttons-cancel')}
+            >
+              Cancel
+            </button>
+            <button
+              type='button'
+              onClick={handleItemIgnore}
+              className={cx('modal-buttons-deny')}
+            >
+              Yes
+            </button>
+          </div>
         </IconModal>
       </div>
     </div>

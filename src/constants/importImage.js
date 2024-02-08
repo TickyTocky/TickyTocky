@@ -25,6 +25,7 @@ import IconEmpty from 'public/svg/ic-empty.svg';
 import IconPageArrowRight from 'public/svg/ic-page-arrow-right.svg';
 import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
 import IconColorize from 'public/svg/ic-colorize.svg';
+import IconSuccess from 'public/svg/ic-success.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -153,5 +154,9 @@ export const ICON = {
   colorize: {
     url: IconColorize,
     alt: 'colorize-icon',
+  },
+  success: {
+    url: IconSuccess,
+    alt: 'icon-success',
   },
 };
