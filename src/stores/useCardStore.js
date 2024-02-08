@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const useCardStore = create(() => ({
-  cardList: [],
+  cardList: {},
   card: {},
   totalCount: 0,
 }));
