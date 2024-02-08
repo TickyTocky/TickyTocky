@@ -1,7 +1,11 @@
 .container {
+  @include responsive(M) {
+    width: 100%;
+  }
+
   position: relative;
   width: 35.4rem;
-  max-height: 100%;
+  height: 100%;
   background-color: $gray80;
   border-radius: 1.6rem;
 }
@@ -11,43 +15,50 @@
 
   position: sticky;
   top: 0;
+  height: 8rem;
   padding: 2.4rem;
   background-color: $gray80;
-  border-radius: 1.6rem 1.6rem 0;
+  border-radius: 1.6rem;
   z-index: $modal-dropdown-level;
+
+  &-title-wrap {
+    @include flexbox($gap: 0.8rem);
+  }
+
+  &-title {
+    @include text-style(18, $gray10, bold);
+  }
+
+  &-count {
+    @include flexbox;
+    @include text-style(12, $gray20, bold);
+
+    height: 2.4rem;
+    padding: 0 0.8rem;
+    background-color: $gray70;
+    border-radius: 0.4rem;
+  }
+
+  &-sm-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-drop-down {
+    @include responsive(M) {
+      &.close {
+        display: none;
+      }
+    }
+  }
 }
 
-.title-wrap {
-  @include flexbox($gap: 0.8rem);
-}
-
-.title {
-  @include text-style(18, $gray10, bold);
-}
-
-.count {
-  @include flexbox;
-  @include text-style(12, $gray20, bold);
-
-  height: 2.4rem;
-  padding: 0 0.8rem;
-  background-color: $gray70;
-  border-radius: 0.4rem;
-}
-
-.sm-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.cards-list {
-  @include column-flexbox(stretch, stretch, 1.6rem);
-  @include no-scrollbar;
+.content {
   @include responsive(M) {
-    max-height: 45rem;
+    max-height: calc(45rem - 8rem);
     transition: $base-transition;
 
     &.close {
@@ -55,18 +66,49 @@
     }
   }
 
-  max-height: 100%;
-  padding: 0 2.4rem;
-  overflow-y: auto;
+  height: calc(100% - 8rem);
+  overflow: hidden;
 
-  &-item:last-child {
-    margin-bottom: 1.6rem;
+  &-cards-list {
+    @include column-flexbox(stretch, stretch, 1.6rem);
+    @include no-scrollbar;
+
+    max-height: 100%;
+    padding: 0 2.4rem;
+    overflow-y: auto;
+
+    &-item:last-child {
+      margin-bottom: calc(5.8rem + 1.6rem);
+    }
+
+    &-empty {
+      @include column-flexbox;
+      @include text-style(16, $gray30, bold);
+      @include responsive(M) {
+        width: 100%;
+        margin-bottom: calc(5.8rem + 1.6rem);
+      }
+
+      width: 30.6rem;
+      height: 12.6rem;
+      background-color: $gray60;
+      border-radius: 0.6rem;
+    }
   }
 }
 
 .footer {
-  position: sticky;
+  @include responsive(M) {
+    &.close {
+      border-top: 0.1rem solid transparent;
+      transition: $base-transition;
+    }
+  }
+
+  position: absolute;
   bottom: 0;
+  width: 100%;
+  height: 5.6rem;
   background-color: $gray80;
   border-top: 0.2rem solid $gray60;
   border-radius: 0 0 1.6rem 1.6rem;

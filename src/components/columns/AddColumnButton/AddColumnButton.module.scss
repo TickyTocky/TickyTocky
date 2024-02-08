@@ -1,5 +1,9 @@
 .container {
   @include flexbox($gap: 0.4rem);
+  @include responsive(M) {
+    width: 100%;
+    height: 8rem;
+  }
 
   width: 35.4rem;
   height: 100%;
