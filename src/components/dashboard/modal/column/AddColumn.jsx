@@ -10,10 +10,14 @@ const cx = classNames.bind(styles);
 const AddColumn = ({ closeModal, dashBoardId }) => {
   const { handleSubmit } = useFormContext();
 
+  const MAX_TEXT_LENGTH = 13;
+
   const onSubmit = async (data) => {
-    await Columns.create(dashBoardId, data.title);
-    await Columns.getList(dashBoardId);
-    closeModal();
+    if (data.title !== '' && data.title.length <= MAX_TEXT_LENGTH) {
+      await Columns.create(dashBoardId, data.title);
+      await Columns.getList(dashBoardId);
+      closeModal();
+    }
   };
 
   return (
@@ -24,7 +28,8 @@ const AddColumn = ({ closeModal, dashBoardId }) => {
           name='title'
           type='text'
           placeholder='Enter the title'
-          maxLength={13}
+          maxLength={MAX_TEXT_LENGTH}
+          isRequired
         />
         <div className={cx('button', 'button-top')}>
           <div onClick={closeModal}>

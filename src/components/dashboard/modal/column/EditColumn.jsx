@@ -8,13 +8,17 @@ import styles from './ColumnModal.module.scss';
 const cx = classNames.bind(styles);
 
 const EditColumn = ({ dashboardId, columnId, title, closeModal }) => {
-  const { handleSubmit, setValue } = useFormContext();
+  const { handleSubmit, reset } = useFormContext();
+
+  const MAX_TEXT_LENGTH = 13;
 
   const onSubmit = async (data) => {
-    await Columns.edit(columnId, data.title);
-    await Columns.getList(dashboardId);
-    closeModal();
-    setValue('title', '');
+    if (data.title !== '' && data.title.length <= MAX_TEXT_LENGTH) {
+      await Columns.edit(columnId, data.title);
+      await Columns.getList(dashboardId);
+      closeModal();
+      reset();
+    }
   };
 
   return (
@@ -26,7 +30,7 @@ const EditColumn = ({ dashboardId, columnId, title, closeModal }) => {
           type='text'
           placeholder='Enter the title'
           defaultValue={title}
-          maxLength={13}
+          maxLength={MAX_TEXT_LENGTH}
         />
         <div className={cx('button', 'button-top')}>
           <div onClick={closeModal}>
