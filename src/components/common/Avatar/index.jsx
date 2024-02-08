@@ -39,7 +39,7 @@ const Avatar = ({
                 fill
               />
             ) : (
-              <div className={cx('badge')}>{profileName.charAt(0)}</div>
+              <div className={cx('badge')}>{profileName?.charAt(0)}</div>
             )}
           </div>
           {textColor && (
