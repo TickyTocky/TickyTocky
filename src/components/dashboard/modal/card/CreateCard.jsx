@@ -47,7 +47,6 @@ const CreateCard = ({
     tags,
   } = cardItemData;
 
-  // const defaultValue = memberList?.[0]?.userId;
   const [assigneeId, setAssigneeId] = useState(isEdit ? assignee?.id : null);
   const [columnName, setColumnName] = useState(columnId);
   const [tagList, setTagList] = useState(isEdit ? [...tags] : []);
