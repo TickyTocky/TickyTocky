@@ -1,5 +1,9 @@
 .container {
   @include flexbox($gap: 0.4rem);
+
+  @include responsive(M) {
+    display: none;
+  }
 }
 
 .previous {
