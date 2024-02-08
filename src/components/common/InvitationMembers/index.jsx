@@ -1,21 +1,29 @@
+import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
-import styles from './InvitationMembers.module.scss';
-import useInvitationMembers from '@/hooks/useInvitationMembers';
+import Members from '@/api/members';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
+import useAsync from '@/hooks/useAsync';
+import useInvitationMembers from '@/hooks/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
+import { INIT_MEMBER_DATA } from '@/constants/initialDataType/member';
+import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
-const InvitationMembers = ({ members }) => {
+const InvitationMembers = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const { visibleMembersNum } = useInvitationMembers();
+  const { data } = useAsync(() => Members.getList(1, 20, Number(id), INIT_MEMBER_DATA));
+  const memberList = data?.members;
 
   return (
     <div className={cx('container')}>
       <ul className={cx('members-list')}>
-        {members.length > visibleMembersNum
-          ? members.slice(0, visibleMembersNum).map((member) => (
+        {memberList && memberList?.length > visibleMembersNum
+          ? memberList?.slice(0, visibleMembersNum).map((member) => (
               <li key={member.id}>
                 <Avatar
                   profileName={member.nickname}
@@ -24,7 +32,7 @@ const InvitationMembers = ({ members }) => {
                 />
               </li>
             ))
-          : members.map((member) => (
+          : memberList?.map((member) => (
               <li key={member.id}>
                 <Avatar
                   profileName={member.nickname}
@@ -33,10 +41,10 @@ const InvitationMembers = ({ members }) => {
                 />
               </li>
             ))}
-        {members.length > visibleMembersNum && (
+        {memberList && memberList?.length > visibleMembersNum && (
           <li>
             <div className={cx('hidden-members-num')}>
-              +{members.slice(visibleMembersNum).length}
+              +{memberList?.slice(visibleMembersNum).length}
             </div>
           </li>
         )}

@@ -1,8 +1,14 @@
 .comment {
+  flex-shrink: 0;
   width: 100%;
   border-radius: 0.6rem;
   background-color: $gray70;
+  border: 0.1rem solid $gray60;
   overflow: hidden;
+
+  &.error {
+    border-color: $red;
+  }
 
   &-textarea {
     @include text-style(16, $gray10);
@@ -44,21 +50,5 @@
     @include flexbox(between);
 
     padding: 0.8rem;
-
-    &-btn {
-      &-reset {
-        padding: 0.4rem;
-      }
-
-      &-submit {
-        @include inline-flexbox;
-        @include text-style(14, $primary);
-
-        height: 3.2rem;
-        width: 8.3rem;
-        border-radius: 0.6rem;
-        background-color: $black;
-      }
-    }
   }
 }

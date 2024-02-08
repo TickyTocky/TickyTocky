@@ -16,6 +16,7 @@ const TagField = ({ tagList, setTagList }) => {
 
   const handleKeyPress = (e) => {
     if (tagItem.length !== 0 && e.key === 'Enter') {
+      e.preventDefault();
       handleSubmitTagItem();
     }
   };
@@ -31,9 +32,9 @@ const TagField = ({ tagList, setTagList }) => {
 
   const handleSubmitTagItem = () => {
     if (
-      !tagList.includes(tagItem) &&
+      !tagList?.includes(tagItem) &&
       tagItem.length <= MAXIMUM_LENGTH &&
-      tagList.length < MAX_TAG_COUNT
+      tagList?.length < MAX_TAG_COUNT
     ) {
       setTagList((prev) => [...prev, tagItem]);
     }
@@ -45,7 +46,7 @@ const TagField = ({ tagList, setTagList }) => {
       <label className={cx('tagsinput-name')}>Tag</label>
       <div className={cx('tagsinput-tags')}>
         <ul className={cx('tagsinput-tags-list')}>
-          {tagList.map((tagItem, index) => (
+          {tagList?.map((tagItem, index) => (
             <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
               <span className={cx('tagsinput-tag-name')}>
                 {tagItem.length > MINIMUM_LENGTH
