@@ -78,7 +78,7 @@
     }
 
     &-color-palette-container {
-      @include flexbox($jc: between);
+      @include flexbox(between);
 
       width: 100%;
 

@@ -15,7 +15,7 @@ import styles from './CreateDashboard.module.scss';
 const cx = classNames.bind(styles);
 const { colorize } = ICON;
 
-function CreateDashboard({ closeModal }) {
+function CreateDashboard({ isModalOpen, toggleModal }) {
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
   const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
@@ -25,11 +25,16 @@ function CreateDashboard({ closeModal }) {
 
   const onSubmit = async (data) => {
     data.color = color;
-    Dashboard.create(data);
+    await Dashboard.create(data);
+    toggleModal('createDashboard');
   };
 
   return (
-    <CommonModal isModalOpen={true} label='Create Board' closeModal={closeModal}>
+    <CommonModal
+      isModalOpen={isModalOpen}
+      closeModal={() => toggleModal('createDashboard')}
+      label='Create Board'
+    >
       <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
         <div className={cx('modal-container')}>
           <div className={cx('modal-container-thumbnail-container')}>
@@ -125,7 +130,12 @@ function CreateDashboard({ closeModal }) {
 
         <div className={cx('button-container')}>
           <div className={cx('button-container-button')}>
-            <BaseButton size='xl' text='Cancel' variant='outline'></BaseButton>
+            <BaseButton
+              onClick={() => toggleModal('createDashboard')}
+              variant='outline'
+              text='Cancel'
+              size='xl'
+            ></BaseButton>
           </div>
           <div className={cx('button-container-button')}>
             <BaseButton
