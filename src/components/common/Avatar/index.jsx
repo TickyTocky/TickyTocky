@@ -26,7 +26,7 @@ const Avatar = ({
         {profileImage ? (
           <Image className={cx('image')} src={profileImage} alt='profile-image' fill />
         ) : (
-          <div className={cx('badge')}>{profileName.charAt(0)}</div>
+          <div className={cx('badge')}>{profileName?.charAt(0)}</div>
         )}
       </div>
       {textColor && (

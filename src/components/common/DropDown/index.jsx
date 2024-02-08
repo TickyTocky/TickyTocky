@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
+import Image from 'next/image';
 import Avatar from '@/components/common/Avatar';
 import DropDownTag from '@/components/common/DropDownTag';
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
@@ -20,25 +20,33 @@ const DropDown = ({
   type = 'column',
 }) => {
   const dropDownRef = useRef();
-
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
   const [timelineValue, setTimelineValue] = useState('Latest');
+  const [dropDownList, setDropDownList] = useState([]);
+  const [selectedItem, setSelectedItem] = useState({});
 
-  const dropDownList =
-    type === 'column'
-      ? columnListData
-      : type === 'assignee'
-        ? assigneeListData
-        : DROPDOWN_TIMELINE_MENU;
+  useEffect(() => {
+    let list = [];
+    if (type === 'column') {
+      list = columnListData;
+    } else if (type === 'assignee') {
+      list = assigneeListData;
+    } else {
+      list = DROPDOWN_TIMELINE_MENU;
+    }
+    setDropDownList(list);
 
-  const selectedColumnItem = dropDownList?.find((item) => item.id === listValue);
+    const foundItem = list?.find(
+      (item) => item.id === listValue || item.userId === listValue
+    );
+    setSelectedItem(foundItem || {});
+  }, [columnListData, assigneeListData, listValue, type]);
 
-  const selectedItem = dropDownList
-    ? dropDownList?.find((item) => item.userId === listValue)
-    : '';
-
-  const selectedNickname = selectedItem ? selectedItem.nickname : '';
-  const selectedProfileImageUrl = selectedItem ? selectedItem.profileImageUrl : '';
+  useEffect(() => {
+    if (type === 'assignee' && assigneeListData?.length > 0 && !listValue) {
+      setListValue(assigneeListData[0]?.userId);
+    }
+  }, [assigneeListData, listValue, setListValue, type]);
 
   const handleOpenClick = () => {
     setIsOpen((prev) => !prev);
@@ -46,14 +54,12 @@ const DropDown = ({
 
   const handleListItemClick = (e, value) => {
     e.stopPropagation();
-
     if (type === 'timeline') {
       onClickInput(value);
       setTimelineValue(value);
     } else {
       setListValue(value);
     }
-
     handleOpenClick();
   };
 
@@ -66,11 +72,11 @@ const DropDown = ({
         className={cx('dropdown-selected', { active: isOpen })}
         onClick={handleOpenClick}
       >
-        {type === 'column' && <DropDownTag value={selectedColumnItem?.title} />}
+        {type === 'column' && <DropDownTag value={selectedItem?.title} />}
         {type === 'assignee' && listValue && (
           <Avatar
-            profileName={selectedNickname}
-            profileImage={selectedProfileImageUrl}
+            profileName={selectedItem.nickname}
+            profileImage={selectedItem.profileImageUrl}
             textColor='gray10'
             avatarSize='md'
           />
