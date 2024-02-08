@@ -42,7 +42,19 @@ const Auth = {
     useUserStore.setState({ user: null });
     LocalStorage.removeItem('accessToken');
   },
-  changePassword: (value) => instance.put(`${AUTH_API}/password`, value),
+  changePassword: async (value, setError, reset) => {
+    try {
+      const res = await instance.put(`${AUTH_API}/password`, value);
+      if (res.status === 204) {
+        reset();
+        return res;
+      }
+    } catch (e) {
+      if (e.response.status === 400) {
+        setError('password', { message: password.errorMessage.checkPassword });
+      }
+    }
+  },
 };
 
 export default Auth;
