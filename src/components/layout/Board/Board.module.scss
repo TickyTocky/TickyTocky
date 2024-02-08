@@ -1,4 +1,6 @@
 .board {
+  @include column-flexbox;
+
   width: 100%;
   height: calc(100vh - 7rem);
 
@@ -6,11 +8,13 @@
     @include flexbox(between);
 
     width: 100%;
-    height: 6rem;
-    padding: 0 3.2rem;
   }
 
   &-content {
+    @include responsive(M) {
+      padding: 1.5rem;
+    }
+
     width: 100%;
     min-height: calc(100vh - 13rem);
     padding: 3.2rem;
