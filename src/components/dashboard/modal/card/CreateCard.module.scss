@@ -20,7 +20,7 @@
     @include flexbox(start, start, 3.2rem);
 
     @include responsive(T) {
-      padding: 2.4rem 1.6rem 2.4rem 0;
+      padding: 0 1.6rem 2.4rem 0;
       overflow-y: scroll;
 
       &::-webkit-scrollbar {
@@ -39,19 +39,29 @@
     }
 
     @include responsive(M) {
-      @include column-flexbox(start, start);
+      @include column-flexbox(start, start, 1.6rem);
 
       width: 100%;
     }
 
     &-left {
       max-width: 16rem;
+
+      @include responsive(M) {
+        width: 100%;
+      }
     }
 
     &-right {
       @include column-flexbox(start, start, 1.6rem);
 
       min-width: 42rem;
+      max-width: 42rem;
+
+      @include responsive(M) {
+        width: 100%;
+        min-width: 100%;
+      }
 
       .col-2 {
         @include flexbox($gap: 1.2rem);
@@ -59,13 +69,17 @@
         width: 100%;
 
         @include responsive(M) {
-          @include column-flexbox(start, start);
+          @include column-flexbox(start, start, 1.6rem);
         }
 
         &-name {
           @include column-flexbox(start, start, 0.8rem);
 
           width: 50%;
+
+          @include responsive(M) {
+            width: 20.4rem;
+          }
 
           .label {
             @include text-style(18, $gray20);
@@ -98,6 +112,10 @@
           @include column-flexbox(start, start, 0.8rem);
 
           width: 50%;
+
+          @include responsive(M) {
+            width: 100%;
+          }
 
           .label {
             @include text-style(18, $gray20);

@@ -1,1 +1,1 @@
-// empty
+export * from './getDiffDate';

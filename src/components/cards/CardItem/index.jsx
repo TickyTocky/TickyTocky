@@ -1,31 +1,33 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
 import Cards from '@/api/cards';
-import CardTags from '@/components/common/CardTags';
 import Avatar from '@/components/common/Avatar';
+import BaseButton from '@/components/common/button/BaseButton';
+import CreateCard from '@/components/dashboard/modal/card/CreateCard';
+import CardTags from '@/components/common/CardTags';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import DetailCard from '@/components/dashboard/modal/card/DetailCard';
 import IconModal from '@/components/layout/modal/IconModal';
-import BaseButton from '@/components/common/button/BaseButton';
-import CreateCard from '@/components/dashboard/modal/card/CreateCard';
 import useCardStore from '@/stores/useCardStore';
-import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import { IMAGE_REGEX } from '@/constants';
 import { ICON } from '@/constants/importImage';
-import { INIT_CARD_DATA } from '@/constants/initialDataType';
 import styles from './CardItem.module.scss';
 
 const cx = classNames.bind(styles);
 const { calendar, remove } = ICON;
 
-const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
-  const { data } = useAsync(() => Cards.get(id), INIT_CARD_DATA);
-  const { card } = useCardStore();
+const CardItem = ({ id, columnName }) => {
+  const { cardList } = useCardStore();
+  const cardItemData = cardList.find((card) => card.id === id);
+  const { assignee, columnId, title, imageUrl, tags, dueDate } = cardItemData;
+
   const { modalState, toggleModal } = useModalState([
-    '3',
-    ['detailCard', 'editCard', 'deleteCard'],
+    'detailCard',
+    'editCard',
+    'deleteCard',
   ]);
+
   const isImageUrl = !!imageUrl && IMAGE_REGEX.test(imageUrl.toLowerCase());
 
   const handleModalOpen = (value) => {
@@ -41,7 +43,9 @@ const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
     toggleModal('deleteCard');
   };
 
-  const handleCardDelete = () => {
+  const handleCardDelete = async () => {
+    await Cards.delete(id);
+    await Cards.getList(columnId);
     toggleModal('deleteCard');
     toggleModal('detailCard');
   };
@@ -74,7 +78,7 @@ const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
               height={18}
               className={cx('card-footer-deadline-icon')}
             ></Image>
-            <span className={cx('card-footer-deadline-date')}>{card?.dueDate}</span>
+            <span className={cx('card-footer-deadline-date')}>{dueDate}</span>
           </div>
           <Avatar
             profileImage={assignee.profileImage}
@@ -91,7 +95,7 @@ const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
         isDetail={true}
         detailInfo={{ columnTitle: columnName, cardTitle: title }}
       >
-        <DetailCard {...data} toggleModal={toggleModal} cardId={id} />
+        <DetailCard cardId={id} toggleModal={toggleModal} />
       </CommonModal>
 
       <IconModal
@@ -124,7 +128,13 @@ const CardItem = ({ id, assignee, tags, imageUrl, title, columnName }) => {
         closeModal={() => toggleModal('editCard')}
         label='Edit Card'
       >
-        <CreateCard columnTitle={columnName} />
+        <CreateCard
+          columnId={columnId}
+          columnTitle={columnName}
+          toggleModal={toggleModal}
+          cardItemData={cardItemData}
+          isEdit
+        />
       </CommonModal>
     </>
   );
