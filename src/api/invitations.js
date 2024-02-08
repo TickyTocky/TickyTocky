@@ -24,7 +24,7 @@ const Invitation = {
     }
   },
   respond: (invitationId, inviteAccepted) =>
-    instance.put(`${INVITATION_API}/${invitationId}`, inviteAccepted),
+    instance.put(`${INVITATION_API}/${invitationId}`, { inviteAccepted }),
 };
 
 export default Invitation;

@@ -19,6 +19,7 @@ import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
 import IconCalendarActive from 'public/svg/ic-calendar.svg';
 import IconCalendar from 'public/svg/ic-calendar-default.svg';
+import IconSearch from 'public/svg/ic-search.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -121,5 +122,9 @@ export const ICON = {
       url: IconCalendarActive,
       alt: 'calendar-icon',
     },
+  },
+  search: {
+    url: IconSearch,
+    alt: 'icon-search',
   },
 };
