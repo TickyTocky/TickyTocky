@@ -33,14 +33,18 @@ const Cards = {
 
   addCardIamge: async (columnId, value) => {
     const formData = new FormData();
-    formData.append('file', value);
+    formData.append('image', value);
+
     const res = await instance.post(`${COLUMN_API}/${columnId}/card-image`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
+
     if (res.status === 201) {
-      return res.imageUrl;
+      return res.data.imageUrl;
+    } else {
+      console.error('Failed to upload image file');
     }
   },
 };
