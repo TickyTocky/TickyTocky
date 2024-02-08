@@ -1,11 +1,12 @@
 import ImageUpload from 'public/images/img-upload.jpg';
 import IconAdd from 'public/svg/ic-add.svg';
 import IconAddActive from 'public/svg/ic-add-active.svg';
+import IconAddGray from 'public/svg/ic-add-gray.svg';
 import IconLogout from 'public/svg/ic-logout.svg';
 import IconLogoutHover from 'public/svg/ic-logout-hover.svg';
 import IconNavActive from 'public/svg/ic-nav-active.svg';
 import IconNav from 'public/svg/ic-nav.svg';
-import IconDelete from 'public/svg/ic-delete.svg';
+import IconRemoveModal from 'public/svg/ic-remove-modal.svg';
 import IconArrowRight from 'public/svg/ic-arrow-right.svg';
 import IconLogo from 'public/svg/ic-logo.svg';
 import IconHome from 'public/svg/ic-home.svg';
@@ -20,6 +21,10 @@ import IconKebab from 'public/svg/ic-kebab.svg';
 import IconCalendarActive from 'public/svg/ic-calendar.svg';
 import IconCalendar from 'public/svg/ic-calendar-default.svg';
 import IconSearch from 'public/svg/ic-search.svg';
+import IconEmpty from 'public/svg/ic-empty.svg';
+import IconPageArrowRight from 'public/svg/ic-page-arrow-right.svg';
+import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
+import IconColorize from 'public/svg/ic-colorize.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -37,6 +42,10 @@ export const ICON = {
     active: {
       url: IconAddActive,
       alt: 'icon-add-active',
+    },
+    gray: {
+      url: IconAddGray,
+      alt: 'icon-add-gray',
     },
   },
   logout: {
@@ -61,13 +70,23 @@ export const ICON = {
       alt: 'icon-nav',
     },
   },
-  delete: {
-    url: IconDelete,
-    alt: 'icon-delete',
+  remove: {
+    url: IconRemoveModal,
+    alt: 'icon-remove-modal',
   },
   arrowRight: {
     url: IconArrowRight,
     alt: 'icon-arrow-right',
+  },
+  page: {
+    arrowRight: {
+      url: IconPageArrowLeft,
+      alt: 'icon-page-arrow-left',
+    },
+    arrowLeft: {
+      url: IconPageArrowRight,
+      alt: 'icon-page-arrow-right',
+    },
   },
   logo: {
     url: IconLogo,
@@ -126,5 +145,13 @@ export const ICON = {
   search: {
     url: IconSearch,
     alt: 'icon-search',
+  },
+  empty: {
+    url: IconEmpty,
+    alt: 'icon-empty',
+  },
+  colorize: {
+    url: IconColorize,
+    alt: 'colorize-icon',
   },
 };

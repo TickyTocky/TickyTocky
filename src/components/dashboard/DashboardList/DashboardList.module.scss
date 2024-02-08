@@ -1,0 +1,197 @@
+.dashboard-list-container {
+  @include column-flexbox(center, start, 2.4rem);
+
+  margin: 12.6rem auto;
+  max-width: 136rem;
+
+  @include responsive(MP) {
+    max-width: 101.4rem;
+  }
+
+  @include responsive(T) {
+    max-width: 66.8rem;
+  }
+
+  @include responsive(M) {
+    @include no-scrollbar;
+
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  &-header {
+    @include flexbox(start, center, 1.6rem);
+
+    &-container {
+      @include flexbox($gap: 0.8rem);
+
+      .dashboard-name {
+        @include text-style(24, $white, bold);
+
+        margin-right: auto;
+      }
+
+      .dashboard-number {
+        @include text-style(12, $gray20, bold);
+
+        height: 2.4rem;
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+        background: $gray70;
+      }
+    }
+  }
+
+  &-section {
+    @include column-flexbox(start, start, 3.2rem);
+
+    width: 100%;
+    height: 57.6rem;
+    overflow: hidden;
+
+    @include responsive(MT) {
+      width: auto;
+    }
+
+    @include responsive(T) {
+      width: auto;
+      height: auto;
+    }
+
+    @include responsive(M) {
+      width: 100%;
+      height: auto;
+      align-items: center;
+    }
+
+    &-header {
+      @include flexbox(between);
+
+      width: 100%;
+
+      @include responsive(M) {
+        flex-direction: column-reverse;
+        align-items: start;
+        gap: 1.6rem;
+      }
+
+      &-filter {
+        @include flexbox(start, center, 1.2rem);
+
+        @include responsive(M) {
+          @include no-scrollbar;
+
+          width: 100%;
+          overflow-x: scroll;
+        }
+
+        .all,
+        .my,
+        .invited {
+          @include text-style(16, $gray10, bold);
+
+          height: 4rem;
+          padding: 0 1.6rem;
+          border: 0.1rem solid $gray70;
+          border-radius: 3rem;
+          white-space: nowrap;
+
+          &:hover,
+          &:active,
+          &:focus {
+            color: $gray90;
+            background: $primary;
+            box-shadow: $dashboard-shadow;
+          }
+        }
+
+        .all.active,
+        .my.active,
+        .invited.active {
+          color: $gray90;
+          background: $primary;
+        }
+      }
+
+      &-dropdown-container {
+        @include flexbox($gap: 1.6rem);
+
+        @include responsive(M) {
+          width: 100%;
+          justify-content: space-between;
+          flex-direction: row-reverse;
+        }
+
+        &-dropdown {
+          @include responsive(M) {
+            width: 100%;
+          }
+        }
+
+        &-create-button {
+          display: none;
+
+          @include responsive(M) {
+            width: 12rem;
+            display: block;
+          }
+        }
+      }
+    }
+
+    &-card-container {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 2.4rem;
+
+      @include responsive(MP) {
+        grid-template-columns: repeat(3, auto);
+      }
+
+      @include responsive(T) {
+        @include no-scrollbar;
+
+        grid-template-columns: repeat(2, auto);
+      }
+
+      @include responsive(M) {
+        @include no-scrollbar;
+
+        width: 100%;
+        padding-top: 1.2rem;
+        grid-template-columns: repeat(1, auto);
+        overflow-x: hidden;
+      }
+    }
+  }
+
+  &-footer {
+    @include flexbox(between, center);
+    @include text-style(16, $gray30);
+
+    width: 100%;
+
+    @include responsive(M) {
+      display: none;
+    }
+
+    &-current-page {
+      color: $gray10;
+    }
+  }
+
+  &-pagination-container {
+    border: 0.1rem solid $gray60;
+    border-radius: 0.4rem;
+
+    &-button-left {
+      padding: 1.2rem;
+      border-right: 0.1rem solid $gray60;
+    }
+
+    &-button-right {
+      padding: 1.2rem;
+      border-left: 0.1rem solid $gray60;
+    }
+  }
+}

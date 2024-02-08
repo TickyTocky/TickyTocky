@@ -1,13 +1,14 @@
 import classNames from 'classnames/bind';
-import styles from './BoardHeader.module.scss';
 import InvitationMembers from '@/components/common/InvitationMembers';
 import MixButton from '@/components/common/button/MixButton';
+import Breadcrumb from '@/components/common/Breadcrumb';
 import { ICON } from '@/constants/importImage';
+import styles from './BoardHeader.module.scss';
 
 const cx = classNames.bind(styles);
 const { settings } = ICON;
 
-const BoardHeader = ({ members, title }) => (
+const BoardHeader = ({ title }) => (
   <div className={cx('container')}>
     <MixButton
       svg={settings.url}
@@ -20,8 +21,9 @@ const BoardHeader = ({ members, title }) => (
       fontSize={24}
     />
     <div className={cx('info-wrap')}>
-      <InvitationMembers members={members} />
+      <InvitationMembers />
       <div className={cx('line')}></div>
+      <Breadcrumb title={title} />
     </div>
   </div>
 );

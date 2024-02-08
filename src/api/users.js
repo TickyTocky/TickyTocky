@@ -4,7 +4,7 @@ import instance from './axios';
 
 const Users = {
   get: async () => {
-    const res = await instance.post(`${USER_API}/me`);
+    const res = await instance.get(`${USER_API}/me`);
     if (res.status === 200) {
       useUserStore.setState((prev) => ({ ...prev, user: res.data }));
       return res;

@@ -1,0 +1,77 @@
+.comment {
+  @include flexbox(start, start, 0.8rem);
+
+  width: 100%;
+
+  &-avatar {
+    flex-shrink: 0;
+  }
+
+  &-content {
+    @include column-flexbox(start, start, 0.4rem);
+
+    flex-grow: 1;
+
+    &-top {
+      width: 100%;
+
+      &-header {
+        padding-bottom: 0.4rem;
+
+        &-nickname {
+          @include text-style(16, $gray20);
+
+          margin-right: 0.4rem;
+        }
+
+        &-time {
+          @include text-style(12, $gray40);
+        }
+      }
+    }
+
+    &-main {
+      &-input {
+        @include text-style(14, $gray10);
+
+        width: 100%;
+        height: 3.2rem;
+        padding: 0 0.8rem;
+        border: 0.1rem solid $gray60;
+        border-radius: 0.6rem;
+        background-color: $gray70;
+
+        &::placeholder {
+          @include text-style(14, $gray40);
+        }
+
+        &:focus {
+          border-color: $primary;
+        }
+
+        &.error {
+          border-color: $red;
+        }
+      }
+
+      &-desc {
+        @include text-style(14, $gray10);
+
+        line-height: 3.2rem;
+      }
+    }
+
+    &-footer {
+      @include flexbox($gap: 1.2rem);
+    }
+
+    .btn-edit,
+    .btn-delete,
+    .btn-cancel,
+    .btn-apply {
+      @include text-style(12, $gray30);
+
+      text-decoration: underline;
+    }
+  }
+}
