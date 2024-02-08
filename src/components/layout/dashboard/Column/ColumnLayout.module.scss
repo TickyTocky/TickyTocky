@@ -1,0 +1,18 @@
+.columns-list {
+  @include flexbox(stretch, stretch, 2.4rem);
+  @include responsive(M) {
+    @include column-flexbox($jc: stretch, $gap: 0.8rem);
+  }
+
+  height: 100%;
+
+  &-item {
+    width: 100%;
+
+    &-last {
+      @include responsive(M) {
+        order: -1;
+      }
+    }
+  }
+}
