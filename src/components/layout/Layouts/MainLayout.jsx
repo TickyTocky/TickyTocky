@@ -5,12 +5,13 @@ import Nav from '@/components/layout/Nav';
 import MyHeader from '@/components/layout/Header/MyHeader';
 import useUserStore from '@/stores/useUserStore';
 import useAsync from '@/hooks/useAsync';
+import { INIT_USER_DATA } from '@/constants/initialDataType';
 import styles from './MainLayout.module.scss';
 
 const cx = classNames.bind(styles);
 
 const MainLayout = ({ children }) => {
-  useAsync(() => Users.get());
+  useAsync(() => Users.get(), INIT_USER_DATA);
   const { user } = useUserStore();
 
   return (

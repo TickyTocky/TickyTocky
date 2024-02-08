@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
-import styles from './BoardHeader.module.scss';
 import InvitationMembers from '@/components/common/InvitationMembers';
 import MixButton from '@/components/common/button/MixButton';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import { ICON } from '@/constants/importImage';
+import styles from './BoardHeader.module.scss';
 
 const cx = classNames.bind(styles);
 const { settings } = ICON;

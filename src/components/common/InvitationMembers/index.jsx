@@ -6,8 +6,8 @@ import MixButton from '@/components/common/button/MixButton';
 import useAsync from '@/hooks/useAsync';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
+import { INIT_MEMBER_DATA } from '@/constants/initialDataType/member';
 import styles from './InvitationMembers.module.scss';
-import { INIT_MEMBER_DATA } from '../../../constants/initialDataType/member';
 
 const cx = classNames.bind(styles);
 const { add } = ICON;
