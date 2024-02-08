@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import Avatar from '@/components/common/Avatar';
 import DropDownTag from '@/components/common/DropDownTag';
@@ -23,6 +23,16 @@ const DropDown = ({
 
   const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
   const [timelineValue, setTimelineValue] = useState('Latest');
+
+  useEffect(() => {
+    if (!listValue) {
+      if (type === 'column' && columnListData.length > 0) {
+        setListValue(columnListData[0].id);
+      } else if (type === 'assignee' && assigneeListData.length > 0) {
+        setListValue(assigneeListData[0].userId);
+      }
+    }
+  }, [listValue, setListValue, type, columnListData, assigneeListData]);
 
   const dropDownList =
     type === 'column'
