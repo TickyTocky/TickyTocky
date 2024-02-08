@@ -8,44 +8,59 @@ const cx = classNames.bind(styles);
 const { arrowUp, arrowDown } = ICON;
 
 const Avatar = ({
-  profileImage,
   profileName,
-  textColor,
+  textColor = '',
+  profileImage = '',
   avatarSize = 'xl',
   isArrow = false,
 }) => {
   const { isVisible, handleToggleClick } = useToggleButton();
 
+  const handleTextClick = () => {
+    if (isArrow) {
+      handleToggleClick();
+    }
+  };
+
   return (
-    <div className={cx('container')}>
-      <div
-        className={cx(`avatar-size-${avatarSize}`, {
-          active: isVisible,
-        })}
-      >
-        {profileImage ? (
-          <Image className={cx('image')} src={profileImage} alt='profile-image' fill />
-        ) : (
-          <div className={cx('badge')}>{profileName?.charAt(0)}</div>
-        )}
-      </div>
-      {textColor && (
-        <div className={cx('text-icon-wrap')} onClick={handleToggleClick}>
-          <span className={cx(`text-color-${textColor}`)}>{profileName}</span>
-          {isArrow &&
-            (isVisible ? (
+    <>
+      {profileName && (
+        <div className={cx('container')}>
+          <div
+            className={cx(`avatar-size-${avatarSize}`, {
+              active: isVisible,
+            })}
+          >
+            {profileImage ? (
               <Image
-                src={arrowUp.active.url}
-                alt={arrowUp.active.alt}
-                width={16}
-                height={16}
+                className={cx('image')}
+                src={profileImage}
+                alt='profile-image'
+                fill
               />
             ) : (
-              <Image src={arrowDown.url} alt={arrowDown.alt} width={16} height={16} />
-            ))}
+              <div className={cx('badge')}>{profileName?.charAt(0)}</div>
+            )}
+          </div>
+          {textColor && (
+            <div className={cx('text-icon-wrap')} onClick={handleTextClick}>
+              <span className={cx(`text-color-${textColor}`)}>{profileName}</span>
+              {isArrow &&
+                (isVisible ? (
+                  <Image
+                    src={arrowUp.active.url}
+                    alt={arrowUp.active.alt}
+                    width={16}
+                    height={16}
+                  />
+                ) : (
+                  <Image src={arrowDown.url} alt={arrowDown.alt} width={16} height={16} />
+                ))}
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

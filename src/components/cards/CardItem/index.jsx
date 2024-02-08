@@ -15,7 +15,7 @@ import { ICON } from '@/constants/importImage';
 import styles from './CardItem.module.scss';
 
 const cx = classNames.bind(styles);
-const { calendar, delete: remove } = ICON;
+const { calendar, remove } = ICON;
 
 const CardItem = ({ id, columnName }) => {
   const { cardList } = useCardStore();
