@@ -14,15 +14,21 @@ const ColumnLayout = ({ dashBoardId }) => {
 
   const { columnList } = useColumnStore();
 
+  const MAX_COLUMN_COUNT = 10;
+
   return (
-    <ol className={cx('container')}>
-      {columnList?.data.map((column) => (
-        <li key={column.id}>
-          <Column {...column} />
+    <ol className={cx('columns-list')}>
+      {columnList?.map((column) => (
+        <li className={cx('columns-list-item')} key={column.id}>
+          <Column
+            dashboardId={column.dashboardId}
+            columnId={column.id}
+            title={column.title}
+          />
         </li>
       ))}
-      {columnList?.data.length < 10 && (
-        <li>
+      {columnList?.length < MAX_COLUMN_COUNT && (
+        <li className={cx('columns-list-item', 'columns-list-item-last')}>
           <AddColumnButton dashBoardId={dashBoardId} />
         </li>
       )}
