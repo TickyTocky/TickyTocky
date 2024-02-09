@@ -37,6 +37,8 @@ const Avatar = ({
                 src={profileImage}
                 alt='profile-image'
                 fill
+                sizes='100%'
+                priority
               />
             ) : (
               <div className={cx('badge')}>{profileName?.charAt(0)}</div>
