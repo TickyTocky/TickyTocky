@@ -1,23 +1,21 @@
-import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
 import Members from '@/api/members';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
+import useMemberStore from '@/stores/useMemberStore';
 import useAsync from '@/hooks/useAsync';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
-import { INIT_MEMBER_DATA } from '@/constants/initialDataType/member';
 import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
-const InvitationMembers = () => {
-  const router = useRouter();
-  const { id } = router.query;
+const InvitationMembers = ({ dashBoardId }) => {
+  useAsync(() => Members.getList(1, 20, dashBoardId));
+  const { memberList } = useMemberStore();
+
   const { visibleMembersNum } = useInvitationMembers();
-  const { data } = useAsync(() => Members.getList(1, 20, Number(id), INIT_MEMBER_DATA));
-  const memberList = data?.members;
 
   return (
     <div className={cx('container')}>
@@ -51,6 +49,7 @@ const InvitationMembers = () => {
       </ul>
       <MixButton
         svg={add.default.url}
+        alt={add.default.alt}
         size={18}
         type='button'
         gap={4}
