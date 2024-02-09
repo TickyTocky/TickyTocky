@@ -10,17 +10,24 @@ const Users = {
       return res;
     }
   },
-  edit: (value) => instance.put(`${USER_API}/me`, value),
+  edit: async (value) => {
+    const res = await instance.put(`${USER_API}/me`, value);
+    if (res.status === 200) {
+      useUserStore.setState((prev) => ({ ...prev.user, user: res.data }));
+      return res;
+    }
+  },
+
   addProfileImage: async (value) => {
     const formData = new FormData();
-    formData.append('file', value);
-    const res = await instance.put(`${USER_API}/me/image`, formData, {
+    formData.append('image', value);
+    const res = await instance.post(`${USER_API}/me/image`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
     if (res.status === 201) {
-      return res.profileImageUrl;
+      return res.data;
     }
   },
 };
