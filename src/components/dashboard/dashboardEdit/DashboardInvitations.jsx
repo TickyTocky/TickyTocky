@@ -84,6 +84,7 @@ const DashboardInvitations = ({ dashboardId }) => {
         <InviteDashboard
           isModalOpen={modalState.inviteMember}
           closeModal={() => toggleModal('inviteMember')}
+          dashboardId={dashboardId}
         />
       </header>
       <section className={cx('container-list')}>
@@ -105,6 +106,7 @@ const DashboardInvitations = ({ dashboardId }) => {
                 isModalOpen={modalState.dashboardWithdraw}
                 closeModal={() => toggleModal('dashboardWithdraw')}
                 invitationId={item.id}
+                dashboardId={dashboardId}
               />
             </div>
           ))}
