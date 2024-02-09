@@ -10,7 +10,7 @@ const Members = {
       return res;
     }
   },
-  delete: (dashboardId) => instance.delete(`${MEMBER_API}/${dashboardId}`),
+  delete: (memberId) => instance.delete(`${MEMBER_API}/${memberId}`),
 };
 
 export default Members;
