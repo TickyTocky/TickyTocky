@@ -1,10 +1,17 @@
 .columns-list {
   @include flexbox(stretch, stretch, 2.4rem);
-  @include responsive(M) {
-    @include column-flexbox($jc: stretch, $gap: 0.8rem);
-  }
 
   height: 100%;
+  padding: 3.2rem;
+  overflow-y: auto;
+
+  @include responsive(M) {
+    @include column-flexbox($jc: stretch, $gap: 0.8rem);
+    @include no-scrollbar;
+
+    padding: 1.5rem;
+    padding-top: 0;
+  }
 
   &-item {
     width: 100%;
