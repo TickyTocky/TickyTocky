@@ -22,7 +22,7 @@ const InvitationMembers = ({ dashBoardId }) => {
       <ul className={cx('members-list')}>
         {memberList && memberList?.length > visibleMembersNum
           ? memberList?.slice(0, visibleMembersNum).map((member) => (
-              <li key={member.id}>
+              <li key={`key-member-list-${member.id}`}>
                 <Avatar
                   profileName={member.nickname}
                   profileImage={member.profileImageUrl}

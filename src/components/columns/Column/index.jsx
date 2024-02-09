@@ -57,7 +57,10 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
               cardList?.cards.map(
                 ({ id, columnId, title }) =>
                   title && (
-                    <li key={id} className={cx('content-cards-list-item')}>
+                    <li
+                      key={`key-card-list-${id}`}
+                      className={cx('content-cards-list-item')}
+                    >
                       <CardItem id={id} columnName={columnName} columnId={columnId} />
                     </li>
                   )
