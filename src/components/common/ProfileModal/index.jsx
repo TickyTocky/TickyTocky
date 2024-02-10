@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames/bind';
+import Auth from '@/api/auth';
 import Avatar from '@/components/common/Avatar';
 import BaseButton from '@/components/common/button/BaseButton';
 import styles from './ProfileModal.module.scss';
@@ -17,7 +18,9 @@ const ProfileModal = ({ profileName, profileImage, profileEmail }) => (
       <Link className={cx('link')} href={'/mypage'}>
         <BaseButton size='xl' variant='outline' type='button' text='My Page' />
       </Link>
-      <BaseButton size='xl' variant='ghost' type='button' text='Logout' />
+      <div className={cx('link')} onClick={() => Auth.logout()}>
+        <BaseButton size='xl' variant='ghost' type='button' text='Logout' />
+      </div>
     </div>
   </div>
 );
