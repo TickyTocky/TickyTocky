@@ -6,11 +6,11 @@ import instance from './axios';
 
 const { email, password } = USER_INPUT_VALIDATION;
 
-const redirectTo = (path) => {
+export const redirectTo = (path) => {
   Router.push(path);
 };
 
-const replaceTo = (path) => {
+export const replaceTo = (path) => {
   Router.replace(path);
 };
 
