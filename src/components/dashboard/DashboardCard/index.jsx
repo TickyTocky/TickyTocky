@@ -48,8 +48,8 @@ const DashboardCard = ({ dashboardId, dashboard, user }) => {
             {dashboard.createdByMe && (
               <Avatar
                 avatarSize='sm'
-                profileImage={user.profileImageUrl}
-                profileName={user.nickname}
+                profileImage={user?.profileImageUrl}
+                profileName={user?.nickname}
               />
             )}
           </div>
