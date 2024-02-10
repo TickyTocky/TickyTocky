@@ -12,7 +12,7 @@ const CardTags = ({ data, isDetailed = false }) => {
     <div className={cx('cardtags')}>
       <ul className={cx('cardtags-list')}>
         {selectedData.map((item, index) => (
-          <li className={cx('cardtags-list-item')} key={`key-${index}`}>
+          <li className={cx('cardtags-list-item')} key={`key-cardtags-${index}`}>
             {item.length > MINIMUM_LENGTH && !isDetailed
               ? `${item.slice(0, MINIMUM_LENGTH)}...`
               : item}

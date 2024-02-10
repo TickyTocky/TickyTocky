@@ -92,7 +92,7 @@ const DashboardInvitations = ({ dashboardId }) => {
         <div className={cx('container-list-emails-container')}>
           {currentPageData?.map((item) => (
             <div
-              key={`dashboardInvitations-${item.id}`}
+              key={`key-dashboardInvitations-${item.id}`}
               className={cx('container-list-emails-container-item')}
             >
               <div className={cx('email-title')}>{item.invitee.email}</div>

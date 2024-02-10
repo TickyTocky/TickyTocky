@@ -90,7 +90,7 @@ const DashboardList = () => {
         <div className={cx('dashboard-list-container-section-card-container')}>
           {currentPageData?.map((dashboard, i) => (
             <DashboardCard
-              key={`dashboard-card-${dashboard.id}+${i}`}
+              key={`key-dashboard-card-${dashboard.id}-${i}`}
               dashboardId={dashboard.id}
               dashboard={dashboard}
               user={user}
