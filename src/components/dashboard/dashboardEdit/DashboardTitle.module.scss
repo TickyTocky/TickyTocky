@@ -86,7 +86,7 @@
         .color-palette {
           @include flexbox($gap: 1.6rem);
 
-          padding-left: 0.6rem;
+          padding-left: 0.8rem;
 
           @include responsive(M) {
             flex-wrap: wrap;
