@@ -24,12 +24,11 @@ const AddColumn = ({ closeModal, dashBoardId }) => {
     <>
       <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
         <InputField
-          label='title'
+          label='Title'
           name='title'
           type='text'
           placeholder='Enter the title'
           maxLength={MAX_TEXT_LENGTH}
-          isRequired
         />
         <div className={cx('button', 'button-top')}>
           <div onClick={closeModal}>
