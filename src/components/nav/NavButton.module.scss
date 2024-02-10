@@ -35,13 +35,6 @@
     border-radius: 0.6rem;
     background-color: $primary;
   }
-
-  .focused {
-    @extend %board-button-base;
-
-    border-radius: 0.6rem;
-    background-color: $primary;
-  }
 }
 
 .board-button-wrapper {
@@ -58,4 +51,11 @@
 
     border-radius: 0.6rem;
   }
+}
+
+.is-focused {
+  @extend %board-button-base;
+  @include text-style(12, $black, bold);
+
+  border-radius: 0.6rem;
 }

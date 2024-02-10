@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import classNames from 'classnames/bind';
 import ModalButton from '@/components/nav/ModalButton';
 import LinkButton from '@/components/nav/LinkButton';
@@ -13,6 +14,9 @@ import styles from './Nav.module.scss';
 const cx = classNames.bind(styles);
 
 const Nav = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
   useAsync(() => Dashboard.getList(), INIT_DASHBOARDS_DATA);
   const { dashboardList } = useDashBoardStore();
   const { modalState, toggleModal } = useModalState(['createDashboard']);
@@ -32,12 +36,13 @@ const Nav = () => {
           />
         </div>
         <div className={cx('home-dashboard-container')}>
-          <LinkButton type='home' />
+          <LinkButton type='home' isHomeFocused={id ? false : true} />
           {dashboardList?.map((board) => (
             <LinkButton
-              key={`nav-dashboard-link-${board.id}`}
+              key={`key-nav-dashboard-key-${board.id}`}
               type='board'
               boardData={board}
+              isBoardFocused={board.id === Number(id) ? true : false}
             />
           ))}
         </div>
