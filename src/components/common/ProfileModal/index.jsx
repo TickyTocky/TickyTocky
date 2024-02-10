@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import classNames from 'classnames/bind';
 import Avatar from '@/components/common/Avatar';
 import BaseButton from '@/components/common/button/BaseButton';
@@ -13,7 +14,9 @@ const ProfileModal = ({ profileName, profileImage, profileEmail }) => (
       <span className={cx('email')}>{profileEmail}</span>
     </div>
     <div className={cx('button-wrap')}>
-      <BaseButton size='xl' variant='outline' type='button' text='My Page' />
+      <Link className={cx('link')} href={'/mypage'}>
+        <BaseButton size='xl' variant='outline' type='button' text='My Page' />
+      </Link>
       <BaseButton size='xl' variant='ghost' type='button' text='Logout' />
     </div>
   </div>

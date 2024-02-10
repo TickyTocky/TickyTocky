@@ -5,15 +5,13 @@ import ColumnLayout from '@/components/layout/dashboard/Column';
 
 const DashboardPage = () => {
   const router = useRouter();
-  const { query, pathname } = router;
-  const { id } = query;
-  const pageTitle = pathname.split('/')[1];
+  const { id } = router.query;
 
   if (id === undefined) return;
 
   return (
     <>
-      <BoardHeader title={pageTitle} dashBoardId={Number(id)} />
+      <BoardHeader dashBoardId={Number(id)} />
       <ColumnLayout dashBoardId={Number(id)} />
     </>
   );
