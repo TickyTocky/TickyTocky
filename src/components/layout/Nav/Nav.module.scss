@@ -14,7 +14,7 @@
     flex-direction: row;
     width: 100%;
     height: 7.2rem;
-    padding: 0;
+    padding: 0 1.5rem;
     background-color: $gray90;
     border-bottom: 0.1rem solid $gray70;
     overflow-x: auto;
@@ -30,7 +30,7 @@
 
       flex-direction: row;
       height: 7.2rem;
-      padding: 0 1.5rem;
+      padding: 0 1.6rem 0 0;
     }
 
     .divider {
