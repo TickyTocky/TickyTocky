@@ -89,7 +89,7 @@ const DashboardTitle = ({ dashboardId }) => {
               {COLOR_LIST.map((color, i) => (
                 <button
                   type='button'
-                  key={`color-list-key-${i}`}
+                  key={`key-color-list-${i}`}
                   onClick={() => {
                     setColor(`${color}`);
                   }}
