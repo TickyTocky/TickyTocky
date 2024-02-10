@@ -18,10 +18,7 @@ const InvitationMembers = ({ dashBoardId }) => {
   const { memberList } = useMemberStore();
 
   const { visibleMembersNum } = useInvitationMembers();
-  const { modalState, toggleModal } = useModalState([
-    'invitationWithdraw',
-    'inviteMember',
-  ]);
+  const { modalState, toggleModal } = useModalState(['headerInviteMember']);
 
   return (
     <div className={cx('container')}>
@@ -54,7 +51,7 @@ const InvitationMembers = ({ dashBoardId }) => {
         )}
       </ul>
       <MixButton
-        onClick={() => toggleModal('inviteMember')}
+        onClick={() => toggleModal('headerInviteMember')}
         svg={add.default.url}
         alt={add.default.alt}
         size={18}
@@ -64,8 +61,8 @@ const InvitationMembers = ({ dashBoardId }) => {
         fontSize={14}
       />
       <InviteDashboard
-        isModalOpen={modalState.inviteMember}
-        closeModal={() => toggleModal('inviteMember')}
+        isModalOpen={modalState.headerInviteMember}
+        closeModal={() => toggleModal('headerInviteMember')}
         dashboardId={dashBoardId}
       />
     </div>
