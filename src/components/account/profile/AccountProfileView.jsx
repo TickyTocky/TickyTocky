@@ -6,14 +6,31 @@ import styles from './profile.module.scss';
 
 const cx = classNames.bind(styles);
 
-const AccountProfileView = ({ user, handleSubmit, isChanged }) => (
+const AccountProfileView = ({
+  user,
+  handleSubmit,
+  isChanged,
+  handleInitializeClick,
+  profileImageInit,
+  setProfileImageInit,
+}) => (
   <div className={cx('profile')}>
     <div className={cx('profile-img-container')}>
       <div className={cx('profile-img')}>
-        <ProfileImage name='profileImageUrl' defaultValue={user?.profileImageUrl} />
+        <ProfileImage
+          name='profileImageUrl'
+          defaultValue={user?.profileImageUrl}
+          profileImageInit={profileImageInit}
+          setProfileImageInit={setProfileImageInit}
+        />
       </div>
       <div className={cx('profile-img-init')}>
-        <BaseButton size='md' text='Initialize' variant='remove' />
+        <BaseButton
+          size='md'
+          text='Initialize'
+          variant='remove'
+          onClick={handleInitializeClick}
+        />
       </div>
     </div>
     <form className={cx('profile-form')} onSubmit={handleSubmit}>
