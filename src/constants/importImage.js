@@ -25,6 +25,7 @@ import IconPageArrowRight from 'public/svg/ic-page-arrow-right.svg';
 import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
 import IconColorize from 'public/svg/ic-colorize.svg';
 import IconSuccess from 'public/svg/ic-success.svg';
+import IconEmail from 'public/svg/ic-email.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -153,5 +154,9 @@ export const ICON = {
   success: {
     url: IconSuccess,
     alt: 'success-icon',
+  },
+  email: {
+    url: IconEmail,
+    alt: 'icon-email',
   },
 };

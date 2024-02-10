@@ -8,7 +8,7 @@ import styles from './BoardHeader.module.scss';
 const cx = classNames.bind(styles);
 const { settings } = ICON;
 
-const BoardHeader = ({ title }) => (
+const BoardHeader = ({ title, dashBoardId }) => (
   <div className={cx('container')}>
     <MixButton
       svg={settings.url}
@@ -21,7 +21,7 @@ const BoardHeader = ({ title }) => (
       fontSize={24}
     />
     <div className={cx('info-wrap')}>
-      <InvitationMembers />
+      <InvitationMembers dashBoardId={dashBoardId} />
       <div className={cx('line')}></div>
       <Breadcrumb title={title} />
     </div>
