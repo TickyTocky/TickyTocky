@@ -33,6 +33,7 @@ const DashboardTitle = ({ dashboardId }) => {
     if (data.title && data.color) {
       toggleModal('dashboardEditSuccess');
       await Dashboard.edit(dashboardId, data);
+      await Dashboard.getList();
     } else {
       return;
     }
