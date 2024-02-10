@@ -7,13 +7,14 @@ import CreateDashboard from '@/components/dashboard/modal/dashboard/CreateDashbo
 import useDashboardList from '@/hooks/useDashboardList';
 import useModalState from '@/hooks/useModalState';
 import { ICON } from '@/constants/importImage';
+import useUserStore from '@/stores/useUserStore';
 import styles from './DashboardList.module.scss';
 
 const cx = classNames.bind(styles);
 const { page } = ICON;
 const { arrowLeft, arrowRight } = page;
 
-const DashboardList = ({ dashboardData }) => {
+const DashboardList = () => {
   const {
     currentPageData,
     currentFilter,
@@ -23,8 +24,10 @@ const DashboardList = ({ dashboardData }) => {
     totalPages,
     goToPrevPage,
     goToNextPage,
-  } = useDashboardList(dashboardData);
+    totalItems,
+  } = useDashboardList();
   const { modalState, toggleModal } = useModalState(['createDashboard']);
+  const { user } = useUserStore();
 
   return (
     <div className={cx('dashboard-list-container')}>
@@ -35,7 +38,7 @@ const DashboardList = ({ dashboardData }) => {
       <header className={cx('dashboard-list-container-header')}>
         <div className={cx('dashboard-list-container-header-container')}>
           <span className={cx('dashboard-name')}>Dashboard</span>
-          <div className={cx('dashboard-number')}>{dashboardData.totalCount}</div>
+          <div className={cx('dashboard-number')}>{totalItems}</div>
         </div>
       </header>
       <section className={cx('dashboard-list-container-section')}>
@@ -85,8 +88,13 @@ const DashboardList = ({ dashboardData }) => {
           </div>
         </div>
         <div className={cx('dashboard-list-container-section-card-container')}>
-          {currentPageData.map((dashboard, i) => (
-            <DashboardCard key={`dashboard-${dashboard.id}+${i}`} dashboard={dashboard} />
+          {currentPageData?.map((dashboard, i) => (
+            <DashboardCard
+              key={`dashboard-card-${dashboard.id}+${i}`}
+              dashboardId={dashboard.id}
+              dashboard={dashboard}
+              user={user}
+            />
           ))}
         </div>
       </section>

@@ -1,0 +1,30 @@
+.button-container {
+  @include flexbox($gap: 1.2rem);
+
+  min-width: 25.2rem;
+}
+
+.single-button-container {
+  width: 24rem;
+}
+
+.invite-dashboard-form {
+  width: 100%;
+
+  &-container {
+    @include column-flexbox(center, start, 2.4rem);
+
+    width: 100%;
+
+    &-button-container {
+      @include flexbox($gap: 1.2rem);
+
+      width: 25.2rem;
+      margin-left: auto;
+
+      @include responsive(M) {
+        width: 100%;
+      }
+    }
+  }
+}

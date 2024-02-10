@@ -17,10 +17,11 @@ import styles from './CardItem.module.scss';
 const cx = classNames.bind(styles);
 const { calendar, remove } = ICON;
 
-const CardItem = ({ id, columnName }) => {
-  const { cardList } = useCardStore();
-  const cardItemData = cardList.find((card) => card.id === id);
-  const { assignee, columnId, title, imageUrl, tags, dueDate } = cardItemData;
+const CardItem = ({ columnId, id, columnName }) => {
+  const cardList = useCardStore((prev) => prev.cardList[columnId]);
+  const cardItemData = cardList?.cards.find((card) => card.id === id);
+
+  const { assignee, title, imageUrl, tags, dueDate } = cardItemData;
 
   const { modalState, toggleModal } = useModalState([
     'detailCard',
@@ -81,7 +82,7 @@ const CardItem = ({ id, columnName }) => {
             <span className={cx('card-footer-deadline-date')}>{dueDate}</span>
           </div>
           <Avatar
-            profileImage={assignee.profileImage}
+            profileImage={assignee.profileImageUrl}
             profileName={assignee.nickname}
             avatarSize='sm'
           />
@@ -95,7 +96,7 @@ const CardItem = ({ id, columnName }) => {
         isDetail={true}
         detailInfo={{ columnTitle: columnName, cardTitle: title }}
       >
-        <DetailCard cardId={id} toggleModal={toggleModal} />
+        <DetailCard colId={columnId} cardId={id} toggleModal={toggleModal} />
       </CommonModal>
 
       <IconModal

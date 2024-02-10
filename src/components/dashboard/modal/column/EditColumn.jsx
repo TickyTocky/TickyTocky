@@ -25,7 +25,7 @@ const EditColumn = ({ dashboardId, columnId, title, closeModal }) => {
     <>
       <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
         <InputField
-          label='title'
+          label='Title'
           name='title'
           type='text'
           placeholder='Enter the title'

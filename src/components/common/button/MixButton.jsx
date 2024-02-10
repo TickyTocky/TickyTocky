@@ -11,14 +11,14 @@ const MixButton = ({
   size = 24,
   type = 'button',
   gap = 4,
-  text = 'Button',
+  text = '',
   fontSize = 14,
   ...props
 }) => (
   <button type={type} className={cx('mix-btn', `mix-btn-${gap}`)} {...props}>
     {reverse && <span className={cx(`mix-text-${fontSize}`)}>{text}</span>}
     <div className={cx(`mix-box-${size}`)}>
-      <Image src={svg} alt={alt} className={cx('mix-fit')} />
+      <Image src={svg} alt={alt} className={cx('mix-fit')} width={size} height={size} />
     </div>
     {!reverse && <span className={cx(`mix-text-${fontSize}`)}>{text}</span>}
   </button>

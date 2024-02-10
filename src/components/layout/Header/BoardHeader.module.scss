@@ -1,8 +1,9 @@
 .container {
   @include flexbox(between);
 
+  flex-shrink: 0;
   width: 100%;
-  height: 7rem;
+  height: 6rem;
   padding: 0 3.2rem;
   background-color: $gray90;
   border-bottom: 0.1rem solid $gray70;

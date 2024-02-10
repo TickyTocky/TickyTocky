@@ -7,9 +7,11 @@ const DashboardPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  if (id === undefined) return;
+
   return (
     <>
-      <BoardHeader title='미정님 타이틀 뿌려주세요' />
+      <BoardHeader dashBoardId={Number(id)} />
       <ColumnLayout dashBoardId={Number(id)} />
     </>
   );

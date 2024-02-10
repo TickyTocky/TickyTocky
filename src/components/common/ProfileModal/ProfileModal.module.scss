@@ -3,6 +3,7 @@
 
   width: 30.4rem;
   padding: 3rem;
+  background-color: $gray90;
   border: 0.2rem solid $gray70;
   border-radius: 1.6rem;
   box-shadow: $dropdown-shadow;
@@ -27,5 +28,9 @@
 .button-wrap {
   @include column-flexbox($gap: 1.2rem);
 
+  width: 100%;
+}
+
+.link {
   width: 100%;
 }

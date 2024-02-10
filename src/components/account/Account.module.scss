@@ -1,0 +1,52 @@
+.account {
+  @include no-scrollbar;
+
+  padding: 4rem 8rem 0;
+  width: 100%;
+  max-height: calc(100vh - 13rem);
+
+  @include responsive(T) {
+    padding: 4rem 4rem 0;
+  }
+
+  @include responsive(M) {
+    padding: 2.4rem 1.5rem 0;
+    overflow-y: auto;
+  }
+
+  &-title {
+    @include text-style(24, $gray10);
+
+    margin-bottom: 3.2rem;
+
+    @include responsive(M) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &-thumnail {
+    @include text-style(18, $gray30);
+
+    width: 100%;
+    padding-bottom: 1.2rem;
+    margin-bottom: 2.4rem;
+    border-bottom: 0.1rem solid $gray50;
+  }
+
+  &-profile {
+    max-width: 63.6rem;
+
+    @include responsive(M) {
+      max-width: 100%;
+    }
+  }
+
+  &-password {
+    padding-top: 2.4rem;
+    max-width: 63.6rem;
+
+    @include responsive(M) {
+      max-width: 100%;
+    }
+  }
+}

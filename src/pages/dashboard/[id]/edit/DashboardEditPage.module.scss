@@ -1,0 +1,38 @@
+.container {
+  @include flexbox(start, start, 6.4rem);
+
+  padding: 3.6rem 4rem;
+
+  @include responsive(T) {
+    @include column-flexbox(start, start, 4rem);
+    @include no-scrollbar;
+
+    overflow-y: scroll;
+  }
+
+  @include responsive(M) {
+    @include column-flexbox(2.4rem);
+    @include no-scrollbar;
+
+    width: 100%;
+    padding: 2.4rem 1.5rem;
+  }
+
+  &-title-members {
+    @include column-flexbox(start, start, 4rem);
+
+    width: 42rem;
+
+    @include responsive(M) {
+      width: 100%;
+    }
+  }
+
+  &-invitations {
+    width: 42rem;
+
+    @include responsive(M) {
+      width: 100%;
+    }
+  }
+}

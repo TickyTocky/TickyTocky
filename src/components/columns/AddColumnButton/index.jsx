@@ -25,7 +25,7 @@ const AddColumnButton = ({ dashBoardId }) => {
         />
       </CommonModal>
       <button className={cx('container')} onClick={() => toggleModal('addColumnModal')}>
-        <Image src={add.gray.url} alt={add.gray.url} width={24} height={24} />
+        <Image src={add.gray.url} alt={add.gray.alt} width={24} height={24} />
         <span className={cx('text')}>Add Column</span>
       </button>
     </>

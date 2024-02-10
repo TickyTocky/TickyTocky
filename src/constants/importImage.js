@@ -8,6 +8,7 @@ import IconNavActive from 'public/svg/ic-nav-active.svg';
 import IconNav from 'public/svg/ic-nav.svg';
 import IconRemoveModal from 'public/svg/ic-remove-modal.svg';
 import IconArrowRight from 'public/svg/ic-arrow-right.svg';
+import IconArrowRightActive from 'public/svg/ic-arrow-right-active.svg';
 import IconLogo from 'public/svg/ic-logo.svg';
 import IconHome from 'public/svg/ic-home.svg';
 import IconSettings from 'public/svg/ic-settings.svg';
@@ -26,6 +27,7 @@ import IconPageArrowRight from 'public/svg/ic-page-arrow-right.svg';
 import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
 import IconColorize from 'public/svg/ic-colorize.svg';
 import IconSuccess from 'public/svg/ic-success.svg';
+import IconEmail from 'public/svg/ic-email.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -76,8 +78,14 @@ export const ICON = {
     alt: 'icon-remove-modal',
   },
   arrowRight: {
-    url: IconArrowRight,
-    alt: 'icon-arrow-right',
+    default: {
+      url: IconArrowRight,
+      alt: 'icon-arrow-right',
+    },
+    active: {
+      url: IconArrowRightActive,
+      alt: 'icon-arrow-right-active',
+    },
   },
   page: {
     arrowRight: {
@@ -157,6 +165,10 @@ export const ICON = {
   },
   success: {
     url: IconSuccess,
-    alt: 'icon-success',
+    alt: 'success-icon',
+  },
+  email: {
+    url: IconEmail,
+    alt: 'icon-email',
   },
 };

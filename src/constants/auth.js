@@ -17,6 +17,15 @@ export const USER_INPUT_VALIDATION = {
       empty: 'Enter your password',
       invalid: 'Not a valid Password',
       check: 'Please check your email or password',
+      checkPassword: 'Please check your password',
+    },
+  },
+  newPassword: {
+    regex: /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$/,
+    errorMessage: {
+      empty: 'Enter your password',
+      invalid: 'Not a valid Password',
+      check: 'Please check your email or password',
     },
   },
   passwordConfirm: {
@@ -27,13 +36,6 @@ export const USER_INPUT_VALIDATION = {
   nickname: {
     errorMessage: {
       empty: 'Enter your nickname',
-    },
-  },
-  title: {
-    regex: /^[a-zA-Z ]{0,20}$|^[\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]{0,11}$/,
-    errorMessage: {
-      empty: 'Enter title',
-      invalid: 'Title is too long',
     },
   },
 };
