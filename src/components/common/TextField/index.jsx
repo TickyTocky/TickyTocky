@@ -28,8 +28,8 @@ const TextField = ({ cardId, columnId, dashboardId, name, ...props }) => {
     };
 
     await Comment.create(submitData);
+    reset({ content: '' });
     await Comment.getList(cardId);
-    reset();
   };
 
   return (
@@ -43,6 +43,7 @@ const TextField = ({ cardId, columnId, dashboardId, name, ...props }) => {
           },
         })}
         {...props}
+        maxLength={255}
         className={cx('comment-textarea')}
       ></textarea>
       <div className={cx('comment-footer')}>
