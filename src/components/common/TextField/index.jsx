@@ -28,8 +28,8 @@ const TextField = ({ cardId, columnId, dashboardId, name, ...props }) => {
     };
 
     await Comment.create(submitData);
+    reset({ content: '' });
     await Comment.getList(cardId);
-    reset();
   };
 
   return (
