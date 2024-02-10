@@ -34,13 +34,16 @@ const AvatarField = ({ name }) => {
   };
 
   useEffect(() => {
-    if (user?.profileImageUrl && !isSelected) {
-      setImagePreview(user.profileImageUrl);
+    if (user) {
+      if (user.profileImageUrl && !isSelected) {
+        setImagePreview(user.profileImageUrl);
+        setValue(name, user.profileImageUrl);
+      }
     }
     if (imagePreview) {
       return () => URL.revokeObjectURL(imagePreview);
     }
-  }, [imagePreview, user, isSelected]);
+  }, [imagePreview, user, isSelected, name, setValue]);
 
   return (
     <div className={cx('image-field')}>
