@@ -4,9 +4,7 @@ const useToggleButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleToggleClick = () => {
-    setIsVisible((prev) => {
-      return !prev;
-    });
+    setIsVisible((prev) => !prev);
   };
 
   return { isVisible, handleToggleClick };
