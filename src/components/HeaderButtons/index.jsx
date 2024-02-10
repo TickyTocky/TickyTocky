@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames/bind';
 import IconButton from '@/components/common/button/IconButton';
-import useTogglePopup from '@/hooks/useTogglePopup';
+import InvitationPopUp from '@/components/invitations/InvitationPopUp';
+import useModalTogglePopup from '@/hooks/useModalTogglePopup';
 import { ICON } from '@/constants/importImage';
 import styles from './HeaderButtons.module.scss';
 
@@ -10,7 +11,7 @@ const cx = classNames.bind(styles);
 const { home, email } = ICON;
 
 const HeaderButtons = () => {
-  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
+  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useModalTogglePopup();
 
   return (
     <>
@@ -26,7 +27,7 @@ const HeaderButtons = () => {
       </button>
       {isOpen && (
         <div className={cx('popup')} ref={popupRef}>
-          초대 팝업
+          <InvitationPopUp />
         </div>
       )}
     </>

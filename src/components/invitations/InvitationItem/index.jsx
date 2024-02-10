@@ -95,7 +95,7 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
           closeModal={handleToggleDenyModal}
           iconSize={58}
           title='Invitation Decline'
-          desc='Are you sure you want to decline this invitation?'
+          desc='Are you sure you want to decline?'
           iconName={ICON.remove}
         >
           <div className={cx('modal-buttons')}>
