@@ -1,8 +1,9 @@
+import { DEFAULT_BLACK } from '@/constants';
 import { useEffect, useRef, useState } from 'react';
 
-const useCreateDashboard = () => {
-  const [color, setColor] = useState('');
-  const [inputValue, setInputValue] = useState();
+const useCreateDashboard = (dashboardColor = DEFAULT_BLACK, dashboardName = '') => {
+  const [color, setColor] = useState(dashboardColor);
+  const [inputValue, setInputValue] = useState(dashboardName);
   const firstButtonRef = useRef();
 
   const handleOnChange = (e) => {
