@@ -20,4 +20,8 @@
   top: 6.3rem;
   right: 4.6rem;
   z-index: $modal-level;
+
+  @include responsive(M) {
+    right: 1.5rem;
+  }
 }

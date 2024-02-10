@@ -13,7 +13,7 @@ import styles from './InvitationMembers.module.scss';
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
-const InvitationMembers = ({ dashBoardId }) => {
+const InvitationMembers = ({ dashBoardId, createdByMe }) => {
   useAsync(() => Members.getList(1, 20, dashBoardId));
   const { memberList } = useMemberStore();
 
@@ -50,21 +50,28 @@ const InvitationMembers = ({ dashBoardId }) => {
           </li>
         )}
       </ul>
-      <MixButton
-        onClick={() => toggleModal('headerInviteMember')}
-        svg={add.default.url}
-        alt={add.default.alt}
-        size={18}
-        type='button'
-        gap={4}
-        text='Invite'
-        fontSize={14}
-      />
-      <InviteDashboard
-        isModalOpen={modalState.headerInviteMember}
-        closeModal={() => toggleModal('headerInviteMember')}
-        dashboardId={dashBoardId}
-      />
+      {createdByMe && (
+        <>
+          <div className={cx('line')}></div>
+          <div className={cx('button')}>
+            <MixButton
+              onClick={() => toggleModal('headerInviteMember')}
+              svg={add.default.url}
+              alt={add.default.alt}
+              size={18}
+              type='button'
+              gap={4}
+              text='Invite'
+              fontSize={14}
+            />
+          </div>
+          <InviteDashboard
+            isModalOpen={modalState.headerInviteMember}
+            closeModal={() => toggleModal('headerInviteMember')}
+            dashboardId={dashBoardId}
+          />
+        </>
+      )}
     </div>
   );
 };

@@ -28,7 +28,10 @@ const BoardHeader = ({ dashBoardId }) => {
         )}
       </div>
       <div className={cx('info-wrap')}>
-        <InvitationMembers dashBoardId={dashBoardId} />
+        <InvitationMembers
+          dashBoardId={dashBoardId}
+          createdByMe={dashboard?.createdByMe}
+        />
         <div className={cx('line')}></div>
         <Breadcrumb title={dashboard?.title} />
       </div>
