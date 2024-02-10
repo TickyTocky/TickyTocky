@@ -82,7 +82,7 @@ const CardItem = ({ columnId, id, columnName }) => {
             <span className={cx('card-footer-deadline-date')}>{dueDate}</span>
           </div>
           <Avatar
-            profileImage={assignee.profileImage}
+            profileImage={assignee.profileImageUrl}
             profileName={assignee.nickname}
             avatarSize='sm'
           />
