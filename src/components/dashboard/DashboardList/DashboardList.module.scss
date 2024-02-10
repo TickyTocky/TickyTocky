@@ -2,14 +2,14 @@
   @include column-flexbox(center, start, 2.4rem);
 
   margin: 12.6rem auto;
-  max-width: 136rem;
+  min-width: 136rem;
 
   @include responsive(MP) {
-    max-width: 101.4rem;
+    min-width: 101.4rem;
   }
 
   @include responsive(T) {
-    max-width: 66.8rem;
+    min-width: 66.8rem;
   }
 
   @include responsive(M) {
@@ -54,7 +54,7 @@
     }
 
     @include responsive(T) {
-      width: auto;
+      width: 100%;
       height: auto;
     }
 
