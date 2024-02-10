@@ -4,7 +4,7 @@ import IconModal from '@/components/layout/modal/IconModal';
 import { ICON } from '@/constants/importImage';
 import Members from '@/api/members';
 import Dashboard from '@/api/dashboards';
-import { redirectTo } from '@/api/auth';
+import { replaceTo } from '@/api/auth';
 import styles from './DashboardEditPage.module.scss';
 
 const cx = classNames.bind(styles);
@@ -19,7 +19,7 @@ const DeleteDashboard = ({ isModalOpen, closeModal, memberId = 0, dashboardId = 
       await Dashboard.getList();
     }
     closeModal('dashboardDelete');
-    redirectTo('/mydashboard');
+    replaceTo('/mydashboard');
   };
 
   return (
