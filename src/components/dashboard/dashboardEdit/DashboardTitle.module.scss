@@ -1,0 +1,190 @@
+%figure-base {
+  position: relative;
+  width: 9.6rem;
+  height: 9.6rem;
+  background: $gray60;
+  white-space: no-wrap;
+  text-align: center;
+  overflow: hidden;
+}
+
+.form {
+  @include responsive(M) {
+    width: 100%;
+  }
+
+  .dashboard-title-container {
+    @include column-flexbox($gap: 2.4rem);
+
+    width: 100%;
+    min-width: 42rem;
+
+    @include responsive(M) {
+      min-width: 34.5rem;
+    }
+
+    &-title-button {
+      @include flexbox(between);
+
+      width: 100%;
+      padding-bottom: 0.8rem;
+      border-bottom: 0.1rem solid $gray50;
+
+      .title {
+        @include text-style(18, $gray10);
+      }
+    }
+
+    &-thumbnail-container {
+      @include flexbox($gap: 3.2rem);
+
+      width: 100%;
+      background: $black;
+      border-radius: 0.6rem;
+      height: 14.4rem;
+
+      &-figure-circle {
+        @extend %figure-base;
+
+        border-radius: 50%;
+      }
+
+      &-figure-square {
+        @extend %figure-base;
+
+        border-radius: 0.6rem;
+      }
+
+      .name {
+        @include text-style(14, $gray10, bold);
+        @include pos-center;
+
+        width: 100%;
+      }
+    }
+
+    &-add-color-container {
+      width: 100%;
+
+      .label {
+        @include text-style(18, $gray20);
+
+        display: block;
+        padding-top: 2rem;
+        padding-bottom: 0.8rem;
+      }
+
+      .color-palette-container {
+        @include flexbox(between);
+
+        width: 100%;
+
+        @include responsive(M) {
+          flex-flow: row;
+        }
+
+        .color-palette {
+          @include flexbox($gap: 1.6rem);
+
+          padding-left: 0.6rem;
+
+          @include responsive(M) {
+            flex-wrap: wrap;
+            justify-content: start;
+          }
+
+          &-one-color {
+            position: relative;
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 50%;
+            transition: $base-transition;
+
+            &::after {
+              @include pos-center;
+
+              content: '';
+              display: none;
+              width: 4rem;
+              height: 4rem;
+              border-radius: 50%;
+              border: 0.1rem solid $gray30;
+              transition: $base-transition;
+            }
+
+            &:hover::after,
+            &:focus::after,
+            &:active::after {
+              display: block;
+              transition: $base-transition;
+            }
+          }
+        }
+      }
+
+      .colorpicker-button-container {
+        position: relative;
+
+        &-colorpicker-button {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          border: 0.1rem solid $gray60;
+
+          @include responsive(M) {
+            margin-left: 1rem;
+          }
+
+          &.active {
+            border: 0.1rem solid $primary;
+          }
+        }
+
+        &-modal-container {
+          @include column-flexbox($gap: 2.4rem);
+
+          position: absolute;
+          left: 5rem;
+          top: 0;
+          padding: 2.4rem;
+          background: $modal-background;
+          border: 0.2rem solid $gray70;
+          border-radius: 1.6rem;
+          outline: none;
+          transform: translate(0, -50%);
+          box-shadow: $modal-shadow;
+
+          @include responsive(T) {
+            top: 22rem;
+            left: -25rem;
+          }
+
+          @include responsive(M) {
+            @include column-flexbox($gap: 1.2rem);
+
+            width: 32rem;
+            height: 20rem;
+            top: 15rem;
+            left: -28rem;
+          }
+
+          &-label {
+            @include text-style(18, $white);
+
+            margin-right: auto;
+          }
+
+          &-colorpicker {
+            width: 24rem;
+            height: 24rem;
+
+            @include responsive(M) {
+              min-width: 28rem;
+              min-height: 12rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
