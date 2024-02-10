@@ -11,9 +11,9 @@ const Dashboard = {
       return res;
     }
   },
-  getList: async (navigationMethod, page, size) => {
+  getList: async () => {
     const res = await instance.get(DASHBOARD_API, {
-      params: { navigationMethod, page, size },
+      params: { navigationMethod: 'pagination', page: 1, size: 1000 },
     });
     if (res.status === 200) {
       useDashBoardStore.setState((prev) => ({

@@ -10,6 +10,10 @@ const redirectTo = (path) => {
   Router.push(path);
 };
 
+const replaceTo = (path) => {
+  Router.replace(path);
+};
+
 const Auth = {
   signup: async (value, setError) => {
     try {
@@ -38,9 +42,10 @@ const Auth = {
       }
     }
   },
-  signout: () => {
+  logout: () => {
     useUserStore.setState({ user: null });
     LocalStorage.removeItem('accessToken');
+    replaceTo('/login');
   },
   changePassword: async (value, setError, reset) => {
     try {

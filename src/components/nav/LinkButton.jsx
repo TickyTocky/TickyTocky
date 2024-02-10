@@ -12,8 +12,8 @@ const LinkButton = ({ type, boardData }) => {
   const { icon, alt } = isVisible ? NAV_HOME_STATUS.active : NAV_HOME_STATUS.default;
 
   const boardName = boardData?.title;
-  const maxLengh = 7;
-  const truncatedString = boardName?.slice(0, maxLengh);
+  const MAX_LENGTH = 11;
+  const truncatedString = boardName?.slice(0, MAX_LENGTH);
 
   return (
     <>
