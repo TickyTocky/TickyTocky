@@ -14,7 +14,9 @@
   }
 
   &-item {
-    width: 100%;
+    @include responsive(M) {
+      width: 100%;
+    }
 
     &-last {
       @include responsive(M) {
