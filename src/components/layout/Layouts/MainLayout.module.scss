@@ -17,17 +17,19 @@
 
     .main {
       @include column-flexbox($jc: start, $ai: between);
-      @include responsive(M) {
-        @include column-flexbox($ai: stretch);
-
-        width: 100%;
-        height: calc(100vh - 7rem - 7.2rem);
-      }
 
       width: 100%;
       height: 100%;
       overflow: hidden;
       overflow-x: auto;
+
+      @include responsive(M) {
+        @include column-flexbox(start, stretch);
+
+        width: 100%;
+        height: calc(100vh - 7rem - 7.2rem);
+        overflow-x: hidden;
+      }
     }
   }
 }
