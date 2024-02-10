@@ -11,7 +11,7 @@ const MixButton = ({
   size = 24,
   type = 'button',
   gap = 4,
-  text = 'Button',
+  text = '',
   fontSize = 14,
   ...props
 }) => (

@@ -16,19 +16,21 @@ const MyHeader = ({ user }) => {
 
   return (
     <header className={cx('container')}>
-      <Link href={'/'}>
+      <Link href={'/mydashboard'}>
         <Image
           className={cx('image')}
           src={logo.url}
           alt={logo.alt}
           width={130}
           height={20}
+          priority={true}
+          as='image'
         />
       </Link>
       <div className={cx('my-menu')}>
         <HeaderButtons />
         <div ref={buttonRef} onClick={isOpen ? closePopup : openPopup}>
-          <div className={cx('sm-hidden')}>
+          <div className={cx('sm-hidden', 'cursor')}>
             <Avatar
               profileName={user?.nickname}
               profileImage={user?.profileImageUrl}
@@ -38,7 +40,7 @@ const MyHeader = ({ user }) => {
               isOpen={isOpen}
             />
           </div>
-          <div className={cx('sm-profile', 'sm-only')}>
+          <div className={cx('sm-only', 'cursor')}>
             <Avatar
               profileName={user?.nickname}
               profileImage={user?.profileImageUrl}
