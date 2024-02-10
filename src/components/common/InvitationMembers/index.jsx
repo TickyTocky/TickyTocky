@@ -31,7 +31,7 @@ const InvitationMembers = ({ dashBoardId }) => {
               </li>
             ))
           : memberList?.map((member) => (
-              <li key={member.id}>
+              <li key={`key-member-list-${member.id}`}>
                 <Avatar
                   profileName={member.nickname}
                   profileImage={member.profileImageUrl}

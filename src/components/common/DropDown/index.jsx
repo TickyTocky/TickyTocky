@@ -97,7 +97,7 @@ const DropDown = ({
           {type === 'column' &&
             dropDownList.map(({ title, id }) => (
               <li
-                key={`key-${id}`}
+                key={`key-dropdown-column-${id}`}
                 className={cx('dropdown-list-item')}
                 onClick={(e) => handleListItemClick(e, id)}
               >
@@ -107,7 +107,7 @@ const DropDown = ({
           {type === 'assignee' &&
             dropDownList.map(({ id, userId, nickname, profileImageUrl }) => (
               <li
-                key={`key-${id}`}
+                key={`key-dropdown-assignee-${id}`}
                 className={cx('dropdown-list-item')}
                 onClick={(e) => handleListItemClick(e, userId)}
               >
@@ -122,7 +122,7 @@ const DropDown = ({
           {type === 'timeline' &&
             dropDownList.map(({ id, name }) => (
               <li
-                key={`key-${id}`}
+                key={`key-dropdown-timeline-${id}`}
                 className={cx('dropdown-list-item')}
                 onClick={(e) => handleListItemClick(e, name)}
               >
