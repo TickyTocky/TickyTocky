@@ -7,7 +7,7 @@ import styles from './NavButton.module.scss';
 
 const cx = classNames.bind(styles);
 
-const LinkButton = ({ type, boardData, isFocused }) => {
+const LinkButton = ({ type, boardData, isHomeFocused, isBoardFocused }) => {
   const { isVisible, handleToggleClick } = useToggleButton();
   const { icon, alt } = isVisible ? NAV_HOME_STATUS.active : NAV_HOME_STATUS.default;
   const boardName = boardData?.title;
@@ -19,7 +19,7 @@ const LinkButton = ({ type, boardData, isFocused }) => {
       {type === 'home' && (
         <Link href={'/mydashboard'}>
           <button
-            className={cx('home-button-wrapper', { focused: isFocused })}
+            className={cx('home-button-wrapper', { 'is-focused': isHomeFocused })}
             onMouseEnter={handleToggleClick}
             onMouseLeave={handleToggleClick}
           >
@@ -30,7 +30,7 @@ const LinkButton = ({ type, boardData, isFocused }) => {
       {type === 'board' && (
         <Link href={`/dashboard/${boardData.id}`}>
           <button
-            className={cx('board-button-wrapper')}
+            className={cx('board-button-wrapper', { 'is-focused': isBoardFocused })}
             style={{ background: boardData.color }}
           >
             {truncatedString}

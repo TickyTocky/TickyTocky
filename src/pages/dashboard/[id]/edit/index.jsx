@@ -30,7 +30,7 @@ const DashboardEditPage = () => {
 
   return (
     <>
-      <BoardHeader />
+      <BoardHeader dashBoardId={id} />
       <div className={cx('dashboard-edit')}>
         <div className={cx('dashboard-edit-container')}>
           <span className={cx('title')}>Edit</span>
