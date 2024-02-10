@@ -28,7 +28,7 @@ const DashboardTitle = ({ dashboardId }) => {
     dashboard?.title
   );
   const { modalState, toggleModal } = useModalState(['dashboardEditSuccess']);
-  const MAX_LENGTH = 20;
+  const MAX_LENGTH = 15;
 
   const onSubmit = async (data) => {
     data.color = color;
