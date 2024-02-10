@@ -12,7 +12,7 @@ const useDashboardList = () => {
   const [currentPageData, setCurrentPageData] = useState([]);
   const [currentSortedData, setCurrentSortedData] = useState(null);
   const [currentFilter, setCurrentFilter] = useState('All');
-  const [totalItems, setTotalItems] = useState(dashboards?.length);
+  const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(Math.ceil(totalItems / ITEMS_PER_PAGE));
 
   const sortByLatest = () => {
@@ -103,6 +103,10 @@ const useDashboardList = () => {
       renderData(dashboards, itemsPerPage);
     }
   }, [currentPage, dashboards, currentSortedData]);
+
+  useEffect(() => {
+    setTotalItems(dashboards?.length);
+  }, [dashboards?.length]);
 
   useEffect(() => {
     const renderDataBasedOnWindowSize = () => {
