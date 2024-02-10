@@ -106,12 +106,18 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
           closeModal={() => toggleModal('deleteColumnModal')}
         />
       </IconModal>
+
       <CommonModal
         isModalOpen={modalState.addCardModal}
         closeModal={() => toggleModal('addCardModal')}
         label='Add Card'
       >
-        <CreateCard columnTitle={columnName} />
+        <CreateCard
+          columnTitle={columnName}
+          columnId={columnId}
+          dashboardId={dashboardId}
+          toggleModal={toggleModal}
+        />
       </CommonModal>
     </>
   );

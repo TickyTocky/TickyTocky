@@ -5,6 +5,20 @@
   padding: 3.2rem;
   overflow-y: auto;
 
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray40;
+    border-radius: 1rem;
+    border: 0.5rem solid $gray90;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
   @include responsive(M) {
     @include column-flexbox($jc: stretch, $gap: 0.8rem);
     @include no-scrollbar;
