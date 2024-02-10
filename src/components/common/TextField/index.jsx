@@ -43,6 +43,7 @@ const TextField = ({ cardId, columnId, dashboardId, name, ...props }) => {
           },
         })}
         {...props}
+        maxLength={255}
         className={cx('comment-textarea')}
       ></textarea>
       <div className={cx('comment-footer')}>
