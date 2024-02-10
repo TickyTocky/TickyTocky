@@ -14,27 +14,22 @@ function LandingFeaturesOverview() {
   const buttonsWithDescriptions = [
     {
       id: 'invite',
-      image: '/path/to/button1.svg',
       description: 'Invite Members',
     },
     {
       id: 'thumbnail',
-      image: '/path/to/button2.svg',
       description: 'Make Thumbnail',
     },
     {
       id: 'darkmode',
-      image: '/path/to/button3.svg',
       description: 'Dark Mode',
     },
     {
       id: 'device',
-      image: '/path/to/button4.svg',
       description: 'All Devices',
     },
     {
       id: 'dashboard',
-      image: '/path/to/button5.svg',
       description: 'Dashboard',
     },
   ];
@@ -68,8 +63,8 @@ function LandingFeaturesOverview() {
               src={landing[button.id].url}
               alt={landing[button.id].alt}
               width={50}
-              height={50}
-              layout='fixed'
+              height='auto'
+              priority
             />
             <p className={cx('overview-sidebar-description')}>{button.description}</p>
           </li>
@@ -140,8 +135,10 @@ function LandingFeaturesOverview() {
           <Image
             src={background.overview[activeButton].url}
             alt={background.overview[activeButton].alt}
-            layout='fill'
-            objectFit='contain'
+            fill
+            style={{ objectFit: 'contain' }}
+            sizes='100%'
+            priority
           />
         </div>
       </div>

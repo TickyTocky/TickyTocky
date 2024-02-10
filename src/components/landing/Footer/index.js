@@ -22,6 +22,8 @@ const LandingFooter = () => (
             width={25}
             height={25}
             alt={landing.github.alt}
+            sizes='100%'
+            priority
           />
         </Link>
       </div>

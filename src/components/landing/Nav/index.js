@@ -10,7 +10,14 @@ const { logo } = ICON;
 const LandingNav = () => (
   <nav className={cx('landing-nav')}>
     <Link href='/login'>
-      <Image src={logo.url} alt={logo.alt} priority={true} width={153} height={24} />
+      <Image
+        src={logo.url}
+        alt={logo.alt}
+        priority={true}
+        width={153}
+        height={24}
+        sizes='100%'
+      />
     </Link>
     <div className={cx('landing-nav-login')}>
       <Link href='/login'>
