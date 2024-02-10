@@ -12,6 +12,9 @@ const AccountProfileView = ({ user, handleSubmit, isChanged }) => (
       <div className={cx('profile-img')}>
         <ProfileImage name='profileImageUrl' defaultValue={user?.profileImageUrl} />
       </div>
+      <div className={cx('profile-img-init')}>
+        <BaseButton size='md' text='Initialize' variant='remove' />
+      </div>
     </div>
     <form className={cx('profile-form')} onSubmit={handleSubmit}>
       <div className={cx('profile-email-container')}>

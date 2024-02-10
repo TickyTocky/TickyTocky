@@ -23,9 +23,13 @@ const AccountProfileLogic = () => {
       setIsChanged(true);
     }
   };
+
   useEffect(() => {
     if (user) {
-      if (nicknameValue === user.nickname && profileImageValue.length === 0) {
+      if (
+        nicknameValue === user.nickname &&
+        (profileImageValue === user.profileImageUrl || profileImageValue.length === 0)
+      ) {
         setIsChanged(true);
         return;
       }
