@@ -23,8 +23,10 @@ const DashboardTitle = ({ dashboardId }) => {
   const { dashboard } = useDashBoardStore();
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
-  const { setColor, color, firstButtonRef, inputValue, handleOnChange } =
-    useCreateDashboard();
+  const { setColor, color, inputValue, handleOnChange } = useCreateDashboard(
+    dashboard?.color,
+    dashboard?.title
+  );
   const { modalState, toggleModal } = useModalState(['dashboardEditSuccess']);
   const MAX_LENGTH = 20;
 
@@ -80,7 +82,6 @@ const DashboardTitle = ({ dashboardId }) => {
             <div className={cx('color-palette')}>
               <button
                 type='button'
-                ref={firstButtonRef}
                 onClick={() => setColor(DEFAULT_BLACK)}
                 style={{ background: `${DEFAULT_BLACK}` }}
                 className={cx('color-palette-one-color')}
