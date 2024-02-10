@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
-const useDashBoardsStore = create(() => ({
+const useDashBoardStore = create(() => ({
   dashboard: null,
   dashboardList: null,
   invitationList: null,
 }));
 
-export default useDashBoardsStore;
+export default useDashBoardStore;

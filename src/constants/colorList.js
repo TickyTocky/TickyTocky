@@ -6,3 +6,7 @@ export const COLOR_LIST = [
   '#FF862E',
   '#F34642',
 ];
+
+export const DEFAULT_COLOR = '#37E8B4';
+
+export const DEFAULT_BLACK = '#272931';

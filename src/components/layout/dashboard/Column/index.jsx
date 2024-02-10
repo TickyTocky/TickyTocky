@@ -19,7 +19,7 @@ const ColumnLayout = ({ dashBoardId }) => {
   return (
     <ol className={cx('columns-list')}>
       {columnList?.map((column) => (
-        <li className={cx('columns-list-item')} key={column.id}>
+        <li className={cx('columns-list-item')} key={`key-column-list-${column.id}`}>
           <Column
             dashboardId={column.dashboardId}
             columnId={column.id}
