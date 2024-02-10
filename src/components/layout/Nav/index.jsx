@@ -9,7 +9,9 @@ import useDashBoardStore from '@/stores/useDashboardStore';
 import Dashboard from '@/api/dashboards';
 import Auth from '@/api/auth';
 import { INIT_DASHBOARDS_DATA } from '@/constants/initialDataType';
+import { ICON } from '@/constants/importImage';
 import styles from './Nav.module.scss';
+import IconModal from '../modal/IconModal';
 
 const cx = classNames.bind(styles);
 
@@ -19,9 +21,14 @@ const Nav = () => {
 
   useAsync(() => Dashboard.getList(), INIT_DASHBOARDS_DATA);
   const { dashboardList } = useDashBoardStore();
-  const { modalState, toggleModal } = useModalState(['createDashboard']);
+  const { modalState, toggleModal } = useModalState([
+    'createDashboard',
+    'navLogoutmodal',
+  ]);
 
-  const handleOnClick = () => {
+  const handleOnClick = (e) => {
+    e.stopPropagation();
+    (() => toggleModal('navLogoutmodal'))();
     Auth.logout();
   };
 
@@ -48,7 +55,33 @@ const Nav = () => {
         </div>
       </div>
       <div className={cx('logout-container')}>
-        <ModalButton onClickInput={handleOnClick} type='logout' />
+        <ModalButton onClickInput={() => toggleModal('navLogoutmodal')} type='logout' />
+        <IconModal
+          // ref={popupRef}
+          isModalOpen={modalState.navLogoutmodal}
+          closeModal={() => toggleModal('navLogoutmodal')}
+          iconSize={58}
+          title='Are you sure'
+          desc='You wanna logout?'
+          iconName={ICON.logout.default}
+        >
+          <div className={cx('modal-buttons')}>
+            <button
+              type='button'
+              onClick={() => toggleModal('navLogoutmodal')}
+              className={cx('modal-buttons-cancel')}
+            >
+              Cancel
+            </button>
+            <button
+              type='button'
+              onClick={handleOnClick}
+              className={cx('modal-buttons-logout')}
+            >
+              Yes
+            </button>
+          </div>
+        </IconModal>
       </div>
     </div>
   );
