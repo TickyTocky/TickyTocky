@@ -8,16 +8,25 @@ import BaseButton from '@/components/common/button/BaseButton';
 import BoardHeader from '@/components/layout/Header/BoardHeader';
 import DeleteDashboard from '@/components/dashboard/modal/dashboard/DeleteDashboard';
 import useModalState from '@/hooks/useModalState';
+import useDashBoardStore from '@/stores/useDashboardStore';
+import { replaceTo } from '@/api/auth';
 import styles from './DashboardEditPage.module.scss';
 
 const cx = classNames.bind(styles);
 
 const DashboardEditPage = () => {
-  const { modalState, toggleModal } = useModalState(['dashboardDelete']);
   const router = useRouter();
   const { id } = router.query;
+  const { modalState, toggleModal } = useModalState(['dashboardDelete']);
+  const { dashboard } = useDashBoardStore();
 
   if (!id) return;
+
+  const isOwner = dashboard?.createdByMe;
+
+  if (!isOwner) {
+    replaceTo('/mydashboard');
+  }
 
   return (
     <>
