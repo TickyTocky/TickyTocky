@@ -28,13 +28,13 @@
   }
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 .profile-modal {
   position: absolute;
   top: 6.3rem;
   right: 1.6rem;
   z-index: $modal-level;
-}
-
-.sm-profile {
-  cursor: pointer;
 }
