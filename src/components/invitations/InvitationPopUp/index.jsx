@@ -1,8 +1,3 @@
-// "email": "test0001@codeit.com",
-// "nickname": "test0001"
-// "email": "test@codeit.com",
-// "nickname": " test1234"
-
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import Invitations from '@/api/invitations';
@@ -11,12 +6,12 @@ import useAsync from '@/hooks/useAsync';
 import { INIT_INVITATIONS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
 import InvitationItem from '../InvitationItem';
-import styles from './InvitationList.module.scss';
+import styles from './InvitationPopUp.module.scss';
 
 const cx = classNames.bind(styles);
 const { search, tagRemove } = ICON;
 
-const InvitationList = () => {
+const InvitationPopUp = () => {
   const INVITATIONS_NUMBER = 999;
   const [refreshKey, setRefreshKey] = useState(0);
   const searchInputRef = useRef(null);
@@ -112,4 +107,4 @@ const InvitationList = () => {
   );
 };
 
-export default InvitationList;
+export default InvitationPopUp;

@@ -14,13 +14,25 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
     'acceptinvitation',
   ]);
 
-  const handleItemApprove = async () => {
+  const handleToggleAcceptModal = (e) => {
+    e.stopPropagation();
+    (() => toggleModal('acceptinvitation'))();
+  };
+
+  const handleToggleDenyModal = (e) => {
+    e.stopPropagation();
+    (() => toggleModal('denyinvitation'))();
+  };
+
+  const handleItemApprove = async (e) => {
+    e.stopPropagation();
     await Invitation.respond(id, true);
     HandleRefreshInvitations();
     () => toggleModal('acceptinvitation');
   };
 
-  const handleItemIgnore = async () => {
+  const handleItemIgnore = async (e) => {
+    e.stopPropagation();
     await Invitation.respond(id, false);
     HandleRefreshInvitations();
     () => toggleModal('denyinvitation');
@@ -41,21 +53,21 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
       <div className={cx('invitation-item-buttons')}>
         <button
           type='button'
-          onClick={() => toggleModal('acceptinvitation')}
+          onClick={handleToggleAcceptModal}
           className={cx('invitation-item-buttons-accept')}
         >
           Accept
         </button>
         <button
           type='button'
-          onClick={() => toggleModal('denyinvitation')}
+          onClick={handleToggleDenyModal}
           className={cx('invitation-item-buttons-deny')}
         >
           Deny
         </button>
         <IconModal
           isModalOpen={modalState.acceptinvitation}
-          closeModal={() => toggleModal('acceptinvitation')}
+          closeModal={handleToggleAcceptModal}
           iconSize={58}
           desc='Do you want to accept this invitation?'
           title='Invitation Received'
@@ -64,7 +76,7 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
           <div className={cx('modal-buttons')}>
             <button
               type='button'
-              onClick={() => toggleModal('acceptinvitation')}
+              onClick={handleToggleAcceptModal}
               className={cx('modal-buttons-cancel')}
             >
               Cancel
@@ -80,7 +92,7 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
         </IconModal>
         <IconModal
           isModalOpen={modalState.denyinvitation}
-          closeModal={() => toggleModal('denyinvitation')}
+          closeModal={handleToggleDenyModal}
           iconSize={58}
           title='Invitation Decline'
           desc='Are you sure you want to decline this invitation?'
@@ -89,7 +101,7 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
           <div className={cx('modal-buttons')}>
             <button
               type='button'
-              onClick={() => toggleModal('denyinvitation')}
+              onClick={handleToggleDenyModal}
               className={cx('modal-buttons-cancel')}
             >
               Cancel
