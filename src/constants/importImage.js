@@ -28,6 +28,7 @@ import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
 import IconColorize from 'public/svg/ic-colorize.svg';
 import IconSuccess from 'public/svg/ic-success.svg';
 import IconEmail from 'public/svg/ic-email.svg';
+import IconReset from 'public/svg/ic-reset.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -170,5 +171,9 @@ export const ICON = {
   email: {
     url: IconEmail,
     alt: 'icon-email',
+  },
+  reset: {
+    url: IconReset,
+    alt: 'icon-reset',
   },
 };
