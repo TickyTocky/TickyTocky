@@ -29,6 +29,7 @@ const AddColumn = ({ closeModal, dashBoardId }) => {
           type='text'
           placeholder='Enter the title'
           maxLength={MAX_TEXT_LENGTH}
+          isRequired
         />
         <div className={cx('button', 'button-top')}>
           <div onClick={closeModal}>
