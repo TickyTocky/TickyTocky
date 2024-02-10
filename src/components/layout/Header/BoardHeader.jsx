@@ -23,7 +23,7 @@ const BoardHeader = ({ dashBoardId }) => {
 
   return (
     <div className={cx('container')}>
-      <Link href={`/mypage/${id}/edit`}>
+      <Link href={`/dashboard/${id}/edit`}>
         <MixButton
           svg={settings.url}
           alt={settings.alt}

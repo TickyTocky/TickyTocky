@@ -4,6 +4,7 @@ import DashboardInvitations from '@/components/dashboard/dashboardEdit/Dashboard
 import DashboardTitle from '@/components/dashboard/dashboardEdit/DashboardTitle';
 import DashboardMembers from '@/components/dashboard/dashboardEdit/DashboardMembers';
 import MainLayout from '@/components/layout/Layouts/MainLayout';
+import BoardHeader from '@/components/layout/Header/BoardHeader';
 import styles from './DashboardEditPage.module.scss';
 
 const cx = classNames.bind(styles);
@@ -15,15 +16,18 @@ const DashboardEditPage = () => {
   if (!id) return;
 
   return (
-    <div className={cx('container')}>
-      <div className={cx('container-title-members')}>
-        <DashboardTitle dashboardId={id} />
-        <DashboardMembers dashboardId={id} />
+    <>
+      <BoardHeader />
+      <div className={cx('container')}>
+        <div className={cx('container-title-members')}>
+          <DashboardTitle dashboardId={id} />
+          <DashboardMembers dashboardId={id} />
+        </div>
+        <div className={cx('container-invitations')}>
+          <DashboardInvitations dashboardId={id} />
+        </div>
       </div>
-      <div className={cx('container-invitations')}>
-        <DashboardInvitations dashboardId={id} />
-      </div>
-    </div>
+    </>
   );
 };
 

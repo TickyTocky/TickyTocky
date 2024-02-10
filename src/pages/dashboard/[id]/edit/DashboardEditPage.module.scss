@@ -1,13 +1,12 @@
 .container {
   @include flexbox(start, start, 6.4rem);
 
-  padding: 4rem;
+  padding: 3.6rem 4rem;
 
   @include responsive(T) {
     @include column-flexbox(start, start, 4rem);
+    @include no-scrollbar;
 
-    padding: 3.6rem 4rem;
-    height: 100vh;
     overflow-y: scroll;
   }
 

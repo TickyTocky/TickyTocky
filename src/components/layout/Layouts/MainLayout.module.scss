@@ -16,7 +16,7 @@
     }
 
     .main {
-      @include column-flexbox($ai: between);
+      @include column-flexbox($jc: start, $ai: between);
       @include responsive(M) {
         @include column-flexbox($ai: stretch);
 
