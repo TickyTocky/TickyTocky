@@ -158,7 +158,7 @@ const CreateCard = ({
               name='title'
               type='text'
               defaultValue={isEdit ? title : ''}
-              maxLength={11}
+              maxLength={15}
               isRequired
             />
             <InputField

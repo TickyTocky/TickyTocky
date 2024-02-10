@@ -49,6 +49,7 @@ const InputField = ({
               required: isRequired ? 'This is Required.' : errorMessage?.empty,
             })}
             className={cx('textarea', { empty: isRequired && isError })}
+            maxLength={255}
           ></textarea>
         ) : (
           <input
