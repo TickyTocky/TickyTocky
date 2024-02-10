@@ -35,12 +35,19 @@
     border-radius: 0.6rem;
     background-color: $primary;
   }
+
+  .focused {
+    @extend %board-button-base;
+
+    border-radius: 0.6rem;
+    background-color: $primary;
+  }
 }
 
 .board-button-wrapper {
   @extend %button-base;
   @extend %board-button-base;
-  @include text-style(12, $gray40, bold);
+  @include text-style(12, $gray10, bold);
 
   overflow: hidden;
 
