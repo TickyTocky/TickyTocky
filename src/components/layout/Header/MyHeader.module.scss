@@ -1,6 +1,8 @@
 .container {
   @include flexbox(between);
 
+  position: relative;
+  flex-shrink: 0;
   width: 100%;
   height: 7rem;
   padding: 0 3.2rem;
@@ -13,6 +15,11 @@
   }
 }
 
+.image {
+  width: 13rem;
+  height: 2rem;
+}
+
 .my-menu {
   @include flexbox($gap: 1.6rem);
 
@@ -21,7 +28,13 @@
   }
 }
 
-.image {
-  width: 13rem;
-  height: 2rem;
+.profile-modal {
+  position: absolute;
+  top: 6.3rem;
+  right: 1.6rem;
+  z-index: $modal-level;
+}
+
+.sm-profile {
+  cursor: pointer;
 }

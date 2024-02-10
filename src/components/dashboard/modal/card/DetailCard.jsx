@@ -13,9 +13,10 @@ import styles from './DetailCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-const DetailCard = ({ cardId, toggleModal }) => {
-  const { cardList } = useCardStore();
-  const cardItemData = cardList.find((card) => card.id === cardId);
+const DetailCard = ({ colId, cardId, toggleModal }) => {
+  const cardList = useCardStore((prev) => prev.cardList[colId]);
+  const cardItemData = cardList?.cards.find((card) => card.id === cardId);
+
   const { assignee, columnId, dashboardId, tags, dueDate, description } = cardItemData;
 
   useAsync(() => Comment.getList(cardId), INIT_COMMENTS_DATA);

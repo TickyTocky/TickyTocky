@@ -4,8 +4,11 @@
 
   .container {
     @include column-flexbox(start, start);
+    @include responsive(M) {
+      width: 100%;
+    }
 
-    width: 100%;
+    width: calc(100% - 7.2rem);
     height: 100vh;
 
     .sm-nav {
@@ -13,8 +16,18 @@
     }
 
     .main {
+      @include column-flexbox($ai: between);
+      @include responsive(M) {
+        @include column-flexbox($ai: stretch);
+
+        width: 100%;
+        height: calc(100vh - 7rem - 7.2rem);
+      }
+
       width: 100%;
       height: 100%;
+      overflow: hidden;
+      overflow-x: auto;
     }
   }
 }
