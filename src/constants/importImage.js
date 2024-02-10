@@ -21,6 +21,7 @@ import IconTagRemove from 'public/svg/ic-remove-default.svg';
 import IconKebab from 'public/svg/ic-kebab.svg';
 import IconCalendarActive from 'public/svg/ic-calendar.svg';
 import IconCalendar from 'public/svg/ic-calendar-default.svg';
+import IconSearch from 'public/svg/ic-search.svg';
 import IconEmpty from 'public/svg/ic-empty.svg';
 import IconPageArrowRight from 'public/svg/ic-page-arrow-right.svg';
 import IconPageArrowLeft from 'public/svg/ic-page-arrow-left.svg';
@@ -149,6 +150,10 @@ export const ICON = {
       url: IconCalendarActive,
       alt: 'calendar-icon',
     },
+  },
+  search: {
+    url: IconSearch,
+    alt: 'icon-search',
   },
   empty: {
     url: IconEmpty,
