@@ -2,8 +2,10 @@ import classNames from 'classnames/bind';
 import Members from '@/api/members';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
+import InviteDashboard from '@/components/dashboard/modal/dashboard/InviteDashboard';
 import useMemberStore from '@/stores/useMemberStore';
 import useAsync from '@/hooks/useAsync';
+import useModalState from '@/hooks/useModalState';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
 import styles from './InvitationMembers.module.scss';
@@ -16,6 +18,10 @@ const InvitationMembers = ({ dashBoardId }) => {
   const { memberList } = useMemberStore();
 
   const { visibleMembersNum } = useInvitationMembers();
+  const { modalState, toggleModal } = useModalState([
+    'invitationWithdraw',
+    'inviteMember',
+  ]);
 
   return (
     <div className={cx('container')}>
@@ -48,6 +54,7 @@ const InvitationMembers = ({ dashBoardId }) => {
         )}
       </ul>
       <MixButton
+        onClick={() => toggleModal('inviteMember')}
         svg={add.default.url}
         alt={add.default.alt}
         size={18}
@@ -55,6 +62,11 @@ const InvitationMembers = ({ dashBoardId }) => {
         gap={4}
         text='Invite'
         fontSize={14}
+      />
+      <InviteDashboard
+        isModalOpen={modalState.inviteMember}
+        closeModal={() => toggleModal('inviteMember')}
+        dashboardId={dashBoardId}
       />
     </div>
   );
