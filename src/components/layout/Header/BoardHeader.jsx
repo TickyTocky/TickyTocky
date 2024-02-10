@@ -1,9 +1,8 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 import classNames from 'classnames/bind';
 import Dashboard from '@/api/dashboards';
 import InvitationMembers from '@/components/common/InvitationMembers';
-import MixButton from '@/components/common/button/MixButton';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import useAsync from '@/hooks/useAsync';
@@ -15,28 +14,21 @@ const cx = classNames.bind(styles);
 const { settings } = ICON;
 
 const BoardHeader = ({ dashBoardId }) => {
-  const router = useRouter();
-  const { id } = router.query;
-
-  useAsync(() => Dashboard.get(Number(dashBoardId)), INIT_DASHBOARD_DATA);
+  useAsync(() => Dashboard.get(dashBoardId), INIT_DASHBOARD_DATA);
   const { dashboard } = useDashBoardStore();
 
   return (
     <div className={cx('container')}>
-      <Link href={`/dashboard/${id}/edit`}>
-        <MixButton
-          svg={settings.url}
-          alt={settings.alt}
-          reverse
-          size={24}
-          type='button'
-          gap={4}
-          text={dashboard?.title}
-          fontSize={24}
-        />
-      </Link>
+      <div className={cx('title')}>
+        <span className={cx('title-text')}>{dashboard?.title}</span>
+        {dashboard?.createdByMe && (
+          <Link className={cx('title-link')} href={`/dashboard/${dashBoardId}/edit`}>
+            <Image src={settings.url} alt={settings.alt} width={24} height={24} />
+          </Link>
+        )}
+      </div>
       <div className={cx('info-wrap')}>
-        <InvitationMembers dashBoardId={Number(dashBoardId)} />
+        <InvitationMembers dashBoardId={dashBoardId} />
         <div className={cx('line')}></div>
         <Breadcrumb title={dashboard?.title} />
       </div>
