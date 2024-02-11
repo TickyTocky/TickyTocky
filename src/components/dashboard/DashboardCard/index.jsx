@@ -47,6 +47,7 @@ const DashboardCard = ({ dashboardId, dashboard, user }) => {
           <div>
             {dashboard.createdByMe && (
               <Avatar
+                userId={user?.id}
                 avatarSize='sm'
                 profileImage={user?.profileImageUrl}
                 profileName={user?.nickname}

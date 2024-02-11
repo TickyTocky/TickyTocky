@@ -11,7 +11,7 @@ import styles from './ProfileModal.module.scss';
 
 const cx = classNames.bind(styles);
 
-const ProfileModal = ({ profileName, profileImage, profileEmail }) => {
+const ProfileModal = ({ userId, profileName, profileImage, profileEmail }) => {
   const { popupRef, buttonRef } = useTogglePopup();
 
   const { modalState, toggleModal } = useModalState(['logoutmodal']);
@@ -21,11 +21,16 @@ const ProfileModal = ({ profileName, profileImage, profileEmail }) => {
     (() => toggleModal('logoutmodal'))();
     Auth.logout();
   };
-
+  
   return (
     <div className={cx('container')}>
       <div className={cx('profile')}>
-        <Avatar profileName={profileName} profileImage={profileImage} avatarSize='xl' />
+        <Avatar
+          userId={userId}
+          profileName={profileName}
+          profileImage={profileImage}
+          avatarSize='xl'
+        />
         <span className={cx('name')}>{profileName}</span>
         <span className={cx('email')}>{profileEmail}</span>
       </div>

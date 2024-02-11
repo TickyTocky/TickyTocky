@@ -75,6 +75,7 @@ const DropDown = ({
         {type === 'column' && <DropDownTag value={selectedItem?.title} />}
         {type === 'assignee' && listValue && (
           <Avatar
+            userId={selectedItem.userId}
             profileName={selectedItem.nickname}
             profileImage={selectedItem.profileImageUrl}
             textColor='gray10'
@@ -112,6 +113,7 @@ const DropDown = ({
                 onClick={(e) => handleListItemClick(e, userId)}
               >
                 <Avatar
+                  userId={userId}
                   profileName={nickname}
                   profileImage={profileImageUrl}
                   textColor='gray10'
