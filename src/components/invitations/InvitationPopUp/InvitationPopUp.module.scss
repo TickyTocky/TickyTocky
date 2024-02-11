@@ -79,12 +79,14 @@
   @include responsive(M) {
     @include no-scrollbar;
 
-    padding-right: 0;
+    // padding-right: 0;
   }
 
   width: 100%;
-  padding-right: 1.6rem;
-  overflow-y: scroll;
+
+  // padding-right: 1.6rem;
+
+  overflow-y: auto;
 
   &-item {
     width: 100%;
@@ -101,18 +103,18 @@
 }
 
 .invitation-list::-webkit-scrollbar {
-  width: 0.6rem;
-}
-
-.invitation-list.no-scrollbar::-webkit-scrollbar {
-  width: 0;
+  width: 2.6rem;
+  height: 1.6rem;
+  background: transparent;
 }
 
 .invitation-list::-webkit-scrollbar-thumb {
-  background: $gray40;
-  border-radius: 1rem;
+  background-color: $gray40;
+  border-radius: 2rem;
+  border: 1rem solid $gray90;
 }
 
 .invitation-list::-webkit-scrollbar-track {
-  background: transparent;
+  background: $gray90;
+  border-radius: 0.8rem;
 }
