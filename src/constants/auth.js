@@ -34,7 +34,9 @@ export const USER_INPUT_VALIDATION = {
     },
   },
   nickname: {
+    regex: /^[^\s!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/,
     errorMessage: {
+      invalid: 'Not a valid nickname',
       empty: 'Enter your nickname',
     },
   },

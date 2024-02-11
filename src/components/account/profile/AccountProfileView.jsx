@@ -10,9 +10,9 @@ const AccountProfileView = ({
   user,
   handleSubmit,
   isChanged,
-  handleInitializeClick,
   profileImageInit,
   setProfileImageInit,
+  toggleModal,
 }) => (
   <div className={cx('profile')}>
     <div className={cx('profile-img-container')}>
@@ -25,12 +25,7 @@ const AccountProfileView = ({
         />
       </div>
       <div className={cx('profile-img-init')}>
-        <BaseButton
-          size='md'
-          text='Initialize'
-          variant='remove'
-          onClick={handleInitializeClick}
-        />
+        <BaseButton size='xl' text='Initialize' variant='remove' onClick={toggleModal} />
       </div>
     </div>
     <form className={cx('profile-form')} onSubmit={handleSubmit}>

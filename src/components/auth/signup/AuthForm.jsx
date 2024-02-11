@@ -35,6 +35,7 @@ const AuthForm = () => {
             type='text'
             placeholder='Nickname'
             autoComplete='off'
+            maxLength={10}
           />
           <InputField
             label='Password'
