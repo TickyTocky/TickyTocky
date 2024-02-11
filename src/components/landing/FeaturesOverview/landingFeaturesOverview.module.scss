@@ -91,6 +91,10 @@
   width: 14rem;
   height: 8rem;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &.active {
     filter: brightness(0) saturate(100%) invert(71%) sepia(76%) saturate(389%)
       hue-rotate(105deg) brightness(95%) contrast(94%);

@@ -16,10 +16,11 @@
 }
 
 .landing-fucntion {
-  @include column-flexbox(center, start, 2rem);
+  @include column-flexbox(start, start, 4rem);
   @include responsive(T) {
     width: 80%;
-    height: 40.8rem;
+    height: 44rem;
+    padding: 5rem;
   }
   @include responsive(M) {
     width: 100%;
@@ -31,7 +32,7 @@
   border-radius: 1.6rem;
   background: linear-gradient(180deg, $opacity-white-5 0%, rgba(0 0 0 / 5%) 100%);
   backdrop-filter: blur(3rem);
-  padding: 4rem 6rem;
+  padding: 6rem;
   transition: $base-transition;
   border: 0.4rem solid $gray40;
 
@@ -50,5 +51,9 @@
 
   & div {
     @include text-style(24, $white, bold);
+  }
+
+  &-discription {
+    @include column-flexbox(start, start, 2rem);
   }
 }
