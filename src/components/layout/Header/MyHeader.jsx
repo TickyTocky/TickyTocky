@@ -32,6 +32,7 @@ const MyHeader = ({ user }) => {
         <div ref={buttonRef} onClick={isOpen ? closePopup : openPopup}>
           <div className={cx('sm-hidden', 'cursor')}>
             <Avatar
+              userId={user?.id}
               profileName={user?.nickname}
               profileImage={user?.profileImageUrl}
               avatarSize='lg'
@@ -42,6 +43,7 @@ const MyHeader = ({ user }) => {
           </div>
           <div className={cx('sm-only', 'cursor')}>
             <Avatar
+              userId={user?.id}
               profileName={user?.nickname}
               profileImage={user?.profileImageUrl}
               avatarSize='lg'
@@ -53,6 +55,7 @@ const MyHeader = ({ user }) => {
       {isOpen && (
         <div className={cx('profile-modal')} ref={popupRef}>
           <ProfileModal
+            userId={user?.id}
             profileName={user?.nickname}
             profileImage={user?.profileImageUrl}
             profileEmail={user?.email}

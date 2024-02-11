@@ -79,6 +79,7 @@ const DashboardMembers = ({ dashboardId }) => {
               >
                 <div className={cx('user')}>
                   <Avatar
+                    userId={member.userId}
                     avatarSize='sm'
                     profileName={member.nickname}
                     profileImage={member.profileImageUrl}
