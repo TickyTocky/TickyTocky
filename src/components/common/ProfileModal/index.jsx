@@ -45,8 +45,8 @@ const ProfileModal = ({ profileName, profileImage, profileEmail }) => {
           isModalOpen={modalState.logoutmodal}
           closeModal={() => toggleModal('logoutmodal')}
           iconSize={58}
-          title='Are you sure'
-          desc='You wanna logout?'
+          title='Logout'
+          desc='Are you sure you want to logout?'
           iconName={ICON.logout.default}
         >
           <div className={cx('modal-buttons')}>
@@ -55,14 +55,14 @@ const ProfileModal = ({ profileName, profileImage, profileEmail }) => {
               onClick={() => toggleModal('logoutmodal')}
               className={cx('modal-buttons-cancel')}
             >
-              Cancel
+              Stay
             </button>
             <button
               type='button'
               onClick={handleToggleLogouttModal}
               className={cx('modal-buttons-logout')}
             >
-              Yes
+              Log me out
             </button>
           </div>
         </IconModal>
