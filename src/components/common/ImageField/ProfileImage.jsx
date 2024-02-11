@@ -38,6 +38,7 @@ const AvatarField = ({ name, profileImageInit, setProfileImageInit }) => {
       setImagePreview(user.profileImageUrl);
     }
     if (profileImageInit) {
+      setImagePreview('');
       setIsSelected(false);
       setProfileImageInit(false);
       if (imagePreview) {
@@ -50,13 +51,13 @@ const AvatarField = ({ name, profileImageInit, setProfileImageInit }) => {
     <div className={cx('image-field')}>
       <p className={cx('image-field-label')}>Profile Image</p>
       <div className={cx('image-field-input')}>
-        {user?.profileImageUrl || isSelected ? (
+        {imagePreview || isSelected ? (
           <Image
-            fill
             src={imagePreview}
             alt='thumbnail-image'
             className={cx('image-field-input-thumbnail')}
             sizes='100%'
+            fill
             priority
           ></Image>
         ) : (
