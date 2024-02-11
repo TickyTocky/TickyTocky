@@ -25,7 +25,7 @@ const AccountProfileView = ({
         />
       </div>
       <div className={cx('profile-img-init')}>
-        <BaseButton size='md' text='Initialize' variant='remove' onClick={toggleModal} />
+        <BaseButton size='xl' text='Initialize' variant='remove' onClick={toggleModal} />
       </div>
     </div>
     <form className={cx('profile-form')} onSubmit={handleSubmit}>
