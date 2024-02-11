@@ -21,7 +21,7 @@ const ProfileModal = ({ userId, profileName, profileImage, profileEmail }) => {
     (() => toggleModal('logoutmodal'))();
     Auth.logout();
   };
-  
+
   return (
     <div className={cx('container')}>
       <div className={cx('profile')}>
@@ -45,32 +45,33 @@ const ProfileModal = ({ userId, profileName, profileImage, profileEmail }) => {
         >
           <BaseButton size='xl' variant='ghost' type='button' text='Logout' />
         </div>
-        <IconModal
-          ref={popupRef}
-          isModalOpen={modalState.logoutmodal}
-          closeModal={() => toggleModal('logoutmodal')}
-          iconSize={58}
-          title='Logout'
-          desc='Are you sure you want to logout?'
-          iconName={ICON.logout.default}
-        >
-          <div className={cx('modal-buttons')}>
-            <button
-              type='button'
-              onClick={() => toggleModal('logoutmodal')}
-              className={cx('modal-buttons-cancel')}
-            >
-              Stay
-            </button>
-            <button
-              type='button'
-              onClick={handleToggleLogouttModal}
-              className={cx('modal-buttons-logout')}
-            >
-              Log me out
-            </button>
-          </div>
-        </IconModal>
+        <div ref={popupRef}>
+          <IconModal
+            isModalOpen={modalState.logoutmodal}
+            closeModal={() => toggleModal('logoutmodal')}
+            iconSize={58}
+            title='Logout'
+            desc='Are you sure you want to logout?'
+            iconName={ICON.logout.default}
+          >
+            <div className={cx('modal-buttons')}>
+              <button
+                type='button'
+                onClick={() => toggleModal('logoutmodal')}
+                className={cx('modal-buttons-cancel')}
+              >
+                Stay
+              </button>
+              <button
+                type='button'
+                onClick={handleToggleLogouttModal}
+                className={cx('modal-buttons-logout')}
+              >
+                Log me out
+              </button>
+            </div>
+          </IconModal>
+        </div>
       </div>
     </div>
   );
