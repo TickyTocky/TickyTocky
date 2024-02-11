@@ -3,13 +3,10 @@ import classNames from 'classnames/bind';
 import ModalButton from '@/components/nav/ModalButton';
 import LinkButton from '@/components/nav/LinkButton';
 import CreateDashboard from '@/components/dashboard/modal/dashboard/CreateDashboard';
-import useAsync from '@/hooks/useAsync';
+import IconModal from '@/components/layout/modal/IconModal';
 import useModalState from '@/hooks/useModalState';
 import useDashBoardStore from '@/stores/useDashboardStore';
-import Dashboard from '@/api/dashboards';
-import IconModal from '@/components/layout/modal/IconModal';
 import Auth from '@/api/auth';
-import { INIT_DASHBOARDS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
 import styles from './Nav.module.scss';
 
@@ -18,8 +15,6 @@ const cx = classNames.bind(styles);
 const Nav = () => {
   const router = useRouter();
   const { id } = router.query;
-
-  useAsync(() => Dashboard.getList(), INIT_DASHBOARDS_DATA);
   const { dashboardList } = useDashBoardStore();
   const { modalState, toggleModal } = useModalState([
     'createDashboard',
@@ -44,9 +39,9 @@ const Nav = () => {
         </div>
         <div className={cx('home-dashboard-container')}>
           <LinkButton type='home' isHomeFocused={id ? false : true} />
-          {dashboardList?.map((board) => (
+          {dashboardList?.map((board, i) => (
             <LinkButton
-              key={`key-nav-dashboard-key-${board.id}`}
+              key={`nav-dashboard-key-${board.id}-${i}`}
               type='board'
               boardData={board}
               isBoardFocused={board.id === Number(id) ? true : false}
