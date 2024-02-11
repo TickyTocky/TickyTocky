@@ -58,6 +58,8 @@
   }
 
   &-img-container {
-    @include column-flexbox(stretch, start, 1.2rem);
+    @include column-flexbox(stretch, stretch, 1.2rem);
+
+    max-width: 16rem;
   }
 }

@@ -1,15 +1,20 @@
 import { useFormContext } from 'react-hook-form';
-import useUserStore from '@/stores/useUserStore';
-import Users from '@/api/users';
-import SuccessModal from '@/components/common/SuccessModal';
-import AccountProfileView from './AccountProfileView';
-import useModalState from '@/hooks/useModalState';
 import { useEffect, useState } from 'react';
+import AccountProfileView from './AccountProfileView';
+import Users from '@/api/users';
+import useUserStore from '@/stores/useUserStore';
+import useModalState from '@/hooks/useModalState';
+import SuccessModal from '@/components/common/SuccessModal';
+import InitializeConfirmModal from '@/components/common/ConfirmModal';
 
 const AccountProfileLogic = () => {
-  const { modalState, toggleModal } = useModalState(['successModal']);
+  const { modalState, toggleModal } = useModalState([
+    'profileChangeSuccessModal',
+    'initialConfirmModal',
+    'profileInitializeSuccessModal',
+  ]);
   const { user } = useUserStore();
-  const { handleSubmit, formState, watch } = useFormContext();
+  const { handleSubmit, formState, watch, setValue } = useFormContext();
   const [isChanged, setIsChanged] = useState(false);
   const [profileImageInit, setProfileImageInit] = useState(false);
   const profileImageValue = watch('profileImageUrl');
@@ -17,10 +22,10 @@ const AccountProfileLogic = () => {
 
   const onProfileSubmit = async (data) => {
     data.profileImageUrl =
-      data.profileImageUrl.length === 0 ? null : data.profileImageUrl;
+      data.profileImageUrl?.length === 0 ? user.profileImageUrl : data.profileImageUrl;
     const { status } = await Users.edit(data);
     if (status === 200) {
-      toggleModal('successModal');
+      toggleModal('profileChangeSuccessModal');
       setIsChanged(true);
     }
   };
@@ -34,6 +39,8 @@ const AccountProfileLogic = () => {
     if (status === 200) {
       setIsChanged(true);
       setProfileImageInit(true);
+      setValue('profileImageUrl', null);
+      toggleModal('profileInitializeSuccessModal');
     }
   };
 
@@ -54,8 +61,19 @@ const AccountProfileLogic = () => {
     <>
       <SuccessModal
         desc='Profile modify success'
-        isModalOpen={modalState.successModal}
-        closeModal={() => toggleModal('successModal')}
+        isModalOpen={modalState.profileChangeSuccessModal}
+        closeModal={() => toggleModal('profileChangeSuccessModal')}
+      />
+      <SuccessModal
+        desc='Profile image initialized'
+        isModalOpen={modalState.profileInitializeSuccessModal}
+        closeModal={() => toggleModal('profileInitializeSuccessModal')}
+      />
+      <InitializeConfirmModal
+        desc='Are you sure you want to reset?'
+        isModalOpen={modalState.initialConfirmModal}
+        closeModal={() => toggleModal('initialConfirmModal')}
+        handleInitializeClick={handleInitializeClick}
       />
       <AccountProfileView
         user={user}
@@ -65,6 +83,7 @@ const AccountProfileLogic = () => {
         handleInitializeClick={handleInitializeClick}
         profileImageInit={profileImageInit}
         setProfileImageInit={setProfileImageInit}
+        toggleModal={() => toggleModal('initialConfirmModal')}
       />
     </>
   );
