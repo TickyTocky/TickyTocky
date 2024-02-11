@@ -28,7 +28,7 @@ import IconLandingThumbnail from 'public/svg/ic-landing-thumbnail.svg';
 import IconLandingGithub from 'public/svg/ic-landing-github.svg';
 import ImageLandingOverviewDarkmode from 'public/images/landing-overview-darkmode.png';
 import ImageLandingOverviewInvite from 'public/images/landing-overview-invite.png';
-import ImageLandingOverviewThumbnail from 'public/images/landing-overview-thumbnail.jpg';
+import ImageLandingOverviewThumbnail from 'public/images/landing-overview-thumbnail.png';
 import ImageLandingOverviewDashboard from 'public/images/landing-overview-dashboard.jpg';
 import ImageLandingOverviewDevice from 'public/images/landing-overview-device.png';
 import IconCalendarActive from 'public/svg/ic-calendar.svg';
