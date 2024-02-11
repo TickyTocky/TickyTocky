@@ -22,10 +22,11 @@
       width: 120rem;
     }
     @include responsive(M) {
-      @include flexbox(center, center);
+      @include flexbox(center, start);
 
+      font-size: 6vw;
       height: 70vh;
-      padding: 0;
+      padding: 12rem 0 0;
       width: 100%;
       background: linear-gradient(180deg, #000 28.88%, rgba(0 0 0 / 0%) 100%);
     }

@@ -75,10 +75,10 @@ function LandingFeaturesOverview() {
           <div className={cx('overview-content-description')}>
             <h2>Invite Members</h2>
             <div>
-              <p>Invite your colleagues to collaborate.</p>
+              <p>Invite your colleagues to collaborate</p>
               <p>
                 Share access to project boards and get real-time feedback. Invitations can
-                be managed easily, ensuring no accidental access.
+                be managed easily, ensuring no accidental access
               </p>
             </div>
           </div>
@@ -87,10 +87,10 @@ function LandingFeaturesOverview() {
           <div className={cx('overview-content-description')}>
             <h2>Custom Visuals</h2>
             <div>
-              <p>Personalize your project&apos;s appearance.</p>
+              <p>Personalize your project&apos;s appearance</p>
               <p>
                 Create custom thumbnails for your tasks to enhance visual recognition and
-                project branding.
+                project branding
               </p>
             </div>
           </div>
@@ -99,10 +99,10 @@ function LandingFeaturesOverview() {
           <div className={cx('overview-content-description')}>
             <h2>Visual Comfort</h2>
             <div>
-              <p>Dark mode to reduce eye strain.</p>
+              <p>Dark mode to reduce eye strain</p>
               <p>
                 A darker interface for better focus during different times of the day or
-                in varied lighting conditions.
+                in varied lighting conditions
               </p>
             </div>
           </div>
@@ -111,10 +111,10 @@ function LandingFeaturesOverview() {
           <div className={cx('overview-content-description')}>
             <h2>Multi Device Sync</h2>
             <div>
-              <p> Stay connected and updated.</p>
+              <p> Stay connected and updated</p>
               <p>
                 Our platform syncs seamlessly across all devices, ensuring you have access
-                to your projects anytime, anywhere.
+                to your projects anytime, anywhere
               </p>
             </div>
           </div>
@@ -123,10 +123,10 @@ function LandingFeaturesOverview() {
           <div className={cx('overview-content-description')}>
             <h2>Centralized Control</h2>
             <div>
-              <p> Monitor project progress with ease.</p>
+              <p> Monitor project progress with ease</p>
               <p>
                 The dashboard provides a comprehensive view of all tasks and statuses,
-                facilitating better project management.
+                facilitating better project management
               </p>
             </div>
           </div>
