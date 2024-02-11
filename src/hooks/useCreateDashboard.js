@@ -1,7 +1,11 @@
 import { DEFAULT_BLACK } from '@/constants';
 import { useEffect, useRef, useState } from 'react';
 
-const useCreateDashboard = (dashboardColor = DEFAULT_BLACK, dashboardName = '') => {
+const useCreateDashboard = ({
+  dashboardColor = DEFAULT_BLACK,
+  dashboardName = '',
+  isModalOpen,
+}) => {
   const [color, setColor] = useState(dashboardColor);
   const [inputValue, setInputValue] = useState(dashboardName);
   const firstButtonRef = useRef();
@@ -21,7 +25,7 @@ const useCreateDashboard = (dashboardColor = DEFAULT_BLACK, dashboardName = '') 
 
   useEffect(() => {
     handleDefaultColorClick();
-  }, [firstButtonRef]);
+  }, [isModalOpen]);
 
   return {
     color,
