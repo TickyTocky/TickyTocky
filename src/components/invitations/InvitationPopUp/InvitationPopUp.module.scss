@@ -1,12 +1,12 @@
 .invitation {
   @include column-flexbox(center, start, 2.4rem);
   @include responsive(M) {
-    width: 40rem;
+    width: 33rem;
     max-height: 48.8rem;
   }
 
-  padding: 2.4rem;
-  width: 52rem;
+  padding: 2.4rem 2.4rem 0;
+  width: 46.8rem;
   max-height: 56.8rem;
   border-radius: 1.6rem;
   border: 0.2rem solid $gray70;
@@ -17,6 +17,9 @@
 .invitation-title {
   @include inline-flexbox(start, center, 0.8rem);
   @include text-style(18, $white, bold);
+  @include responsive(M) {
+    @include text-style(18, $white, normal);
+  }
 
   width: 100%;
 
@@ -99,6 +102,10 @@
 
 .invitation-list::-webkit-scrollbar {
   width: 0.6rem;
+}
+
+.invitation-list.no-scrollbar::-webkit-scrollbar {
+  width: 0;
 }
 
 .invitation-list::-webkit-scrollbar-thumb {

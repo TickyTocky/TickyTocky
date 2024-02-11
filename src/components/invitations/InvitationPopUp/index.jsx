@@ -15,12 +15,38 @@ const InvitationPopUp = () => {
   const INVITATIONS_NUMBER = 999;
   const [refreshKey, setRefreshKey] = useState(0);
   const searchInputRef = useRef(null);
+  const invitationListRef = useRef(null);
 
   const { data, execute } = useAsync(
     () => Invitations.get(INVITATIONS_NUMBER),
     INIT_INVITATIONS_DATA,
     false
   );
+
+  useEffect(() => {
+    const checkScrollbar = () => {
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        if (invitationListRef.current) {
+          invitationListRef.current.style.paddingRight = '0';
+          invitationListRef.current.classList.add('no-scrollbar');
+        }
+      } else {
+        if (invitationListRef.current) {
+          const hasScrollbar =
+            invitationListRef.current.scrollHeight >
+            invitationListRef.current.clientHeight;
+          invitationListRef.current.style.paddingRight = hasScrollbar ? '1.6rem' : '0';
+        }
+      }
+    };
+
+    checkScrollbar();
+    window.addEventListener('resize', checkScrollbar);
+
+    return () => {
+      window.removeEventListener('resize', checkScrollbar);
+    };
+  }, []);
 
   useEffect(() => {
     execute();
@@ -42,8 +68,10 @@ const InvitationPopUp = () => {
     searchInputRef.current.focus();
   };
 
-  const filteredInvitations = data?.invitations.filter((invitation) =>
-    invitation.dashboard.title.toLowerCase().includes(searchTerm)
+  const filteredInvitations = data?.invitations.filter(
+    (invitation) =>
+      invitation.dashboard.title.toLowerCase().includes(searchTerm) ||
+      invitation.inviter.nickname.toLowerCase().includes(searchTerm)
   );
 
   return (
@@ -82,7 +110,7 @@ const InvitationPopUp = () => {
           />
         )}
       </div>
-      <ul className={cx('invitation-list')}>
+      <ul ref={invitationListRef} className={cx('invitation-list')}>
         {filteredInvitations?.length > 0 ? (
           filteredInvitations.map((invitation) => (
             <li
