@@ -87,12 +87,14 @@ const DetailCard = ({ colId, cardId, toggleModal }) => {
       </div>
 
       <div className={cx('button-content')}>
-        <BaseButton
-          size='lg'
-          variant='outline'
-          text='Cancel'
-          onClick={handleModalClose}
-        />
+        <div className={cx('button-content-inner')}>
+          <BaseButton
+            size='xl'
+            variant='outline'
+            text='Cancel'
+            onClick={handleModalClose}
+          />
+        </div>
       </div>
     </div>
   );

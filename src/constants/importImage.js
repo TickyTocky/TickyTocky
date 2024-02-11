@@ -174,6 +174,6 @@ export const ICON = {
   },
   reset: {
     url: IconReset,
-    alt: 'icon-reset',
+    alt: 'reset-icon',
   },
 };

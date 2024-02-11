@@ -187,23 +187,25 @@
       display: none;
     }
 
-    &-current-page {
-      color: $gray10;
-    }
-  }
-
-  &-pagination-container {
-    border: 0.1rem solid $gray60;
-    border-radius: 0.4rem;
-
-    &-button-left {
-      padding: 1.2rem;
-      border-right: 0.1rem solid $gray60;
+    &-page-container {
+      &-current-page {
+        color: $gray10;
+      }
     }
 
-    &-button-right {
-      padding: 1.2rem;
-      border-left: 0.1rem solid $gray60;
+    &-pagination-container {
+      border: 0.1rem solid $gray60;
+      border-radius: 0.4rem;
+
+      &-button-left {
+        padding: 1.2rem;
+        border-right: 0.1rem solid $gray60;
+      }
+
+      &-button-right {
+        padding: 1.2rem;
+        border-left: 0.1rem solid $gray60;
+      }
     }
   }
 }

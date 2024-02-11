@@ -1,5 +1,5 @@
 .container {
-  @include column-flexbox(start, start, 1.6rem);
+  @include column-flexbox(start, end, 1.6rem);
 
   width: 100%;
 
@@ -206,13 +206,19 @@
   }
 
   .button-content {
+    @include flexbox(end);
+
     width: 100%;
     padding-top: 2.4rem;
     border-top: 0.1rem solid $gray70;
     text-align: right;
 
-    @include responsive(M) {
-      border: none;
+    &-inner {
+      width: 12rem;
+
+      @include responsive(M) {
+        width: 100%;
+      }
     }
   }
 }
