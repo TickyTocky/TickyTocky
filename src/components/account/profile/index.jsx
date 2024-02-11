@@ -1,10 +1,10 @@
 import { useFormContext } from 'react-hook-form';
-import useUserStore from '@/stores/useUserStore';
-import Users from '@/api/users';
-import SuccessModal from '@/components/common/SuccessModal';
-import AccountProfileView from './AccountProfileView';
-import useModalState from '@/hooks/useModalState';
 import { useEffect, useState } from 'react';
+import AccountProfileView from './AccountProfileView';
+import Users from '@/api/users';
+import useUserStore from '@/stores/useUserStore';
+import useModalState from '@/hooks/useModalState';
+import SuccessModal from '@/components/common/SuccessModal';
 import InitializeConfirmModal from '@/components/common/ConfirmModal';
 
 const AccountProfileLogic = () => {
