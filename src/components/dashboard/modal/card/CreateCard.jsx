@@ -203,7 +203,7 @@ const CreateCard = ({
           <BaseButton
             variant='outline'
             size='xl'
-            text='close'
+            text='Close'
             onClick={handleModalClose}
           />
         </div>
