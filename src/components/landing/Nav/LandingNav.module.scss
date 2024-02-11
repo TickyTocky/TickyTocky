@@ -1,0 +1,70 @@
+.landing-nav {
+  @include inline-flexbox(between, center);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem 4.8rem;
+  z-index: $header-level;
+  backdrop-filter: blur(5rem);
+  background-color: transparent;
+
+  @include responsive(M) {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.landing-nav-login {
+  @include inline-flexbox($gap: 1.2rem);
+}
+
+.landing-nav-loginbutton {
+  @include flexbox;
+  @include text-style(20, $white, bold);
+  @include responsive(M) {
+    @include text-style(16, $primary, bold);
+
+    height: 4rem;
+    width: 8rem;
+    padding: 0.8rem 0.6rem;
+  }
+
+  height: 4.8rem;
+  width: 12rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid $primary;
+  padding: 0.8rem 0.6rem;
+  line-height: 150%;
+  transition: $base-transition;
+
+  &:hover {
+    background: $primary;
+    color: $black;
+  }
+}
+
+.landing-nav-signupbutton {
+  @include flexbox;
+  @include text-style(20, $primary, bold);
+  @include responsive(M) {
+    @include text-style(16, $primary, bold);
+
+    height: 4rem;
+    width: 8rem;
+    padding: 0.8rem 0.6rem;
+  }
+
+  height: 4.8rem;
+  width: 12rem;
+  border-radius: 0.6rem;
+  background: $black;
+  border: 0.1rem solid $black;
+  color: $primary;
+  padding: 0.8rem 0.6rem;
+  line-height: 150%;
+  transition: $base-transition;
+
+  &:hover {
+    color: $white;
+  }
+}
