@@ -7,11 +7,11 @@ import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import Dashboard from '@/api/dashboards';
+import IconModal from '@/components/layout/modal/IconModal';
 import Auth from '@/api/auth';
 import { INIT_DASHBOARDS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
 import styles from './Nav.module.scss';
-import IconModal from '../modal/IconModal';
 
 const cx = classNames.bind(styles);
 
