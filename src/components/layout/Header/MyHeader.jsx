@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import Avatar from '@/components/common/Avatar';
 import ProfileModal from '@/components/common/ProfileModal';
 import HeaderButtons from '@/components/HeaderButtons';
-import useTogglePopup from '@/hooks/useTogglePopup';
+import useModalTogglePopup from '@/hooks/useModalTogglePopup';
 import { ICON } from '@/constants/importImage';
 import styles from './MyHeader.module.scss';
 
@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 const { logo } = ICON;
 
 const MyHeader = ({ user }) => {
-  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
+  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useModalTogglePopup();
 
   return (
     <header className={cx('container')}>
