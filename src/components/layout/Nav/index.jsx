@@ -57,12 +57,11 @@ const Nav = () => {
       <div className={cx('logout-container')}>
         <ModalButton onClickInput={() => toggleModal('navLogoutmodal')} type='logout' />
         <IconModal
-          // ref={popupRef}
           isModalOpen={modalState.navLogoutmodal}
           closeModal={() => toggleModal('navLogoutmodal')}
           iconSize={58}
-          title='Are you sure'
-          desc='You wanna logout?'
+          title='Logout'
+          desc='Are you sure you want to logout?'
           iconName={ICON.logout.default}
         >
           <div className={cx('modal-buttons')}>
@@ -71,14 +70,14 @@ const Nav = () => {
               onClick={() => toggleModal('navLogoutmodal')}
               className={cx('modal-buttons-cancel')}
             >
-              Cancel
+              Stay
             </button>
             <button
               type='button'
               onClick={handleOnClick}
               className={cx('modal-buttons-logout')}
             >
-              Yes
+              Log me out
             </button>
           </div>
         </IconModal>
