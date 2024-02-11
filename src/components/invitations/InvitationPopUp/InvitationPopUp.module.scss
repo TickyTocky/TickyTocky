@@ -78,14 +78,9 @@
   @include column-flexbox(start, center, 1.6rem);
   @include responsive(M) {
     @include no-scrollbar;
-
-    // padding-right: 0;
   }
 
   width: 100%;
-
-  // padding-right: 1.6rem;
-
   overflow-y: auto;
 
   &-item {
