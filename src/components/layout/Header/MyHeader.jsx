@@ -7,11 +7,13 @@ import HeaderButtons from '@/components/HeaderButtons';
 import useModalTogglePopup from '@/hooks/useModalTogglePopup';
 import { ICON } from '@/constants/importImage';
 import styles from './MyHeader.module.scss';
+import useAuth from '@/hooks/useAuth';
 
 const cx = classNames.bind(styles);
 const { logo } = ICON;
 
 const MyHeader = ({ user }) => {
+  useAuth();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useModalTogglePopup();
 
   return (
