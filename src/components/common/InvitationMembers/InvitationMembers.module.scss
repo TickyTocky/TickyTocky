@@ -1,7 +1,7 @@
 .container {
   @include inline-flexbox($gap: 0.6rem);
 
-  padding: 0.4rem 1.2rem 0.4rem 0.6rem;
+  padding: 0.4rem 0.8rem;
   border: 0.1rem solid $gray70;
   border-radius: 10rem;
 
@@ -12,14 +12,6 @@
 
 .members-list {
   @include flexbox;
-
-  &::after {
-    width: 0.1rem;
-    height: 2.4rem;
-    margin-left: 0.4rem;
-    background-color: $gray70;
-    content: '';
-  }
 }
 
 .hidden-members-num {
@@ -32,4 +24,14 @@
   border-radius: 50%;
   aspect-ratio: 1;
   box-sizing: content-box;
+}
+
+.line {
+  width: 0.1rem;
+  height: 2.4rem;
+  background-color: $gray70;
+}
+
+.button {
+  margin-right: 0.4rem;
 }

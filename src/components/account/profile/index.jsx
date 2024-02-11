@@ -11,6 +11,7 @@ const AccountProfileLogic = () => {
   const { user } = useUserStore();
   const { handleSubmit, formState, watch } = useFormContext();
   const [isChanged, setIsChanged] = useState(false);
+  const [profileImageInit, setProfileImageInit] = useState(false);
   const profileImageValue = watch('profileImageUrl');
   const nicknameValue = watch('nickname');
 
@@ -23,9 +24,25 @@ const AccountProfileLogic = () => {
       setIsChanged(true);
     }
   };
+
+  const handleInitializeClick = async () => {
+    const initialImageData = {
+      profileImageUrl: null,
+      nickname: user.nickname,
+    };
+    const { status } = await Users.edit(initialImageData);
+    if (status === 200) {
+      setIsChanged(true);
+      setProfileImageInit(true);
+    }
+  };
+
   useEffect(() => {
     if (user) {
-      if (nicknameValue === user.nickname && profileImageValue.length === 0) {
+      if (
+        nicknameValue === user.nickname &&
+        (profileImageValue === user.profileImageUrl || profileImageValue?.length === 0)
+      ) {
         setIsChanged(true);
         return;
       }
@@ -45,6 +62,9 @@ const AccountProfileLogic = () => {
         handleSubmit={handleSubmit(onProfileSubmit)}
         formState={formState}
         isChanged={isChanged}
+        handleInitializeClick={handleInitializeClick}
+        profileImageInit={profileImageInit}
+        setProfileImageInit={setProfileImageInit}
       />
     </>
   );

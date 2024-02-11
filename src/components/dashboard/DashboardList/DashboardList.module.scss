@@ -1,26 +1,35 @@
 .dashboard-list-container {
-  @include column-flexbox(center, start, 2.4rem);
+  @include column-flexbox(start, start, 2.4rem);
 
-  margin: 12.6rem auto;
-  max-width: 136rem;
+  height: 100%;
+  min-width: 136rem;
+  padding-top: 5.6rem;
+  margin: 0 auto;
 
   @include responsive(MP) {
-    max-width: 101.4rem;
+    min-width: 101.4rem;
   }
 
   @include responsive(T) {
-    max-width: 66.8rem;
+    min-width: 66.8rem;
+    padding: 2.4rem 0;
   }
 
   @include responsive(M) {
     @include no-scrollbar;
 
+    gap: 1.6rem;
     width: 100%;
-    padding: 0 1.5rem;
+    min-width: 100%;
+    padding: 2.4rem 0 1.5rem;
   }
 
   &-header {
     @include flexbox(start, center, 1.6rem);
+
+    @include responsive(M) {
+      padding: 0 1.5rem;
+    }
 
     &-container {
       @include flexbox($gap: 0.8rem);
@@ -54,13 +63,14 @@
     }
 
     @include responsive(T) {
-      width: auto;
+      width: 100%;
       height: auto;
     }
 
     @include responsive(M) {
       width: 100%;
       height: auto;
+      gap: 2.4rem;
       align-items: center;
     }
 
@@ -83,6 +93,7 @@
 
           width: 100%;
           overflow-x: scroll;
+          padding: 0 1.5rem;
         }
 
         .all,
@@ -118,6 +129,7 @@
 
         @include responsive(M) {
           width: 100%;
+          padding: 0 1.5rem;
           justify-content: space-between;
           flex-direction: row-reverse;
         }
@@ -158,8 +170,8 @@
         @include no-scrollbar;
 
         width: 100%;
-        padding-top: 1.2rem;
         grid-template-columns: repeat(1, auto);
+        padding: 0 1.5rem;
         overflow-x: hidden;
       }
     }
@@ -175,23 +187,25 @@
       display: none;
     }
 
-    &-current-page {
-      color: $gray10;
-    }
-  }
-
-  &-pagination-container {
-    border: 0.1rem solid $gray60;
-    border-radius: 0.4rem;
-
-    &-button-left {
-      padding: 1.2rem;
-      border-right: 0.1rem solid $gray60;
+    &-page-container {
+      &-current-page {
+        color: $gray10;
+      }
     }
 
-    &-button-right {
-      padding: 1.2rem;
-      border-left: 0.1rem solid $gray60;
+    &-pagination-container {
+      border: 0.1rem solid $gray60;
+      border-radius: 0.4rem;
+
+      &-button-left {
+        padding: 1.2rem;
+        border-right: 0.1rem solid $gray60;
+      }
+
+      &-button-right {
+        padding: 1.2rem;
+        border-left: 0.1rem solid $gray60;
+      }
     }
   }
 }

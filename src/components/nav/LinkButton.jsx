@@ -3,14 +3,13 @@ import Link from 'next/link';
 import classNames from 'classnames/bind';
 import useToggleButton from '@/hooks/useToggleButton';
 import { NAV_HOME_STATUS } from '@/constants/nav';
-import styles from './navButton.module.scss';
+import styles from './NavButton.module.scss';
 
 const cx = classNames.bind(styles);
 
-const LinkButton = ({ type, boardData }) => {
+const LinkButton = ({ type, boardData, isHomeFocused, isBoardFocused }) => {
   const { isVisible, handleToggleClick } = useToggleButton();
   const { icon, alt } = isVisible ? NAV_HOME_STATUS.active : NAV_HOME_STATUS.default;
-
   const boardName = boardData?.title;
   const MAX_LENGTH = 11;
   const truncatedString = boardName?.slice(0, MAX_LENGTH);
@@ -20,7 +19,7 @@ const LinkButton = ({ type, boardData }) => {
       {type === 'home' && (
         <Link href={'/mydashboard'}>
           <button
-            className={cx('home-button-wrapper')}
+            className={cx('home-button-wrapper', { 'is-focused': isHomeFocused })}
             onMouseEnter={handleToggleClick}
             onMouseLeave={handleToggleClick}
           >
@@ -31,7 +30,7 @@ const LinkButton = ({ type, boardData }) => {
       {type === 'board' && (
         <Link href={`/dashboard/${boardData.id}`}>
           <button
-            className={cx('board-button-wrapper')}
+            className={cx('board-button-wrapper', { 'is-focused': isBoardFocused })}
             style={{ background: boardData.color }}
           >
             {truncatedString}

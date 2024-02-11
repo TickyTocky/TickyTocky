@@ -22,7 +22,7 @@ const DropdownList = ({ isOpen, setIsOpen, onClickInput }) => {
           {DROPDOWN_MENU.map((item) => (
             <li
               className={cx('dropdownlist-list-item')}
-              key={item.id}
+              key={`key-dropdownlist-${item.id}`}
               onClick={(e) => handleItemClick(e, item.id)}
             >
               {item.name}

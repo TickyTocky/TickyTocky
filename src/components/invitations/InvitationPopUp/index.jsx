@@ -114,7 +114,7 @@ const InvitationPopUp = () => {
         {filteredInvitations?.length > 0 ? (
           filteredInvitations.map((invitation) => (
             <li
-              key={`invitation-${invitation.id}`}
+              key={`key-invitation-popup-${invitation.id}`}
               className={cx('invitation-list-item')}
             >
               <InvitationItem
@@ -126,7 +126,7 @@ const InvitationPopUp = () => {
             </li>
           ))
         ) : (
-          <li key={'invitation-1'} className={cx('invitation-list-none')}>
+          <li key={'key-invitation-popup-1'} className={cx('invitation-list-none')}>
             No invitations found.
           </li>
         )}

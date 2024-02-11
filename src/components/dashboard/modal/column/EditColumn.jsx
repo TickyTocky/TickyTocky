@@ -31,6 +31,7 @@ const EditColumn = ({ dashboardId, columnId, title, closeModal }) => {
           placeholder='Enter the title'
           defaultValue={title}
           maxLength={MAX_TEXT_LENGTH}
+          isRequired
         />
         <div className={cx('button', 'button-top')}>
           <div onClick={closeModal}>

@@ -5,7 +5,7 @@
 
   @include responsive(M) {
     grid-template-columns: 1fr;
-    grid-template-rows: 19.2rem 24.8rem;
+    grid-template-rows: 1fr 24.8rem;
     gap: 2.4rem;
   }
 
@@ -55,5 +55,9 @@
         max-width: 100%;
       }
     }
+  }
+
+  &-img-container {
+    @include column-flexbox(stretch, start, 1.2rem);
   }
 }

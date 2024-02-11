@@ -31,7 +31,7 @@ const WithdrawInvitation = ({ isModalOpen, closeModal, invitationId, dashboardId
           size='xl'
           text='Cancel'
         />
-        <BaseButton onClick={handleOnClick} variant='remove' size='xl' text='Delete' />
+        <BaseButton onClick={handleOnClick} variant='remove' size='xl' text='Withdraw' />
       </div>
     </IconModal>
   );

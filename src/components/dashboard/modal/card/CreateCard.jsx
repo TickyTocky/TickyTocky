@@ -158,7 +158,7 @@ const CreateCard = ({
               name='title'
               type='text'
               defaultValue={isEdit ? title : ''}
-              maxLength={11}
+              maxLength={15}
               isRequired
             />
             <InputField
@@ -179,15 +179,15 @@ const CreateCard = ({
         <div className={cx('field-submit')}>
           <BaseButton
             type='button'
-            size='lg'
+            size='xl'
             variant='outline'
             text='Cancel'
             onClick={handleModalClose}
           />
           {isEdit ? (
-            <BaseButton type='submit' size='lg' variant='secondary' text='Apply' />
+            <BaseButton type='submit' size='xl' variant='secondary' text='Apply' />
           ) : (
-            <BaseButton type='submit' size='lg' variant='secondary' text='Create' />
+            <BaseButton type='submit' size='xl' variant='secondary' text='Create' />
           )}
         </div>
       </form>
@@ -203,7 +203,7 @@ const CreateCard = ({
           <BaseButton
             variant='outline'
             size='xl'
-            text='close'
+            text='Close'
             onClick={handleModalClose}
           />
         </div>

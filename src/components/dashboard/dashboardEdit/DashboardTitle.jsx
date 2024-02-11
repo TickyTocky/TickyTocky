@@ -23,16 +23,19 @@ const DashboardTitle = ({ dashboardId }) => {
   const { dashboard } = useDashBoardStore();
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
-  const { setColor, color, firstButtonRef, inputValue, handleOnChange } =
-    useCreateDashboard();
+  const { setColor, color, inputValue, handleOnChange } = useCreateDashboard(
+    dashboard?.color,
+    dashboard?.title
+  );
   const { modalState, toggleModal } = useModalState(['dashboardEditSuccess']);
-  const MAX_LENGTH = 20;
+  const MAX_LENGTH = 15;
 
   const onSubmit = async (data) => {
     data.color = color;
     if (data.title && data.color) {
       toggleModal('dashboardEditSuccess');
       await Dashboard.edit(dashboardId, data);
+      await Dashboard.getList();
     } else {
       return;
     }
@@ -79,7 +82,6 @@ const DashboardTitle = ({ dashboardId }) => {
             <div className={cx('color-palette')}>
               <button
                 type='button'
-                ref={firstButtonRef}
                 onClick={() => setColor(DEFAULT_BLACK)}
                 style={{ background: `${DEFAULT_BLACK}` }}
                 className={cx('color-palette-one-color')}
@@ -87,7 +89,7 @@ const DashboardTitle = ({ dashboardId }) => {
               {COLOR_LIST.map((color, i) => (
                 <button
                   type='button'
-                  key={`color-list-key-${i}`}
+                  key={`key-color-list-${i}`}
                   onClick={() => {
                     setColor(`${color}`);
                   }}

@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 const { uploadImage } = IMAGE;
 const { add } = ICON;
 
-const AvatarField = ({ name }) => {
+const AvatarField = ({ name, profileImageInit, setProfileImageInit }) => {
   const { register, setValue } = useFormContext();
   const [imagePreview, setImagePreview] = useState('');
   const [isSelected, setIsSelected] = useState(false);
@@ -37,10 +37,14 @@ const AvatarField = ({ name }) => {
     if (user?.profileImageUrl && !isSelected) {
       setImagePreview(user.profileImageUrl);
     }
-    if (imagePreview) {
-      return () => URL.revokeObjectURL(imagePreview);
+    if (profileImageInit) {
+      setIsSelected(false);
+      setProfileImageInit(false);
+      if (imagePreview) {
+        return () => URL.revokeObjectURL(imagePreview);
+      }
     }
-  }, [imagePreview, user, isSelected]);
+  }, [imagePreview, user, isSelected, profileImageInit, setProfileImageInit]);
 
   return (
     <div className={cx('image-field')}>

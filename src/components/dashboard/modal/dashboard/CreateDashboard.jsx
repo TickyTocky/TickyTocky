@@ -19,8 +19,8 @@ function CreateDashboard({ isModalOpen, closeModal }) {
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
   const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
-    useCreateDashboard();
-  const MAX_LENGTH = 20;
+    useCreateDashboard({ isModalOpen });
+  const MAX_LENGTH = 15;
 
   const onSubmit = async (data) => {
     data.color = color;

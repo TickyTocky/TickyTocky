@@ -1,11 +1,10 @@
-import { useRouter } from 'next/router';
 import MainLayout from '@/components/layout/Layouts/MainLayout';
 import BoardHeader from '@/components/layout/Header/BoardHeader';
 import ColumnLayout from '@/components/layout/dashboard/Column';
+import useDashboardFetchData from '@/hooks/useDashboardFetchData';
 
 const DashboardPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useDashboardFetchData();
 
   if (id === undefined) return;
 

@@ -14,6 +14,18 @@
   }
 }
 
+.title {
+  @include flexbox($gap: 0.4rem);
+
+  &-text {
+    @include text-style(24, $white, bold);
+  }
+
+  &-link {
+    line-height: 0;
+  }
+}
+
 .info-wrap {
   @include flexbox($gap: 1.6rem);
 }
