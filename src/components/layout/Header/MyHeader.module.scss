@@ -1,18 +1,40 @@
 .container {
   @include flexbox(between);
-  @include responsive(M) {
-    padding: 0 1.5rem;
-  }
 
+  position: relative;
+  flex-shrink: 0;
   width: 100%;
   height: 7rem;
-}
+  padding: 0 3.2rem;
+  border-bottom: 0.1rem solid $gray70;
 
-.my-menu {
-  @include flexbox($gap: 1.6rem);
+  @include responsive(M) {
+    width: 100%;
+    height: 7rem;
+    padding: 0 1.5rem;
+  }
 }
 
 .image {
   width: 13rem;
   height: 2rem;
+}
+
+.my-menu {
+  @include flexbox($gap: 1.6rem);
+
+  @include responsive(M) {
+    gap: 0.8rem;
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.profile-modal {
+  position: absolute;
+  top: 6.3rem;
+  right: 1.6rem;
+  z-index: $modal-level;
 }

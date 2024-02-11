@@ -7,9 +7,9 @@ const useInvitationMembers = () => {
     const handleResize = () => {
       const currentWindowSize = window.innerWidth;
 
-      if (currentWindowSize > 375 && visibleMembersNum === 1) {
+      if (currentWindowSize > 767 && visibleMembersNum === 1) {
         setVisibleMembersNum(4);
-      } else if (currentWindowSize <= 375 && visibleMembersNum === 4) {
+      } else if (currentWindowSize <= 767 && visibleMembersNum === 4) {
         setVisibleMembersNum(1);
       }
     };

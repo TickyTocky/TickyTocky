@@ -1,0 +1,59 @@
+.dashboard-edit {
+  @include column-flexbox(start, start, 3.2rem);
+  @include no-scrollbar;
+
+  overflow-y: scroll;
+  padding: 3.6rem 4rem;
+
+  @include responsive(M) {
+    @include column-flexbox($gap: 2.4rem);
+
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  &-container {
+    @include flexbox($gap: 1.2rem);
+
+    margin-right: auto;
+
+    .title {
+      @include text-style(24, $white);
+    }
+  }
+
+  .container {
+    @include flexbox(start, start, 6.4rem);
+    @include no-scrollbar;
+
+    overflow-y: scroll;
+
+    @include responsive(T) {
+      @include column-flexbox(start, start, 4rem);
+    }
+
+    @include responsive(M) {
+      @include column-flexbox(2.4rem);
+
+      width: 100%;
+    }
+
+    &-title-members {
+      @include column-flexbox(start, start, 4rem);
+
+      width: 42rem;
+
+      @include responsive(M) {
+        width: 100%;
+      }
+    }
+
+    &-invitations {
+      width: 42rem;
+
+      @include responsive(M) {
+        width: 100%;
+      }
+    }
+  }
+}

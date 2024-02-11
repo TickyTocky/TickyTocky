@@ -1,0 +1,11 @@
+.form {
+  width: 100%;
+}
+
+.button {
+  @include flexbox($jc: end, $gap: 1.2rem);
+
+  &-top {
+    margin-top: 1.6rem;
+  }
+}

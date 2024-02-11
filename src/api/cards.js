@@ -20,8 +20,10 @@ const Cards = {
     if (res.status === 200) {
       useCardStore.setState((prev) => ({
         ...prev,
-        cardList: res.data.cards,
-        totalCount: res.data.totalCount,
+        cardList: {
+          ...prev.cardList,
+          [columnId]: { cards: res.data.cards, count: res.data.totalCount },
+        },
       }));
       return res;
     }
@@ -33,14 +35,18 @@ const Cards = {
 
   addCardIamge: async (columnId, value) => {
     const formData = new FormData();
-    formData.append('file', value);
+    formData.append('image', value);
+
     const res = await instance.post(`${COLUMN_API}/${columnId}/card-image`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
+
     if (res.status === 201) {
-      return res.imageUrl;
+      return res.data.imageUrl;
+    } else {
+      console.error('Failed to upload image file');
     }
   },
 };

@@ -1,0 +1,10 @@
+.container {
+  @include flexbox($gap: 0.4rem);
+
+  width: 100%;
+  padding: 1.6rem 0;
+}
+
+.text {
+  @include text-style(16, $primary);
+}

@@ -10,7 +10,12 @@ const Breadcrumb = ({ title }) => (
   <div className={cx('container')}>
     <Image src={nav.default.url} alt={nav.default.alt} width={24} height={24} />
     <span className={cx('previous')}>Dash Boards</span>
-    <Image src={arrowRight.url} alt={arrowRight.alt} width={24} height={24} />
+    <Image
+      src={arrowRight.default.url}
+      alt={arrowRight.default.alt}
+      width={24}
+      height={24}
+    />
     <span className={cx('current')}>{title}</span>
   </div>
 );

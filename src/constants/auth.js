@@ -17,6 +17,15 @@ export const USER_INPUT_VALIDATION = {
       empty: 'Enter your password',
       invalid: 'Not a valid Password',
       check: 'Please check your email or password',
+      checkPassword: 'Please check your password',
+    },
+  },
+  newPassword: {
+    regex: /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,15}$/,
+    errorMessage: {
+      empty: 'Enter your password',
+      invalid: 'Not a valid Password',
+      check: 'Please check your email or password',
     },
   },
   passwordConfirm: {
@@ -25,7 +34,9 @@ export const USER_INPUT_VALIDATION = {
     },
   },
   nickname: {
+    regex: /^[^\s!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]*$/,
     errorMessage: {
+      invalid: 'Not a valid nickname',
       empty: 'Enter your nickname',
     },
   },

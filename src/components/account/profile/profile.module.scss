@@ -1,0 +1,65 @@
+.profile {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 5.6rem;
+
+  @include responsive(M) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 24.8rem;
+    gap: 2.4rem;
+  }
+
+  &-form {
+    @include column-flexbox(stretch, $gap: 2.4rem);
+
+    max-width: 42rem;
+
+    @include responsive(M) {
+      max-width: 100%;
+    }
+  }
+
+  &-label {
+    @include text-style(18, $gray20);
+  }
+
+  &-email {
+    @include flexbox(start);
+
+    width: 100%;
+    height: 4.8rem;
+    padding: 0 1.6rem;
+    margin-top: 0.8rem;
+    background-color: $gray50;
+    border-radius: 0.6rem;
+
+    &-value {
+      @include text-style(16, $gray30);
+    }
+
+    &-container {
+      width: 100%;
+    }
+  }
+
+  &-button {
+    @include flexbox(end);
+
+    width: 100%;
+
+    &-box {
+      width: 100%;
+      max-width: 12rem;
+
+      @include responsive(M) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &-img-container {
+    @include column-flexbox(stretch, stretch, 1.2rem);
+
+    max-width: 16rem;
+  }
+}

@@ -1,30 +1,54 @@
-import Image from 'next/image';
-import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import { ICON } from '@/constants';
+import Comment from '@/api/comments';
+import IconButton from '@/components/common/button/IconButton';
+import BaseButton from '@/components/common/button/BaseButton';
+import { ICON } from '@/constants/importImage';
 import styles from './TextField.module.scss';
 
 const cx = classNames.bind(styles);
-const { reset } = ICON;
+const { reset: removeAll } = ICON;
 
-const TextField = ({ name, ...props }) => {
-  const { register } = useFormContext();
+const TextField = ({ cardId, columnId, dashboardId, name, ...props }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useFormContext();
+
+  const isError = !!errors[name]?.message;
+
+  const onSubmit = async (data) => {
+    let submitData = {
+      ...data,
+      cardId,
+      columnId,
+      dashboardId,
+    };
+
+    await Comment.create(submitData);
+    reset({ content: '' });
+    await Comment.getList(cardId);
+  };
 
   return (
-    <form className={cx('comment')}>
+    <form className={cx('comment', { error: isError })} onSubmit={handleSubmit(onSubmit)}>
       <textarea
-        {...register(name)}
+        {...register(name, {
+          required: 'isRequired',
+          minLength: {
+            value: 1,
+            message: 'Please write at least 1 characters',
+          },
+        })}
         {...props}
+        maxLength={245}
         className={cx('comment-textarea')}
       ></textarea>
       <div className={cx('comment-footer')}>
-        <button type='reset' className={cx('comment-footer-btn-reset')}>
-          <Image src={reset.url} alt={reset.alt} width={24} height={24}></Image>
-        </button>
-        <button type='submit' className={cx('comment-footer-btn-submit')}>
-          Send
-        </button>
+        <IconButton svg={removeAll.url} alt={removeAll.alt} size={24} type='reset' />
+        <BaseButton type='submit' variant='secondary' text='Send' size='md' />
       </div>
     </form>
   );
