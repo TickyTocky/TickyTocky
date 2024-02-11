@@ -3,12 +3,11 @@ import classNames from 'classnames/bind';
 import ModalButton from '@/components/nav/ModalButton';
 import LinkButton from '@/components/nav/LinkButton';
 import CreateDashboard from '@/components/dashboard/modal/dashboard/CreateDashboard';
-import useAsync from '@/hooks/useAsync';
+import IconModal from '@/components/layout/modal/IconModal';
 import useModalState from '@/hooks/useModalState';
 import useDashBoardStore from '@/stores/useDashboardStore';
-import Dashboard from '@/api/dashboards';
 import Auth from '@/api/auth';
-import { INIT_DASHBOARDS_DATA } from '@/constants/initialDataType';
+import { ICON } from '@/constants/importImage';
 import styles from './Nav.module.scss';
 
 const cx = classNames.bind(styles);
@@ -16,12 +15,15 @@ const cx = classNames.bind(styles);
 const Nav = () => {
   const router = useRouter();
   const { id } = router.query;
-
-  useAsync(() => Dashboard.getList(), INIT_DASHBOARDS_DATA);
   const { dashboardList } = useDashBoardStore();
-  const { modalState, toggleModal } = useModalState(['createDashboard']);
+  const { modalState, toggleModal } = useModalState([
+    'createDashboard',
+    'navLogoutmodal',
+  ]);
 
-  const handleOnClick = () => {
+  const handleOnClick = (e) => {
+    e.stopPropagation();
+    (() => toggleModal('navLogoutmodal'))();
     Auth.logout();
   };
 
@@ -37,9 +39,9 @@ const Nav = () => {
         </div>
         <div className={cx('home-dashboard-container')}>
           <LinkButton type='home' isHomeFocused={id ? false : true} />
-          {dashboardList?.map((board) => (
+          {dashboardList?.map((board, i) => (
             <LinkButton
-              key={`key-nav-dashboard-key-${board.id}`}
+              key={`nav-dashboard-key-${board.id}-${i}`}
               type='board'
               boardData={board}
               isBoardFocused={board.id === Number(id) ? true : false}
@@ -48,7 +50,32 @@ const Nav = () => {
         </div>
       </div>
       <div className={cx('logout-container')}>
-        <ModalButton onClickInput={handleOnClick} type='logout' />
+        <ModalButton onClickInput={() => toggleModal('navLogoutmodal')} type='logout' />
+        <IconModal
+          isModalOpen={modalState.navLogoutmodal}
+          closeModal={() => toggleModal('navLogoutmodal')}
+          iconSize={58}
+          title='Logout'
+          desc='Are you sure you want to logout?'
+          iconName={ICON.logout.default}
+        >
+          <div className={cx('modal-buttons')}>
+            <button
+              type='button'
+              onClick={() => toggleModal('navLogoutmodal')}
+              className={cx('modal-buttons-cancel')}
+            >
+              Stay
+            </button>
+            <button
+              type='button'
+              onClick={handleOnClick}
+              className={cx('modal-buttons-logout')}
+            >
+              Log me out
+            </button>
+          </div>
+        </IconModal>
       </div>
     </div>
   );

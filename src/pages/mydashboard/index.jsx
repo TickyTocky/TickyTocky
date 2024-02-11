@@ -1,12 +1,7 @@
 import DashboardList from '@/components/dashboard/DashboardList';
 import MainLayout from '@/components/layout/Layouts/MainLayout';
-import useDashBoardStore from '@/stores/useDashboardStore';
 
-const MydashboardPage = () => {
-  const { dashboardList } = useDashBoardStore();
-
-  return <DashboardList dashboardData={dashboardList} />;
-};
+const MydashboardPage = () => <DashboardList />;
 
 export default MydashboardPage;
 
