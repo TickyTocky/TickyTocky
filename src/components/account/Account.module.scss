@@ -1,17 +1,16 @@
 .account {
   @include no-scrollbar;
 
-  padding: 4rem 8rem 0;
   width: 100%;
-  max-height: calc(100vh - 13rem);
+  padding: 4rem 8rem 13rem;
+  overflow-y: auto;
 
   @include responsive(T) {
-    padding: 4rem 4rem 0;
+    padding: 4rem 4rem 13rem;
   }
 
   @include responsive(M) {
-    padding: 2.4rem 1.5rem 0;
-    overflow-y: auto;
+    padding: 2.4rem 1.5rem 10rem;
   }
 
   &-title {
