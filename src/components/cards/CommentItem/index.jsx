@@ -57,6 +57,7 @@ const CommentItem = ({ id, cardId, columnId, dashboardId }) => {
     <article className={cx('comment')}>
       <div className={cx('comment-avatar')}>
         <Avatar
+          userId={author.id}
           profileName={author.nickname}
           profileImage={author.profileImageUrl}
           avatarSize='sm'

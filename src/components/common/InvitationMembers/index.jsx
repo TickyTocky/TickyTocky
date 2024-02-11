@@ -27,6 +27,7 @@ const InvitationMembers = ({ dashBoardId, createdByMe }) => {
           ? memberList?.slice(0, visibleMembersNum).map((member) => (
               <li key={`key-member-list-${member.id}`}>
                 <Avatar
+                  userId={member.userId}
                   profileName={member.nickname}
                   profileImage={member.profileImageUrl}
                   avatarSize='md'
@@ -36,6 +37,7 @@ const InvitationMembers = ({ dashBoardId, createdByMe }) => {
           : memberList?.map((member) => (
               <li key={`key-member-list-${member.id}`}>
                 <Avatar
+                  userId={member.userId}
                   profileName={member.nickname}
                   profileImage={member.profileImageUrl}
                   avatarSize='md'
