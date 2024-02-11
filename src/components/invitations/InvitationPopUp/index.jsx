@@ -42,8 +42,10 @@ const InvitationPopUp = () => {
     searchInputRef.current.focus();
   };
 
-  const filteredInvitations = data?.invitations.filter((invitation) =>
-    invitation.dashboard.title.toLowerCase().includes(searchTerm)
+  const filteredInvitations = data?.invitations.filter(
+    (invitation) =>
+      invitation.dashboard.title.toLowerCase().includes(searchTerm) ||
+      invitation.inviter.nickname.toLowerCase().includes(searchTerm)
   );
 
   return (
