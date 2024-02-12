@@ -20,7 +20,29 @@ export default function Home() {
           content='The smartest way to manage projects with your team.'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://ticky-tocky.vercel.app/' />
+        <meta property='og:title' content='TickyTocky' />
+        <meta
+          property='og:description'
+          content='The smartest way to manage projects with your team.'
+        />
+        <meta
+          property='og:image'
+          content='https://ticky-tocky.vercel.app/images/og-thumbnail.png'
+        />
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content='https://ticky-tocky.vercel.app/' />
+        <meta property='twitter:title' content='TickyTocky' />
+        <meta
+          property='twitter:description'
+          content='The smartest way to manage projects with your team.'
+        />
+        <meta
+          property='twitter:image'
+          content='https://ticky-tocky.vercel.app/images/og-thumbnail.png'
+        />
+        <link rel='icon' href='/svg/ic-favicon.svg' />
       </Head>
       <div className={cx('landing')}>
         <LandingNav />
