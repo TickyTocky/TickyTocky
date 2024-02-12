@@ -5,6 +5,7 @@ import styles from './InvitationItem.module.scss';
 import useModalState from '@/hooks/useModalState';
 import IconModal from '@/components/layout/modal/IconModal';
 import { ICON } from '@/constants/importImage';
+import Dashboard from '@/api/dashboards';
 
 const cx = classNames.bind(styles);
 
@@ -27,6 +28,7 @@ const InvitationItem = ({ id, title, name, HandleRefreshInvitations }) => {
   const handleItemApprove = async (e) => {
     e.stopPropagation();
     await Invitation.respond(id, true);
+    await Dashboard.getList();
     HandleRefreshInvitations();
     () => toggleModal('acceptinvitation');
   };
