@@ -41,7 +41,8 @@ const MainLayout = ({ children }) => {
       <div className={cx('container')}>
         <MyHeader user={user} />
         <div className={cx('sm-only', 'sm-nav')}>{isMobile && <Nav />}</div>
-        {isLoading ? <Spinner /> : <main className={cx('main')}>{children}</main>}
+        <main className={cx('main')}>{children}</main>
+        {isLoading && <Spinner />}
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 .spinner {
-  position: relative;
+  position: fixed;
   width: 80px;
   height: 80px;
   animation: spin 2s linear infinite;
-  top: 40vh;
-  left: 45vw;
+  top: 50vh;
+  left: 50vw;
 }
 
 @keyframes spin {
