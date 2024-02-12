@@ -4,11 +4,11 @@ import classNames from 'classnames/bind';
 import Dashboard from '@/api/dashboards';
 import InvitationMembers from '@/components/common/InvitationMembers';
 import Breadcrumb from '@/components/common/Breadcrumb';
+import Spinner from '@/components/common/Spinner';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import useAsync from '@/hooks/useAsync';
 import { INIT_DASHBOARD_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
-import Spinner from '@/components/common/Spinner';
 import styles from './BoardHeader.module.scss';
 
 const cx = classNames.bind(styles);

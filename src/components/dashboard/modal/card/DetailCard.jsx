@@ -5,11 +5,11 @@ import BaseButton from '@/components/common/button/BaseButton';
 import CardTags from '@/components/common/CardTags';
 import CommentItem from '@/components/cards/CommentItem';
 import TextField from '@/components/common/TextField';
+import Spinner from '@/components/common/Spinner';
 import useCardStore from '@/stores/useCardStore';
 import useCommentStore from '@/stores/useCommentStore';
 import useAsync from '@/hooks/useAsync';
 import { INIT_COMMENTS_DATA } from '@/constants/initialDataType';
-import Spinner from '@/components/common/Spinner';
 import styles from './DetailCard.module.scss';
 
 const cx = classNames.bind(styles);

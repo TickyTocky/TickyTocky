@@ -8,9 +8,9 @@ import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import Dashboard from '@/api/dashboards';
+import Spinner from '@/components/common/Spinner';
 import { ICON } from '@/constants/importImage';
 import { INIT_DASHBOARD_INVITATIONS_DATA } from '@/constants/initialDataType/dashboard';
-import Spinner from '@/components/common/Spinner';
 import styles from './DashboardInvitations.module.scss';
 
 const cx = classNames.bind(styles);

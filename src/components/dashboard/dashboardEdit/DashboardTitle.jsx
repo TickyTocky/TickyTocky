@@ -9,11 +9,11 @@ import useTogglePopup from '@/hooks/useTogglePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
 import useModalState from '@/hooks/useModalState';
 import Dashboard from '@/api/dashboards';
+import Spinner from '@/components/common/Spinner';
 import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
 import { ICON } from '@/constants/importImage';
 import useAsync from '@/hooks/useAsync';
 import useDashBoardStore from '@/stores/useDashboardStore';
-import Spinner from '@/components/common/Spinner';
 import styles from './DashboardTitle.module.scss';
 
 const cx = classNames.bind(styles);

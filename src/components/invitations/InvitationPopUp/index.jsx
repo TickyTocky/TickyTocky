@@ -3,10 +3,10 @@ import classNames from 'classnames/bind';
 import Invitations from '@/api/invitations';
 import Image from 'next/image';
 import useAsync from '@/hooks/useAsync';
+import Spinner from '@/components/common/Spinner';
+import InvitationItem from '@/components/invitations/InvitationItem';
 import { INIT_INVITATIONS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
-import InvitationItem from '../InvitationItem';
-import Spinner from '@/components/common/Spinner';
 import styles from './InvitationPopUp.module.scss';
 
 const cx = classNames.bind(styles);

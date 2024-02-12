@@ -9,13 +9,13 @@ import IconModal from '@/components/layout/modal/IconModal';
 import CreateCard from '@/components/dashboard/modal/card/CreateCard';
 import EditColumn from '@/components/dashboard/modal/column/EditColumn';
 import DeleteColumn from '@/components/dashboard/modal/column/DeleteColumn';
+import Spinner from '@/components/common/Spinner';
 import useCardStore from '@/stores/useCardStore';
 import useAsync from '@/hooks/useAsync';
 import useToggleButton from '@/hooks/useToggleButton';
 import useModalState from '@/hooks/useModalState';
 import { INIT_CARDS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
-import Spinner from '@/components/common/Spinner';
 import styles from './Column.module.scss';
 
 const cx = classNames.bind(styles);

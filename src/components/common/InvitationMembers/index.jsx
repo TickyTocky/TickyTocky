@@ -3,12 +3,12 @@ import Members from '@/api/members';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
 import InviteDashboard from '@/components/dashboard/modal/dashboard/InviteDashboard';
+import Spinner from '@/components/common/Spinner';
 import useMemberStore from '@/stores/useMemberStore';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
-import Spinner from '@/components/common/Spinner';
 import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);

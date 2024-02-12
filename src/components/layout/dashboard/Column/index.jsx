@@ -3,9 +3,9 @@ import Columns from '@/api/columns';
 import Column from '@/components/columns/Column';
 import AddColumnButton from '@/components/columns/AddColumnButton';
 import useColumnStore from '@/stores/useColumnStore';
+import Spinner from '@/components/common/Spinner';
 import useAsync from '@/hooks/useAsync';
 import { INIT_COLUMNS_DATA } from '@/constants/initialDataType';
-import Spinner from '@/components/common/Spinner';
 import styles from './ColumnLayout.module.scss';
 
 const cx = classNames.bind(styles);
