@@ -8,34 +8,38 @@ import useDashBoardStore from '@/stores/useDashboardStore';
 import useAsync from '@/hooks/useAsync';
 import { INIT_DASHBOARD_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
+import Spinner from '@/components/common/Spinner';
 import styles from './BoardHeader.module.scss';
 
 const cx = classNames.bind(styles);
 const { settings } = ICON;
 
 const BoardHeader = ({ dashBoardId }) => {
-  useAsync(() => Dashboard.get(dashBoardId), INIT_DASHBOARD_DATA);
+  const { isLoading } = useAsync(() => Dashboard.get(dashBoardId), INIT_DASHBOARD_DATA);
   const { dashboard } = useDashBoardStore();
 
   return (
-    <div className={cx('container')}>
-      <div className={cx('title')}>
-        <span className={cx('title-text')}>{dashboard?.title}</span>
-        {dashboard?.createdByMe && (
-          <Link className={cx('title-link')} href={`/dashboard/${dashBoardId}/edit`}>
-            <Image src={settings.url} alt={settings.alt} width={24} height={24} />
-          </Link>
-        )}
+    <>
+      <div className={cx('container')}>
+        <div className={cx('title')}>
+          <span className={cx('title-text')}>{dashboard?.title}</span>
+          {dashboard?.createdByMe && (
+            <Link className={cx('title-link')} href={`/dashboard/${dashBoardId}/edit`}>
+              <Image src={settings.url} alt={settings.alt} width={24} height={24} />
+            </Link>
+          )}
+        </div>
+        <div className={cx('info-wrap')}>
+          <InvitationMembers
+            dashBoardId={dashBoardId}
+            createdByMe={dashboard?.createdByMe}
+          />
+          <div className={cx('line')}></div>
+          <Breadcrumb title={dashboard?.title} />
+        </div>
       </div>
-      <div className={cx('info-wrap')}>
-        <InvitationMembers
-          dashBoardId={dashBoardId}
-          createdByMe={dashboard?.createdByMe}
-        />
-        <div className={cx('line')}></div>
-        <Breadcrumb title={dashboard?.title} />
-      </div>
-    </div>
+      {isLoading && <Spinner />}
+    </>
   );
 };
 

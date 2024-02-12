@@ -8,13 +8,14 @@ import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
+import Spinner from '@/components/common/Spinner';
 import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
 const InvitationMembers = ({ dashBoardId, createdByMe }) => {
-  useAsync(() => Members.getList(1, 20, dashBoardId));
+  const { isLoading } = useAsync(() => Members.getList(1, 20, dashBoardId));
   const { memberList } = useMemberStore();
 
   const { visibleMembersNum } = useInvitationMembers();
@@ -72,6 +73,7 @@ const InvitationMembers = ({ dashBoardId, createdByMe }) => {
             closeModal={() => toggleModal('headerInviteMember')}
             dashboardId={dashBoardId}
           />
+          {isLoading && <Spinner />}
         </>
       )}
     </div>

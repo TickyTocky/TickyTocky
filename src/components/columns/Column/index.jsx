@@ -15,13 +15,14 @@ import useToggleButton from '@/hooks/useToggleButton';
 import useModalState from '@/hooks/useModalState';
 import { INIT_CARDS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
+import Spinner from '@/components/common/Spinner';
 import styles from './Column.module.scss';
 
 const cx = classNames.bind(styles);
 const { remove, empty } = ICON;
 
 const Column = ({ columnId, title: columnName, dashboardId }) => {
-  useAsync(() => Cards.getList(columnId), INIT_CARDS_DATA);
+  const { isLoading } = useAsync(() => Cards.getList(columnId), INIT_CARDS_DATA);
   const cardList = useCardStore((prev) => prev.cardList[columnId]);
 
   const { isVisible, handleToggleClick } = useToggleButton();
@@ -106,7 +107,6 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
           closeModal={() => toggleModal('deleteColumnModal')}
         />
       </IconModal>
-
       <CommonModal
         isModalOpen={modalState.addCardModal}
         closeModal={() => toggleModal('addCardModal')}
@@ -119,6 +119,7 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
           toggleModal={toggleModal}
         />
       </CommonModal>
+      {isLoading && <Spinner />}
     </>
   );
 };

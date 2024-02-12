@@ -19,6 +19,7 @@ import useModalState from '@/hooks/useModalState';
 import { IMAGE_REGEX } from '@/constants';
 import IconModal from '@/components/layout/modal/IconModal';
 import { IMAGE, ICON } from '@/constants/importImage';
+import Spinner from '@/components/common/Spinner';
 import styles from './CreateCard.module.scss';
 
 const cx = classNames.bind(styles);
@@ -38,7 +39,7 @@ const CreateCard = ({
   const { id } = router.query;
   useAsync(() => Members.getList(1, 20, id));
   const { memberList } = useMemberStore();
-  useAsync(() => Columns.getList(id));
+  const { isLoading } = useAsync(() => Columns.getList(id));
   const { columnList } = useColumnStore();
 
   const {
@@ -208,6 +209,7 @@ const CreateCard = ({
           />
         </div>
       </IconModal>
+      {isLoading && <Spinner />}
     </>
   );
 };
