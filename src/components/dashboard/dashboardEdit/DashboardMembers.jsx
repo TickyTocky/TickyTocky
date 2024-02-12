@@ -1,14 +1,11 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import Avatar from '@/components/common/Avatar';
 import DeleteDashboard from '@/components/dashboard/modal/dashboard/DeleteDashboard';
 import useModalState from '@/hooks/useModalState';
-import useAsync from '@/hooks/useAsync';
 import useMemberStore from '@/stores/useMemberStore';
-import Members from '@/api/members';
-import { INIT_MEMBER_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
 import styles from './DashboardMembers.module.scss';
 
@@ -18,11 +15,10 @@ const left = page.arrowLeft;
 const right = page.arrowRight;
 
 const DashboardMembers = ({ dashboardId }) => {
-  useAsync(() => Members.getList(1, 100, Number(dashboardId)), INIT_MEMBER_DATA);
   const { memberList } = useMemberStore();
   const members = memberList?.filter((item) => !item.isOwner);
   const totalItems = members?.length;
-  const ITEMS_PER_PAGE = 2;
+  const ITEMS_PER_PAGE = 6;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [currentPageData, setCurrentPageData] = useState(null);
@@ -40,13 +36,12 @@ const DashboardMembers = ({ dashboardId }) => {
       setCurrentPage((prev) => prev + 1);
     }
   };
-
-  const renderData = () => {
+  const renderData = useCallback(() => {
     const START_INDEX = (currentPage - 1) * ITEMS_PER_PAGE;
     const END_INDEX = START_INDEX + ITEMS_PER_PAGE;
     const currentPageData = members.slice(START_INDEX, END_INDEX);
     setCurrentPageData(currentPageData);
-  };
+  }, [currentPage, members, setCurrentPageData]);
 
   useEffect(() => {
     if (totalPages >= 1) {
@@ -54,13 +49,13 @@ const DashboardMembers = ({ dashboardId }) => {
     } else if (!totalPages) {
       setTotalPages(1);
     }
-  }, [totalItems, ITEMS_PER_PAGE]);
+  }, [totalItems, ITEMS_PER_PAGE, totalPages]);
 
   useEffect(() => {
     if (memberList) {
       renderData();
     }
-  }, [currentPage, memberList]);
+  }, [currentPage, memberList, renderData]);
 
   return (
     <article className={cx('container')}>
