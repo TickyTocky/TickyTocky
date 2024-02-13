@@ -7,13 +7,14 @@ import useAsync from '@/hooks/useAsync';
 import useUserStore from '@/stores/useUserStore';
 import Dashboard from '@/api/dashboards';
 import { INIT_DASHBOARDS_DATA, INIT_USER_DATA } from '@/constants/initialDataType';
+import Spinner from '@/components/common/Spinner';
 import styles from './MainLayout.module.scss';
 
 const cx = classNames.bind(styles);
 
 const MainLayout = ({ children }) => {
   useAsync(() => Users.get(), INIT_USER_DATA);
-  useAsync(() => Dashboard.getList(), INIT_DASHBOARDS_DATA);
+  const { isLoading } = useAsync(() => Dashboard.getList(), INIT_DASHBOARDS_DATA);
   const { user } = useUserStore();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,6 +42,7 @@ const MainLayout = ({ children }) => {
         <MyHeader user={user} />
         <div className={cx('sm-only', 'sm-nav')}>{isMobile && <Nav />}</div>
         <main className={cx('main')}>{children}</main>
+        {isLoading && <Spinner />}
       </div>
     </div>
   );

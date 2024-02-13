@@ -9,6 +9,7 @@ import useTogglePopup from '@/hooks/useTogglePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
 import useModalState from '@/hooks/useModalState';
 import Dashboard from '@/api/dashboards';
+import Spinner from '@/components/common/Spinner';
 import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
 import { ICON } from '@/constants/importImage';
 import useAsync from '@/hooks/useAsync';
@@ -19,7 +20,7 @@ const cx = classNames.bind(styles);
 const { colorize } = ICON;
 
 const DashboardTitle = ({ dashboardId }) => {
-  useAsync(() => Dashboard.get(dashboardId));
+  const { isLoading } = useAsync(() => Dashboard.get(dashboardId));
   const { dashboard } = useDashBoardStore();
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
@@ -42,98 +43,105 @@ const DashboardTitle = ({ dashboardId }) => {
   };
 
   return (
-    <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
-      <article className={cx('dashboard-title-container')}>
-        <header className={cx('dashboard-title-container-title-button')}>
-          <span className={cx('title')}>Dashboard Title</span>
-          <BaseButton variant='secondary' text='Apply' size='md' type='submit' />
-          <SuccessDashboard
-            isModalOpen={modalState.dashboardEditSuccess}
-            closeModal={() => toggleModal('dashboardEditSuccess')}
+    <>
+      <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
+        <article className={cx('dashboard-title-container')}>
+          <header className={cx('dashboard-title-container-title-button')}>
+            <span className={cx('title')}>Dashboard Title</span>
+            <BaseButton variant='secondary' text='Apply' size='md' type='submit' />
+            <SuccessDashboard
+              isModalOpen={modalState.dashboardEditSuccess}
+              closeModal={() => toggleModal('dashboardEditSuccess')}
+            />
+          </header>
+
+          <section className={cx('dashboard-title-container-thumbnail-container')}>
+            <div
+              className={cx(
+                'dashboard-title-container-thumbnail-container-figure-circle'
+              )}
+              style={{ background: `${color}` || `${DEFAULT_BLACK}` }}
+            >
+              <label className={cx('name')}>{inputValue}</label>
+            </div>
+            <div
+              className={cx(
+                'dashboard-title-container-thumbnail-container-figure-square'
+              )}
+              style={{ background: `${color}` || `${DEFAULT_BLACK}` }}
+            >
+              <label className={cx('name')}>{inputValue}</label>
+            </div>
+          </section>
+
+          <InputField
+            label='Name'
+            name='title'
+            placeholder='Enter dashboard title'
+            defaultValue={dashboard?.title}
+            maxLength={MAX_LENGTH}
+            onChange={(e) => handleOnChange(e)}
           />
-        </header>
-
-        <section className={cx('dashboard-title-container-thumbnail-container')}>
-          <div
-            className={cx('dashboard-title-container-thumbnail-container-figure-circle')}
-            style={{ background: `${color}` || `${DEFAULT_BLACK}` }}
-          >
-            <label className={cx('name')}>{inputValue}</label>
-          </div>
-          <div
-            className={cx('dashboard-title-container-thumbnail-container-figure-square')}
-            style={{ background: `${color}` || `${DEFAULT_BLACK}` }}
-          >
-            <label className={cx('name')}>{inputValue}</label>
-          </div>
-        </section>
-
-        <InputField
-          label='Name'
-          name='title'
-          placeholder='Enter dashboard title'
-          defaultValue={dashboard?.title}
-          maxLength={MAX_LENGTH}
-          onChange={(e) => handleOnChange(e)}
-        />
-        <section className={cx('dashboard-title-container-add-color-container')}>
-          <label className={cx('label')}>Add Color</label>
-          <div className={cx('color-palette-container')}>
-            <div className={cx('color-palette')}>
-              <button
-                type='button'
-                onClick={() => setColor(DEFAULT_BLACK)}
-                style={{ background: `${DEFAULT_BLACK}` }}
-                className={cx('color-palette-one-color')}
-              ></button>
-              {COLOR_LIST.map((color, i) => (
+          <section className={cx('dashboard-title-container-add-color-container')}>
+            <label className={cx('label')}>Add Color</label>
+            <div className={cx('color-palette-container')}>
+              <div className={cx('color-palette')}>
                 <button
                   type='button'
-                  key={`key-color-list-${i}`}
-                  onClick={() => {
-                    setColor(`${color}`);
-                  }}
-                  style={{ background: `${color}` }}
+                  onClick={() => setColor(DEFAULT_BLACK)}
+                  style={{ background: `${DEFAULT_BLACK}` }}
                   className={cx('color-palette-one-color')}
                 ></button>
-              ))}
-            </div>
+                {COLOR_LIST.map((color, i) => (
+                  <button
+                    type='button'
+                    key={`key-color-list-${i}`}
+                    onClick={() => {
+                      setColor(`${color}`);
+                    }}
+                    style={{ background: `${color}` }}
+                    className={cx('color-palette-one-color')}
+                  ></button>
+                ))}
+              </div>
 
-            <div className={cx('colorpicker-button-container')}>
-              <button
-                ref={buttonRef}
-                className={cx('colorpicker-button-container-colorpicker-button', {
-                  active: isOpen,
-                })}
-                onClick={isOpen ? closePopup : openPopup}
-                type='button'
-              >
-                <Image src={colorize.url} alt={colorize.alt} width={24} height={24} />
-              </button>
-              {isOpen && (
-                <section
-                  ref={popupRef}
-                  className={cx('colorpicker-button-container-modal-container')}
+              <div className={cx('colorpicker-button-container')}>
+                <button
+                  ref={buttonRef}
+                  className={cx('colorpicker-button-container-colorpicker-button', {
+                    active: isOpen,
+                  })}
+                  onClick={isOpen ? closePopup : openPopup}
+                  type='button'
                 >
-                  <label
-                    className={cx('colorpicker-button-container-modal-container-label')}
+                  <Image src={colorize.url} alt={colorize.alt} width={24} height={24} />
+                </button>
+                {isOpen && (
+                  <section
+                    ref={popupRef}
+                    className={cx('colorpicker-button-container-modal-container')}
                   >
-                    Color Picker
-                  </label>
-                  <HexColorPicker
-                    className={cx(
-                      'colorpicker-button-container-modal-container-colorpicker'
-                    )}
-                    color={DEFAULT_COLOR}
-                    onChange={setColor}
-                  />
-                </section>
-              )}
+                    <label
+                      className={cx('colorpicker-button-container-modal-container-label')}
+                    >
+                      Color Picker
+                    </label>
+                    <HexColorPicker
+                      className={cx(
+                        'colorpicker-button-container-modal-container-colorpicker'
+                      )}
+                      color={DEFAULT_COLOR}
+                      onChange={setColor}
+                    />
+                  </section>
+                )}
+              </div>
             </div>
-          </div>
-        </section>
-      </article>
-    </form>
+          </section>
+        </article>
+      </form>
+      {isLoading && <Spinner />}
+    </>
   );
 };
 
