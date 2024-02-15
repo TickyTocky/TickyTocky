@@ -8,7 +8,9 @@ const cx = classNames.bind(styles);
 
 const Spinner = () => (
   <div className={cx('spinner')}>
-    <Image fill src={reset.url} alt={reset.alt} sizes='100%' priority />
+    <div className={cx('spinner-image')}>
+      <Image fill src={reset.url} alt={reset.alt} sizes='100%' priority />
+    </div>
   </div>
 );
 
