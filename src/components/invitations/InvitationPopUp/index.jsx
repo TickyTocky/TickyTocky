@@ -3,7 +3,6 @@ import classNames from 'classnames/bind';
 import Invitations from '@/api/invitations';
 import Image from 'next/image';
 import useAsync from '@/hooks/useAsync';
-import Spinner from '@/components/common/Spinner';
 import InvitationItem from '@/components/invitations/InvitationItem';
 import { INIT_INVITATIONS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
@@ -17,7 +16,7 @@ const InvitationPopUp = () => {
   const [refreshKey, setRefreshKey] = useState(0);
   const searchInputRef = useRef(null);
 
-  const { data, execute, isLoading } = useAsync(
+  const { data, execute } = useAsync(
     () => Invitations.get(INVITATIONS_NUMBER),
     INIT_INVITATIONS_DATA,
     false
@@ -108,7 +107,6 @@ const InvitationPopUp = () => {
           )}
         </ul>
       </div>
-      {isLoading && <Spinner />}
     </>
   );
 };

@@ -4,7 +4,6 @@ import classNames from 'classnames/bind';
 import Dashboard from '@/api/dashboards';
 import InvitationMembers from '@/components/common/InvitationMembers';
 import Breadcrumb from '@/components/common/Breadcrumb';
-import Spinner from '@/components/common/Spinner';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import useAsync from '@/hooks/useAsync';
 import { INIT_DASHBOARD_DATA } from '@/constants/initialDataType';
@@ -15,7 +14,7 @@ const cx = classNames.bind(styles);
 const { settings } = ICON;
 
 const BoardHeader = ({ dashBoardId }) => {
-  const { isLoading } = useAsync(() => Dashboard.get(dashBoardId), INIT_DASHBOARD_DATA);
+  useAsync(() => Dashboard.get(dashBoardId), INIT_DASHBOARD_DATA);
   const { dashboard } = useDashBoardStore();
 
   return (
@@ -38,7 +37,6 @@ const BoardHeader = ({ dashBoardId }) => {
           <Breadcrumb title={dashboard?.title} />
         </div>
       </div>
-      {isLoading && <Spinner />}
     </>
   );
 };

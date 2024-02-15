@@ -3,7 +3,6 @@ import Columns from '@/api/columns';
 import Column from '@/components/columns/Column';
 import AddColumnButton from '@/components/columns/AddColumnButton';
 import useColumnStore from '@/stores/useColumnStore';
-import Spinner from '@/components/common/Spinner';
 import useAsync from '@/hooks/useAsync';
 import { INIT_COLUMNS_DATA } from '@/constants/initialDataType';
 import styles from './ColumnLayout.module.scss';
@@ -11,7 +10,7 @@ import styles from './ColumnLayout.module.scss';
 const cx = classNames.bind(styles);
 
 const ColumnLayout = ({ dashBoardId }) => {
-  const { isLoading } = useAsync(() => Columns.getList(dashBoardId), INIT_COLUMNS_DATA);
+  useAsync(() => Columns.getList(dashBoardId), INIT_COLUMNS_DATA);
 
   const { columnList } = useColumnStore();
 
@@ -35,7 +34,6 @@ const ColumnLayout = ({ dashBoardId }) => {
           </li>
         )}
       </ol>
-      {isLoading && <Spinner />}
     </>
   );
 };

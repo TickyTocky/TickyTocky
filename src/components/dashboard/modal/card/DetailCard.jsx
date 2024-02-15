@@ -5,7 +5,6 @@ import BaseButton from '@/components/common/button/BaseButton';
 import CardTags from '@/components/common/CardTags';
 import CommentItem from '@/components/cards/CommentItem';
 import TextField from '@/components/common/TextField';
-import Spinner from '@/components/common/Spinner';
 import useCardStore from '@/stores/useCardStore';
 import useCommentStore from '@/stores/useCommentStore';
 import useAsync from '@/hooks/useAsync';
@@ -20,7 +19,7 @@ const DetailCard = ({ colId, cardId, toggleModal }) => {
 
   const { assignee, columnId, dashboardId, tags, dueDate, description } = cardItemData;
 
-  const { isLoading } = useAsync(() => Comment.getList(cardId), INIT_COMMENTS_DATA);
+  useAsync(() => Comment.getList(cardId), INIT_COMMENTS_DATA);
   const { commentList } = useCommentStore();
   const { reset } = useFormContext();
 
@@ -99,7 +98,6 @@ const DetailCard = ({ colId, cardId, toggleModal }) => {
           </div>
         </div>
       </div>
-      {isLoading && <Spinner />}
     </>
   );
 };

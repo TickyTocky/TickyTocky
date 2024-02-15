@@ -9,7 +9,6 @@ import useTogglePopup from '@/hooks/useTogglePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
 import useModalState from '@/hooks/useModalState';
 import Dashboard from '@/api/dashboards';
-import Spinner from '@/components/common/Spinner';
 import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
 import { ICON } from '@/constants/importImage';
 import useAsync from '@/hooks/useAsync';
@@ -20,7 +19,7 @@ const cx = classNames.bind(styles);
 const { colorize } = ICON;
 
 const DashboardTitle = ({ dashboardId }) => {
-  const { isLoading } = useAsync(() => Dashboard.get(dashboardId));
+  useAsync(() => Dashboard.get(dashboardId));
   const { dashboard } = useDashBoardStore();
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
@@ -140,7 +139,6 @@ const DashboardTitle = ({ dashboardId }) => {
           </section>
         </article>
       </form>
-      {isLoading && <Spinner />}
     </>
   );
 };
