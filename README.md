@@ -2,7 +2,9 @@
 <img width="1920" alt="cover" src="https://github.com/designsoo/ShoeShop/assets/77719310/5925af3f-9eca-4978-a4ee-6ace8e958f11">
 
 ## 📑 서비스 소개
-팀의 업무와 일정을 관리할 수 있는 웹서비스입니다.
+- 팀의 업무와 일정을 관리할 수 있는 웹서비스입니다.
+- 서비스를 위한 개발을 목표로 기획/디자인/개발을 진행하였습니다.
+- 📢 기획 및 발표자료 : [[TickyTocky]서비스 발표.pdf](https://github.com/TickyTocky/TickyTocky/files/14290657/TickyTocky.pdf)
 
 ## 🔗 배포링크
 https://ticky-tocky.vercel.app/
