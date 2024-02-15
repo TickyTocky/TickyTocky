@@ -11,7 +11,7 @@ https://ticky-tocky.vercel.app/
 
 ## 🔑 Demo 계정
 ID: demo@codeit.com <br>
-PW: Demo1234 <br><br>
+PW: Demo1234 <br>
 ### 🖥️ Taskify 대시보드
 <img width="1428" alt="image" src="https://github.com/designsoo/ShoeShop/assets/77719310/d310dc41-7847-4afa-8427-880de7cca59f">
 
@@ -45,9 +45,8 @@ PW: Demo1234 <br><br>
 
 ## ✨ 주요 기능 구현
 <details>
-<summary> 접기/펼치기 </summary>
+<summary> 1. 허우림  </summary>
   
-### 1️⃣ 허우림
 #### - 초기 세팅<br>
 eslint/prettier<br>
 git hook - husky<br>
@@ -78,8 +77,12 @@ Navigation
 #### - 라이브러리<br>
 React-modal<br>
 React-colorful<br>
-  
-### 2️⃣ 김희수
+
+</details>
+
+<details>
+<summary> 2. 김희수  </summary>
+
 #### - UI Design<br>
 #### - 초기 세팅<br>
 stylelint<br>
@@ -116,7 +119,13 @@ Dayjs<br>
 Date-picker<br>
 React-hook-form<br>
 
-### 3️⃣ 유미정
+</details>
+
+<details>
+  <summary>
+    3. 유미정
+  </summary>
+  
 #### - 서비스 배포<br>
 #### - 기능 구현<br>
 컬럼 생성<br>
@@ -137,7 +146,12 @@ Profile Modal<br>
 MyHeader<br>
 BoardHeader<br>
 
-### 4️⃣ 고성선
+</details>
+<details>
+  <summary>
+    4. 고성선
+  </summary>
+  
 #### - 초기 세팅<br>
 깃허브: PR 템플릿<br>
 
@@ -153,7 +167,13 @@ BoardHeader<br>
 #### - 공용 컴포넌트<br>
 Button: BaseButton/IconButton/LinkButton/MixButton<br>
 
-### 5️⃣ 우준석
+</details>
+
+<details>
+  <summary>
+    5. 우준석
+  </summary>
+
 #### - 초기 세팅<br>
 깃허브: 레포 세팅<br>
 
