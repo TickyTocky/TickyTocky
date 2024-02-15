@@ -44,6 +44,9 @@ PW: Demo1234 <br><br>
 </table>
 
 ## ✨ 주요 기능 구현
+<details>
+<summary> 접기/펼치기 </summary>
+  
 ### 1️⃣ 허우림
 #### - 초기 세팅<br>
 eslint/prettier<br>
@@ -168,6 +171,7 @@ Tag Field<br>
 
 #### - 공용 레이아웃<br>
 Landing Page<br>
+</details>
 
 ## ✨ 주요 기능 시연
 ### 👉 컬럼 생성, 할 일 생성
