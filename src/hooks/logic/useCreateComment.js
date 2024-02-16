@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Comment from '@/api/comments';
 
-const useComment = ({ id, cardId, setValue, value, content, isCommentValue }) => {
+const useCreateComment = ({ id, cardId, setValue, value, content, isCommentValue }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   const handleCommentEdit = () => {
@@ -36,4 +36,4 @@ const useComment = ({ id, cardId, setValue, value, content, isCommentValue }) =>
   };
 };
 
-export default useComment;
+export default useCreateComment;
