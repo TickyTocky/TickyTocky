@@ -7,7 +7,7 @@ import Spinner from '@/components/common/Spinner';
 import useMemberStore from '@/stores/useMemberStore';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
-import useInvitationMembers from '@/hooks/useInvitationMembers';
+import useInvitationMembers from '@/hooks/logic/useInvitationMembers';
 import { ICON } from '@/constants/importImage';
 import styles from './InvitationMembers.module.scss';
 

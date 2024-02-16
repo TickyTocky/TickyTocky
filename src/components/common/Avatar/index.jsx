@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
-import useAvatarColor from '@/hooks/useAvatarColor';
+import useAvatarColor from '@/hooks/logic/useAvatarColor';
 import { ICON } from '@/constants/importImage';
 import styles from './Avatar.module.scss';
 
