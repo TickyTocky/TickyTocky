@@ -37,16 +37,6 @@
   }
 }
 
-.text-color {
-  &-gray10 {
-    @include text-style(16, $gray10, bold);
-  }
-
-  &-gray20 {
-    @include text-style(16, $gray20);
-  }
-}
-
 .active {
   border: 0.2rem solid $primary;
 }
@@ -63,8 +53,22 @@
   background-color: $purple;
 }
 
-.text-icon-wrap {
+.info {
   @include flexbox($gap: 0.2rem);
 
   cursor: pointer;
+
+  &-text {
+    user-select: none;
+  }
+
+  &-text-color {
+    &-gray10 {
+      @include text-style(16, $gray10, bold);
+    }
+
+    &-gray20 {
+      @include text-style(16, $gray20);
+    }
+  }
 }
