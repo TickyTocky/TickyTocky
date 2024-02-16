@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import Cards from '@/api/cards';
 import BaseButton from '@/components/common/button/BaseButton';
 import IconModal from '@/components/layout/modal/IconModal';
+import useSelectedImage from '@/hooks/logic/useSelectedImage';
 import useModalState from '@/hooks/useModalState';
 import { IMAGE, ICON } from '@/constants/importImage';
 import styles from './ImageField.module.scss';
@@ -25,34 +25,14 @@ const ImageField = ({
   const { register } = useFormContext();
   const [imagePreview, setImagePreview] = useState('');
   const showImageUrl = imagePreview || imageUrl || uploadImage.url;
-
-  const handleImageFormat = async (e) => {
-    const file = e.target.files?.[0];
-
-    if (file) {
-      const imagePreviewUrl = URL.createObjectURL(file);
-      setImagePreview(imagePreviewUrl);
-
-      const res = await Cards.addCardIamge(columnId, file);
-      setSelectedImage(res);
-    }
-  };
-
-  const handleInitialConfirmModal = () => {
-    toggleModal('initialConfirmModal');
-  };
-
-  const handleInitialSubmit = () => {
-    setSelectedImage(null);
-    setImagePreview(uploadImage.url);
-    toggleModal('initialConfirmModal');
-  };
-
-  useEffect(() => {
-    if (imagePreview) {
-      return () => URL.revokeObjectURL(imagePreview);
-    }
-  }, [imagePreview]);
+  const { handleImageFormat, handleInitialSubmit } = useSelectedImage({
+    columnId,
+    setImagePreview,
+    imagePreview,
+    setSelectedImage,
+    uploadImage,
+    toggleModal,
+  });
 
   return (
     <>
@@ -96,13 +76,13 @@ const ImageField = ({
           size='xl'
           text='Initialize'
           variant='remove'
-          onClick={handleInitialConfirmModal}
+          onClick={() => toggleModal('initialConfirmModal')}
         />
       </div>
 
       <IconModal
         isModalOpen={modalState.initialConfirmModal}
-        closeModal={handleInitialConfirmModal}
+        closeModal={() => toggleModal('initialConfirmModal')}
         iconSize={58}
         iconName={reset}
         title='Initialize'
@@ -113,7 +93,7 @@ const ImageField = ({
             size='lg'
             text='Cancel'
             variant='outline'
-            onClick={handleInitialConfirmModal}
+            onClick={() => toggleModal('initialConfirmModal')}
           />
           <BaseButton
             size='lg'
