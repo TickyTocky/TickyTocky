@@ -9,7 +9,6 @@ import IconModal from '@/components/layout/modal/IconModal';
 import CreateCard from '@/components/dashboard/modal/card/CreateCard';
 import EditColumn from '@/components/dashboard/modal/column/EditColumn';
 import DeleteColumn from '@/components/dashboard/modal/column/DeleteColumn';
-import Spinner from '@/components/common/Spinner';
 import useCardStore from '@/stores/useCardStore';
 import useAsync from '@/hooks/useAsync';
 import useToggleButton from '@/hooks/useToggleButton';
@@ -22,7 +21,7 @@ const cx = classNames.bind(styles);
 const { remove, empty } = ICON;
 
 const Column = ({ columnId, title: columnName, dashboardId }) => {
-  const { isLoading } = useAsync(() => Cards.getList(columnId), INIT_CARDS_DATA);
+  useAsync(() => Cards.getList(columnId), INIT_CARDS_DATA);
   const cardList = useCardStore((prev) => prev.cardList[columnId]);
 
   const { isVisible, handleToggleClick } = useToggleButton();
@@ -119,7 +118,6 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
           toggleModal={toggleModal}
         />
       </CommonModal>
-      {isLoading && <Spinner />}
     </>
   );
 };
