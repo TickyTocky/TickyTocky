@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 const { add } = ICON;
 
 const AddColumnButton = ({ dashBoardId }) => {
-  const { modalState, toggleModal } = useModalState([3, ['addColumnModal']]);
+  const { modalState, toggleModal } = useModalState(['addColumnModal']);
 
   return (
     <>
