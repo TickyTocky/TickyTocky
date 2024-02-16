@@ -38,11 +38,7 @@ const ImageField = ({
     }
   };
 
-  const handleInitialConfirmModalOpen = () => {
-    toggleModal('initialConfirmModal');
-  };
-
-  const handleInitialConfirmModalClose = () => {
+  const handleInitialConfirmModal = () => {
     toggleModal('initialConfirmModal');
   };
 
@@ -100,13 +96,13 @@ const ImageField = ({
           size='xl'
           text='Initialize'
           variant='remove'
-          onClick={handleInitialConfirmModalOpen}
+          onClick={handleInitialConfirmModal}
         />
       </div>
 
       <IconModal
         isModalOpen={modalState.initialConfirmModal}
-        closeModal={handleInitialConfirmModalClose}
+        closeModal={handleInitialConfirmModal}
         iconSize={58}
         iconName={reset}
         title='Initialize'
@@ -117,7 +113,7 @@ const ImageField = ({
             size='lg'
             text='Cancel'
             variant='outline'
-            onClick={handleInitialConfirmModalClose}
+            onClick={handleInitialConfirmModal}
           />
           <BaseButton
             size='lg'
