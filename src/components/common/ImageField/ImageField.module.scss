@@ -11,6 +11,7 @@
     position: relative;
     width: 16rem;
     height: 16rem;
+    margin-bottom: 0.8rem;
     background-color: $gray70;
     border: 0.1rem solid $gray60;
     border-radius: 0.6rem;
@@ -49,4 +50,8 @@
       opacity: 1;
     }
   }
+}
+
+.modal-btn {
+  @include flexbox($gap: 1.2rem);
 }
