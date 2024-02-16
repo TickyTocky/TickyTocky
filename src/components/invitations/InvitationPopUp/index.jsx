@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import classNames from 'classnames/bind';
-import Invitations from '@/api/invitations';
 import Image from 'next/image';
-import useAsync from '@/hooks/useAsync';
+import useInvitationPopUp from '@/hooks/useInvitationPopUp';
 import Spinner from '@/components/common/Spinner';
 import InvitationItem from '@/components/invitations/InvitationItem';
 import { INIT_INVITATIONS_DATA } from '@/constants/initialDataType';
@@ -13,41 +12,17 @@ const cx = classNames.bind(styles);
 const { search, tagRemove } = ICON;
 
 const InvitationPopUp = () => {
-  const INVITATIONS_NUMBER = 999;
-  const [refreshKey, setRefreshKey] = useState(0);
   const searchInputRef = useRef(null);
 
-  const { data, execute, isLoading } = useAsync(
-    () => Invitations.get(INVITATIONS_NUMBER),
-    INIT_INVITATIONS_DATA,
-    false
-  );
-
-  useEffect(() => {
-    execute();
-  }, [refreshKey]);
-
-  const HandleRefreshInvitations = () => {
-    setRefreshKey((prevKey) => prevKey + 1);
-  };
-
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value.toLowerCase());
-  };
-
-  const handleClearSearchInput = () => {
-    setSearchTerm('');
-    searchInputRef.current.value = '';
-    searchInputRef.current.focus();
-  };
-
-  const filteredInvitations = data?.invitations.filter(
-    (invitation) =>
-      invitation.dashboard.title.toLowerCase().includes(searchTerm) ||
-      invitation.inviter.nickname.toLowerCase().includes(searchTerm)
-  );
+  const {
+    filteredInvitations,
+    handleSearchChange,
+    handleRefreshInvitations,
+    handleClearSearchInput,
+    isLoading,
+    searchTerm,
+    data,
+  } = useInvitationPopUp(INIT_INVITATIONS_DATA, searchInputRef);
 
   return (
     <>
@@ -70,7 +45,7 @@ const InvitationPopUp = () => {
             className={cx('invitation-search-input')}
             type='search'
             id='search-input'
-            placeholder='Enter board name to search'
+            placeholder='Enter board name or username to search'
             onChange={handleSearchChange}
           />
           {searchTerm && (
@@ -97,7 +72,7 @@ const InvitationPopUp = () => {
                   id={invitation.id}
                   title={invitation.dashboard.title}
                   name={invitation.inviter.nickname}
-                  HandleRefreshInvitations={HandleRefreshInvitations}
+                  HandleRefreshInvitations={handleRefreshInvitations}
                 />
               </li>
             ))
