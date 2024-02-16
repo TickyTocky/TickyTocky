@@ -1,40 +1,27 @@
-import { useForm } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import Auth from '@/api/auth';
 import BaseButton from '@/components/common/button/BaseButton';
 import IndividualInput from '@/components/account/individualInput';
 import SuccessModal from '@/components/common/SuccessModal';
-import useModalState from '@/hooks/useModalState';
+import usePasswordChangeLogic from '@/hooks/logic/usePasswordChangeLogic';
 import styles from './Password.module.scss';
 
 const cx = classNames.bind(styles);
 
 const PasswordChange = () => {
-  const { modalState, toggleModal } = useModalState(['passwordSuccess']);
-  const formMethods = useForm({ mode: 'all' });
-  const onPasswordSubmit = async (data) => {
-    const { password, newPassword } = data;
-    const putData = { password, newPassword };
-    try {
-      const { status } = await Auth.changePassword(
-        putData,
-        formMethods.setError,
-        formMethods.reset
-      );
-      if (status === 204) {
-        toggleModal('passwordSuccess');
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-  const { isDirty, isValid } = formMethods.formState;
+  const {
+    formMethods,
+    isDirty,
+    isValid,
+    onPasswordSubmit,
+    modalState,
+    togglePasswordChangeSuccessModal,
+  } = usePasswordChangeLogic();
   return (
     <>
       <SuccessModal
         desc='Password modify success'
         isModalOpen={modalState.passwordSuccess}
-        closeModal={() => toggleModal('passwordSuccess')}
+        closeModal={togglePasswordChangeSuccessModal}
       />
       <div className={cx('password')}>
         <form
