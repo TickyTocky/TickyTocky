@@ -1,0 +1,41 @@
+.columns-list {
+  @include flexbox(stretch, stretch, 2.4rem);
+
+  height: 100%;
+  padding: 3.2rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    height: 3rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray40;
+    border-radius: 99rem;
+    border: 1rem solid $gray90;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  @include responsive(M) {
+    @include column-flexbox($jc: stretch, $gap: 0.8rem);
+    @include no-scrollbar;
+
+    padding: 1.5rem;
+    padding-top: 0;
+  }
+
+  &-item {
+    @include responsive(M) {
+      width: 100%;
+    }
+
+    &-last {
+      @include responsive(M) {
+        order: -1;
+      }
+    }
+  }
+}

@@ -57,11 +57,6 @@
   }
 }
 
-.ic-fit,
-.mix-fit {
-  @include image-fit;
-}
-
 /* mix(text , image button) */
 
 %mix-btn-base-4 {

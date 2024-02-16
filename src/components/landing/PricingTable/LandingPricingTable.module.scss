@@ -1,0 +1,92 @@
+.landing-pricing {
+  @include column-flexbox(center, center, 5.8rem);
+  @include responsive(M) {
+    padding: 0 3.2rem;
+  }
+
+  margin-top: 20rem;
+  color: $gray10;
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+
+  @include responsive(M) {
+    width: 100%;
+  }
+}
+
+.pricing-options {
+  @include inline-flexbox(center, center, 2.4rem);
+  @include responsive(T) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include responsive(M) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4rem;
+    width: 100%;
+  }
+
+  & .pricing-option {
+    @include responsive(M) {
+      width: 100%;
+      height: 100%;
+    }
+
+    width: 38.4rem;
+    height: 43.4rem;
+    flex-shrink: 0;
+    padding: 3.2rem;
+    border-radius: 2rem;
+    border: 0.2rem solid $opacity-white-5;
+    background: $opacity-white-5;
+    box-shadow: $dropdown-shadow;
+    transition: $base-transition;
+
+    &:hover {
+      border: 0.2rem solid $primary;
+      transform: translateY(-1.6rem);
+    }
+
+    .pricing-option-plan {
+      font-weight: 600;
+    }
+
+    & .pricing-option-price {
+      font-size: 2.8rem;
+
+      & span {
+        font-size: 1.6rem;
+        color: $gray30;
+      }
+    }
+
+    ul {
+      @include responsive(M) {
+        @include column-flexbox(center, start, 1rem);
+
+        margin-left: 4rem;
+      }
+
+      list-style-type: disc;
+      margin-left: 2rem;
+      padding-left: 0;
+      font-size: 2.4rem;
+      line-height: 150%;
+    }
+
+    &.pro {
+      .pricing-option-plan {
+        color: $primary;
+      }
+    }
+
+    &.enterprise {
+      .pricing-option-plan {
+        color: $skyblue;
+      }
+    }
+  }
+}

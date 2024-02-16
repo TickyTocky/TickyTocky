@@ -1,0 +1,39 @@
+.landing-footer {
+  @include text-style(16, $gray20);
+  @include responsive(T) {
+    padding: 4rem;
+  }
+  @include responsive(M) {
+    margin-top: 12rem;
+  }
+
+  width: 100%;
+  padding: 4rem 14rem;
+  margin-top: 16rem;
+
+  &-body {
+    @include inline-flexbox(between, center);
+    @include responsive(M) {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      text-align: center;
+      gap: 4rem;
+    }
+
+    width: 100%;
+  }
+
+  &-policy {
+    @include flexbox(center, center, 3.2rem);
+    @include responsive(M) {
+      gap: 2rem;
+    }
+  }
+
+  &-links {
+    @include flexbox(center, center, 1.4rem);
+    @include responsive(M) {
+      gap: 2rem;
+    }
+  }
+}

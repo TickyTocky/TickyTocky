@@ -9,6 +9,23 @@
   border: 0.1rem solid rgba(0 0 0 / 0%);
   transition: all ease-in-out 0.3s;
 
+  &:hover {
+    cursor: pointer;
+    border: 0.1rem solid transparent;
+    transform: translateY(-1rem);
+  }
+
+  @include responsive(M) {
+    min-width: 100%;
+    width: 100%;
+
+    &:hover {
+      pointer-events: none;
+      border: hidden;
+      transform: translateY(0);
+    }
+  }
+
   &-side-pointer {
     @include pos-center-y;
 
@@ -17,13 +34,7 @@
     height: 3.2rem;
     border-radius: 0 0.8rem 0.8rem 0;
     background: $primary;
-    z-index: $modal-level;
-  }
-
-  &:hover {
-    cursor: pointer;
-    border: 0.1rem solid transparent;
-    transform: translateY(-1rem);
+    z-index: $header-level;
   }
 
   &-container {

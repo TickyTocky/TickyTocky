@@ -6,8 +6,12 @@ import instance from './axios';
 
 const { email, password } = USER_INPUT_VALIDATION;
 
-const redirectTo = (path) => {
+export const redirectTo = (path) => {
   Router.push(path);
+};
+
+export const replaceTo = (path) => {
+  Router.replace(path);
 };
 
 const Auth = {
@@ -38,11 +42,24 @@ const Auth = {
       }
     }
   },
-  signout: () => {
+  logout: () => {
     useUserStore.setState({ user: null });
     LocalStorage.removeItem('accessToken');
+    replaceTo('/login');
   },
-  changePassword: (value) => instance.put(`${AUTH_API}/password`, value),
+  changePassword: async (value, setError, reset) => {
+    try {
+      const res = await instance.put(`${AUTH_API}/password`, value);
+      if (res.status === 204) {
+        reset();
+        return res;
+      }
+    } catch (e) {
+      if (e.response.status === 400) {
+        setError('password', { message: password.errorMessage.checkPassword });
+      }
+    }
+  },
 };
 
 export default Auth;

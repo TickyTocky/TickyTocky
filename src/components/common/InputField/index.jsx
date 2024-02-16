@@ -34,7 +34,7 @@ const InputField = ({
 
   useEffect(() => {
     setValue(name, defaultValue);
-  }, []);
+  }, [defaultValue]);
 
   return (
     <div className={cx('input-field')}>
@@ -49,6 +49,7 @@ const InputField = ({
               required: isRequired ? 'This is Required.' : errorMessage?.empty,
             })}
             className={cx('textarea', { empty: isRequired && isError })}
+            maxLength={245}
           ></textarea>
         ) : (
           <input
@@ -84,7 +85,7 @@ const InputField = ({
             onClick={handleToggleClick}
             className={cx('btn-password-toggle')}
           >
-            <Image src={iconEye} alt={showMode} width={24} height={24} />
+            <Image src={iconEye} alt={showMode} width={24} height={24} sizes='100%' />
           </button>
         )}
       </div>

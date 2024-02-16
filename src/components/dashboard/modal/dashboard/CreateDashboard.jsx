@@ -5,34 +5,34 @@ import classNames from 'classnames/bind';
 import InputField from '@/components/common/InputField';
 import BaseButton from '@/components/common/button/BaseButton';
 import CommonModal from '@/components/layout/modal/CommonModal';
-import Dashboard from '@/api/dashboards';
 import useTogglePopup from '@/hooks/useTogglePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
+import Dashboard from '@/api/dashboards';
 import { ICON } from '@/constants/importImage';
-import { COLOR_LIST } from '@/constants';
+import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
 import styles from './CreateDashboard.module.scss';
 
 const cx = classNames.bind(styles);
 const { colorize } = ICON;
 
-function CreateDashboard({ isModalOpen, toggleModal }) {
+function CreateDashboard({ isModalOpen, closeModal }) {
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
   const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
-    useCreateDashboard();
-  const MAX_LENGTH = 20;
-  const DEFAULT_COLOR = '#37E8B4';
+    useCreateDashboard({ isModalOpen });
+  const MAX_LENGTH = 15;
 
   const onSubmit = async (data) => {
     data.color = color;
     await Dashboard.create(data);
-    toggleModal('createDashboard');
+    await Dashboard.getList();
+    closeModal();
   };
 
   return (
     <CommonModal
       isModalOpen={isModalOpen}
-      closeModal={() => toggleModal('createDashboard')}
+      closeModal={() => closeModal}
       label='Create Board'
     >
       <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
@@ -76,8 +76,8 @@ function CreateDashboard({ isModalOpen, toggleModal }) {
                 <button
                   type='button'
                   ref={firstButtonRef}
-                  onClick={() => setColor('#272931')}
-                  style={{ background: '#272931' }}
+                  onClick={() => setColor(DEFAULT_BLACK)}
+                  style={{ background: `${DEFAULT_BLACK}` }}
                   className={cx('color-palette-one-color')}
                 ></button>
                 {COLOR_LIST.map((color, i) => (
@@ -131,7 +131,7 @@ function CreateDashboard({ isModalOpen, toggleModal }) {
         <div className={cx('button-container')}>
           <div className={cx('button-container-button')}>
             <BaseButton
-              onClick={() => toggleModal('createDashboard')}
+              onClick={closeModal}
               variant='outline'
               text='Cancel'
               size='xl'

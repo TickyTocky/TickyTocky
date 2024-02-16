@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import classNames from 'classnames/bind';
+import Image from 'next/image';
 import Avatar from '@/components/common/Avatar';
 import DropDownTag from '@/components/common/DropDownTag';
-import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
+import useDropDownLogic from '@/hooks/useDropDownLogic';
 import { ICON } from '@/constants/importImage';
 import { DROPDOWN_TIMELINE_MENU } from '@/constants/dropdownTimelineMenu';
 import styles from './DropDown.module.scss';
@@ -20,52 +20,23 @@ const DropDown = ({
   type = 'column',
 }) => {
   const dropDownRef = useRef();
-
-  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
-  const [timelineValue, setTimelineValue] = useState('Latest');
-
-  useEffect(() => {
-    if (!listValue) {
-      if (type === 'column' && columnListData.length > 0) {
-        setListValue(columnListData[0].id);
-      } else if (type === 'assignee' && assigneeListData.length > 0) {
-        setListValue(assigneeListData[0].userId);
-      }
-    }
-  }, [listValue, setListValue, type, columnListData, assigneeListData]);
-
-  const dropDownList =
-    type === 'column'
-      ? columnListData
-      : type === 'assignee'
-        ? assigneeListData
-        : DROPDOWN_TIMELINE_MENU;
-
-  const selectedColumnItem = dropDownList?.find((item) => item.id === listValue);
-
-  const selectedItem = dropDownList
-    ? dropDownList?.find((item) => item.userId === listValue)
-    : '';
-
-  const selectedNickname = selectedItem ? selectedItem.nickname : '';
-  const selectedProfileImageUrl = selectedItem ? selectedItem.profileImageUrl : '';
-
-  const handleOpenClick = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const handleListItemClick = (e, value) => {
-    e.stopPropagation();
-
-    if (type === 'timeline') {
-      onClickInput(value);
-      setTimelineValue(value);
-    } else {
-      setListValue(value);
-    }
-
-    handleOpenClick();
-  };
+  const {
+    isOpen,
+    timelineValue,
+    dropDownList,
+    selectedItem,
+    handleOpenClick,
+    handleListItemClick,
+  } = useDropDownLogic({
+    columnListData,
+    assigneeListData,
+    listValue,
+    setListValue,
+    type,
+    DROPDOWN_TIMELINE_MENU,
+    onClickInput, // onClickInput을 useDropDownLogic에 전달
+    dropDownRef,
+  });
 
   return (
     <div
@@ -76,11 +47,12 @@ const DropDown = ({
         className={cx('dropdown-selected', { active: isOpen })}
         onClick={handleOpenClick}
       >
-        {type === 'column' && <DropDownTag value={selectedColumnItem?.title} />}
+        {type === 'column' && <DropDownTag value={selectedItem?.title} />}
         {type === 'assignee' && listValue && (
           <Avatar
-            profileName={selectedNickname}
-            profileImage={selectedProfileImageUrl}
+            userId={selectedItem.userId}
+            profileName={selectedItem.nickname}
+            profileImage={selectedItem.profileImageUrl}
             textColor='gray10'
             avatarSize='md'
           />
@@ -101,7 +73,7 @@ const DropDown = ({
           {type === 'column' &&
             dropDownList.map(({ title, id }) => (
               <li
-                key={`key-${id}`}
+                key={`key-dropdown-column-${id}`}
                 className={cx('dropdown-list-item')}
                 onClick={(e) => handleListItemClick(e, id)}
               >
@@ -111,11 +83,12 @@ const DropDown = ({
           {type === 'assignee' &&
             dropDownList.map(({ id, userId, nickname, profileImageUrl }) => (
               <li
-                key={`key-${id}`}
+                key={`key-dropdown-assignee-${id}`}
                 className={cx('dropdown-list-item')}
                 onClick={(e) => handleListItemClick(e, userId)}
               >
                 <Avatar
+                  userId={userId}
                   profileName={nickname}
                   profileImage={profileImageUrl}
                   textColor='gray10'
@@ -126,7 +99,7 @@ const DropDown = ({
           {type === 'timeline' &&
             dropDownList.map(({ id, name }) => (
               <li
-                key={`key-${id}`}
+                key={`key-dropdown-timeline-${id}`}
                 className={cx('dropdown-list-item')}
                 onClick={(e) => handleListItemClick(e, name)}
               >

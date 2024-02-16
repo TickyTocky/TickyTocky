@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import classNames from 'classnames/bind';
 import Avatar from '@/components/common/Avatar';
 import useToggleButton from '@/hooks/useToggleButton';
@@ -8,22 +9,12 @@ import styles from './DashboardCard.module.scss';
 const cx = classNames.bind(styles);
 const { calendar } = ICON;
 
-const DashboardCard = ({
-  dashboard = {
-    color: '#000000',
-    title: '',
-    createdAt: '',
-    createdByMe: false,
-  },
-  member = {
-    profileImage: '',
-    profileName: 'H',
-  },
-}) => {
+const DashboardCard = ({ dashboardId, dashboard, user }) => {
   const { isVisible, handleToggleClick } = useToggleButton();
 
   return (
-    <article
+    <Link
+      href={`/dashboard/${dashboardId}`}
       style={{
         border: isVisible
           ? dashboard.color
@@ -56,15 +47,16 @@ const DashboardCard = ({
           <div>
             {dashboard.createdByMe && (
               <Avatar
+                userId={user?.id}
                 avatarSize='sm'
-                profileImage={member.profileImage}
-                profileName={member.profileName}
+                profileImage={user?.profileImageUrl}
+                profileName={user?.nickname}
               />
             )}
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 };
 

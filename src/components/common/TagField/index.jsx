@@ -47,7 +47,7 @@ const TagField = ({ tagList, setTagList }) => {
       <div className={cx('tagsinput-tags')}>
         <ul className={cx('tagsinput-tags-list')}>
           {tagList?.map((tagItem, index) => (
-            <li className={cx('tagsinput-tags-item')} key={`key-${index}`}>
+            <li className={cx('tagsinput-tags-item')} key={`key-tagfield-${index}`}>
               <span className={cx('tagsinput-tag-name')}>
                 {tagItem.length > MINIMUM_LENGTH
                   ? `${tagItem.slice(0, MINIMUM_LENGTH)}...`

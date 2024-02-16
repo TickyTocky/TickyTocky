@@ -96,7 +96,7 @@
 .icon-modal-container {
   @extend %modal-base;
 
-  min-width: 36rem;
+  min-width: 33rem;
   padding: 3.2rem 0;
   animation: show-modal ease-in-out 0.4s;
   box-shadow: $dropdown-shadow;

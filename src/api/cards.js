@@ -20,8 +20,10 @@ const Cards = {
     if (res.status === 200) {
       useCardStore.setState((prev) => ({
         ...prev,
-        cardList: res.data.cards,
-        totalCount: res.data.totalCount,
+        cardList: {
+          ...prev.cardList,
+          [columnId]: { cards: res.data.cards, count: res.data.totalCount },
+        },
       }));
       return res;
     }

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
-import useToggleButton from '@/hooks/useToggleButton';
+import useAvatarColor from '@/hooks/useAvatarColor';
 import { ICON } from '@/constants/importImage';
 import styles from './Avatar.module.scss';
 
@@ -8,19 +8,15 @@ const cx = classNames.bind(styles);
 const { arrowUp, arrowDown } = ICON;
 
 const Avatar = ({
+  userId,
   profileName,
-  textColor = '',
   profileImage = '',
+  textColor = '',
   avatarSize = 'xl',
   isArrow = false,
+  isOpen = false,
 }) => {
-  const { isVisible, handleToggleClick } = useToggleButton();
-
-  const handleTextClick = () => {
-    if (isArrow) {
-      handleToggleClick();
-    }
-  };
+  const avatarColor = useAvatarColor(userId);
 
   return (
     <>
@@ -28,7 +24,7 @@ const Avatar = ({
         <div className={cx('container')}>
           <div
             className={cx(`avatar-size-${avatarSize}`, {
-              active: isVisible,
+              active: isOpen,
             })}
           >
             {profileImage ? (
@@ -37,16 +33,20 @@ const Avatar = ({
                 src={profileImage}
                 alt='profile-image'
                 fill
+                sizes='100%'
+                priority
               />
             ) : (
-              <div className={cx('badge')}>{profileName.charAt(0)}</div>
+              <div style={{ background: `${avatarColor}` }} className={cx('badge')}>
+                {profileName?.charAt(0)}
+              </div>
             )}
           </div>
           {textColor && (
-            <div className={cx('text-icon-wrap')} onClick={handleTextClick}>
+            <div className={cx('text-icon-wrap')}>
               <span className={cx(`text-color-${textColor}`)}>{profileName}</span>
               {isArrow &&
-                (isVisible ? (
+                (isOpen ? (
                   <Image
                     src={arrowUp.active.url}
                     alt={arrowUp.active.alt}

@@ -11,9 +11,9 @@ const Dashboard = {
       return res;
     }
   },
-  getList: async (navigationMethod, page, size) => {
+  getList: async () => {
     const res = await instance.get(DASHBOARD_API, {
-      params: { navigationMethod, page, size },
+      params: { navigationMethod: 'pagination', page: 1, size: 1000 },
     });
     if (res.status === 200) {
       useDashBoardStore.setState((prev) => ({
@@ -26,21 +26,21 @@ const Dashboard = {
   edit: (dashboardId, value) => instance.put(`${DASHBOARD_API}/${dashboardId}`, value),
   delete: (dashboardId) => instance.delete(`${DASHBOARD_API}/${dashboardId}`),
   invite: (dashboardId, value) =>
-    instance.post(`${DASHBOARD_API}/${dashboardId}/${INVITATION_API}`, value),
-  getInvite: async (dashboardId, page, size) => {
-    const res = await instance.get(`${DASHBOARD_API}/${dashboardId}/${INVITATION_API}`, {
-      params: { page, size },
+    instance.post(`${DASHBOARD_API}/${dashboardId}${INVITATION_API}`, value),
+  getInvite: async (dashboardId) => {
+    const res = await instance.get(`${DASHBOARD_API}/${dashboardId}${INVITATION_API}`, {
+      params: { page: 1, size: 100 },
     });
     if (res.status === 200) {
       useDashBoardStore.setState((prev) => ({
         ...prev,
-        invitationList: res.data.dashboards,
+        invitationList: res.data.invitations,
       }));
       return res;
     }
   },
   deleteInvite: (dashboardId, invitaionId) =>
-    instance.delete(`${DASHBOARD_API}/${dashboardId}/${INVITATION_API}/${invitaionId}`),
+    instance.delete(`${DASHBOARD_API}/${dashboardId}${INVITATION_API}/${invitaionId}`),
 };
 
 export default Dashboard;

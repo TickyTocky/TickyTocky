@@ -40,7 +40,7 @@
 .board-button-wrapper {
   @extend %button-base;
   @extend %board-button-base;
-  @include text-style(12, $gray40, bold);
+  @include text-style(12, $gray10, bold);
 
   overflow: hidden;
 
@@ -51,4 +51,12 @@
 
     border-radius: 0.6rem;
   }
+}
+
+.is-focused {
+  @extend %board-button-base;
+  @include text-style(12, $black, bold);
+
+  border-radius: 0.6rem;
+  background-color: $primary;
 }

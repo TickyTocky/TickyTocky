@@ -1,21 +1,18 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames/bind';
-import Users from '@/api/users';
 import Comment from '@/api/comments';
 import Avatar from '@/components/common/Avatar';
 import UpdatedTag from '@/components/cards/UpdatedTag';
 import useUserStore from '@/stores/useUserStore';
 import useCommentStore from '@/stores/useCommentStore';
 import useInput from '@/hooks/useInput';
-import useAsync from '@/hooks/useAsync';
 import { getDiffDate } from '@/utils';
 import styles from './CommentItem.module.scss';
 
 const cx = classNames.bind(styles);
 
 const CommentItem = ({ id, cardId, columnId, dashboardId }) => {
-  useAsync(() => Users.get());
   const { user } = useUserStore();
   const { commentList } = useCommentStore();
   const commentData = commentList.find((comment) => comment.id === id);
@@ -60,6 +57,7 @@ const CommentItem = ({ id, cardId, columnId, dashboardId }) => {
     <article className={cx('comment')}>
       <div className={cx('comment-avatar')}>
         <Avatar
+          userId={author.id}
           profileName={author.nickname}
           profileImage={author.profileImageUrl}
           avatarSize='sm'

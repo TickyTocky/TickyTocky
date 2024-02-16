@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import useDashBoardStore from '@/stores/useDashboardStore';
 
-const useDashboardList = (dashboardData) => {
-  const dashboards = dashboardData.dashboards;
-  const totalCount = dashboardData.totalCount;
+const useDashboardList = () => {
+  const { dashboardList } = useDashBoardStore();
+  const dashboards = dashboardList;
+  const totalCount = dashboards?.length;
   const ITEMS_PER_PAGE = 16;
 
   const [itemsPerPage, setItemsPerPage] = useState(ITEMS_PER_PAGE);
@@ -10,7 +12,7 @@ const useDashboardList = (dashboardData) => {
   const [currentPageData, setCurrentPageData] = useState([]);
   const [currentSortedData, setCurrentSortedData] = useState(null);
   const [currentFilter, setCurrentFilter] = useState('All');
-  const [totalItems, setTotalItems] = useState(totalCount);
+  const [totalItems, setTotalItems] = useState(null);
   const [totalPages, setTotalPages] = useState(Math.ceil(totalItems / ITEMS_PER_PAGE));
 
   const sortByLatest = () => {
@@ -50,7 +52,7 @@ const useDashboardList = (dashboardData) => {
   const renderData = (filteredData, itemsPerPage) => {
     const START_INDEX = (currentPage - 1) * itemsPerPage;
     const END_INDEX = START_INDEX + itemsPerPage;
-    const currentPageData = filteredData.slice(START_INDEX, END_INDEX);
+    const currentPageData = filteredData?.slice(START_INDEX, END_INDEX);
     setCurrentPageData(currentPageData);
   };
 
@@ -87,12 +89,12 @@ const useDashboardList = (dashboardData) => {
   };
 
   useEffect(() => {
-    setTotalPages(Math.ceil(totalItems / itemsPerPage));
-  }, [totalItems, itemsPerPage]);
-
-  useEffect(() => {
-    setTotalItems(dashboardData.totalCount);
-  }, [dashboardData]);
+    if (totalItems) {
+      setTotalPages(Math.ceil(totalItems / ITEMS_PER_PAGE));
+    } else {
+      setTotalPages(Math.ceil(totalCount / ITEMS_PER_PAGE));
+    }
+  }, [totalItems, ITEMS_PER_PAGE, totalCount]);
 
   useEffect(() => {
     if (currentSortedData) {
@@ -101,6 +103,10 @@ const useDashboardList = (dashboardData) => {
       renderData(dashboards, itemsPerPage);
     }
   }, [currentPage, dashboards, currentSortedData]);
+
+  useEffect(() => {
+    setTotalItems(dashboards?.length);
+  }, [dashboards?.length]);
 
   useEffect(() => {
     const renderDataBasedOnWindowSize = () => {
@@ -147,6 +153,7 @@ const useDashboardList = (dashboardData) => {
     totalPages,
     goToPrevPage,
     goToNextPage,
+    totalItems,
   };
 };
 

@@ -1,0 +1,90 @@
+.container {
+  @include column-flexbox(center, start, $gap: 2.4rem);
+
+  width: 100%;
+
+  &-header {
+    @include flexbox(between);
+
+    width: 100%;
+    padding-bottom: 0.8rem;
+    border-bottom: 0.1rem solid $gray50;
+
+    &-title-container {
+      @include flexbox($gap: 0.8rem);
+
+      &-title {
+        @include text-style(18, $gray10);
+      }
+
+      &-count {
+        @include text-style(12, $gray20);
+
+        padding: 0.5rem;
+        border-radius: 0.4rem;
+        background: $gray70;
+      }
+    }
+  }
+
+  &-list {
+    @include column-flexbox(center, start, 0.8rem);
+
+    width: 100%;
+
+    &-emails-title {
+      @include text-style(18, $gray20);
+    }
+
+    &-emails-container {
+      @include column-flexbox(start, start);
+
+      width: 100%;
+      min-height: 29rem;
+
+      &-item {
+        @include flexbox(between);
+
+        width: 100%;
+        padding: 0.8rem 0;
+
+        &:not(:last-child) {
+          border-bottom: 0.1rem solid $gray70;
+        }
+
+        .email-title {
+          @include text-style(16, $gray20);
+        }
+      }
+    }
+  }
+
+  &-footer {
+    @include flexbox(between);
+
+    width: 100%;
+
+    &-number {
+      @include text-style(16, $gray30);
+
+      .current {
+        color: $gray10;
+      }
+    }
+
+    &-pagination-container {
+      border: 0.1rem solid $gray60;
+      border-radius: 0.4rem;
+
+      .button-left {
+        padding: 1.2rem;
+        border-right: 0.1rem solid $gray60;
+      }
+
+      .button-right {
+        padding: 1.2rem;
+        border-left: 0.1rem solid $gray60;
+      }
+    }
+  }
+}

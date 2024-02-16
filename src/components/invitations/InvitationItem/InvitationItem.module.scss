@@ -1,0 +1,130 @@
+.invitation-item {
+  @include inline-flexbox(between, center);
+  @include responsive(M) {
+    @include column-flexbox(center, start, 1.6rem);
+  }
+
+  width: 100%;
+  padding-bottom: 1.6rem;
+}
+
+.invitation-item-data {
+  @include inline-flexbox(between, center, 1.6rem);
+
+  &-name {
+    @include column-flexbox(between, start, 0.8rem);
+    @include text-style(16, $gray20);
+    @include responsive(M) {
+      @include text-style(14);
+    }
+  }
+
+  &-body {
+    @include column-flexbox(between, start, 0.8rem);
+    @include text-style(16, $white);
+    @include responsive(M) {
+      @include text-style(14);
+    }
+  }
+}
+
+.invitation-item-buttons {
+  @include column-flexbox(between, center, 0.8rem);
+  @include responsive(M) {
+    @include inline-flexbox(center, start, 0.8rem);
+
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .invitation-item-buttons-accept {
+    @include flexbox(center, center);
+    @include text-style(14, $primary, bold);
+    @include responsive(M) {
+      width: 100%;
+    }
+
+    width: 8.3rem;
+    height: 3.2rem;
+    padding: 0 0.8rem;
+    border-radius: 0.6rem;
+    background: $black;
+    transition: $base-transition;
+
+    &:hover {
+      background-color: $primary;
+      color: $gray70;
+    }
+  }
+
+  .invitation-item-buttons-deny {
+    @include flexbox(center, center);
+    @include text-style(14, $gray40, bold);
+    @include responsive(M) {
+      width: 100%;
+    }
+
+    width: 8.3rem;
+    height: 3.2rem;
+    padding: 0 0.8rem;
+    border-radius: 0.6rem;
+    border: 0.1rem solid $gray60;
+    transition: $base-transition;
+
+    &:hover {
+      border: 0.1rem solid $gray30;
+      color: $gray10;
+    }
+  }
+}
+
+.modal-buttons {
+  @include inline-flexbox(center, center, 1.2rem);
+}
+
+.modal-buttons-cancel {
+  @include flexbox(center, center);
+  @include text-style(16, $gray40, bold);
+
+  width: 12rem;
+  height: 4.8rem;
+  padding: 0 0.8rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid $gray60;
+}
+
+.modal-buttons-accept {
+  @include flexbox(center, center);
+  @include text-style(16, $primary, bold);
+
+  width: 12rem;
+  height: 4.8rem;
+  padding: 0 0.8rem;
+  border-radius: 0.6rem;
+  background-color: $black;
+  transition: $base-transition;
+
+  &:hover {
+    @include text-style(16, $gray70, bold);
+
+    background-color: $primary;
+  }
+}
+
+.modal-buttons-deny {
+  @include flexbox(center, center);
+  @include text-style(16, $red, bold);
+
+  width: 12rem;
+  height: 4.8rem;
+  padding: 0 0.8rem;
+  border-radius: 0.6rem;
+  background-color: $black;
+  transition: $base-transition;
+
+  &:hover {
+    @include text-style(16, $gray10, bold);
+
+    background-color: $red;
+  }
+}
