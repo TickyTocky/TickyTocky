@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import AccountProfileLogic from '@/components/account/profile';
+import AccountProfileChange from '@/components/account/profile';
 import PasswordChange from '@/components/account/password';
 import styles from './Account.module.scss';
 
@@ -12,7 +12,7 @@ const AccountList = () => (
       <div className={cx('account-thumnail')}>
         <span>Profile</span>
       </div>
-      <AccountProfileLogic />
+      <AccountProfileChange />
     </div>
     <div className={cx('account-password')}>
       <div className={cx('account-thumnail')}>
