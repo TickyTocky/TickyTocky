@@ -26,8 +26,25 @@
   }
 }
 
-.info-wrap {
+.info {
   @include flexbox($gap: 1.6rem);
+
+  &-invitaion {
+    position: relative;
+
+    &-popup {
+      @include pos-center-x;
+
+      top: 5rem;
+      z-index: $modal-level;
+
+      @include responsive(M) {
+        right: 0;
+        left: auto;
+        transform: translateX(0);
+      }
+    }
+  }
 }
 
 .line {

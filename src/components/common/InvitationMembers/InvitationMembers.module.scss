@@ -12,18 +12,20 @@
 
 .members-list {
   @include flexbox;
-}
 
-.hidden-members-num {
-  @include flexbox;
-  @include text-style(12, $gray20);
+  cursor: pointer;
 
-  width: 2.8rem;
-  margin: 0 0.2rem;
-  background-color: $gray70;
-  border-radius: 50%;
-  aspect-ratio: 1;
-  box-sizing: content-box;
+  &-num {
+    @include flexbox;
+    @include text-style(12, $gray20);
+
+    width: 2.8rem;
+    margin: 0 0.2rem;
+    background-color: $gray70;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    box-sizing: content-box;
+  }
 }
 
 .line {
