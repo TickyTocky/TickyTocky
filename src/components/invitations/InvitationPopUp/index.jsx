@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
-import useInvitationPopUp from '@/hooks/useInvitationPopUp';
+import useInvitationPopUp from '@/hooks/logic/useInvitationPopUp';
 import InvitationItem from '@/components/invitations/InvitationItem';
 import { INIT_INVITATIONS_DATA } from '@/constants/initialDataType';
 import { ICON } from '@/constants/importImage';
