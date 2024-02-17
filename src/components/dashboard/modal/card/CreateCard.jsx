@@ -1,23 +1,18 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import dayjs from 'dayjs';
-import Cards from '@/api/cards';
-import Members from '@/api/members';
-import Columns from '@/api/columns';
 import BaseButton from '@/components/common/button/BaseButton';
 import DateField from '@/components/common/DateField';
 import InputField from '@/components/common/InputField';
 import ImageField from '@/components/common/ImageField';
 import TagField from '@/components/common/TagField';
 import DropDown from '@/components/common/DropDown/index';
-import useMemberStore from '@/stores/useMemberStore';
 import IconModal from '@/components/layout/modal/IconModal';
-import useColumnStore from '@/stores/useColumnStore';
-import useAsync from '@/hooks/useAsync';
+import useGetMembers from '@/hooks/useGetMembers';
+import useGetColumns from '@/hooks/useGetColumns';
+import useCreateCard from '@/hooks/logic/useCreateCard';
 import useModalState from '@/hooks/useModalState';
-import { IMAGE_REGEX, IMAGE, ICON } from '@/constants';
+import { IMAGE, ICON } from '@/constants';
 import styles from './CreateCard.module.scss';
 
 const cx = classNames.bind(styles);
@@ -31,77 +26,33 @@ const CreateCard = ({
   cardItemData = {},
   isEdit = false,
 }) => {
+  const router = useRouter();
+  const { id: dashboardId } = router.query;
   const { handleSubmit, reset } = useFormContext();
   const { modalState, toggleModal: successToggle } = useModalState(['success']);
-  const router = useRouter();
-  const { id } = router.query;
-  useAsync(() => Members.getList(1, 20, id));
-  useAsync(() => Columns.getList(id));
-  const { memberList } = useMemberStore();
-  const { columnList } = useColumnStore();
-
+  const { memberList } = useGetMembers({ dashboardId });
+  const { columnList } = useGetColumns({ dashboardId });
+  const { imageUrl, title, description, dueDate } = cardItemData;
   const {
-    id: cardId,
-    imageUrl,
-    assignee,
-    title,
-    description,
-    dueDate,
-    tags,
-  } = cardItemData;
-
-  const [assigneeId, setAssigneeId] = useState(isEdit ? assignee?.id : null);
-  const [columnName, setColumnName] = useState(columnId);
-  const [tagList, setTagList] = useState(isEdit ? [...tags] : []);
-  const [selectedImage, setSelectedImage] = useState(isEdit ? imageUrl : null);
-
-  const DEFAUTL_IMAGE = process.env.NEXT_PUBLIC_DEFAULT_IMAGE_URL;
-  const isImageUrl = !!imageUrl && IMAGE_REGEX.test(imageUrl.toLowerCase());
-
-  const handleSuccessModalOpen = () => {
-    successToggle('success');
-  };
-
-  const handleModalClose = () => {
-    successToggle('success');
-    toggleModal('addCardModal');
-    toggleModal('editCard');
-    reset();
-  };
-
-  const onSubmit = async (data) => {
-    let storeData = { ...data };
-    let formattedDate = dayjs(storeData['dueDate']).format('YYYY-MM-DD HH:mm');
-    let description = storeData['description'].replace(/(?:\r\n|\r|\n)/g, '<br>');
-
-    const isEmptyImage = selectedImage === null;
-
-    const submitData = {
-      ...data,
-      assigneeUserId: Number(assigneeId),
-      dashboardId: Number(id),
-      columnId: isEdit ? columnName : Number(columnId),
-      description,
-      imageUrl: isEmptyImage ? DEFAUTL_IMAGE : selectedImage,
-      dueDate: formattedDate,
-      tags: tagList,
-    };
-
-    if (!assigneeId) {
-      return;
-    }
-
-    if (isEdit) {
-      await Cards.edit(cardId, submitData);
-      await Cards.getList(columnId);
-      await Cards.getList(columnName);
-      handleSuccessModalOpen();
-    } else {
-      await Cards.create(submitData);
-      await Cards.getList(columnId);
-      handleSuccessModalOpen();
-    }
-  };
+    assigneeId,
+    setAssigneeId,
+    columnName,
+    setColumnName,
+    tagList,
+    setTagList,
+    setSelectedImage,
+    isImageUrl,
+    handleModalClose,
+    onSubmit,
+  } = useCreateCard({
+    isEdit,
+    columnId,
+    dashboardId,
+    cardItemData,
+    toggleModal,
+    successToggle,
+    reset,
+  });
 
   return (
     <>
