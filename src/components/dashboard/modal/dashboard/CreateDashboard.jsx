@@ -6,7 +6,7 @@ import InputField from '@/components/common/InputField';
 import BaseButton from '@/components/common/button/BaseButton';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import useTogglePopup from '@/hooks/useTogglePopup';
-import useCreateDashboard from '@/hooks/logic/useCreateDashboard';
+import useCreateDashboard from '@/hooks/dashboard/useCreateDashboard';
 import Dashboard from '@/api/dashboards';
 import { ICON, COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
 import styles from './CreateDashboard.module.scss';

@@ -6,7 +6,7 @@ import BaseButton from '@/components/common/button/BaseButton';
 import InputField from '@/components/common/InputField';
 import SuccessDashboard from '@/components/dashboard/modal/dashboard/SuccessDashboard';
 import useTogglePopup from '@/hooks/useTogglePopup';
-import useCreateDashboard from '@/hooks/logic/useCreateDashboard';
+import useCreateDashboard from '@/hooks/dashboard/useCreateDashboard';
 import useModalState from '@/hooks/useModalState';
 import Dashboard from '@/api/dashboards';
 import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';

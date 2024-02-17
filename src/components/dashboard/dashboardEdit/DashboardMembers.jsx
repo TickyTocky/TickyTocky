@@ -5,7 +5,7 @@ import Avatar from '@/components/common/Avatar';
 import DeleteDashboard from '@/components/dashboard/modal/dashboard/DeleteDashboard';
 import useModalState from '@/hooks/useModalState';
 import useAsync from '@/hooks/useAsync';
-import useDashboardEdit from '@/hooks/logic/useDashboardEdit';
+import useDashboardEdit from '@/hooks/dashboard/useDashboardEdit';
 import useMemberStore from '@/stores/useMemberStore';
 import Members from '@/api/members';
 import { ICON } from '@/constants';

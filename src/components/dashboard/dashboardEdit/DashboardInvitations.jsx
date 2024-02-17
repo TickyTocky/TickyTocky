@@ -5,7 +5,7 @@ import WithdrawInvitation from '@/components/dashboard/modal/dashboard/WithdrawI
 import InviteDashboard from '@/components/dashboard/modal/dashboard/InviteDashboard';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
-import useDashboardEdit from '@/hooks/logic/useDashboardEdit';
+import useDashboardEdit from '@/hooks/dashboard/useDashboardEdit';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import Dashboard from '@/api/dashboards';
 import { ICON } from '@/constants';
