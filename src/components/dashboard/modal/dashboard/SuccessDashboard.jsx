@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './DashboardEditPage.module.scss';
 
 const cx = classNames.bind(styles);

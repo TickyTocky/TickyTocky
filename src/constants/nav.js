@@ -1,4 +1,4 @@
-import { ICON } from './importImage';
+import { ICON } from '@/constants';
 const { nav } = ICON;
 
 export const NAV_HOME_STATUS = {

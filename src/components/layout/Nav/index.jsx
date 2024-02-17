@@ -7,7 +7,7 @@ import IconModal from '@/components/layout/modal/IconModal';
 import useModalState from '@/hooks/useModalState';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import Auth from '@/api/auth';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './Nav.module.scss';
 
 const cx = classNames.bind(styles);

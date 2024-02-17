@@ -41,6 +41,8 @@ import IconColorize from 'public/svg/ic-colorize.svg';
 import IconSuccess from 'public/svg/ic-success.svg';
 import IconEmail from 'public/svg/ic-email.svg';
 import IconReset from 'public/svg/ic-reset.svg';
+import IconEyeOn from 'public/svg/ic-eye-on.svg';
+import IconEyeOff from 'public/svg/ic-eye-off.svg';
 
 export const IMAGE = {
   uploadImage: {
@@ -242,5 +244,15 @@ export const ICON = {
   reset: {
     url: IconReset,
     alt: 'reset-icon',
+  },
+  eye: {
+    on: {
+      url: IconEyeOn,
+      alt: 'password-show',
+    },
+    off: {
+      url: IconEyeOff,
+      alt: 'password-hide',
+    },
   },
 };

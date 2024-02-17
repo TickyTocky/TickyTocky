@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import classNames from 'classnames/bind';
 import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import IconButton from '@/components/common/button/IconButton';
 import DropdownList from '@/components/common/DropDownList';
 import styles from './KebabDropDown.module.scss';
