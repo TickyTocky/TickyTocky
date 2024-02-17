@@ -1,15 +1,12 @@
 import classNames from 'classnames/bind';
-import Columns from '@/api/columns';
 import BaseButton from '@/components/common/button/BaseButton';
+import useDeleteColumn from '@/hooks/column/useDeleteColumn';
 import styles from './ColumnModal.module.scss';
 
 const cx = classNames.bind(styles);
 
 const DeleteColumn = ({ dashboardId, columnId, closeModal }) => {
-  const handleDeleteClick = async () => {
-    await Columns.delete(columnId);
-    await Columns.getList(dashboardId);
-  };
+  const { handleDeleteClick } = useDeleteColumn({ dashboardId, columnId });
 
   return (
     <>
