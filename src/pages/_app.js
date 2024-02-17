@@ -2,9 +2,9 @@ import Modal from 'react-modal';
 import { FormProvider, useForm } from 'react-hook-form';
 import FullLayout from '@/components/layout/Layouts/FullLayout';
 import EmptyLayout from '@/components/layout/Layouts/EmptyLayout';
+import Spinner from '@/components/common/Spinner';
 import useLoadingStore from '@/stores/useLoadingStore';
 import '@/styles/base/common.scss';
-import Spinner from '@/components/common/Spinner';
 
 Modal.setAppElement('#__next');
 
