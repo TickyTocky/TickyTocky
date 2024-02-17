@@ -33,7 +33,7 @@ const DashboardList = () => {
     <div className={cx('dashboard-list-container')}>
       <CreateDashboard
         isModalOpen={modalState.createDashboard}
-        toggleModal={toggleModal}
+        closeModal={() => toggleModal('createDashboard')}
       />
       <header className={cx('dashboard-list-container-header')}>
         <div className={cx('dashboard-list-container-header-container')}>
