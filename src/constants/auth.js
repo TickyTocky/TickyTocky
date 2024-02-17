@@ -1,4 +1,4 @@
-import { ICON } from '@/constants/importImage';
+import { ICON } from './importImage';
 const { eye } = ICON;
 
 export const USER_INPUT_VALIDATION = {
