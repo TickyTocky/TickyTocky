@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import WithdrawInvitation from '@/components/dashboard/modal/dashboard/WithdrawInvitation';
 import InviteDashboard from '@/components/dashboard/modal/dashboard/InviteDashboard';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
+import useDashboardEdit from '@/hooks/logic/useDashboardEdit';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import Dashboard from '@/api/dashboards';
 import { ICON } from '@/constants';
@@ -25,46 +25,13 @@ const DashboardInvitations = ({ dashboardId }) => {
   const { invitationList } = useDashBoardStore();
   const totalItems = invitationList?.length;
   const ITEMS_PER_PAGE = 6;
-  const [currentPage, setCurrentPage] = useState(1);
-  const [currentPageData, setCurrentPageData] = useState(null);
-  const [totalPages, setTotalPages] = useState(Math.ceil(totalItems / ITEMS_PER_PAGE));
+
+  const { currentPageData, currentPage, totalPages, goToPrevPage, goToNextPage } =
+    useDashboardEdit(invitationList, totalItems, ITEMS_PER_PAGE);
   const { modalState, toggleModal } = useModalState([
     'invitationWithdraw',
     'inviteMember',
   ]);
-
-  const goToPrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
-
-  const renderData = () => {
-    const START_INDEX = (currentPage - 1) * ITEMS_PER_PAGE;
-    const END_INDEX = START_INDEX + ITEMS_PER_PAGE;
-    const currentPageData = invitationList?.slice(START_INDEX, END_INDEX);
-    setCurrentPageData(currentPageData);
-  };
-
-  useEffect(() => {
-    if (totalPages >= 1) {
-      setTotalPages(Math.ceil(totalItems / ITEMS_PER_PAGE));
-    } else if (!totalPages) {
-      setTotalPages(1);
-    }
-  }, [totalItems, ITEMS_PER_PAGE]);
-
-  useEffect(() => {
-    if (invitationList) {
-      renderData();
-    }
-  }, [currentPage, invitationList]);
 
   return (
     <article className={cx('container')}>
