@@ -1,7 +1,7 @@
 import MainLayout from '@/components/layout/Layouts/MainLayout';
 import BoardHeader from '@/components/layout/Header/BoardHeader';
 import ColumnLayout from '@/components/layout/dashboard/Column';
-import useDashboardFetchData from '@/hooks/useDashboardFetchData';
+import useDashboardFetchData from '@/hooks/dashboard/useDashboardFetchData';
 
 const DashboardPage = () => {
   const { id } = useDashboardFetchData();
@@ -10,8 +10,8 @@ const DashboardPage = () => {
 
   return (
     <>
-      <BoardHeader dashBoardId={Number(id)} />
-      <ColumnLayout dashBoardId={Number(id)} />
+      <BoardHeader dashboardId={Number(id)} />
+      <ColumnLayout dashboardId={Number(id)} />
     </>
   );
 };

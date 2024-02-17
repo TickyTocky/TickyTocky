@@ -9,8 +9,8 @@ import styles from './AddColumnButton.module.scss';
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
-const AddColumnButton = ({ dashBoardId }) => {
-  const { modalState, toggleModal } = useModalState([3, ['addColumnModal']]);
+const AddColumnButton = ({ dashboardId }) => {
+  const { modalState, toggleModal } = useModalState(['addColumnModal']);
 
   return (
     <>
@@ -20,7 +20,7 @@ const AddColumnButton = ({ dashBoardId }) => {
         label='Add Column'
       >
         <AddColumn
-          dashBoardId={dashBoardId}
+          dashboardId={dashboardId}
           closeModal={() => toggleModal('addColumnModal')}
         />
       </CommonModal>

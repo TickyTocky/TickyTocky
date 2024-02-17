@@ -13,8 +13,8 @@ import styles from './BoardHeader.module.scss';
 const cx = classNames.bind(styles);
 const { settings } = ICON;
 
-const BoardHeader = ({ dashBoardId }) => {
-  useAsync(() => Dashboard.get(dashBoardId), INIT_DASHBOARD_DATA);
+const BoardHeader = ({ dashboardId }) => {
+  useAsync(() => Dashboard.get(dashboardId), INIT_DASHBOARD_DATA);
   const { dashboard } = useDashBoardStore();
 
   return (
@@ -22,14 +22,14 @@ const BoardHeader = ({ dashBoardId }) => {
       <div className={cx('title')}>
         <span className={cx('title-text')}>{dashboard?.title}</span>
         {dashboard?.createdByMe && (
-          <Link className={cx('title-link')} href={`/dashboard/${dashBoardId}/edit`}>
+          <Link className={cx('title-link')} href={`/dashboard/${dashboardId}/edit`}>
             <Image src={settings.url} alt={settings.alt} width={24} height={24} />
           </Link>
         )}
       </div>
       <div className={cx('info-wrap')}>
         <InvitationMembers
-          dashBoardId={dashBoardId}
+          dashboardId={dashboardId}
           createdByMe={dashboard?.createdByMe}
         />
         <div className={cx('line')}></div>
