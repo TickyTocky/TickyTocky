@@ -13,13 +13,11 @@ import ImageField from '@/components/common/ImageField';
 import TagField from '@/components/common/TagField';
 import DropDown from '@/components/common/DropDown/index';
 import useMemberStore from '@/stores/useMemberStore';
-import Spinner from '@/components/common/Spinner';
 import IconModal from '@/components/layout/modal/IconModal';
 import useColumnStore from '@/stores/useColumnStore';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
-import { IMAGE_REGEX } from '@/constants';
-import { IMAGE, ICON } from '@/constants/importImage';
+import { IMAGE_REGEX, IMAGE, ICON } from '@/constants';
 import styles from './CreateCard.module.scss';
 
 const cx = classNames.bind(styles);
@@ -38,7 +36,7 @@ const CreateCard = ({
   const router = useRouter();
   const { id } = router.query;
   useAsync(() => Members.getList(1, 20, id));
-  const { isLoading } = useAsync(() => Columns.getList(id));
+  useAsync(() => Columns.getList(id));
   const { memberList } = useMemberStore();
   const { columnList } = useColumnStore();
 
@@ -209,7 +207,6 @@ const CreateCard = ({
           />
         </div>
       </IconModal>
-      {isLoading && <Spinner />}
     </>
   );
 };

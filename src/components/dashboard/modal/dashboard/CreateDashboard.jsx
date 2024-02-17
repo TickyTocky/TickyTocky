@@ -8,8 +8,7 @@ import CommonModal from '@/components/layout/modal/CommonModal';
 import useTogglePopup from '@/hooks/useTogglePopup';
 import useCreateDashboard from '@/hooks/useCreateDashboard';
 import Dashboard from '@/api/dashboards';
-import { ICON } from '@/constants/importImage';
-import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
+import { ICON, COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
 import styles from './CreateDashboard.module.scss';
 
 const cx = classNames.bind(styles);

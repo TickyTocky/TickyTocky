@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import IconModal from '@/components/layout/modal/IconModal';
 import BaseButton from '@/components/common/button/BaseButton';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './InitializeConfirmModal.module.scss';
 
 const { reset } = ICON;

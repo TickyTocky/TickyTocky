@@ -4,7 +4,7 @@ import Invitation from '@/api/invitations';
 import styles from './InvitationItem.module.scss';
 import useModalState from '@/hooks/useModalState';
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import Dashboard from '@/api/dashboards';
 
 const cx = classNames.bind(styles);

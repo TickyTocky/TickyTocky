@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import { IMAGE, ICON } from '@/constants/importImage';
+import { IMAGE, ICON } from '@/constants';
 import styles from './ImageField.module.scss';
 import { useEffect, useState } from 'react';
 import Users from '@/api/users';

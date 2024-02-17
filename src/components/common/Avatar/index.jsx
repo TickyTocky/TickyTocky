@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
 import useAvatarColor from '@/hooks/useAvatarColor';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './Avatar.module.scss';
 
 const cx = classNames.bind(styles);

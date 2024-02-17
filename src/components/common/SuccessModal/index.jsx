@@ -1,5 +1,5 @@
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import BaseButton from '@/components/common/button/BaseButton';
 
 const { success } = ICON;

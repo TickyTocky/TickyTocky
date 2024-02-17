@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import classNames from 'classnames/bind';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './TagField.module.scss';
 
 const cx = classNames.bind(styles);

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import Members from '@/api/members';
 import Dashboard from '@/api/dashboards';
 import { replaceTo } from '@/api/auth';

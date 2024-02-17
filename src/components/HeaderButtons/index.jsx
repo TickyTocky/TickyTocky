@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import IconButton from '@/components/common/button/IconButton';
 import InvitationPopUp from '@/components/invitations/InvitationPopUp';
 import useModalTogglePopup from '@/hooks/useModalTogglePopup';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './HeaderButtons.module.scss';
 
 const cx = classNames.bind(styles);
