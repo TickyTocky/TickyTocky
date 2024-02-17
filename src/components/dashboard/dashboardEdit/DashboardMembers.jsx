@@ -4,12 +4,9 @@ import BaseButton from '@/components/common/button/BaseButton';
 import Avatar from '@/components/common/Avatar';
 import DeleteDashboard from '@/components/dashboard/modal/dashboard/DeleteDashboard';
 import useModalState from '@/hooks/useModalState';
-import useAsync from '@/hooks/useAsync';
+import useGetMembers from '@/hooks/useGetMembers';
 import useDashboardEdit from '@/hooks/dashboard/useDashboardEdit';
-import useMemberStore from '@/stores/useMemberStore';
-import Members from '@/api/members';
 import { ICON } from '@/constants';
-import { INIT_MEMBER_DATA } from '@/constants/initialDataType';
 import styles from './DashboardMembers.module.scss';
 
 const cx = classNames.bind(styles);
@@ -18,8 +15,7 @@ const left = page.arrowLeft;
 const right = page.arrowRight;
 
 const DashboardMembers = ({ dashboardId }) => {
-  useAsync(() => Members.getList(1, 100, Number(dashboardId)), INIT_MEMBER_DATA);
-  const { memberList } = useMemberStore();
+  const { memberList } = useGetMembers(dashboardId);
   const members = memberList?.filter((item) => !item.isOwner);
   const totalItems = members?.length;
   const ITEMS_PER_PAGE = 6;
