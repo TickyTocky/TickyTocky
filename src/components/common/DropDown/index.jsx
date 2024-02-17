@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Avatar from '@/components/common/Avatar';
 import DropDownTag from '@/components/common/DropDownTag';
 import useDropDownLogic from '@/hooks/logic/useDropDownLogic';
-import { ICON } from '@/constants';
+import { ICON } from '@/constants/importImage';
 import { DROPDOWN_TIMELINE_MENU } from '@/constants/dropdownTimelineMenu';
 import styles from './DropDown.module.scss';
 
