@@ -15,25 +15,27 @@ const cx = classNames.bind(styles);
 const { colorize } = ICON;
 
 function CreateDashboard({ isModalOpen, closeModal }) {
-  const { handleSubmit } = useFormContext();
+  const { handleSubmit, reset } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
-  const { color, setColor, firstButtonRef, inputValue, handleOnChange } =
-    useCreateDashboard({ isModalOpen });
+  const { color, setColor, firstButtonRef, inputValue, setInputValue, handleOnChange } =
+    useCreateDashboard(isModalOpen);
   const MAX_LENGTH = 15;
+
+  const handleCancel = () => {
+    reset();
+    setInputValue('');
+    closeModal();
+  };
 
   const onSubmit = async (data) => {
     data.color = color;
     await Dashboard.create(data);
     await Dashboard.getList();
-    closeModal();
+    handleCancel();
   };
 
   return (
-    <CommonModal
-      isModalOpen={isModalOpen}
-      closeModal={() => closeModal}
-      label='Create Board'
-    >
+    <CommonModal isModalOpen={isModalOpen} closeModal={handleCancel} label='Create Board'>
       <form className={cx('form')} onSubmit={handleSubmit(onSubmit)}>
         <div className={cx('modal-container')}>
           <div className={cx('modal-container-thumbnail-container')}>
@@ -58,6 +60,7 @@ function CreateDashboard({ isModalOpen, closeModal }) {
               placeholder='Enter the title of dashboard'
               autoComplete='off'
               maxLength={MAX_LENGTH}
+              isRequired
               onChange={(e) => handleOnChange(e)}
             />
           </div>
@@ -130,7 +133,7 @@ function CreateDashboard({ isModalOpen, closeModal }) {
         <div className={cx('button-container')}>
           <div className={cx('button-container-button')}>
             <BaseButton
-              onClick={closeModal}
+              onClick={handleCancel}
               variant='outline'
               text='Cancel'
               size='xl'
