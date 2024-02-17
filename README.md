@@ -44,154 +44,37 @@ PW: Demo1234 <br>
 </table>
 
 ## ✨ 주요 기능 구현
-<details>
-<summary> 1. 허우림  </summary>
-  
-#### - 초기 세팅<br>
-eslint/prettier<br>
-git hook - husky<br>
-api 추상화<br>
-zustand 파일 세팅<br>
-전체 폴더 세팅<br>
-깃허브: issues/milestone/레포지토리 세팅<br>
+🙋‍♂️ 허우림
+- 팀장으로서 회의 및 목표 수립&실행 주도
+- 프로젝트(ESLint, husky 등) 및 github repo(issue, PR 등) 세팅
+- mydashboard, dashboard edit 페이지 CRUD 기능 구현 및 UI 구현
+- 공용 컴포넌트 구현: Common Modal / Icon Modal / Navigation
+- 팀노션 세팅 및 프로젝트 기록 문서화
 
-#### - 기능 구현<br>
-대시보드 생성<br>
-대시보드 목록 조회<br>
-대시보드 상세 조회<br>
-대시보드 수정<br>
-대시보드 삭제<br>
-대시보드 초대하기<br>
-대시보드 초대 불러오기<br>
-대시보드 초대 취소<br>
-대시보드 멤버 목록 조회<br>
-대시보드 멤버 삭제<br>
-대시보드 타이틀 미리보기<br>
-페이지네이션<br>
-리스트 필터<br>
+🙋‍♂️ 김희수
+- SCSS 전역 파일 세팅: base / mixins / variables
+- 할 일 관련 CRUD 기능 구현 및 모달 UI 구현
+- 댓글 관련 CRUD 기능 구현, 권한 관련 접근 제한 및 댓글 업데이트 UI 구현
+- 공용 컴포넌트 구현: react-hook-form 기반 Input 필드별 공용 컴포넌트 구현 및 유효성 검사
+- 공용 레이아웃 구현: FullLayout / MainLayout / EmptyLayout / Auth
 
-#### - 공용 컴포넌트<br>
-Modal: Common Modal/IconModal<br>
-Navigation
+🙋‍♂️ 유미정
+- 서비스 배포
+- 컬럼 관련 CRUD 기능 구현 및 모달 UI 구현
+- 공용 컴포넌트 구현: Avatar / Breadcrumb / Invitation Members / Profile Modal
+- 공용 레이아웃 구현: MyHeader / BoardHeader
 
-#### - 라이브러리<br>
-React-modal<br>
-React-colorful<br>
+🙋‍♂️ 고성선
+- 깃허브 PR 템플릿 세팅
+- 로그인 , 회원가입 API
+- 계정 수정, 비밀번호 변경 기능 구현
+- 로딩 페이지 구현
+- 공용 컴포넌트 구현: BaseButton / IconButton / LinkButton / MixButton
 
-</details>
-
-<details>
-<summary> 2. 김희수  </summary>
-
-#### - UI Design<br>
-#### - 초기 세팅<br>
-stylelint<br>
-SCSS: base/mixins/variables<br>
-
-#### - 기능 구현<br>
-할 일 생성<br>
-할 일 목록 조회<br>
-할 일 수정<br>
-할 일 상세 조회<br>
-할 일 삭제<br>
-댓글 생성<br>
-댓글 목록 조회<br>
-댓글 수정<br>
-댓글 삭제<br>
-컬럼 목록 조회<br>
-대시보드 멤버 목록 조회<br>
-이미지 미리보기/리셋<br>
-Input Field 유효성 검사<br>
-
-#### - 공용 컴포넌트<br>
-Date Field<br>
-Image Field<br>
-Input Field: common/required<br>
-Text Field<br>
-
-#### - 공용 레이아웃<br>
-FullLayout<br>
-MainLayout<br>
-EmptyLayout<br>
-
-#### - 라이브러리<br>
-Dayjs<br>
-Date-picker<br>
-React-hook-form<br>
-
-</details>
-
-<details>
-  <summary>
-    3. 유미정
-  </summary>
-  
-#### - 서비스 배포<br>
-#### - 기능 구현<br>
-컬럼 생성<br>
-컬럼 목록 조회<br>
-컬럼 수정<br>
-컬럼 삭제<br>
-카드 목록 조회<br>
-대시보드 상세 조회<br>
-대시보드 멤버 목록 조회<br>
-
-#### - 공용 컴포넌트<br>
-Avatar<br>
-Breadcrumb<br>
-Invitation Members<br>
-Profile Modal<br>
-
-#### - 공용 레이아웃<br>
-MyHeader<br>
-BoardHeader<br>
-
-</details>
-<details>
-  <summary>
-    4. 고성선
-  </summary>
-  
-#### - 초기 세팅<br>
-깃허브: PR 템플릿<br>
-
-#### - 기능 구현<br>
-로그인<br>
-회원가입<br>
-비밀번호 변경<br>
-내 정보 조회<br>
-내 정보 수정<br>
-프로필 미리보기/리셋<br>
-로딩 스피너<br>
-
-#### - 공용 컴포넌트<br>
-Button: BaseButton/IconButton/LinkButton/MixButton<br>
-
-</details>
-
-<details>
-  <summary>
-    5. 우준석
-  </summary>
-
-#### - 초기 세팅<br>
-깃허브: 레포 세팅<br>
-
-#### - 기능 구현<br>
-내가 받은 초대 목록 조회<br>
-초대 응답<br>
-
-#### - 공용 컴포넌트<br>
-Card Tags<br>
-Dropdown<br>
-Dropdown List<br>
-Dropdown Tag<br>
-Kebab Dropdown<br>
-Tag Field<br>
-
-#### - 공용 레이아웃<br>
-Landing Page<br>
-</details>
+🙋‍♂️ 우준석
+- 초대 관련 CRUD 기능 구현 및 팝업 UI 구현
+- 랜딩 페이지 구현
+- 공용 컴포넌트 구현: TagField / CardTags / Dropdown / DropdownList / DropdownTag /  KebabDropdown
 
 ## ✨ 주요 기능 시연
 ### 👉 컬럼 생성, 할 일 생성
