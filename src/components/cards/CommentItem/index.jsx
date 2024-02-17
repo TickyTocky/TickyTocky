@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames/bind';
-import Comment from '@/api/comments';
 import Avatar from '@/components/common/Avatar';
 import UpdatedTag from '@/components/cards/UpdatedTag';
 import useUserStore from '@/stores/useUserStore';
-import useCommentStore from '@/stores/useCommentStore';
 import useInput from '@/hooks/useInput';
+import useCommentFetchData from '@/hooks/comment/useCommentFetchData';
+import useEditComment from '@/hooks/comment/useEditComment';
 import { getDiffDate } from '@/utils';
 import styles from './CommentItem.module.scss';
 
@@ -14,44 +13,24 @@ const cx = classNames.bind(styles);
 
 const CommentItem = ({ id, cardId, columnId, dashboardId }) => {
   const { user } = useUserStore();
-  const { commentList } = useCommentStore();
-  const commentData = commentList.find((comment) => comment.id === id);
+  const { commentData } = useCommentFetchData({ id });
   const { author, content, createdAt, updatedAt } = commentData;
-
-  const [isEdit, setIsEdit] = useState(false);
   const { value, setValue, handleValueChange } = useInput({
     content: content,
     cardId: cardId,
     columnId: columnId,
     dashboardId: dashboardId,
   });
-
   const isCommentValue = !!value?.content?.length;
   const isEditPermission = author?.id === user?.id;
   const isUpdated = dayjs(updatedAt).diff(createdAt) !== 0;
-
-  const handleCommentEdit = () => {
-    setIsEdit(true);
-  };
-
-  const handleCommentCancel = () => {
-    setValue((prev) => ({ ...prev, content: content }));
-    setIsEdit(false);
-  };
-
-  const handleCommitSubmit = async () => {
-    if (isCommentValue) {
-      await Comment.edit(id, value);
-      await Comment.getList(cardId);
-      setIsEdit(false);
-    }
-    return;
-  };
-
-  const handleCommentDelete = async () => {
-    await Comment.delete(id);
-    await Comment.getList(cardId);
-  };
+  const {
+    isEdit,
+    handleCommentEdit,
+    handleCommentCancel,
+    handleCommitSubmit,
+    handleCommentDelete,
+  } = useEditComment({ id, cardId, setValue, value, content, isCommentValue });
 
   return (
     <article className={cx('comment')}>

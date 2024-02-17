@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
-import Cards from '@/api/cards';
 import Avatar from '@/components/common/Avatar';
 import BaseButton from '@/components/common/button/BaseButton';
 import CreateCard from '@/components/dashboard/modal/card/CreateCard';
@@ -8,7 +7,8 @@ import CardTags from '@/components/common/CardTags';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import DetailCard from '@/components/dashboard/modal/card/DetailCard';
 import IconModal from '@/components/layout/modal/IconModal';
-import useCardStore from '@/stores/useCardStore';
+import useCardFetchData from '@/hooks/card/useCardFetchData';
+import useDeleteCard from '@/hooks/card/useDeleteCard';
 import useModalState from '@/hooks/useModalState';
 import { IMAGE_REGEX, ICON } from '@/constants';
 import styles from './CardItem.module.scss';
@@ -17,38 +17,19 @@ const cx = classNames.bind(styles);
 const { calendar, remove } = ICON;
 
 const CardItem = ({ columnId, id, columnName }) => {
-  const cardList = useCardStore((prev) => prev.cardList[columnId]);
-  const cardItemData = cardList?.cards.find((card) => card.id === id);
-
+  const { cardItemData } = useCardFetchData({ columnId, id });
   const { assignee, title, imageUrl, tags, dueDate } = cardItemData;
-
   const { modalState, toggleModal } = useModalState([
     'detailCard',
     'editCard',
     'deleteCard',
   ]);
-
   const isImageUrl = !!imageUrl && IMAGE_REGEX.test(imageUrl.toLowerCase());
-
-  const handleModalOpen = (value) => {
-    if (!value) {
-      toggleModal('detailCard');
-      toggleModal('editCard');
-    } else {
-      toggleModal('deleteCard');
-    }
-  };
-
-  const handleDeleteModalClose = () => {
-    toggleModal('deleteCard');
-  };
-
-  const handleCardDelete = async () => {
-    await Cards.delete(id);
-    await Cards.getList(columnId);
-    toggleModal('deleteCard');
-    toggleModal('detailCard');
-  };
+  const { handleModalOpen, handleDeleteModalClose, handleCardDelete } = useDeleteCard({
+    id,
+    columnId,
+    toggleModal,
+  });
 
   return (
     <>
@@ -96,7 +77,7 @@ const CardItem = ({ columnId, id, columnName }) => {
         isDetail={true}
         detailInfo={{ columnTitle: columnName, cardTitle: title }}
       >
-        <DetailCard colId={columnId} cardId={id} toggleModal={toggleModal} />
+        <DetailCard columnId={columnId} id={id} toggleModal={toggleModal} />
       </CommonModal>
 
       <IconModal

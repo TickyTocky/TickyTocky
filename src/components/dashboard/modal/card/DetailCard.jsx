@@ -5,21 +5,25 @@ import BaseButton from '@/components/common/button/BaseButton';
 import CardTags from '@/components/common/CardTags';
 import CommentItem from '@/components/cards/CommentItem';
 import TextField from '@/components/common/TextField';
-import useCardStore from '@/stores/useCardStore';
 import useCommentStore from '@/stores/useCommentStore';
 import useAsync from '@/hooks/useAsync';
+import useCardFetchData from '@/hooks/card/useCardFetchData';
 import { INIT_COMMENTS_DATA } from '@/constants/initialDataType';
 import styles from './DetailCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-const DetailCard = ({ colId, cardId, toggleModal }) => {
-  const cardList = useCardStore((prev) => prev.cardList[colId]);
-  const cardItemData = cardList?.cards.find((card) => card.id === cardId);
-
-  const { assignee, columnId, dashboardId, tags, dueDate, description } = cardItemData;
-
-  useAsync(() => Comment.getList(cardId), INIT_COMMENTS_DATA);
+const DetailCard = ({ columnId, id, toggleModal }) => {
+  const { cardItemData } = useCardFetchData({ columnId, id });
+  const {
+    assignee,
+    columnId: colId,
+    dashboardId,
+    tags,
+    dueDate,
+    description,
+  } = cardItemData;
+  useAsync(() => Comment.getList(id), INIT_COMMENTS_DATA);
   const { commentList } = useCommentStore();
   const { reset } = useFormContext();
 
@@ -63,20 +67,20 @@ const DetailCard = ({ colId, cardId, toggleModal }) => {
           <h1 className='visually-hidden'>댓글 남기기</h1>
           <TextField
             name='content'
-            cardId={cardId}
-            columnId={columnId}
+            cardId={id}
+            columnId={colId}
             dashboardId={dashboardId}
           />
 
           <ol className={cx('comment-content-list')}>
-            {commentList?.map(({ id }) => (
+            {commentList?.map(({ id: commentId }) => (
               <li
-                key={`key-comment-content-${id}`}
+                key={`key-comment-content-${commentId}`}
                 className={cx('comment-content-list-item')}
               >
                 <CommentItem
-                  id={id}
-                  cardId={cardId}
+                  id={commentId}
+                  cardId={id}
                   columnId={columnId}
                   dashboardId={dashboardId}
                 />
