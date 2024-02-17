@@ -21,7 +21,7 @@ const { colorize } = ICON;
 const DashboardTitle = ({ dashboardId }) => {
   useAsync(() => Dashboard.get(dashboardId));
   const { dashboard } = useDashBoardStore();
-  const { handleSubmit, clearErrors } = useFormContext();
+  const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
   const { setColor, color, inputValue, handleOnChange } = useCreateDashboard(
     false,
@@ -72,12 +72,7 @@ const DashboardTitle = ({ dashboardId }) => {
           defaultValue={dashboard?.title}
           maxLength={MAX_LENGTH}
           isRequired
-          onChange={(e) => {
-            handleOnChange(e);
-            if (e.target.value) {
-              clearErrors();
-            }
-          }}
+          onChange={(e) => handleOnChange(e)}
         />
         <section className={cx('dashboard-title-container-add-color-container')}>
           <label className={cx('label')}>Add Color</label>
