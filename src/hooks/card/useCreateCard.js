@@ -19,7 +19,7 @@ const useCreateCard = ({
   const [tagList, setTagList] = useState(isEdit ? [...tags] : []);
   const [selectedImage, setSelectedImage] = useState(isEdit ? imageUrl : null);
 
-  const DEFAUTL_IMAGE = process.env.NEXT_PUBLIC_DEFAULT_IMAGE_URL;
+  const DEFAULT_IMAGE = process.env.NEXT_PUBLIC_DEFAULT_IMAGE_URL;
   const isImageUrl = !!imageUrl && IMAGE_REGEX.test(imageUrl.toLowerCase());
 
   const handleSuccessModalOpen = () => {
@@ -46,7 +46,7 @@ const useCreateCard = ({
       dashboardId: Number(dashboardId),
       columnId: isEdit ? columnName : Number(columnId),
       description,
-      imageUrl: isEmptyImage ? DEFAUTL_IMAGE : selectedImage,
+      imageUrl: isEmptyImage ? DEFAULT_IMAGE : selectedImage,
       dueDate: formattedDate,
       tags: tagList,
     };
