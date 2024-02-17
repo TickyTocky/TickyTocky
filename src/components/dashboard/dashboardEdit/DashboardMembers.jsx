@@ -1,14 +1,11 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import Avatar from '@/components/common/Avatar';
 import DeleteDashboard from '@/components/dashboard/modal/dashboard/DeleteDashboard';
 import useModalState from '@/hooks/useModalState';
-import useAsync from '@/hooks/useAsync';
-import useMemberStore from '@/stores/useMemberStore';
-import Members from '@/api/members';
-import { INIT_MEMBER_DATA } from '@/constants/initialDataType';
+import useGetMembers from '@/hooks/useGetMembers';
+import useDashboardEdit from '@/hooks/dashboard/useDashboardEdit';
 import { ICON } from '@/constants';
 import styles from './DashboardMembers.module.scss';
 
@@ -18,49 +15,13 @@ const left = page.arrowLeft;
 const right = page.arrowRight;
 
 const DashboardMembers = ({ dashboardId }) => {
-  useAsync(() => Members.getList(1, 100, Number(dashboardId)), INIT_MEMBER_DATA);
-  const { memberList } = useMemberStore();
+  const { memberList } = useGetMembers(dashboardId);
   const members = memberList?.filter((item) => !item.isOwner);
   const totalItems = members?.length;
-  const ITEMS_PER_PAGE = 2;
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [currentPageData, setCurrentPageData] = useState(null);
-  const [totalPages, setTotalPages] = useState(Math.ceil(totalItems / ITEMS_PER_PAGE));
+  const ITEMS_PER_PAGE = 6;
   const { modalState, toggleModal } = useModalState(['dashboardDelete']);
-
-  const goToPrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
-
-  const renderData = () => {
-    const START_INDEX = (currentPage - 1) * ITEMS_PER_PAGE;
-    const END_INDEX = START_INDEX + ITEMS_PER_PAGE;
-    const currentPageData = members.slice(START_INDEX, END_INDEX);
-    setCurrentPageData(currentPageData);
-  };
-
-  useEffect(() => {
-    if (totalPages >= 1) {
-      setTotalPages(Math.ceil(totalItems / ITEMS_PER_PAGE));
-    } else if (!totalPages) {
-      setTotalPages(1);
-    }
-  }, [totalItems, ITEMS_PER_PAGE]);
-
-  useEffect(() => {
-    if (memberList) {
-      renderData();
-    }
-  }, [currentPage, memberList]);
+  const { currentPageData, currentPage, totalPages, goToPrevPage, goToNextPage } =
+    useDashboardEdit(memberList, totalItems, ITEMS_PER_PAGE, members);
 
   return (
     <article className={cx('container')}>

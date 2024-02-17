@@ -4,7 +4,7 @@ import BaseButton from '@/components/common/button/BaseButton';
 import DashboardCard from '@/components/dashboard/DashboardCard';
 import DropDown from '@/components/common/DropDown';
 import CreateDashboard from '@/components/dashboard/modal/dashboard/CreateDashboard';
-import useDashboardList from '@/hooks/useDashboardList';
+import useDashboardList from '@/hooks/dashboard/useDashboardList';
 import useModalState from '@/hooks/useModalState';
 import { ICON } from '@/constants';
 import useUserStore from '@/stores/useUserStore';

@@ -6,7 +6,7 @@ import BaseButton from '@/components/common/button/BaseButton';
 import InputField from '@/components/common/InputField';
 import SuccessDashboard from '@/components/dashboard/modal/dashboard/SuccessDashboard';
 import useTogglePopup from '@/hooks/useTogglePopup';
-import useCreateDashboard from '@/hooks/useCreateDashboard';
+import useCreateDashboard from '@/hooks/dashboard/useCreateDashboard';
 import useModalState from '@/hooks/useModalState';
 import Dashboard from '@/api/dashboards';
 import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
@@ -24,6 +24,7 @@ const DashboardTitle = ({ dashboardId }) => {
   const { handleSubmit } = useFormContext();
   const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
   const { setColor, color, inputValue, handleOnChange } = useCreateDashboard(
+    false,
     dashboard?.color,
     dashboard?.title
   );
@@ -32,13 +33,9 @@ const DashboardTitle = ({ dashboardId }) => {
 
   const onSubmit = async (data) => {
     data.color = color;
-    if (data.title && data.color) {
-      toggleModal('dashboardEditSuccess');
-      await Dashboard.edit(dashboardId, data);
-      await Dashboard.getList();
-    } else {
-      return;
-    }
+    toggleModal('dashboardEditSuccess');
+    await Dashboard.edit(dashboardId, data);
+    await Dashboard.getList();
   };
 
   return (
@@ -74,6 +71,7 @@ const DashboardTitle = ({ dashboardId }) => {
           placeholder='Enter dashboard title'
           defaultValue={dashboard?.title}
           maxLength={MAX_LENGTH}
+          isRequired
           onChange={(e) => handleOnChange(e)}
         />
         <section className={cx('dashboard-title-container-add-color-container')}>
