@@ -1,8 +1,8 @@
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import Comment from '@/api/comments';
 import IconButton from '@/components/common/button/IconButton';
 import BaseButton from '@/components/common/button/BaseButton';
+import useCreateComment from '@/hooks/logic/useCreateComment';
 import { ICON } from '@/constants';
 import styles from './TextField.module.scss';
 
@@ -16,21 +16,8 @@ const TextField = ({ cardId, columnId, dashboardId, name, ...props }) => {
     formState: { errors },
     reset,
   } = useFormContext();
-
   const isError = !!errors[name]?.message;
-
-  const onSubmit = async (data) => {
-    let submitData = {
-      ...data,
-      cardId,
-      columnId,
-      dashboardId,
-    };
-
-    await Comment.create(submitData);
-    reset({ content: '' });
-    await Comment.getList(cardId);
-  };
+  const { onSubmit } = useCreateComment({ cardId, columnId, dashboardId, reset });
 
   return (
     <form className={cx('comment', { error: isError })} onSubmit={handleSubmit(onSubmit)}>
