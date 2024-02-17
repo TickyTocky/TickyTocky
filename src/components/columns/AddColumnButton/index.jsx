@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import CommonModal from '@/components/layout/modal/CommonModal';
 import AddColumn from '@/components/dashboard/modal/column/AddColumn';
 import useModalState from '@/hooks/useModalState';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './AddColumnButton.module.scss';
 
 const cx = classNames.bind(styles);

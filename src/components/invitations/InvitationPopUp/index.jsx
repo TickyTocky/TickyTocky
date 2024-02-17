@@ -5,7 +5,7 @@ import Image from 'next/image';
 import useAsync from '@/hooks/useAsync';
 import InvitationItem from '@/components/invitations/InvitationItem';
 import { INIT_INVITATIONS_DATA } from '@/constants/initialDataType';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './InvitationPopUp.module.scss';
 
 const cx = classNames.bind(styles);

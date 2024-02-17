@@ -14,7 +14,7 @@ import useAsync from '@/hooks/useAsync';
 import useToggleButton from '@/hooks/useToggleButton';
 import useModalState from '@/hooks/useModalState';
 import { INIT_CARDS_DATA } from '@/constants/initialDataType';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './Column.module.scss';
 
 const cx = classNames.bind(styles);

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames/bind';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './FormHeader.module.scss';
 
 const cx = classNames.bind(styles);

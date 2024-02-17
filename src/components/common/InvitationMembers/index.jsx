@@ -7,7 +7,7 @@ import useMemberStore from '@/stores/useMemberStore';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import useInvitationMembers from '@/hooks/useInvitationMembers';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);

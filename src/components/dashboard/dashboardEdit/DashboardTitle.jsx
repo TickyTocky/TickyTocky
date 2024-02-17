@@ -10,7 +10,7 @@ import useCreateDashboard from '@/hooks/useCreateDashboard';
 import useModalState from '@/hooks/useModalState';
 import Dashboard from '@/api/dashboards';
 import { COLOR_LIST, DEFAULT_BLACK, DEFAULT_COLOR } from '@/constants';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import useAsync from '@/hooks/useAsync';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import styles from './DashboardTitle.module.scss';

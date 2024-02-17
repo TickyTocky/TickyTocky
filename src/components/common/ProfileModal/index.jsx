@@ -6,7 +6,7 @@ import BaseButton from '@/components/common/button/BaseButton';
 import useModalState from '@/hooks/useModalState';
 import useTogglePopup from '@/hooks/useModalTogglePopup';
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './ProfileModal.module.scss';
 
 const cx = classNames.bind(styles);

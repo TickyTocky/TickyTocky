@@ -6,7 +6,7 @@ import DropDown from '@/components/common/DropDown';
 import CreateDashboard from '@/components/dashboard/modal/dashboard/CreateDashboard';
 import useDashboardList from '@/hooks/useDashboardList';
 import useModalState from '@/hooks/useModalState';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import useUserStore from '@/stores/useUserStore';
 import styles from './DashboardList.module.scss';
 

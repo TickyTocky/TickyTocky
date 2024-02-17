@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './landingFeaturesOverview.module.scss';
 
 const cx = classNames.bind(styles);

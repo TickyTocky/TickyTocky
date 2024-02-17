@@ -5,7 +5,7 @@ import Avatar from '@/components/common/Avatar';
 import ProfileModal from '@/components/common/ProfileModal';
 import HeaderButtons from '@/components/HeaderButtons';
 import useModalTogglePopup from '@/hooks/useModalTogglePopup';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './MyHeader.module.scss';
 import useAuth from '@/hooks/useAuth';
 

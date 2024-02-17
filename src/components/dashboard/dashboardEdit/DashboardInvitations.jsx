@@ -8,7 +8,7 @@ import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import Dashboard from '@/api/dashboards';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import { INIT_DASHBOARD_INVITATIONS_DATA } from '@/constants/initialDataType/dashboard';
 import styles from './DashboardInvitations.module.scss';
 
