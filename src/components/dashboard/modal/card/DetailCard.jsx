@@ -7,7 +7,7 @@ import CommentItem from '@/components/cards/CommentItem';
 import TextField from '@/components/common/TextField';
 import useCommentStore from '@/stores/useCommentStore';
 import useAsync from '@/hooks/useAsync';
-import useCardFetchData from '@/hooks/logic/useCardFetchData';
+import useCardFetchData from '@/hooks/card/useCardFetchData';
 import { INIT_COMMENTS_DATA } from '@/constants/initialDataType';
 import styles from './DetailCard.module.scss';
 

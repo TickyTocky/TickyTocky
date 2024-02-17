@@ -4,7 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import IconModal from '@/components/layout/modal/IconModal';
-import useSelectedImage from '@/hooks/logic/useSeletedImage';
+import useSelectedImage from '@/hooks/imageField/useSeletedImage';
 import useModalState from '@/hooks/useModalState';
 import { IMAGE, ICON } from '@/constants';
 import styles from './ImageField.module.scss';

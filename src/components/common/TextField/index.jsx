@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import IconButton from '@/components/common/button/IconButton';
 import BaseButton from '@/components/common/button/BaseButton';
-import useCreateComment from '@/hooks/logic/useCreateComment';
+import useCreateComment from '@/hooks/comment/useCreateComment';
 import { ICON } from '@/constants';
 import styles from './TextField.module.scss';
 

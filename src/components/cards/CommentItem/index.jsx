@@ -4,8 +4,8 @@ import Avatar from '@/components/common/Avatar';
 import UpdatedTag from '@/components/cards/UpdatedTag';
 import useUserStore from '@/stores/useUserStore';
 import useInput from '@/hooks/useInput';
-import useCommentFetchData from '@/hooks/logic/useCommentFetchData';
-import useEditComment from '@/hooks/logic/useEditComment';
+import useCommentFetchData from '@/hooks/comment/useCommentFetchData';
+import useEditComment from '@/hooks/comment/useEditComment';
 import { getDiffDate } from '@/utils';
 import styles from './CommentItem.module.scss';
 

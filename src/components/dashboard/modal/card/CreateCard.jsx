@@ -10,7 +10,7 @@ import DropDown from '@/components/common/DropDown/index';
 import IconModal from '@/components/layout/modal/IconModal';
 import useGetMembers from '@/hooks/useGetMembers';
 import useGetColumns from '@/hooks/useGetColumns';
-import useCreateCard from '@/hooks/logic/useCreateCard';
+import useCreateCard from '@/hooks/card/useCreateCard';
 import useModalState from '@/hooks/useModalState';
 import { IMAGE, ICON } from '@/constants';
 import styles from './CreateCard.module.scss';
