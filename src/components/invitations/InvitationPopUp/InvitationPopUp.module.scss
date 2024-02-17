@@ -94,6 +94,8 @@
 
   &-none {
     @include text-style(18, $white, bold);
+
+    padding-bottom: 2rem;
   }
 }
 
