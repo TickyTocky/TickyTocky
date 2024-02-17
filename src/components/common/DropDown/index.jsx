@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
 import Avatar from '@/components/common/Avatar';
 import DropDownTag from '@/components/common/DropDownTag';
-import useDropDownDetectClose from '@/hooks/useDropDownDetectClose';
-import { ICON } from '@/constants/importImage';
+import useDropDownLogic from '@/hooks/logic/useDropDownLogic';
+import { ICON } from '@/constants';
 import { DROPDOWN_TIMELINE_MENU } from '@/constants/dropdownTimelineMenu';
 import styles from './DropDown.module.scss';
 
@@ -20,48 +20,23 @@ const DropDown = ({
   type = 'column',
 }) => {
   const dropDownRef = useRef();
-  const [isOpen, setIsOpen] = useDropDownDetectClose(dropDownRef);
-  const [timelineValue, setTimelineValue] = useState('Latest');
-  const [dropDownList, setDropDownList] = useState([]);
-  const [selectedItem, setSelectedItem] = useState({});
-
-  useEffect(() => {
-    let list = [];
-    if (type === 'column') {
-      list = columnListData;
-    } else if (type === 'assignee') {
-      list = assigneeListData;
-    } else {
-      list = DROPDOWN_TIMELINE_MENU;
-    }
-    setDropDownList(list);
-
-    const foundItem = list?.find(
-      (item) => item.id === listValue || item.userId === listValue
-    );
-    setSelectedItem(foundItem || {});
-  }, [columnListData, assigneeListData, listValue, type]);
-
-  useEffect(() => {
-    if (type === 'assignee' && assigneeListData?.length > 0 && !listValue) {
-      setListValue(assigneeListData[0]?.userId);
-    }
-  }, [assigneeListData, listValue, setListValue, type]);
-
-  const handleOpenClick = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const handleListItemClick = (e, value) => {
-    e.stopPropagation();
-    if (type === 'timeline') {
-      onClickInput(value);
-      setTimelineValue(value);
-    } else {
-      setListValue(value);
-    }
-    handleOpenClick();
-  };
+  const {
+    isOpen,
+    timelineValue,
+    dropDownList,
+    selectedItem,
+    handleOpenClick,
+    handleListItemClick,
+  } = useDropDownLogic({
+    columnListData,
+    assigneeListData,
+    listValue,
+    setListValue,
+    type,
+    DROPDOWN_TIMELINE_MENU,
+    onClickInput,
+    dropDownRef,
+  });
 
   return (
     <div
