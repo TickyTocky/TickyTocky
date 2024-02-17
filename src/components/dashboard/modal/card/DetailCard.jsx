@@ -73,13 +73,13 @@ const DetailCard = ({ columnId, id, toggleModal }) => {
           />
 
           <ol className={cx('comment-content-list')}>
-            {commentList?.map(({ id: commnetId }) => (
+            {commentList?.map(({ id: commentId }) => (
               <li
-                key={`key-comment-content-${commnetId}`}
+                key={`key-comment-content-${commentId}`}
                 className={cx('comment-content-list-item')}
               >
                 <CommentItem
-                  id={commnetId}
+                  id={commentId}
                   cardId={id}
                   columnId={columnId}
                   dashboardId={dashboardId}
