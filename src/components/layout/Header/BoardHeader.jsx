@@ -6,8 +6,8 @@ import InvitationMembers from '@/components/common/InvitationMembers';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import useAsync from '@/hooks/useAsync';
+import { ICON } from '@/constants';
 import { INIT_DASHBOARD_DATA } from '@/constants/initialDataType';
-import { ICON } from '@/constants/importImage';
 import styles from './BoardHeader.module.scss';
 
 const cx = classNames.bind(styles);

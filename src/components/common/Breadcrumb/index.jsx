@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames/bind';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './Breadcrumb.module.scss';
 
 const cx = classNames.bind(styles);

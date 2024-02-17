@@ -9,7 +9,7 @@ import useAsync from '@/hooks/useAsync';
 import useMemberStore from '@/stores/useMemberStore';
 import Members from '@/api/members';
 import { INIT_MEMBER_DATA } from '@/constants/initialDataType';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './DashboardMembers.module.scss';
 
 const cx = classNames.bind(styles);

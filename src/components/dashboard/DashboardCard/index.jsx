@@ -3,7 +3,7 @@ import Link from 'next/link';
 import classNames from 'classnames/bind';
 import Avatar from '@/components/common/Avatar';
 import useToggleButton from '@/hooks/useToggleButton';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './DashboardCard.module.scss';
 
 const cx = classNames.bind(styles);

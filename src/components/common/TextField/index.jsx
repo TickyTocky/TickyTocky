@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import Comment from '@/api/comments';
 import IconButton from '@/components/common/button/IconButton';
 import BaseButton from '@/components/common/button/BaseButton';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './TextField.module.scss';
 
 const cx = classNames.bind(styles);

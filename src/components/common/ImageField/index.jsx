@@ -6,7 +6,7 @@ import Cards from '@/api/cards';
 import BaseButton from '@/components/common/button/BaseButton';
 import IconModal from '@/components/layout/modal/IconModal';
 import useModalState from '@/hooks/useModalState';
-import { IMAGE, ICON } from '@/constants/importImage';
+import { IMAGE, ICON } from '@/constants';
 import styles from './ImageField.module.scss';
 
 const cx = classNames.bind(styles);

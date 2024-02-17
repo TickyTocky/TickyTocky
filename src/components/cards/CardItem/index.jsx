@@ -10,8 +10,7 @@ import DetailCard from '@/components/dashboard/modal/card/DetailCard';
 import IconModal from '@/components/layout/modal/IconModal';
 import useCardStore from '@/stores/useCardStore';
 import useModalState from '@/hooks/useModalState';
-import { IMAGE_REGEX } from '@/constants';
-import { ICON } from '@/constants/importImage';
+import { IMAGE_REGEX, ICON } from '@/constants';
 import styles from './CardItem.module.scss';
 
 const cx = classNames.bind(styles);

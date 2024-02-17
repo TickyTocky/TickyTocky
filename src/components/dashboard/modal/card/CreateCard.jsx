@@ -17,8 +17,7 @@ import IconModal from '@/components/layout/modal/IconModal';
 import useColumnStore from '@/stores/useColumnStore';
 import useAsync from '@/hooks/useAsync';
 import useModalState from '@/hooks/useModalState';
-import { IMAGE_REGEX } from '@/constants';
-import { IMAGE, ICON } from '@/constants/importImage';
+import { IMAGE_REGEX, IMAGE, ICON } from '@/constants';
 import styles from './CreateCard.module.scss';
 
 const cx = classNames.bind(styles);

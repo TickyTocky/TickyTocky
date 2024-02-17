@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames/bind';
-import { ICON } from '@/constants/importImage';
+import { ICON } from '@/constants';
 import styles from './LandingNav.module.scss';
 
 const cx = classNames.bind(styles);
