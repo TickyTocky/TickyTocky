@@ -76,11 +76,14 @@ PW: Demo1234 <br>
 - 랜딩 페이지 구현
 - 공용 컴포넌트 구현: TagField / CardTags / Dropdown / DropdownList / DropdownTag /  KebabDropdown
 
-## ✨ 주요 기능 시연
-### 👉 컬럼 생성, 할 일 생성
+## 💻 주요 기능 시연
+### 1️⃣ 대시보드 생성
+https://github.com/TickyTocky/TickyTocky/assets/77719310/b88995cc-299c-4c75-8d17-1dcd5ba16048
+
+### 2️⃣ 컬럼 생성, 할 일 생성
 https://github.com/designsoo/ShoeShop/assets/77719310/9730f247-9964-4d6f-ac74-09a4cb367bf7
 
-### 👉 댓글 생성
+### 3️⃣ 댓글 생성
 https://github.com/designsoo/ShoeShop/assets/77719310/8b08641a-1387-47ec-9fc6-79509e425680
 
 ## 🛠️ Dev Tools
