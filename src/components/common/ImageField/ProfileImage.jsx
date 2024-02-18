@@ -1,11 +1,11 @@
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import { IMAGE, ICON } from '@/constants';
-import styles from './ImageField.module.scss';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Users from '@/api/users';
 import useUserStore from '@/stores/useUserStore';
+import { IMAGE, ICON } from '@/constants';
+import styles from './ImageField.module.scss';
 
 const cx = classNames.bind(styles);
 const { uploadImage } = IMAGE;
