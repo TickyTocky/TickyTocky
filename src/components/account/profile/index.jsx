@@ -1,7 +1,7 @@
 import AccountProfileView from './AccountProfileView';
 import SuccessModal from '@/components/common/SuccessModal';
 import InitializeConfirmModal from '@/components/common/ConfirmModal';
-import useProfileModalLogic from '@/hooks/logic/useProfileChangeLogic';
+import useProfileModalLogic from '@/hooks/account/useProfileChangeLogic';
 
 const AccountProfileChange = () => {
   const {
