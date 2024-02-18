@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants';
 import BaseButton from '@/components/common/button/BaseButton';
+import { ICON } from '@/constants';
 import styles from './SucessModal.module.scss';
 
 const cx = classNames.bind(styles);
