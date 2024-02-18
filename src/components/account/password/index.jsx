@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import BaseButton from '@/components/common/button/BaseButton';
 import IndividualInput from '@/components/account/individualInput';
 import SuccessModal from '@/components/common/SuccessModal';
-import usePasswordChangeLogic from '@/hooks/logic/usePasswordChangeLogic';
+import usePasswordChangeLogic from '@/hooks/account/usePasswordChangeLogic';
 import styles from './Password.module.scss';
 
 const cx = classNames.bind(styles);
