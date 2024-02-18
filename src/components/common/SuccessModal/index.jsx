@@ -19,7 +19,7 @@ const SuccessModal = ({ desc, isModalOpen, closeModal }) => (
     <div className={cx('modal-btn')}>
       <BaseButton
         size='xl'
-        text='close'
+        text='Close'
         type='button'
         variant='outline'
         onClick={closeModal}
