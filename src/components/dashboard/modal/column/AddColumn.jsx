@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
 import InputField from '@/components/common/InputField';
 import BaseButton from '@/components/common/button/BaseButton';
-import useAddColumn from '@/hooks/column/useAddColumn';
+import useColumnModal from '@/hooks/column/useColumnModal';
 import styles from './ColumnModal.module.scss';
 
 const cx = classNames.bind(styles);
@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 const AddColumn = ({ dashboardId, closeModal }) => {
   const { handleSubmit } = useFormContext();
 
-  const { MAX_TEXT_LENGTH, onSubmit } = useAddColumn({ dashboardId, closeModal });
+  const { MAX_TEXT_LENGTH, onSubmit } = useColumnModal({ dashboardId, closeModal });
 
   return (
     <>
