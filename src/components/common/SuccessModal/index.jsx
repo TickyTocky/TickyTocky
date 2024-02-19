@@ -1,7 +1,10 @@
+import classNames from 'classnames/bind';
 import IconModal from '@/components/layout/modal/IconModal';
-import { ICON } from '@/constants';
 import BaseButton from '@/components/common/button/BaseButton';
+import { ICON } from '@/constants';
+import styles from './SucessModal.module.scss';
 
+const cx = classNames.bind(styles);
 const { success } = ICON;
 
 const SuccessModal = ({ desc, isModalOpen, closeModal }) => (
@@ -13,13 +16,15 @@ const SuccessModal = ({ desc, isModalOpen, closeModal }) => (
     title='Success'
     desc={desc}
   >
-    <BaseButton
-      size='lg'
-      text='close'
-      type='button'
-      variant='outline'
-      onClick={closeModal}
-    />
+    <div className={cx('modal-btn')}>
+      <BaseButton
+        size='xl'
+        text='Close'
+        type='button'
+        variant='outline'
+        onClick={closeModal}
+      />
+    </div>
   </IconModal>
 );
 
