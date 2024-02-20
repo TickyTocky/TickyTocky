@@ -31,10 +31,6 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
     'addCardModal',
   ]);
 
-  const handleIconClick = (value) => {
-    !value ? toggleModal('editColumnModal') : toggleModal('deleteColumnModal');
-  };
-
   return (
     <>
       <section className={cx('container')}>
@@ -48,7 +44,11 @@ const Column = ({ columnId, title: columnName, dashboardId }) => {
             onClick={handleToggleClick}
           ></button>
           <div className={cx('header-drop-down', { close: !isVisible })}>
-            <KebabDropDown onClickInput={handleIconClick} />
+            <KebabDropDown
+              onClickInput={(value) =>
+                !value ? toggleModal('editColumnModal') : toggleModal('deleteColumnModal')
+              }
+            />
           </div>
         </header>
         <div className={cx('content', { close: !isVisible })}>

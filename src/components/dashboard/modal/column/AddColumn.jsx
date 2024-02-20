@@ -1,24 +1,16 @@
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames/bind';
-import Columns from '@/api/columns';
 import InputField from '@/components/common/InputField';
 import BaseButton from '@/components/common/button/BaseButton';
+import useColumnModal from '@/hooks/column/useColumnModal';
 import styles from './ColumnModal.module.scss';
 
 const cx = classNames.bind(styles);
 
-const AddColumn = ({ closeModal, dashBoardId }) => {
+const AddColumn = ({ dashboardId, closeModal }) => {
   const { handleSubmit } = useFormContext();
 
-  const MAX_TEXT_LENGTH = 13;
-
-  const onSubmit = async (data) => {
-    if (data.title !== '' && data.title.length <= MAX_TEXT_LENGTH) {
-      await Columns.create(dashBoardId, data.title);
-      await Columns.getList(dashBoardId);
-      closeModal();
-    }
-  };
+  const { MAX_TEXT_LENGTH, onSubmit } = useColumnModal({ dashboardId, closeModal });
 
   return (
     <>

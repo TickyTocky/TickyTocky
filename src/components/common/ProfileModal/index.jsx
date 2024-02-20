@@ -4,7 +4,6 @@ import Auth from '@/api/auth';
 import Avatar from '@/components/common/Avatar';
 import BaseButton from '@/components/common/button/BaseButton';
 import useModalState from '@/hooks/useModalState';
-import useTogglePopup from '@/hooks/useModalTogglePopup';
 import IconModal from '@/components/layout/modal/IconModal';
 import { ICON } from '@/constants';
 import styles from './ProfileModal.module.scss';
@@ -12,15 +11,7 @@ import styles from './ProfileModal.module.scss';
 const cx = classNames.bind(styles);
 
 const ProfileModal = ({ userId, profileName, profileImage, profileEmail }) => {
-  const { popupRef, buttonRef } = useTogglePopup();
-
   const { modalState, toggleModal } = useModalState(['logoutmodal']);
-
-  const handleToggleLogouttModal = (e) => {
-    e.stopPropagation();
-    (() => toggleModal('logoutmodal'))();
-    Auth.logout();
-  };
 
   return (
     <div className={cx('container')}>
@@ -38,14 +29,10 @@ const ProfileModal = ({ userId, profileName, profileImage, profileEmail }) => {
         <Link className={cx('link')} href={'/mypage'}>
           <BaseButton size='xl' variant='outline' type='button' text='My Page' />
         </Link>
-        <div
-          ref={buttonRef}
-          className={cx('link')}
-          onClick={() => toggleModal('logoutmodal')}
-        >
+        <div className={cx('link')} onClick={() => toggleModal('logoutmodal')}>
           <BaseButton size='xl' variant='ghost' type='button' text='Logout' />
         </div>
-        <div ref={popupRef}>
+        <div>
           <IconModal
             isModalOpen={modalState.logoutmodal}
             closeModal={() => toggleModal('logoutmodal')}
@@ -64,7 +51,7 @@ const ProfileModal = ({ userId, profileName, profileImage, profileEmail }) => {
               </button>
               <button
                 type='button'
-                onClick={handleToggleLogouttModal}
+                onClick={Auth.logout}
                 className={cx('modal-buttons-logout')}
               >
                 Log me out

@@ -1,21 +1,18 @@
 import classNames from 'classnames/bind';
-import Members from '@/api/members';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
 import InviteDashboard from '@/components/dashboard/modal/dashboard/InviteDashboard';
-import useMemberStore from '@/stores/useMemberStore';
-import useAsync from '@/hooks/useAsync';
+import useGetMembers from '@/hooks/useGetMembers';
 import useModalState from '@/hooks/useModalState';
-import useInvitationMembers from '@/hooks/useInvitationMembers';
+import useInvitationMembers from '@/hooks/invitationMembers/useInvitationMembers';
 import { ICON } from '@/constants';
 import styles from './InvitationMembers.module.scss';
 
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
-const InvitationMembers = ({ dashBoardId, createdByMe }) => {
-  useAsync(() => Members.getList(1, 20, dashBoardId));
-  const { memberList } = useMemberStore();
+const InvitationMembers = ({ dashboardId, createdByMe }) => {
+  const { memberList } = useGetMembers({ dashboardId });
 
   const { visibleMembersNum } = useInvitationMembers();
   const { modalState, toggleModal } = useModalState(['headerInviteMember']);
@@ -70,7 +67,7 @@ const InvitationMembers = ({ dashBoardId, createdByMe }) => {
           <InviteDashboard
             isModalOpen={modalState.headerInviteMember}
             closeModal={() => toggleModal('headerInviteMember')}
-            dashboardId={dashBoardId}
+            dashboardId={dashboardId}
           />
         </>
       )}
