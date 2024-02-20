@@ -4,8 +4,11 @@ import classNames from 'classnames/bind';
 import Dashboard from '@/api/dashboards';
 import InvitationMembers from '@/components/common/InvitationMembers';
 import Breadcrumb from '@/components/common/Breadcrumb';
+import MemberPopup from '@/components/common/MemberPopup';
 import useDashBoardStore from '@/stores/useDashboardStore';
 import useAsync from '@/hooks/useAsync';
+import useGetMembers from '@/hooks/useGetMembers';
+import useTogglePopup from '@/hooks/useTogglePopup';
 import { ICON } from '@/constants';
 import { INIT_DASHBOARD_DATA } from '@/constants/initialDataType';
 import styles from './BoardHeader.module.scss';
@@ -16,6 +19,9 @@ const { settings } = ICON;
 const BoardHeader = ({ dashboardId }) => {
   useAsync(() => Dashboard.get(dashboardId), INIT_DASHBOARD_DATA);
   const { dashboard } = useDashBoardStore();
+  const { memberList } = useGetMembers({ dashboardId });
+
+  const { isOpen, popupRef, buttonRef, openPopup, closePopup } = useTogglePopup();
 
   return (
     <div className={cx('container')}>
@@ -27,11 +33,23 @@ const BoardHeader = ({ dashboardId }) => {
           </Link>
         )}
       </div>
-      <div className={cx('info-wrap')}>
-        <InvitationMembers
-          dashboardId={dashboardId}
-          createdByMe={dashboard?.createdByMe}
-        />
+      <div className={cx('info')}>
+        <div className={cx('info-invitation')}>
+          <InvitationMembers
+            dashBoardId={dashboardId}
+            createdByMe={dashboard?.createdByMe}
+            memberList={memberList}
+            isOpen={isOpen}
+            buttonRef={buttonRef}
+            openPopup={openPopup}
+            closePopup={closePopup}
+          />
+          {isOpen && (
+            <div className={cx('info-invitation-popup')} ref={popupRef}>
+              <MemberPopup memberList={memberList} />
+            </div>
+          )}
+        </div>
         <div className={cx('line')}></div>
         <Breadcrumb title={dashboard?.title} />
       </div>
