@@ -43,8 +43,10 @@ const Avatar = ({
             )}
           </div>
           {textColor && (
-            <div className={cx('text-icon-wrap')}>
-              <span className={cx(`text-color-${textColor}`)}>{profileName}</span>
+            <div className={cx('info')}>
+              <span className={cx('info-text', `info-text-color-${textColor}`)}>
+                {profileName}
+              </span>
               {isArrow &&
                 (isOpen ? (
                   <Image

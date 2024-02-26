@@ -1,0 +1,67 @@
+.container {
+  width: 22rem;
+  padding: 1.6rem;
+  padding-bottom: 0;
+  background-color: $gray90;
+  border: 0.2rem solid $gray70;
+  border-radius: 1.6rem;
+  box-shadow: $dropdown-shadow;
+}
+
+.info {
+  @include flexbox(start, $gap: 0.8rem);
+
+  margin-bottom: 1.6rem;
+
+  &-title {
+    @include text-style(18, bold);
+  }
+
+  &-count {
+    @include flexbox;
+    @include text-style(12, $gray20);
+
+    height: 2.4rem;
+    padding: 0 0.8rem;
+    background-color: #24252d;
+    border-radius: 0.4rem;
+  }
+}
+
+.member-list {
+  @include column-flexbox(start);
+
+  max-height: 25.5rem;
+  padding-right: 1rem;
+  padding-bottom: 0.8rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray40;
+    border-radius: 99rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &-item {
+    @include flexbox(between);
+
+    width: 100%;
+    padding: 0.8rem 0;
+    border-bottom: 0.1rem solid $gray70;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-name {
+      @include text-style(14, $gray10);
+    }
+  }
+}

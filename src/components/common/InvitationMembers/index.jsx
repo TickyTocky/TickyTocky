@@ -2,7 +2,6 @@ import classNames from 'classnames/bind';
 import Avatar from '@/components/common/Avatar';
 import MixButton from '@/components/common/button/MixButton';
 import InviteDashboard from '@/components/dashboard/modal/dashboard/InviteDashboard';
-import useGetMembers from '@/hooks/useGetMembers';
 import useModalState from '@/hooks/useModalState';
 import useInvitationMembers from '@/hooks/invitationMembers/useInvitationMembers';
 import { ICON } from '@/constants';
@@ -11,15 +10,25 @@ import styles from './InvitationMembers.module.scss';
 const cx = classNames.bind(styles);
 const { add } = ICON;
 
-const InvitationMembers = ({ dashboardId, createdByMe }) => {
-  const { memberList } = useGetMembers({ dashboardId });
-
+const InvitationMembers = ({
+  dashboardId,
+  createdByMe,
+  memberList,
+  isOpen,
+  buttonRef,
+  openPopup,
+  closePopup,
+}) => {
   const { visibleMembersNum } = useInvitationMembers();
   const { modalState, toggleModal } = useModalState(['headerInviteMember']);
 
   return (
     <div className={cx('container')}>
-      <ul className={cx('members-list')}>
+      <ul
+        className={cx('members-list')}
+        ref={buttonRef}
+        onClick={isOpen ? closePopup : openPopup}
+      >
         {memberList && memberList?.length > visibleMembersNum
           ? memberList?.slice(0, visibleMembersNum).map((member) => (
               <li key={`key-member-list-${member.id}`}>
@@ -43,7 +52,7 @@ const InvitationMembers = ({ dashboardId, createdByMe }) => {
             ))}
         {memberList && memberList?.length > visibleMembersNum && (
           <li>
-            <div className={cx('hidden-members-num')}>
+            <div className={cx('members-list-num')}>
               +{memberList?.slice(visibleMembersNum).length}
             </div>
           </li>
