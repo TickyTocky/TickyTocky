@@ -83,10 +83,10 @@ PW: Demo1234 <br>
 https://github.com/TickyTocky/TickyTocky/assets/77719310/b88995cc-299c-4c75-8d17-1dcd5ba16048
 
 ### 2️⃣ 컬럼 생성, 할 일 생성
-https://github.com/designsoo/ShoeShop/assets/77719310/9730f247-9964-4d6f-ac74-09a4cb367bf7
+https://github.com/TickyTocky/TickyTocky/assets/96277798/9122dba9-0236-4ea5-a7e6-d31a031957ac
 
 ### 3️⃣ 댓글 생성
-https://github.com/designsoo/ShoeShop/assets/77719310/8b08641a-1387-47ec-9fc6-79509e425680
+https://github.com/TickyTocky/TickyTocky/assets/96277798/042cb794-6601-45fd-bdbc-405c530e0a4b
 
 ## 🛠️ Dev Tools
 <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/reacthookform-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white"> <img src="https://img.shields.io/badge/Zustand-F36D00?style=for-the-badge&logo=&logoColor=white"> <img src="https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <br> <img src="https://img.shields.io/badge/stylelint-263238?style=for-the-badge&logo=stylelint&logoColor=white"> <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/reactmodal-61DAFB?style=for-the-badge&logo=&logoColor=white"> <img src="https://img.shields.io/badge/day js-FF5F4C?style=for-the-badge&logo=&logoColor=white"> <img src="https://img.shields.io/badge/datepicker-216BA5?style=for-the-badge&logo=&logoColor=white"> 
